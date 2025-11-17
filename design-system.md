@@ -929,6 +929,81 @@ letter-spacing: -0.02em; /* tracking-tight */
   - **Light Mode**: no border
   - **Dark Mode**: border 1.5px Stroke-Subtle
 
+#### Activity Card
+- **Width**: 320px (w-80)
+- **Padding**: 12px (p-3)
+- **Radius**: 32px
+- **Background**: Backgrounds-surface2
+- **Shadow**: --shadow-card-1 + --shadow-card-2
+- **Border**: 1.5px outline, offset -1.5px
+- **Gap**: 16px (between sections)
+- **Variants**:
+  - **Default**: no outline color, shadow with 0.09 opacity
+  - **Elevated**: outline white, shadow with 0.50 opacity
+- **Structure**:
+  - Header with title and dropdown (48px height)
+  - Tab filter section (px-3 padding)
+  - Data table section (px-3 pt-4 padding)
+
+#### Activity Card Header
+- **Height**: 48px
+- **Layout**: space-between
+- **Title Section**:
+  - Padding: 12px (px-3)
+  - Font: 20px semibold, leading-28px, Text-Primary
+  - Content: "Activity"
+- **Dropdown**: Period Filter (см. Stats Overview → Dropdown Period Filter)
+  - Text: "Last 2 weeks", "Last month", etc.
+
+#### Activity Card Tab Filter
+- **Padding**: horizontal 12px (px-3)
+- **Gap**: 4px (gap-1)
+- **Layout**: inline-flex, full-width
+- **Tabs**:
+  - Width: flex-1 (equal distribution)
+  - Height: 48px
+  - Padding: 24px (x), 12px (y)
+  - Radius: 48px
+  - Font: 14px semibold
+  - States:
+    - **Active**: outline 1.5px Stroke-Stroke2, offset -1.5px, Text-Primary
+    - **Default**: transparent, Text-Secondary
+  - Content: "Product", "Views", "Likes"
+
+#### Activity Card Data Table
+- **Container Padding**: 12px (x), 16px top (px-3 pt-4)
+- **Gap**: 8px (gap-2)
+- **Layout**: vertical flex
+
+#### Activity Table Header Row
+- **Padding**: 20px vertical (py-5)
+- **Border-bottom**: 1.5px
+- **Border Variants**:
+  - **Default**: border-Stroke-Subtle/10
+  - **Alt**: border-Stroke-Subtle (darker)
+- **Columns**:
+  - Layout: inline-flex, gap 24px (gap-6)
+  - Width: flex-1 each
+  - Font: 12px normal, Text-Tertiary
+  - Opacity: 80%
+  - Line-height: 20px (leading-5)
+  - Content: "Week", "Products" / "Views" / "Likes"
+
+#### Activity Table Data Row
+- **Padding**: 20px vertical (py-5)
+- **Border-bottom**: 1.5px border-Stroke-Subtle/10 (except last row)
+- **Layout**: inline-flex, gap 24px (gap-6)
+- **Columns**: flex-1 each
+- **Column 1 (Date Range)**:
+  - Font: 14px normal, Text-Primary
+  - Line-height: 20px (leading-5)
+  - Content: "27 Jan - 03 Feb"
+- **Column 2 (Value + Trend)**:
+  - Layout: flex, gap 8px (gap-2)
+  - Value: 14px normal, Text-Primary, leading-20px
+  - Trend Badge: см. Badges & Tags → Trend Badge
+    - Can be opacity-0 to hide (for rows without trend)
+
 ---
 
 ### 14. Accordion / FAQ
@@ -1122,6 +1197,7 @@ outline: 1.5px solid #f4f4f5; /* zinc-100 */
 | Settings icon | 44×44px |
 | List item (height) | 64px |
 | Settings panel | 384px |
+| Activity card | 320px |
 | Stats Overview (XL) | 1560px |
 | Stats Overview (L) | 916px |
 | Stats Overview (M) | 660px |
@@ -1131,6 +1207,6 @@ outline: 1.5px solid #f4f4f5; /* zinc-100 */
 
 ---
 
-**Последнее обновление**: Блок #18
+**Последнее обновление**: Блок #19
 **Статус**: В процессе сборки
-**Добавлено**: Stats Overview Panel / Metrics Dashboard (responsive layouts with 1-4 cards), Stat Metric Card (horizontal layout with icon, value, trend, mini chart), Dropdown Period Filter, Horizontal Scroll with Fade Overlay (light/dark variants), Mini Chart placeholders
+**Добавлено**: Activity Card (320px panel with header, tab filter, data table), Activity Card Tab Filter (flex-1 equal distribution tabs), Activity Table (header and data rows with date ranges and trend badges), Border variants for table rows (Stroke-Subtle/10 and Stroke-Subtle)
