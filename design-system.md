@@ -72,6 +72,8 @@
 /* Shades */
 --shade01-100: /* white - для иконок на цветном фоне */
 --shade04-50: /* с opacity-50 - скелетоны */
+--shade05-30: /* с opacity-30 - icon background dark mode active */
+--shade07-20: /* с opacity-20 - icon background light mode active */
 --shade07-40: /* с opacity-40 - графики (Social media) */
 --shade07-60: /* с opacity-60 - графики (Direct) паттерн */
 --shade08-80: /* с opacity-80 - активная кнопка тулбара */
@@ -581,9 +583,56 @@ letter-spacing: -0.02em; /* tracking-tight */
 - **Border**: 1.5px Stroke-Stroke2
 - **Icon**: 24×24px arrow
 
+#### Avatar with Online Status
+- **Avatar**: 44×44px, rounded-44px
+- **Background**: Backgrounds-surface1
+- **Online Indicator**:
+  - Size: 12×12px, rounded-full
+  - Position: bottom-right (31px, 31px from top-left)
+  - Color: Primary-primary02
+  - Border: 2px Backgrounds-surface2 (для контраста)
+
 ---
 
-### 10. Messages / Notifications
+### 10. List Items
+
+#### User List Item
+- **Height**: 64px
+- **Padding**: 12px
+- **Radius**: 16px (rounded-2xl)
+- **Gap**: 16px
+- **Layout**:
+  - Avatar: 44×44px with online indicator
+  - Username: 14px semibold, line-clamp-1, Text-Primary
+  - Email/Subtitle: 12px, line-clamp-1, Text-Secondary
+
+#### Settings List Item
+- **Height**: 64px
+- **Padding**: 12px
+- **Radius**: 16px (rounded-2xl)
+- **Gap**: 16px
+- **Icon Container**: 44×44px, rounded-44px
+- **States**:
+  - **Default**: Backgrounds-surface1 bg, Text-Secondary icon
+  - **Hover (Light Mode)**: Backgrounds-highlight bg
+  - **Hover (Dark Mode)**: Backgrounds-highlight bg
+  - **Active (Light Mode)**:
+    - Background: shade07-20/20
+    - Icon: Text-Primary
+    - Shadow: 3 layers + inset
+    - Border: zinc-100, 1px
+  - **Active (Dark Mode)**:
+    - Background: shade05-30/30
+    - Icon: Text-Primary
+    - Border: zinc-100, 1px
+    - NO shadows
+- **Text**:
+  - Title: 14px semibold, line-clamp-1, Text-Primary
+  - Description: 12px, line-clamp-1, Text-Secondary
+
+---
+
+### 11. Messages / Notifications
 
 #### Message List
 - **Width**: 384px
@@ -618,7 +667,42 @@ letter-spacing: -0.02em; /* tracking-tight */
 
 ---
 
-### 11. Loading States
+### 12. Panels & Cards
+
+#### Settings Panel
+- **Width**: 384px
+- **Padding**: 12px
+- **Radius**: 32px
+- **Background**: Backgrounds-surface2
+- **Shadow**: --shadow-card-1 + --shadow-card-2
+- **Border**: 1.5px outline
+- **Structure**:
+  - Search input (top): 12px gap
+  - List items: no gap между ними
+- **Search Input Variants**:
+  - **Light Mode**: no border
+  - **Dark Mode**: border 1.5px Stroke-Subtle
+
+---
+
+### 13. Accordion / FAQ
+
+#### Accordion Item
+- **Padding**: 32px (y)
+- **Border**: 1.5px Stroke-Subtle/10 (bottom)
+- **Gap**: 20px (между header и content)
+- **Header**:
+  - Layout: space-between
+  - Title: 20px semibold, leading-28px, Text-Primary
+  - Icon: 24×24px, Text-Secondary
+    - Collapsed: Plus (cross)
+    - Expanded: Minus (horizontal line)
+- **Content** (когда expanded):
+  - Text: 16px normal, leading-24px, Text-Primary
+
+---
+
+### 14. Loading States
 
 #### Skeleton
 - **Avatar**: 48×48px circle, shade08-100 / shade04-50/50
@@ -633,7 +717,7 @@ letter-spacing: -0.02em; /* tracking-tight */
 
 ---
 
-### 12. Empty States
+### 15. Empty States
 
 #### Empty State (No Results)
 - **Container**: centered, vertical layout
@@ -648,7 +732,7 @@ letter-spacing: -0.02em; /* tracking-tight */
 
 ---
 
-### 13. Special Effects
+### 16. Special Effects
 
 #### Fade Overlay (для горизонтального скролла)
 - **Width**: 112px (w-28)
@@ -787,9 +871,14 @@ outline: 1.5px solid #f4f4f5; /* zinc-100 */
 | Trend badge | auto |
 | Checkbox | 24×24px |
 | Unread dot | 12×12px |
+| Online indicator | 12×12px |
+| Avatar (w/ status) | 44×44px |
+| Settings icon | 44×44px |
+| List item (height) | 64px |
+| Settings panel | 384px |
 
 ---
 
-**Последнее обновление**: Блок #15
+**Последнее обновление**: Блок #16
 **Статус**: В процессе сборки
-**Добавлено**: Message Input (Compose), Send Button варианты, Text-Blue цвет
+**Добавлено**: User List Items, Settings List Items, Online Status, Settings Panel, Accordion/FAQ, shade05-30, shade07-20
