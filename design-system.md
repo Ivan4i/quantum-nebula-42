@@ -72,9 +72,11 @@
 /* Shades */
 --shade01-100: /* white - для иконок на цветном фоне */
 --shade04-50: /* с opacity-50 - скелетоны */
+--shade04-100: /* для dark mode OAuth button */
 --shade05-30: /* с opacity-30 - icon background dark mode active */
 --shade07-20: /* с opacity-20 - icon background light mode active */
 --shade07-40: /* с opacity-40 - графики (Social media) */
+--shade07-50: /* с opacity-50 - input borders default */
 --shade07-60: /* с opacity-60 - графики (Direct) паттерн */
 --shade08-80: /* с opacity-80 - активная кнопка тулбара */
 --shade08-100: /* Градиентная часть графиков (Others) */
@@ -364,6 +366,42 @@ letter-spacing: -0.02em; /* tracking-tight */
     - Shadow: inset 2px 0px 8px 2px rgba(24, 24, 24, 0.20)
     - Border: white/60, 1.5px
 
+#### OAuth Button (Sign in with Google)
+- **Height**: 48px
+- **Padding**: 28px (x), 14px (y)
+- **Radius**: 90px
+- **Font**: 14px semibold
+- **Icon**: Google logo (24×24px, 20px inner)
+- **Gap**: 16px между иконкой и текстом
+- **Layout**: center aligned
+- **States**:
+  - **Default (Light Mode)**:
+    - Background: Backgrounds-surface1
+    - Text: Text-Secondary
+    - Border: none
+  - **Hover (Light Mode)**:
+    - Background: Backgrounds-surface1
+    - Shadows: 5 layers
+      - 0px 1px 4px 0px rgba(0, 0, 0, 0.05)
+      - 0px 8px 8px -2px rgba(0, 0, 0, 0.08)
+      - inset 0px 0px 0px 3px rgba(255, 255, 255, 1.00)
+    - Border: 1.5px zinc-100
+    - Backdrop blur: 32px
+  - **Active/Pressed (Light Mode)**:
+    - Background: Backgrounds-surface1
+    - Shadows: 6 layers
+      - 0px 0.5px 1px 0px rgba(0, 0, 0, 0.05)
+      - 0px 2px 2px -0.5px rgba(0, 0, 0, 0.08)
+      - inset 0px 0px 0px 1.5px rgba(255, 255, 255, 1.00)
+      - 0px 0px 8px 2px rgba(8, 8, 8, 0.03)
+      - 0px 0px 16px 0px rgba(0, 0, 0, 0.05)
+      - inset 2px 0px 8px 2px rgba(248, 248, 248, 0.20)
+    - Border: 1.5px zinc-100
+  - **Dark Mode**:
+    - Background: shade04-100
+    - Text: Text-Light
+    - No shadows
+
 ---
 
 ### 3. Inputs
@@ -427,6 +465,50 @@ letter-spacing: -0.02em; /* tracking-tight */
   - Cursor: 2px × 16px, Text-Blue, rounded-sm
 - **Right Side**: Send button (44px height)
 
+#### Input Field States (Auth Forms)
+- **Height**: 48px
+- **Padding**: 20px (x), 12px (y)
+- **Radius**: 48px
+- **Font**: 14px
+- **States**:
+  - **Default**:
+    - Border: 1.5px Stroke-BorderBorder
+    - Placeholder: Text-Secondary/50
+  - **Default (Alt variant)**:
+    - Border: 1.5px shade07-50/50
+  - **Focus**:
+    - Border: 1.5px Text-Blue
+    - Cursor: 2px × 16px, Text-Blue, rounded-sm
+    - Input text: Text-Primary
+  - **Filled**:
+    - Border: 1.5px Stroke-BorderBorder
+    - Text: Text-Primary
+    - Checkmark icon: 24×24px (20px inner), Primary-primary02, right side
+  - **Error**:
+    - Border: 1.5px Primary-primary03
+    - Text: Text-Primary
+    - Error icon (X): 24×24px, Primary-primary03, right side
+
+#### Floating Label Input
+- **Label**:
+  - Position: absolute top-left, 20px from left, 16px from top
+  - Font: 12px
+  - Color: Text-Tertiary
+  - Background: surface behind label (для четкости)
+- **Input**: стандартные параметры 48px height
+- **State**: Label "floats" вверх при focus/filled
+
+#### Password Input
+- **Height**: 48px
+- **Padding**: 20px (x), 12px (y)
+- **Radius**: 48px
+- **Dots**:
+  - Size: 6×6px
+  - Rounded: full
+  - Color: Text-Primary
+  - Gap: 4px между dots
+- **Eye icon**: 24×24px, right side, Text-Secondary (toggle visibility)
+
 ---
 
 ### 4. Badges & Tags
@@ -481,6 +563,34 @@ letter-spacing: -0.02em; /* tracking-tight */
 - **Background**: surface3/50
 - **Icon**: 32×32px, Text-Secondary
 - **Text**: 14px, "Browse" - bold, остальное - normal
+
+#### Auth Form Card
+- **Width**: 480px
+- **Padding**: 64px
+- **Radius**: 32px
+- **Background**: Backgrounds-surface2
+- **Shadow**: --shadow-card-1 + --shadow-card-2
+- **Border**: 1.5px outline
+- **Structure**:
+  - Form Title: 24px (text-2xl) medium, leading-36px, Text-Primary
+  - Form Fields: gap 32px
+  - OAuth Section: 32px gap from fields
+  - Footer Text: 32px gap from OAuth
+
+#### Auth Form Footer
+- **Layout**: horizontal, center aligned
+- **Text**: 14px normal, Text-Secondary
+- **Link**: 14px semibold, Text-Primary, underline on hover
+- **Variants**:
+  - Sign in: "Need an account?" → "Sign up"
+  - Sign up: "Already have an account?" → "Sign in"
+- **Gap**: 8px между текстом и ссылкой
+
+#### "Forgot password" Link
+- **Font**: 14px semibold
+- **Color**: Text-Primary
+- **Position**: right aligned под password input
+- **Hover**: underline
 
 ---
 
@@ -879,6 +989,6 @@ outline: 1.5px solid #f4f4f5; /* zinc-100 */
 
 ---
 
-**Последнее обновление**: Блок #16
+**Последнее обновление**: Блок #17
 **Статус**: В процессе сборки
-**Добавлено**: User List Items, Settings List Items, Online Status, Settings Panel, Accordion/FAQ, shade05-30, shade07-20
+**Добавлено**: OAuth Button (5 states), Input Field States (Default/Focus/Filled/Error/Success), Floating Label, Password Input with dots, Auth Form Card (480px), Auth Form Footer, "Forgot password" Link, shade04-100, shade07-50
