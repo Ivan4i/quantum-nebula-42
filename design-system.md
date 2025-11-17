@@ -630,6 +630,129 @@ letter-spacing: -0.02em; /* tracking-tight */
   - shade08-100 → shade09-100 gradient (Others)
   - Chart-Green (активный)
 
+#### Product List Item
+Адаптивный компонент строки таблицы/списка продуктов с поддержкой разных размеров экрана и состояний.
+
+##### Basic Structure
+- **Padding**: 16px (p-4)
+- **Radius**: 16px (hover/selected) или 20px (для альтернативного варианта)
+- **Layout**: horizontal, space-between
+- **Gap**: 24px (gap-6) между основными секциями
+
+##### Left Section (Product Info)
+- **Width**:
+  - Desktop (1920px): 512px (w-[512px])
+  - Tablet (1024px): 320px (w-80)
+  - Mobile (768px/375px): 320px (w-80)
+- **Height**: 64px (h-16)
+- **Gap**: 20px между элементами
+- **Elements**:
+  - Checkbox: 24×24px, rounded-md, border-2
+  - Product Image: 64×64px, rounded-xl
+  - Content: flex-1
+
+##### Product Content (Text Area)
+- **Title**: 16px semibold, leading-6, Text-Primary, line-clamp-1
+- **Subtitle Variants**:
+  - **Action Buttons** (Variant 1):
+    - Gap: 8px между кнопками
+    - Button: pl-1 pr-1.5 py-1, rounded-md
+    - Icon: 16×16px, Text-Secondary
+    - Text: 14px semibold, Text-Secondary, opacity-80
+    - Hover: border 1.5px Stroke-Stroke2, Text-Primary
+  - **Date Range** (Variant 2):
+    - Text: 14px normal, Text-Secondary, opacity-80
+
+##### Right Section (Stats & Progress)
+- **Layout**: horizontal, center aligned
+- **Gap**:
+  - Desktop (1920px): 176px (gap-44)
+  - Tablet (1024px): 24px (gap-6)
+  - Mobile (768px/375px): vertical stack, gap-2
+
+##### Stats Block
+- **Width**: 144px (w-36)
+- **Layout**: vertical stack, gap-2.5
+- **Elements**:
+  - Value: 14px normal, Text-Primary, leading-5
+  - Trend Badge:
+    - Padding: 8px (x), 6px (y)
+    - Radius: 8px (rounded-lg)
+    - Border: 1.5px outline, offset -1.5px
+    - Icon: 16×16px
+    - Text: 14px semibold
+    - Variants:
+      - Up: green-600/5 bg, green-600/20 border, Primary-primary02 text
+      - Down: red-400/5 bg, red-400/20 border, red-400 text
+
+##### Progress Bar Section
+- **Height**: 12px (h-3)
+- **Layout**: horizontal, gap-0.5
+- **Segments**:
+  - Placeholder: w-8 (32px) or w-24 (96px) or w-14 (56px), bg-shade07-40/40, rounded-[1px]
+  - Divider pattern: 13 vertical lines, w-0.5 (2px), h-3, bg-shade07-60/60, rounded-[0.50px], gap-px
+  - Active bar:
+    - Width: w-72 (288px) or w-48 (192px) or w-36 (144px) or w-28 (112px) or flex-1
+    - Variants:
+      - Green: bg-Chart-Green, rounded-[1px], border Stroke-Stroke2
+      - Gradient: bg-gradient-to-r from-shade08-100 to-shade09-100, rounded-[1px], border Stroke-Stroke2
+    - States:
+      - Active: full opacity
+      - Inactive: opacity-5
+
+##### Responsive Breakpoints
+- **1920px**: full layout, gap-44
+- **1024px**: reduced gaps (gap-6), smaller progress bars
+- **768px**: vertical stats layout, smaller progress bars
+- **375px**: compact mobile view, stacked layout
+
+##### States
+- **Default**:
+  - Background: transparent
+  - Border: none
+  - Checkbox: border-2 Stroke-Stroke2
+
+- **Hover** (Property-2="True"):
+  - Background: Backgrounds-highlight
+  - Radius: 16px (rounded-2xl) or 20px (для 375px)
+  - Shadow: 3 layers
+    - 0px 1px 4px 0px rgba(0, 0, 0, 0.05)
+    - 0px 8px 8px -2px rgba(0, 0, 0, 0.08)
+    - inset 0px 0px 0px 3px rgba(255, 255, 255, 1.00)
+  - Border: 1.5px outline zinc-100, offset -1.5px
+  - Action buttons: visible
+
+- **Hover (Property-2="False" / no highlight)**:
+  - Background: Backgrounds-highlight
+  - Radius: 16px (rounded-2xl)
+  - Border: 1.5px outline zinc-100, offset -1.5px
+  - No shadows (для 375px компактного варианта)
+
+- **Border Variant**:
+  - Border-bottom: 1.5px
+    - Stroke-Subtle/10 (subtle divider)
+    - Stroke-Subtle (visible divider)
+  - No radius, no shadows
+
+- **Selected**:
+  - Checkbox: border-2 Stroke-Highlight/50 (half opacity)
+  - Progress bar может быть dim (opacity-5)
+
+##### Data Attributes
+```html
+data-property-1="1920" | "1024" | "768" | "375"  <!-- Screen size -->
+data-property-2="True" | "False"                  <!-- Hover with shadows -->
+data-property-3="01" | "02" | "03"                <!-- Progress variant -->
+data-status="placeholder"                          <!-- Checkbox state -->
+data-trend="up" | "down"                          <!-- Trend direction -->
+```
+
+##### Usage Notes
+- Компонент адаптируется под разные размеры экрана автоматически
+- В мобильной версии (375px) статистика и прогресс бар располагаются вертикально
+- Action buttons появляются только при hover
+- Progress bar поддерживает 3 варианта: короткий (01), средний (02), длинный (03)
+
 ---
 
 ### 7. Navigation
@@ -986,9 +1109,24 @@ outline: 1.5px solid #f4f4f5; /* zinc-100 */
 | Settings icon | 44×44px |
 | List item (height) | 64px |
 | Settings panel | 384px |
+| Product list item (1920px) | 1528px |
+| Product list item (1024px) | 884px |
+| Product list item (768px) | 628px |
+| Product list item (375px) | 288px (w-72) |
+| Product image | 64×64px |
+| Progress bar (height) | 12px |
 
 ---
 
-**Последнее обновление**: Блок #17
+**Последнее обновление**: Блок #18 - Product List Item
 **Статус**: В процессе сборки
-**Добавлено**: OAuth Button (5 states), Input Field States (Default/Focus/Filled/Error/Success), Floating Label, Password Input with dots, Auth Form Card (480px), Auth Form Footer, "Forgot password" Link, shade04-100, shade07-50
+**Добавлено**:
+- **Блок #18**: Product List Item (адаптивный компонент списка продуктов)
+  - Responsive breakpoints (1920px, 1024px, 768px, 375px)
+  - Multiple states (Default, Hover with/without shadows, Border variant, Selected)
+  - Action buttons variant (Edit, Delete, Share)
+  - Date range variant
+  - Stats block with trend badge
+  - Progress bar section with 3 variants
+  - Data attributes for configuration
+- **Блок #17**: OAuth Button (5 states), Input Field States (Default/Focus/Filled/Error/Success), Floating Label, Password Input with dots, Auth Form Card (480px), Auth Form Footer, "Forgot password" Link, shade04-100, shade07-50
