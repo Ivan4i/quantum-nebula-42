@@ -98,6 +98,17 @@
 --secondary-secondary04: /* Для price badge */
 ```
 
+### Dashboard Colors
+```css
+/* KPI Icons */
+--bg-pop: /* Icon container background (альтернатива surface1) */
+
+/* Heatmap */
+--shade04-50: /* с opacity-50 - heatmap light mode base */
+--shade08-70: /* с opacity-70 - heatmap dark mode base */
+--shade05-100: /* Dark mode progress bars */
+```
+
 ### Brand Icon Colors
 ```css
 /* Notion, Bootstrap, Wordpress, Swift */
@@ -1110,40 +1121,399 @@ data-trend="up" | "down"                          <!-- Trend direction -->
 
 ---
 
-### 8. Charts
+### 8. Charts & Data Visualization
 
-#### Bar Chart
-- **Bar Width**: 48px
-- **Bar Radius**: 8-10px (rounded-lg)
-- **Bar Gap**: 20px
+#### Line Chart
+Линейный график для отображения трендов во времени.
+
+- **Container**: full width
+- **Grid Lines**: horizontal, 1px Stroke-Stroke2
+- **Y-Axis Labels**: 12px Text-Tertiary, opacity-80, right-aligned
+- **X-Axis Labels**: 12px Text-Tertiary, opacity-80, center-aligned
+- **Line**: Chart-Green или zinc-300, 3px stroke
+- **Data Point**:
+  - Dot: 12×12px, rounded-full
+  - Background: surface2
+  - Border: 3px Chart-Green или Primary-primary02
+- **Tooltip**:
+  - Background: Backgrounds-dark1
+  - Padding: 8px (x), 6px (y)
+  - Radius: 8px (rounded-lg)
+  - Font: 12px, Text-Light
+  - Arrow: 10px (w) × 6px (h) triangle
+  - Content: Date + Value
+- **Highlight Area**: outline 3px offset -1.5px для selected region
+
+#### Bar Chart (Stacked/Grouped)
+Столбчатый график с поддержкой паттернов и множественных сегментов.
+
+- **Bar Width**: 16px (w-4)
+- **Bar Gap**: 4px (gap-1)
+- **Bar Radius**: 1px (rounded-[1px])
+- **Bar Height**: variable (h-56 max для 224px)
 - **Colors**:
-  - Default: shade07-40/40
-  - Pattern: shade08-100 с diagonal overlay
-  - Active: Chart-Green
-- **Label**: 12px Text-Tertiary, centered below
+  - **Placeholder**: shade07-40/40
+  - **Pattern Bar**: shade08-100 с diagonal overlay
+  - **Active**: Chart-Green
+  - **Inactive**: opacity-20
+- **Segments**:
+  - Placeholder segment: bg-shade07-40/40
+  - Pattern bar: bg-shade08-100 + diagonal pattern overlay
+  - Divider lines: w-0.5, h-3, gap-px, bg-shade07-60/60
+- **Label**: 12px Text-Tertiary, opacity-80, centered below
+- **Tooltip**:
+  - Shows date + multiple values
+  - Format: "26 Feb, 2044" + list of metrics
+  - Gap: 4px между значениями
 
-#### Diagonal Pattern (для столбцов)
+##### Diagonal Pattern Overlay
+Диагональный паттерн для столбцов графика.
+
 - **Opacity**: 10%
-- **Rotation**: -45deg
-- **Grid**: 96×96px squares, 1px outline
-- **Gap**: 3px
+- **Rotation**: -45deg (origin-top-left -rotate-45)
+- **Grid**: 96×96px squares (w-24 h-24)
+- **Outline**: 1px outline-Text-Tertiary
+- **Gap**: 3px (gap-[3px])
+- **Count**: ~46 квадратов для покрытия бара
+- **Usage**: визуальное отличие категорий данных (Search, Social media)
+
+#### Donut Chart (Pie Chart)
+Круговая диаграмма с центральным текстом.
+
+- **Size**: 288×288px (w-72 h-72)
+- **Segments**: conic-gradient для секций
+- **Colors**:
+  - Chart-Green для основного сегмента
+  - rgba(123, 123, 123, 0.20) для вторичных
+  - rgba(211.34, 211.34, 211.34, 0.40) для третичных
+- **Center Content**:
+  - Value: 48px (text-5xl), medium weight, 60px leading
+  - Label: 16px semibold, Text-Secondary, line-clamp-1
+  - Gap: 4px (gap-1)
+- **Tooltip**:
+  - Position: absolute, на сегменте
+  - Background: Backgrounds-dark1
+  - Arrow: 10px × 6px pointing to segment
+  - Content: Label + Value
+- **Breakdown List**:
+  - Icons: 24×24px device/category icons
+  - Labels: 12px Text-Tertiary
+  - Values: 16px semibold Text-Primary
+  - Gap: 4px между items
+
+#### Heatmap
+Тепловая карта для отображения активности по времени и дням.
+
+- **Container**: 656×320px (w-[656px] h-80)
+- **Cell Size**: 96×20px (w-24 h-5)
+- **Cell Radius**: 2px (rounded)
+- **Cell Gap**: 2px (gap-0.5)
+- **Layout**: flex-wrap, 7 columns (days) × 16 rows (time slots)
+- **Opacity Levels**:
+  - **Light Mode**:
+    - Least: opacity-25 (shade04-100)
+    - Medium: opacity-50
+    - High: opacity-75
+    - Most: opacity-100
+  - **Dark Mode**:
+    - Least: opacity-25 (shade08-70/70)
+    - Medium: opacity-50
+    - High: opacity-75
+    - Most: opacity-100
+- **Highlight Cell**: bg-Chart-Green (full opacity)
+- **Axis Labels**:
+  - Y-Axis (Time): 12px Text-Tertiary, opacity-80
+    - Format: "12:00 am", "4:00 am", "8:00 am", etc.
+  - X-Axis (Days): 12px Text-Tertiary, opacity-80, center-aligned
+    - Format: "Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"
+- **Tooltip**:
+  - Background: Backgrounds-dark1
+  - Padding: 8px
+  - Radius: 8px
+  - Content: Label + Value ("Sales: 1,024")
+  - Arrow: pointing down to cell
+- **Legend**:
+  - Text: 12px Text-Primary, opacity-80
+  - Samples: 48×8px (w-12 h-2) rectangles
+  - Opacity progression: 5%, 10%, 20% (или 20%, 30%, 50% для dark mode)
+  - Gap: 2px (gap-0.5)
 
 #### Chart Data Point
 - **Dot Size**: 12×12px
 - **Background**: surface2
-- **Border**: 3px Chart-Green
+- **Border**: 3px Chart-Green или Primary-primary02
 - **Rounded**: full
+- **Position**: absolute, centered on data point
 
-#### Chart Tooltip
+#### Chart Tooltip (Universal)
+Универсальный tooltip для всех типов графиков.
+
 - **Background**: Backgrounds-dark1
 - **Padding**: 8px (x), 6px (y)
-- **Radius**: 6px
-- **Font**: 12px semibold, Text-Light
-- **Arrow**: 8×4px triangle
+- **Radius**: 6px (rounded-md) или 8px (rounded-lg)
+- **Font**: 12px, Text-Light
+- **Arrow**: 8-10px (width) × 4-6px (height) triangle
+  - Shape: border trick или SVG
+  - Color: matches Backgrounds-dark1
+  - Position: bottom center или top center
+- **Content Formats**:
+  - **Single Value**: "Label: Value"
+  - **Multiple Values**:
+    - Vertical stack, gap-0.5 или gap-1
+    - Each line: Label (Text-Secondary) + Value (Text-Light)
+    - Example: "Direct: 559,128" + "Search: 336,256" + "Other: 346,546"
+  - **Date Header**: opacity-80, above values
+- **States**:
+  - Hidden: opacity-0, pointer-events-none
+  - Visible: opacity-100, transition 150ms
+- **Positioning**: 8px offset от trigger element
 
 ---
 
-### 9. Avatars
+### 9. Dashboard Components
+
+#### Overview Card (KPI Card)
+Комплексные карточки для отображения ключевых метрик с трендами и предпросмотром данных.
+
+##### Container
+- **Padding**: 24px (p-6)
+- **Radius**: 32px (rounded-[32px])
+- **Background**: Backgrounds-surface2
+- **Border**: 1.5px outline Stroke-Stroke2, offset -1.5px
+- **Shadow**: --shadow-card-1 + --shadow-card-2
+- **Layout**: vertical stack, gap-24px (gap-6)
+
+##### Icon Container
+- **Size**: 64×64px (w-16 h-16)
+- **Radius**: 32px (rounded-[32px])
+- **Background Variants**:
+  - **Primary**: Backgrounds-surface1
+  - **Alternative**: bg-pop (для выделения)
+- **Icon**: 24×24px, Text-Secondary
+- **Border**: 1px outline Stroke-Stroke2 (optional)
+
+##### Large Number Display
+- **Symbol**: 48px (text-5xl), Text-Tertiary
+  - Examples: "$", "€", "#"
+  - Line height: 60px
+- **Value**: 60px (text-6xl), medium weight, Text-Primary
+  - Line height: 75px (leading-[75px])
+  - Tracking: -0.02em (tracking-tight)
+  - Format: "320k", "857", "1.2M"
+- **Layout**: horizontal, baseline aligned
+- **Gap**: 4px между symbol и value
+
+##### Trend Badge (Integrated)
+- **Padding**: 8px (x), 6px (y)
+- **Radius**: 8px (rounded-lg)
+- **Border**: 1.5px outline, offset -1.5px
+- **Icon**: 16×16px (arrow up/down)
+- **Text**: 14px semibold
+- **Gap**: 4px между icon и text
+- **Variants**:
+  - **Up**:
+    - Background: green-600/5 (rgba(22, 163, 74, 0.05))
+    - Border: green-600/20 (rgba(22, 163, 74, 0.20))
+    - Text: Primary-primary02
+    - Icon: arrow-up
+  - **Down**:
+    - Background: red-400/5 (rgba(248, 113, 113, 0.05))
+    - Border: red-400/20 (rgba(248, 113, 113, 0.20))
+    - Text: red-400
+    - Icon: arrow-down
+
+##### Label / Description
+- **Font**: 16px semibold
+- **Color**: Text-Secondary
+- **Line height**: 24px (leading-6)
+- **Line clamp**: 1 (text-ellipsis)
+- **Examples**: "Total customers", "New customers", "Revenue"
+
+##### Preview Chart (Mini Indicator)
+- **Type**: outline indicator (small line chart or bar)
+- **Size**: varies (typically 48-64px wide, 16-24px tall)
+- **Stroke**: 1px Chart-Green или Primary-primary02
+- **Opacity**: 60-80%
+- **Position**: integrated в card layout
+
+##### Layout Structure
+```
+┌─────────────────────────────┐
+│ [Icon Container]            │
+│                             │
+│ [$] [320k]                  │  ← Symbol + Large Number
+│ [↑ 12%]                     │  ← Trend Badge
+│                             │
+│ Total customers             │  ← Label
+│ [mini chart preview]        │  ← Preview Chart (optional)
+└─────────────────────────────┘
+```
+
+##### Responsive Behavior
+- **Desktop (1920px+)**:
+  - Full layout с icon, large number, trend, label, preview
+  - Padding: 24px
+  - Gap: 24px
+- **Tablet (768-1024px)**:
+  - Compact layout
+  - Padding: 20px
+  - Gap: 16px
+- **Mobile (375px)**:
+  - Minimal padding: 16px
+  - Gap: 12px
+  - Preview chart может быть скрыт
+
+##### Light Mode vs Dark Mode
+- **Light Mode**:
+  - Background: Backgrounds-surface2
+  - Shadows: 2 layers
+  - Icon container: surface1
+  - Text: Text-Primary, Text-Secondary, Text-Tertiary
+- **Dark Mode**:
+  - Background: Backgrounds-surface2 (dark variant)
+  - NO shadows (flat design)
+  - Icon container: surface1 или bg-pop
+  - Text: Text-Light variants
+
+##### States
+- **Default**:
+  - Standard shadows
+  - Border: Stroke-Stroke2
+- **Hover**:
+  - Может добавляться subtle highlight
+  - Cursor: pointer (если interactive)
+- **Active/Selected**:
+  - Border: может меняться на Stroke-BorderBorder
+  - Background: может осветляться
+
+##### Usage Notes
+- Icon container помогает визуально идентифицировать тип метрики
+- Large numbers (60px) обеспечивают instant readability
+- Trend badges показывают изменение метрики (рост/падение)
+- Preview charts дают контекст изменения во времени
+- Symbol ($, €, #) помогает понять единицы измерения
+- В Dark Mode убираются тени для более flat дизайна
+
+#### Icon Container (Standalone)
+Контейнер для иконок с поддержкой различных стилей и состояний.
+
+##### Basic Sizes
+- **Large**: 64×64px (w-16 h-16), radius 32px
+- **Medium**: 48×48px (w-12 h-12), radius 24px
+- **Small**: 44×44px (w-11 h-11), radius 22px
+
+##### Backgrounds
+- **Primary**: Backgrounds-surface1
+- **Alternative**: bg-pop (для KPI cards)
+- **Active (Light Mode)**: shade07-20/20
+- **Active (Dark Mode)**: shade05-30/30
+
+##### Icon Sizing
+- **Large container (64×64px)**: icon 24×24px
+- **Medium container (48×48px)**: icon 20×20px
+- **Small container (44×44px)**: icon 20×20px
+
+##### Border
+- **Default**: 1px outline Stroke-Stroke2 (optional)
+- **Active**: 1px zinc-100
+
+##### States
+- **Default**:
+  - Background: surface1 или bg-pop
+  - Icon: Text-Secondary
+- **Hover**:
+  - Background: Backgrounds-highlight
+  - Icon: Text-Primary
+- **Active**:
+  - Background: shade07-20/20 (Light) или shade05-30/30 (Dark)
+  - Icon: Text-Primary
+  - Border: zinc-100
+
+##### Usage
+- Settings icons
+- Category indicators
+- Dashboard KPI icons
+- Action containers
+
+#### Special Features
+
+##### Horizontal Scroll with Fade Overlay
+Паттерн для горизонтального скролла с плавным затуханием на краю.
+
+###### Container
+- **Overflow**: overflow-x-auto, overflow-y-hidden
+- **Scroll Behavior**: smooth
+- **Padding**: зависит от контента
+- **Gap**: 16px (gap-4) между items
+
+###### Fade Overlay
+- **Width**: 112px (w-28)
+- **Height**: full container height
+- **Position**: absolute right-0
+- **Gradient**:
+  - **Light Mode**: linear-gradient(to left, white, rgba(255, 255, 255, 0))
+  - **Dark Mode**: linear-gradient(to left, #000, rgba(0, 0, 0, 0))
+- **Pointer Events**: none (для кликабельности под градиентом)
+
+###### Scroll Items
+- **Width**: fixed (например, 208px для product cards)
+- **Display**: inline-flex
+- **Gap**: 16px
+
+###### Usage
+- Product carousels
+- Share products section
+- Feature lists
+- Image galleries
+
+##### Country List with Progress Bars
+Список стран с индикаторами прогресса и флагами.
+
+###### List Item Structure
+- **Height**: auto (зависит от контента)
+- **Padding**: 8px (y), 0 (x)
+- **Layout**: horizontal, space-between
+- **Gap**: 12px
+
+###### Flag Icon
+- **Size**: 24×24px (rounded-sm или rounded-md)
+- **Border**: optional 1px
+- **Format**: SVG или emoji flag
+
+###### Country Name
+- **Font**: 14px semibold
+- **Color**: Text-Primary
+- **Line clamp**: 1
+
+###### Progress Bar
+- **Height**: 12px (h-3)
+- **Width**: flexible (flex-1 или fixed)
+- **Variants**: См. Progress Bar Component
+- **Colors**:
+  - **Light Mode**: standard colors
+  - **Dark Mode**: shade05-100 для active bar
+
+###### Value Display
+- **Font**: 14px normal
+- **Color**: Text-Secondary
+- **Format**: "1,234" или "12%"
+
+###### Layout
+```
+[🇺🇸] United States  [████░░░] 45%
+[🇬🇧] United Kingdom [███░░░░] 32%
+[🇩🇪] Germany        [██░░░░░] 18%
+```
+
+##### Usage Notes
+- Fade overlay предотвращает резкий обрыв контента при скролле
+- Country list с progress bars отлично подходит для geographic analytics
+- Icon containers обеспечивают визуальную консистентность
+- В Dark Mode progress bars используют shade05-100 для better contrast
+
+---
+
+### 10. Avatars
 
 #### Sizes
 - **Extra Large**: 64×64px, rounded-96px
@@ -1459,53 +1829,67 @@ outline: 1.5px solid #f4f4f5; /* zinc-100 */
 | Table legend indicator | 12×12px |
 | Chart tooltip arrow | 8×4px |
 | Action button icon | 16×16px |
+| KPI card icon container | 64×64px |
+| KPI card large number | 60px (text-6xl) |
+| KPI card symbol | 48px (text-5xl) |
+| Icon container (large) | 64×64px |
+| Icon container (medium) | 48×48px |
+| Icon container (small) | 44×44px |
+| Donut chart | 288×288px |
+| Heatmap | 656×320px |
+| Heatmap cell | 96×20px |
+| Bar chart bar width | 16px |
+| Fade overlay width | 112px |
+| Country flag icon | 24×24px |
 
 ---
 
-**Последнее обновление**: Блок #20 - Data Table (Product Table)
+**Последнее обновление**: Блок #21 - Dashboard Components
 **Статус**: В процессе сборки
 **Добавлено**:
+- **Блок #21**: Dashboard Components - комплексные компоненты для дашбордов и аналитики
+  - **Overview Card (KPI Card)**:
+    - Container: 24px padding, 32px radius, surface2 background
+    - Icon Container: 64×64px, 32px radius, surface1 или bg-pop
+    - Large Number Display: 60px value (text-6xl) + 48px symbol (text-5xl)
+    - Trend Badge: integrated с up/down variants, green/red colors
+    - Label: 16px semibold description
+    - Preview Chart: mini indicators для контекста
+    - Responsive behavior: Desktop (24px) → Tablet (20px) → Mobile (16px)
+    - Light/Dark Mode: shadows в light, flat в dark
+    - States: Default, Hover, Active/Selected
+  - **Icon Container (Standalone)**:
+    - 3 размера: Large (64×64px), Medium (48×48px), Small (44×44px)
+    - Backgrounds: surface1, bg-pop, shade07-20/20 (light active), shade05-30/30 (dark active)
+    - Icon sizing: 24px, 20px по размеру контейнера
+    - States: Default, Hover, Active с border variants
+  - **Charts & Data Visualization**:
+    - **Line Chart**: grid lines, axis labels (12px), data points (12×12px), tooltips
+    - **Bar Chart**: 16px bars, diagonal pattern overlay (-45deg, 96×96px grid, 10% opacity)
+    - **Donut Chart**: 288×288px, conic-gradient, center content (48px value + 16px label)
+    - **Heatmap**: 656×320px, cells 96×20px, opacity levels (25/50/75/100%), axis labels
+    - **Chart Tooltip**: universal, 8px/6px padding, dark1 background, 8-10px arrow
+  - **Special Features**:
+    - **Horizontal Scroll with Fade Overlay**: 112px gradient, pointer-events-none
+    - **Country List with Progress Bars**: flags (24×24px), progress (12px), values
+  - **Dashboard Colors**: bg-pop, shade04-50, shade08-70, shade05-100
+  - **Component Sizes**: 14 новых размеров в reference table
 - **Блок #20**: Data Table (Product Table) - комплексная таблица данных
-  - **Table Header Section**:
-    - Search Input (288px/360px expanded, 48px height)
-    - Tab Filters (Market, Traffic sources, Viewers) с active/default states
-    - Table Legend/Key с color indicators (12×12px) для Followers/Others
-    - Table Title (20px semibold)
-  - **Table Rows**: интеграция с Product List Item component
-    - Row States: Default, Hover (with/without shadows), Underline, Selected
-    - Action Buttons (Edit, Delete, Share) появляются на hover
-    - Border variants (Stroke-Subtle/10, Stroke-Subtle)
-  - **Responsive Table Layouts**: 4 breakpoints
-    - Desktop (1920px): ~1528px width, gap-44
-    - Tablet (1024px): ~884px width, gap-6
-    - Mobile Landscape (768px): ~628px, vertical stats stack
-    - Mobile Portrait (375px): 288px, compact layout
-  - **Chart Tooltip Component**:
-    - Structure: 8px/6px padding, 6px radius, dark1 background
-    - Content: single/multiple values format
-    - Arrow: 8×4px triangle, positioned bottom/top center
-    - States: Hidden (opacity-0) / Visible (opacity-100)
-    - Positioning: above element, 8px offset
-  - **Light/Dark Mode**:
-    - Light Mode: 3-layer shadows на hover
-    - Dark Mode: NO shadows (flat design)
-    - Tooltip: dark1 background в обоих режимах
-  - **Data Attributes**: light-mode, property-1/2/3, status, trend
-  - **Usage Notes**: адаптивность, hover behavior, checkbox selection
-- **Блок #19**: Progress Bar Component (универсальный компонент прогресс-бара)
-  - 3 типа сегментов: Placeholder, Divider Pattern, Active Bar
-  - 4 паттерна компоновки: Simple Two-Segment, Three-Segment with Divider, Highlighted (Chart Green), Stacked Multi-Segment
-  - Множественные размеры (w-8 до w-[457px], flex-1)
-  - 3 цветовых варианта: Standard (shade08-100), Chart Green, Gradient
-  - States: Active, Inactive/Disabled (opacity-5)
-  - Таблица распространенных пропорций
-  - Responsive behavior guidelines
-- **Блок #18**: Product List Item (адаптивный компонент списка продуктов)
-  - Responsive breakpoints (1920px, 1024px, 768px, 375px)
-  - Multiple states (Default, Hover with/without shadows, Border variant, Selected)
-  - Action buttons variant (Edit, Delete, Share)
-  - Date range variant
+  - Table Header Section с search, filters, legend
+  - Table Rows с Product List Item integration
+  - Responsive layouts: 4 breakpoints (1920/1024/768/375px)
+  - Chart Tooltip Component
+  - Action Buttons на hover
+  - Light/Dark Mode с shadow differences
+- **Блок #19**: Progress Bar Component
+  - 3 типа сегментов, 4 паттерна компоновки
+  - Множественные размеры и цветовые варианты
+  - States: Active, Inactive/Disabled
+- **Блок #18**: Product List Item
+  - Адаптивный компонент с 4 breakpoints
+  - Multiple states и variants
   - Stats block with trend badge
-  - Progress bar section with 3 variants
-  - Data attributes for configuration
-- **Блок #17**: OAuth Button (5 states), Input Field States (Default/Focus/Filled/Error/Success), Floating Label, Password Input with dots, Auth Form Card (480px), Auth Form Footer, "Forgot password" Link, shade04-100, shade07-50
+- **Блок #17**: Auth Forms
+  - OAuth Button (5 states)
+  - Input Field States
+  - Auth Form Card
