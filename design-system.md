@@ -620,15 +620,134 @@ letter-spacing: -0.02em; /* tracking-tight */
 - **Title**: 16px semibold, line-clamp-1
 - **Subtitle**: 14px Text-Secondary
 
-#### Progress Bar (stacked)
+#### Progress Bar Component
+Универсальный компонент прогресс-бара с поддержкой множественных вариантов и состояний.
+
+##### Basic Structure
 - **Height**: 12px (h-3)
 - **Radius**: 1px (rounded-[1px])
-- **Gap**: 2px (0.5)
-- **Colors**:
-  - shade07-40/40 (Social media)
-  - shade07-60/60 pattern (Direct - вертикальные линии 2px)
-  - shade08-100 → shade09-100 gradient (Others)
-  - Chart-Green (активный)
+- **Gap**: 2px (gap-0.5) между сегментами
+- **Layout**: horizontal flex, inline-flex
+
+##### Segment Types
+
+###### 1. Placeholder Segment
+- **Background**: shade07-40/40
+- **Radius**: rounded-[1px]
+- **Widths** (различные варианты):
+  - Extra small: w-8 (32px), w-9 (36px), w-10 (40px), w-11 (44px)
+  - Small: w-12 (48px), w-14 (56px), w-16 (64px)
+  - Medium: w-20 (80px), w-24 (96px), w-28 (112px)
+  - Large: w-40 (160px), w-44 (176px), w-48 (192px)
+  - Extra large: w-52 (208px), w-64 (256px)
+
+###### 2. Divider Pattern Segment
+- **Count**: 13 vertical lines
+- **Width**: w-0.5 (2px) each
+- **Height**: h-3 (12px)
+- **Background**: shade07-60/60
+- **Radius**: rounded-[0.50px]
+- **Gap**: gap-px (1px) between lines
+- **Usage**: Разделитель между placeholder и active bar для визуального эффекта
+
+###### 3. Active Bar Segment
+- **Radius**: rounded-[1px]
+- **Border**: 1px Stroke-Stroke2 (optional, для Chart-Green и Gradient)
+- **Widths** (различные варианты):
+  - Small: w-24 (96px), w-28 (112px), w-32 (128px)
+  - Medium: w-48 (192px), w-52 (208px), w-56 (224px), w-60 (240px)
+  - Large: w-72 (288px), w-80 (320px), w-96 (384px)
+  - Custom: w-[457px] (1828px), flex-1 (fills remaining space)
+- **Color Variants**:
+  - **Standard**: bg-shade08-100
+  - **Chart Green**: bg-Chart-Green (для метрик с позитивными показателями)
+  - **Gradient**: bg-gradient-to-r from-shade08-100 to-shade09-100
+
+##### Progress Bar Patterns
+
+###### Pattern 1: Simple Two-Segment
+```html
+<div className="inline-flex gap-0.5">
+  <div className="w-24 h-3 bg-shade07-40/40 rounded-[1px]" />
+  <div className="w-96 h-3 bg-shade08-100 rounded-[1px]" />
+</div>
+```
+- Использование: базовый прогресс без дополнительных деталей
+- Пропорции: любые комбинации placeholder + active bar
+
+###### Pattern 2: Three-Segment with Divider
+```html
+<div className="inline-flex gap-0.5">
+  <div className="w-40 h-3 bg-shade07-40/40 rounded-[1px]" />
+  <div className="flex gap-px">
+    <div className="w-0.5 h-3 bg-shade07-60/60 rounded-[0.50px]" />
+    <!-- repeat 13 times -->
+  </div>
+  <div className="w-72 h-3 bg-gradient-to-r from-shade08-100 to-shade09-100 rounded-[1px] border border-Stroke-Stroke2" />
+</div>
+```
+- Использование: детализированный прогресс с визуальным разделителем
+- Компоненты: placeholder + 13 divider lines + gradient bar
+
+###### Pattern 3: Highlighted Progress (Chart Green)
+```html
+<div className="inline-flex gap-0.5">
+  <div className="w-48 h-3 bg-shade07-40/40 rounded-[1px]" />
+  <div className="w-96 h-3 bg-Chart-Green rounded-[1px]" />
+</div>
+```
+- Использование: для позитивных метрик, достижений
+- Цвет: Chart-Green для акцента
+
+###### Pattern 4: Stacked Multi-Segment (Complex)
+```html
+<div className="inline-flex gap-0.5">
+  <div className="w-8 h-3 bg-shade07-40/40 rounded-[1px]" />
+  <div className="flex gap-px">
+    <!-- 13 divider lines -->
+  </div>
+  <div className="w-72 h-3 bg-Chart-Green rounded-[1px] border border-Stroke-Stroke2" />
+</div>
+```
+- Использование: сложный прогресс с множественными категориями
+- Описан в Product List Item component
+
+##### States
+
+###### Active State
+- **Active Bar**: full opacity (100%)
+- **Colors**: Chart-Green, shade08-100, или gradient
+- **Border**: optional 1px Stroke-Stroke2
+
+###### Inactive/Disabled State
+- **Active Bar**: opacity-5 (5% opacity)
+- **Placeholder**: остается без изменений
+- **Usage**: неактивные или завершенные задачи
+
+##### Common Proportions
+
+| Placeholder Width | Active Bar Width | Use Case |
+|------------------|-----------------|----------|
+| w-24 (96px) | w-[457px] | Малый прогресс, большой бар |
+| w-40 (160px) | w-72 (288px) | С divider pattern |
+| w-48 (192px) | w-96 (384px) | Сбалансированный |
+| w-20 (80px) | w-56 (224px) | Компактный с Chart-Green |
+| w-64 (256px) | w-80 (320px) | Большой placeholder |
+| w-52 (208px) | w-96 (384px) | Средний вариант |
+| w-16 (64px) | flex-1 | Минимальный placeholder, гибкий бар |
+
+##### Responsive Behavior
+- На мобильных устройствах прогресс-бары автоматически масштабируются
+- Используйте flex-1 для адаптивной ширины active bar
+- Placeholder сохраняет фиксированную ширину
+
+##### Usage Notes
+- Всегда используйте gap-0.5 для консистентности
+- Для позитивных метрик используйте Chart-Green
+- Для нейтральных данных - shade08-100
+- Для градиентных эффектов - from-shade08-100 to-shade09-100
+- Divider pattern добавляет визуальную детализацию
+- Inactive state (opacity-5) для завершенных или недоступных элементов
 
 #### Product List Item
 Адаптивный компонент строки таблицы/списка продуктов с поддержкой разных размеров экрана и состояний.
@@ -1118,9 +1237,17 @@ outline: 1.5px solid #f4f4f5; /* zinc-100 */
 
 ---
 
-**Последнее обновление**: Блок #18 - Product List Item
+**Последнее обновление**: Блок #19 - Progress Bar Component
 **Статус**: В процессе сборки
 **Добавлено**:
+- **Блок #19**: Progress Bar Component (универсальный компонент прогресс-бара)
+  - 3 типа сегментов: Placeholder, Divider Pattern, Active Bar
+  - 4 паттерна компоновки: Simple Two-Segment, Three-Segment with Divider, Highlighted (Chart Green), Stacked Multi-Segment
+  - Множественные размеры (w-8 до w-[457px], flex-1)
+  - 3 цветовых варианта: Standard (shade08-100), Chart Green, Gradient
+  - States: Active, Inactive/Disabled (opacity-5)
+  - Таблица распространенных пропорций
+  - Responsive behavior guidelines
 - **Блок #18**: Product List Item (адаптивный компонент списка продуктов)
   - Responsive breakpoints (1920px, 1024px, 768px, 375px)
   - Multiple states (Default, Hover with/without shadows, Border variant, Selected)
