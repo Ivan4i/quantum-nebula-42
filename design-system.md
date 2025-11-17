@@ -679,7 +679,143 @@ letter-spacing: -0.02em; /* tracking-tight */
 
 ---
 
-### 9. Avatars
+### 9. Stats Overview / Metrics Dashboard
+
+#### Stats Overview Panel (Container)
+- **Padding**: 12px
+- **Radius**: 32px
+- **Background**: Backgrounds-surface2
+- **Shadow**: --shadow-card-1 + --shadow-card-2
+- **Border**: 1.5px outline, offset -1.5px
+- **Gap**: 8px (between header and content)
+- **Variants**:
+  - **Light Mode**: outline white
+  - **Dark Mode**: outline Stroke-Stroke2
+
+#### Stats Panel Header
+- **Height**: 48px
+- **Layout**: space-between (title left, filter right)
+- **Title Section**:
+  - Padding: 20px (x), centered vertically
+  - Font: 20px semibold, leading-28px, Text-Primary
+- **Filter Section**: Tab Filter or Dropdown (см. Navigation)
+
+#### Stat Metric Card (Horizontal Layout)
+- **Container**:
+  - Width: flex-1 (равномерное распределение)
+  - Padding-right: 32px (pr-8)
+  - Border-right: 1.5px neutral-500/10
+  - Gap: 40px (между icon и content)
+  - Last item: no border-right, no padding-right
+- **Icon Container**:
+  - Size: 64×64px
+  - Radius: 32px
+  - Background: Backgrounds-surface1
+  - Icon: 24×24px, positioned at 20px×20px from top-left
+  - Icon color: Text-Primary
+- **Content Layout**:
+  - Vertical flex
+  - Gap: 8px (between label and value sections)
+
+#### Stat Metric Label
+- **Height**: 24px
+- **Layout**: horizontal, gap 8px
+- **Label Text**:
+  - Font: 16px semibold, leading-24px
+  - Color: Text-Primary
+  - line-clamp-1
+- **Info Icon**:
+  - Size: 24×24px
+  - Opacity: 50%
+  - Color: Text-Secondary
+  - Icon content: circle with question mark
+
+#### Stat Metric Value Section
+- **Gap**: 12px (between value and trend)
+- **Currency Prefix** (optional):
+  - Width: 28px, Height: 56px
+  - Position: relative, top offset 8px
+  - Font: 48px (text-3xl) semibold
+  - Color: Text-Tertiary
+- **Value**:
+  - Font: 60px (text-6xl) medium
+  - Line-height: 75px
+  - Color: Text-Primary
+  - Layout: inline-flex, gap 4px with currency
+
+#### Stat Metric Trend Row
+- **Layout**: horizontal, gap 8px
+- **Trend Badge**: (см. Badges & Tags → Trend Badge)
+- **Comparison Text**:
+  - Font: 14px normal
+  - Line-height: 20px (leading-5)
+  - Color: Text-Tertiary
+  - Text: "vs last year" / "vs last month" etc.
+
+#### Mini Chart Area (Placeholder)
+- **Container**:
+  - Width: 128px (w-32)
+  - Height: full (self-stretch)
+  - Position: relative
+- **Chart Content**:
+  - Background placeholder: 144×128px absolute positioned
+  - Actual chart: 96×80px or 64×56px
+  - Position: varies (left offset 24px, 20px, 72px, etc.)
+  - Border: 3px outline, offset -1.5px
+  - Colors:
+    - Primary-primary02 (green, for positive trend)
+    - Primary-primary03 (red/purple, for negative trend)
+    - Chart-Green (for sales/general metrics)
+
+#### Stats Panel Content Area
+- **Padding**: 20px
+- **Layout**: horizontal flex, gap 32px
+- **Items**: 3-4 metric cards (равномерно распределены)
+- **Responsive**:
+  - Large: 4 cards (1560px width)
+  - Medium: 3 cards (916px width)
+  - Small: 2 cards (660px width - with horizontal scroll + fade overlay)
+  - Mobile: 1 card (320px width - with horizontal scroll + fade overlay)
+
+#### Horizontal Scroll with Fade Overlay
+- **Container**:
+  - Width: fixed (660px or 320px)
+  - Overflow: hidden
+  - Position: relative
+- **Content**:
+  - Width: larger than container (901px for 3 cards)
+  - Padding: 20px (p-5)
+  - Horizontal scroll enabled
+- **Fade Overlay**:
+  - Width: 64px (w-16)
+  - Height: 288px (h-72) or full content height
+  - Position: absolute right, positioned at top with offset
+  - Gradient variants:
+    - **Light Mode**: white → white/0 (left to right)
+    - **Dark Mode**: zinc-900 → zinc-900/0 (left to right)
+  - data-property-1: "True" (light) or "False" (dark)
+
+#### Dropdown Period Filter
+- **Width**: 160px (w-40), max-width 176px (max-w-44)
+- **Height**: 48px
+- **Padding**: 20px (left), 12px (right)
+- **Radius**: 90px
+- **Border**: 1.5px outline Stroke-Stroke2, offset -1.5px
+- **Layout**: space-between
+- **Text**:
+  - Font: 14px normal
+  - Line-height: 20px (leading-5)
+  - Color: Text-Secondary
+  - Content: "1 year", "6 months", etc.
+- **Chevron Icon**:
+  - Size: 24×24px
+  - Rotation: 90deg (pointing down)
+  - Color: Text-Secondary
+  - Border: 1.5px outline, offset -0.75px
+
+---
+
+### 10. Avatars
 
 #### Sizes
 - **Extra Large**: 64×64px, rounded-96px
@@ -704,7 +840,7 @@ letter-spacing: -0.02em; /* tracking-tight */
 
 ---
 
-### 10. List Items
+### 11. List Items
 
 #### User List Item
 - **Height**: 64px
@@ -742,7 +878,7 @@ letter-spacing: -0.02em; /* tracking-tight */
 
 ---
 
-### 11. Messages / Notifications
+### 12. Messages / Notifications
 
 #### Message List
 - **Width**: 384px
@@ -777,7 +913,7 @@ letter-spacing: -0.02em; /* tracking-tight */
 
 ---
 
-### 12. Panels & Cards
+### 13. Panels & Cards
 
 #### Settings Panel
 - **Width**: 384px
@@ -795,7 +931,7 @@ letter-spacing: -0.02em; /* tracking-tight */
 
 ---
 
-### 13. Accordion / FAQ
+### 14. Accordion / FAQ
 
 #### Accordion Item
 - **Padding**: 32px (y)
@@ -812,7 +948,7 @@ letter-spacing: -0.02em; /* tracking-tight */
 
 ---
 
-### 14. Loading States
+### 15. Loading States
 
 #### Skeleton
 - **Avatar**: 48×48px circle, shade08-100 / shade04-50/50
@@ -827,7 +963,7 @@ letter-spacing: -0.02em; /* tracking-tight */
 
 ---
 
-### 15. Empty States
+### 16. Empty States
 
 #### Empty State (No Results)
 - **Container**: centered, vertical layout
@@ -842,7 +978,7 @@ letter-spacing: -0.02em; /* tracking-tight */
 
 ---
 
-### 16. Special Effects
+### 17. Special Effects
 
 #### Fade Overlay (для горизонтального скролла)
 - **Width**: 112px (w-28)
@@ -986,9 +1122,15 @@ outline: 1.5px solid #f4f4f5; /* zinc-100 */
 | Settings icon | 44×44px |
 | List item (height) | 64px |
 | Settings panel | 384px |
+| Stats Overview (XL) | 1560px |
+| Stats Overview (L) | 916px |
+| Stats Overview (M) | 660px |
+| Stats Overview (S) | 320px |
+| Stat Card icon | 64×64px |
+| Mini chart | 96×80px |
 
 ---
 
-**Последнее обновление**: Блок #17
+**Последнее обновление**: Блок #18
 **Статус**: В процессе сборки
-**Добавлено**: OAuth Button (5 states), Input Field States (Default/Focus/Filled/Error/Success), Floating Label, Password Input with dots, Auth Form Card (480px), Auth Form Footer, "Forgot password" Link, shade04-100, shade07-50
+**Добавлено**: Stats Overview Panel / Metrics Dashboard (responsive layouts with 1-4 cards), Stat Metric Card (horizontal layout with icon, value, trend, mini chart), Dropdown Period Filter, Horizontal Scroll with Fade Overlay (light/dark variants), Mini Chart placeholders
