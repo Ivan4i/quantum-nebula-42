@@ -555,20 +555,36 @@ letter-spacing: -0.02em; /* tracking-tight */
 
 ### 10. Messages / Notifications
 
-#### Message Item
+#### Message List
 - **Width**: 384px
+- **Gap between items**: 4px (gap-1)
+
+#### Message Item
+- **Height**: 64px (h-16) or auto with padding
 - **Padding**: 12px
-- **Gap**: 20px
-- **Avatar**: 48×48px
+- **Gap**: 20px (avatar to content)
+- **Avatar**: 48×48px, rounded-64px
 - **States**:
-  - Default: transparent
-  - Selected: Backgrounds-highlight + shadows + border zinc-100
+  - **Default**: transparent
+  - **Hover (Light Mode)**:
+    - Background: Backgrounds-highlight
+    - Radius: 20px
+    - Shadow: 3 layers + inset
+    - Border: zinc-100, 1.5px
+  - **Hover (Dark Mode)**:
+    - Background: Backgrounds-highlight
+    - Radius: 20px
+    - Border: zinc-100, 1.5px
+    - **NO shadows** (отличие от light mode)
 
 #### Message Content
-- **Username**: 16px semibold, line-clamp-1
+- **Username**: 16px semibold, line-clamp-1, Text-Primary
 - **Time**: 12px Text-Tertiary
 - **Preview**: 14px Text-Secondary, line-clamp-1
-- **Unread Dot**: 12×12px, Primary-primary02
+- **Unread Dot**:
+  - Size: 12×12px, rounded-full
+  - **Unread**: Primary-primary02, full opacity
+  - **Read**: Text-Tertiary, opacity-50
 
 ---
 
@@ -587,7 +603,22 @@ letter-spacing: -0.02em; /* tracking-tight */
 
 ---
 
-### 12. Special Effects
+### 12. Empty States
+
+#### Empty State (No Results)
+- **Container**: centered, vertical layout
+- **Title**: 24px (text-2xl) medium, leading-36px (leading-9), Text-Primary, line-clamp-1
+- **Button**:
+  - Height: 48px
+  - Padding: 28px (x), 14px (y)
+  - Radius: 32px
+  - Border: 1.5px Stroke-Stroke2
+  - Text: 14px semibold, Text-Secondary, center aligned
+- **Gap**: 24px между элементами
+
+---
+
+### 13. Special Effects
 
 #### Fade Overlay (для горизонтального скролла)
 - **Width**: 112px (w-28)
@@ -729,5 +760,6 @@ outline: 1.5px solid #f4f4f5; /* zinc-100 */
 
 ---
 
-**Последнее обновление**: Блок #13
+**Последнее обновление**: Блок #14
 **Статус**: В процессе сборки
+**Добавлено**: Dark Mode состояния, Empty States
