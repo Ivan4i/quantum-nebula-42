@@ -54,6 +54,7 @@
 --text-secondary: /* Вторичный текст */
 --text-tertiary: /* Tertiary текст */
 --text-light: /* Светлый текст (на темном фоне) */
+--text-blue: /* Синий акцент для курсора */
 
 /* Backgrounds */
 --bg-surface1: /* Основной фон */
@@ -86,7 +87,8 @@
 --gradient-green: linear-gradient(to bottom, #d1fae5, #bbf7d0);        /* emerald-100 → green-200 */
 --gradient-cyan: linear-gradient(to bottom, #cffafe, #a5f3fc);         /* cyan-100 → cyan-200 */
 --gradient-blue: linear-gradient(to bottom, #2563eb, #1e40af);         /* blue-600 → blue-800 */
---gradient-zinc-dark: linear-gradient(to bottom, #27272a, #27272a);    /* zinc-800 */
+--gradient-zinc-dark: linear-gradient(to bottom, #27272a, #27272a);    /* zinc-800 - для dark button */
+--gradient-white-light: linear-gradient(to bottom, #ffffff, #e5e5e5);  /* white → neutral-200 - для light button */
 
 /* Secondary */
 --secondary-secondary04: /* Для price badge */
@@ -345,6 +347,21 @@ letter-spacing: -0.02em; /* tracking-tight */
 - **Font**: 14px semibold
 - **Layout**: center aligned
 
+#### Send Button (Message Input)
+- **Height**: 44px (h-11)
+- **Padding**: 28px (x), 16px (y)
+- **Radius**: 32px
+- **Font**: 14px semibold, Text-Light
+- **Variants**:
+  - **Dark (Light Mode: True)**:
+    - Gradient: zinc-800 → zinc-800
+    - Shadow: inset 2px 0px 8px 2px rgba(248, 248, 248, 0.20)
+    - Border: white/40, 1.5px
+  - **Light (Light Mode: False / Dark theme)**:
+    - Gradient: white → neutral-200
+    - Shadow: inset 2px 0px 8px 2px rgba(24, 24, 24, 0.20)
+    - Border: white/60, 1.5px
+
 ---
 
 ### 3. Inputs
@@ -394,6 +411,19 @@ letter-spacing: -0.02em; /* tracking-tight */
 - **Size**: 24×24px
 - **Border**: 2px Stroke-Stroke2
 - **Radius**: 6px (rounded-md)
+
+#### Message Input (Compose)
+- **Width**: 1020px или full-width
+- **Padding**: 4px
+- **Radius**: 80px (rounded-[80px])
+- **Background**: Backgrounds-surface2
+- **Border**: 1px outline Stroke-Stroke2, offset -1px
+- **Layout**: space-between
+- **Left Side**:
+  - Avatar icon: 44×44px, rounded-90px, icon 24×24px Text-Secondary
+  - Username: 14px normal, line-clamp-3, Text-Primary
+  - Cursor: 2px × 16px, Text-Blue, rounded-sm
+- **Right Side**: Send button (44px height)
 
 ---
 
@@ -760,6 +790,6 @@ outline: 1.5px solid #f4f4f5; /* zinc-100 */
 
 ---
 
-**Последнее обновление**: Блок #14
+**Последнее обновление**: Блок #15
 **Статус**: В процессе сборки
-**Добавлено**: Dark Mode состояния, Empty States
+**Добавлено**: Message Input (Compose), Send Button варианты, Text-Blue цвет
