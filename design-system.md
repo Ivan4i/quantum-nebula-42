@@ -596,29 +596,251 @@ letter-spacing: -0.02em; /* tracking-tight */
 
 ### 6. Tables
 
-#### Data Table
-- **Row Padding**: 16px
-- **Row Border**: 1.5px Stroke-Subtle/10 (bottom)
-- **Header**:
-  - Padding: 16px
-  - Font: 12px, opacity-80, Text-Tertiary
-  - Border-bottom: 1.5px
-- **Cell Font**: 14px Text-Primary
-- **Checkbox**: 24×24px, border-2
+#### Data Table (Product Table)
+Комплексная таблица данных с поддержкой поиска, фильтрации, сортировки и множественных responsive layouts.
 
-#### Table Row States
-- **Default**: transparent
-- **Hover**:
+##### Table Header Section
+Полный хедер таблицы с поиском, фильтрами и легендой.
+
+###### Header Layout
+- **Structure**: vertical stack, gap-20px
+- **Top Row**: Title + Search + Tab Filters
+- **Bottom Row**: Legend / Key
+
+###### Search Input (Header)
+- **Width**: 288px (collapsed)
+- **Height**: 48px
+- **Padding**: 12px (left for icon), 20px (right)
+- **Radius**: 90px
+- **Background**: Backgrounds-surface1
+- **Icon**: 24×24px Search icon (left aligned)
+- **Font**: 14px Text-Secondary
+- **States**:
+  - Default: icon only visible, no input visible
+  - Expanded: 360px width with input field
+
+###### Tab Filters (Header)
+- **Container**: horizontal flex, gap-4px
+- **Tab Button**:
+  - Height: 48px
+  - Padding: 24px (x), 12px (y)
+  - Radius: 48px (rounded-full)
+  - Font: 14px semibold
+  - Gap: 4px между табами
+  - **States**:
+    - **Default**:
+      - Background: transparent
+      - Text: Text-Secondary
+      - Border: none
+    - **Active**:
+      - Background: transparent
+      - Border: 1.5px Stroke-Stroke2
+      - Text: Text-Primary
+  - **Tab Variants**: Market, Traffic sources, Viewers, etc.
+
+###### Table Legend / Key
+- **Layout**: horizontal, gap-12px
+- **Legend Item**:
+  - Gap: 8px между indicator и label
+  - **Color Indicator**:
+    - Size: 12×12px (w-3 h-3)
+    - Radius: rounded-[1px]
+    - Colors:
+      - Followers: bg-Chart-Green
+      - Others: bg-shade08-100 или gradient (from-shade08-100 to-shade09-100)
+  - **Label**:
+    - Font: 12px
+    - Color: Text-Tertiary
+    - Text: "Followers", "Others", etc.
+
+###### Table Title
+- **Font**: 20px semibold, leading-28px
+- **Color**: Text-Primary
+- **Position**: left aligned в header row
+
+##### Table Structure
+- **Container**: full width
+- **Border**: none на внешнем контейнере
+- **Background**: transparent
+- **Spacing**: 16px между header и первой строкой
+
+##### Table Rows (Default)
+Используется компонент Product List Item (см. Product List Item section) с интеграцией в табличную структуру.
+
+- **Row Padding**: 16px (p-4)
+- **Row Gap**: 0 (строки идут вплотную)
+- **Row Border**:
+  - **Variant 1**: border-bottom 1.5px Stroke-Subtle/10 (subtle divider)
+  - **Variant 2**: border-bottom 1.5px Stroke-Subtle (visible divider)
+  - **Variant 3 (Hover/Selected)**: no border, использует radius + shadows
+
+##### Table Row Content Layout
+См. Product List Item для детальной структуры. Основные элементы:
+- **Checkbox**: 24×24px, rounded-md, border-2 Stroke-Stroke2
+- **Product Image**: 64×64px, rounded-xl
+- **Product Info**: Title (16px semibold) + Subtitle/Actions (14px)
+- **Stats Block**: Value + Trend Badge
+- **Progress Bar**: Chart visualization с Followers/Others
+
+##### Table Row States
+- **Default**:
+  - Background: transparent
+  - Border-bottom: 1.5px Stroke-Subtle/10 или Stroke-Subtle
+  - No radius, no shadows
+
+- **Hover (Property-2="True" / with shadows)**:
   - Background: Backgrounds-highlight
-  - Radius: 16px
+  - Radius: 16px (rounded-2xl) или 20px (для 375px)
   - Shadow: 3 layers
-  - Border: zinc-100, 1.5px
-  - Action buttons появляются
+    - 0px 1px 4px 0px rgba(0, 0, 0, 0.05)
+    - 0px 8px 8px -2px rgba(0, 0, 0, 0.08)
+    - inset 0px 0px 0px 3px rgba(255, 255, 255, 1.00)
+  - Border: 1.5px outline zinc-100, offset -1.5px
+  - Border-bottom удаляется
+  - Action buttons (Edit, Delete, Share) появляются
 
-#### Product Cell
-- **Image**: 64×64px, rounded-xl
-- **Title**: 16px semibold, line-clamp-1
-- **Subtitle**: 14px Text-Secondary
+- **Hover (Property-2="False" / no shadows)**:
+  - Background: Backgrounds-highlight
+  - Radius: 16px (rounded-2xl)
+  - Border: 1.5px outline zinc-100, offset -1.5px
+  - Border-bottom удаляется
+  - NO shadows (компактный вариант для 375px)
+
+- **Underline Variant**:
+  - Border-bottom: 1.5px Stroke-Subtle (более заметный divider)
+  - Background: transparent
+  - No radius, no hover effects
+
+- **Selected**:
+  - Checkbox: checked state, border-2 Stroke-Highlight/50
+  - Progress bar может быть dimmed (opacity-5)
+  - Row визуально выделена через checkbox
+
+##### Action Buttons (Appear on Hover)
+- **Container**: horizontal flex, gap-8px
+- **Button**:
+  - Padding: 4px (left), 6px (right), 4px (y)
+  - Radius: 6px (rounded-md)
+  - Background: transparent
+  - Border: none (default)
+  - Gap: 4px между icon и text
+  - **Icon**: 16×16px, Text-Secondary
+  - **Text**: 14px semibold, Text-Secondary, opacity-80
+  - **Hover**:
+    - Border: 1.5px Stroke-Stroke2
+    - Text: Text-Primary (full opacity)
+  - **Variants**:
+    - Edit: pen icon
+    - Delete: trash icon
+    - Share: share icon
+
+##### Responsive Table Layouts
+
+###### Desktop (1920px)
+- **Total Width**: ~1528px
+- **Left Section (Product)**: 512px (w-[512px])
+- **Stats + Progress Gap**: 176px (gap-44)
+- **Stats Block**: 144px (w-36)
+- **Progress Bar**: full width variants
+
+###### Tablet (1024px)
+- **Total Width**: ~884px
+- **Left Section (Product)**: 320px (w-80)
+- **Stats + Progress Gap**: 24px (gap-6)
+- **Stats Block**: 144px (w-36)
+- **Progress Bar**: smaller widths
+
+###### Mobile Landscape (768px)
+- **Total Width**: ~628px
+- **Left Section (Product)**: 320px (w-80)
+- **Right Section**: vertical stack
+  - Stats на top
+  - Progress на bottom
+  - Gap: 8px (gap-2)
+
+###### Mobile Portrait (375px)
+- **Total Width**: 288px (w-72)
+- **Layout**: compact vertical
+- **Padding**: 16px (p-4)
+- **Radius**: 20px (на hover)
+- **Elements stack vertically**
+- **Progress Bar**: smaller segments
+
+##### Chart Tooltip Component
+Tooltip для отображения детальных данных при hover на графиках и progress bars.
+
+###### Tooltip Structure
+- **Padding**: 8px (x), 6px (y)
+- **Radius**: 6px (rounded-md)
+- **Background**: Backgrounds-dark1
+- **Font**: 12px semibold
+- **Color**: Text-Light
+- **Layout**: vertical stack, gap-4px (для нескольких значений)
+
+###### Tooltip Content
+- **Single Value**:
+  - Format: "Label: Value"
+  - Example: "Followers: 640,128"
+- **Multiple Values**:
+  - Each line: Label + Value
+  - Gap: 4px между строками
+  - Example:
+    - "Followers: 640,128"
+    - "Others: 234,567"
+
+###### Tooltip Arrow
+- **Size**: 8px (width) × 4px (height)
+- **Shape**: triangle (border trick или SVG)
+- **Color**: matches Backgrounds-dark1
+- **Position**: bottom center или top center (зависит от placement)
+
+###### Tooltip Positioning
+- **Trigger**: hover на progress bar segment
+- **Placement**: above the element
+- **Offset**: 8px от trigger element
+- **Arrow**: points to center of trigger
+
+###### Tooltip States
+- **Hidden**: opacity-0, pointer-events-none
+- **Visible**: opacity-100, smooth transition (150ms)
+
+##### Light Mode vs Dark Mode
+
+###### Light Mode (data-light-mode="True")
+- **Row Background**: transparent → Backgrounds-highlight (hover)
+- **Row Border**: zinc-100 (hover)
+- **Shadows**: 3 layers на hover (если Property-2="True")
+- **Text**: Text-Primary, Text-Secondary
+- **Progress Bars**: стандартные цвета
+
+###### Dark Mode (data-light-mode="False")
+- **Row Background**: transparent → Backgrounds-highlight (hover)
+- **Row Border**: zinc-100 (hover)
+- **Shadows**: NO shadows на hover (отличие от light mode)
+- **Text**: Text-Light variants
+- **Tooltip**: остается dark1 background в обоих режимах
+
+##### Data Attributes
+```html
+data-light-mode="True" | "False"        <!-- Theme mode -->
+data-property-1="1920" | "1024" | "768" | "375"  <!-- Screen size -->
+data-property-2="True" | "False"        <!-- Hover with shadows -->
+data-property-3="01" | "02" | "03"      <!-- Progress variant -->
+data-status="placeholder"                <!-- Row state -->
+data-trend="up" | "down"                <!-- Trend direction -->
+```
+
+##### Usage Notes
+- Таблица автоматически адаптируется под размер экрана
+- На мобильных устройствах (768px и ниже) stats и progress стекаются вертикально
+- Action buttons появляются только при hover (desktop)
+- Tooltip показывается при hover на progress bar segments
+- В Dark Mode тени отключены для более flat дизайна
+- Border-bottom используется для разделения строк в default state
+- При hover border-bottom удаляется, добавляется radius и shadows
+- Checkbox позволяет выбирать множественные строки
+- Tab filters в header позволяют переключать наборы данных
+- Legend/Key помогает идентифицировать цвета в progress bars
 
 #### Progress Bar Component
 Универсальный компонент прогресс-бара с поддержкой множественных вариантов и состояний.
@@ -1234,12 +1456,42 @@ outline: 1.5px solid #f4f4f5; /* zinc-100 */
 | Product list item (375px) | 288px (w-72) |
 | Product image | 64×64px |
 | Progress bar (height) | 12px |
+| Table legend indicator | 12×12px |
+| Chart tooltip arrow | 8×4px |
+| Action button icon | 16×16px |
 
 ---
 
-**Последнее обновление**: Блок #19 - Progress Bar Component
+**Последнее обновление**: Блок #20 - Data Table (Product Table)
 **Статус**: В процессе сборки
 **Добавлено**:
+- **Блок #20**: Data Table (Product Table) - комплексная таблица данных
+  - **Table Header Section**:
+    - Search Input (288px/360px expanded, 48px height)
+    - Tab Filters (Market, Traffic sources, Viewers) с active/default states
+    - Table Legend/Key с color indicators (12×12px) для Followers/Others
+    - Table Title (20px semibold)
+  - **Table Rows**: интеграция с Product List Item component
+    - Row States: Default, Hover (with/without shadows), Underline, Selected
+    - Action Buttons (Edit, Delete, Share) появляются на hover
+    - Border variants (Stroke-Subtle/10, Stroke-Subtle)
+  - **Responsive Table Layouts**: 4 breakpoints
+    - Desktop (1920px): ~1528px width, gap-44
+    - Tablet (1024px): ~884px width, gap-6
+    - Mobile Landscape (768px): ~628px, vertical stats stack
+    - Mobile Portrait (375px): 288px, compact layout
+  - **Chart Tooltip Component**:
+    - Structure: 8px/6px padding, 6px radius, dark1 background
+    - Content: single/multiple values format
+    - Arrow: 8×4px triangle, positioned bottom/top center
+    - States: Hidden (opacity-0) / Visible (opacity-100)
+    - Positioning: above element, 8px offset
+  - **Light/Dark Mode**:
+    - Light Mode: 3-layer shadows на hover
+    - Dark Mode: NO shadows (flat design)
+    - Tooltip: dark1 background в обоих режимах
+  - **Data Attributes**: light-mode, property-1/2/3, status, trend
+  - **Usage Notes**: адаптивность, hover behavior, checkbox selection
 - **Блок #19**: Progress Bar Component (универсальный компонент прогресс-бара)
   - 3 типа сегментов: Placeholder, Divider Pattern, Active Bar
   - 4 паттерна компоновки: Simple Two-Segment, Three-Segment with Divider, Highlighted (Chart Green), Stacked Multi-Segment
