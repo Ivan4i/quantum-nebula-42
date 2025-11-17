@@ -847,6 +847,93 @@ letter-spacing: -0.02em; /* tracking-tight */
 - **Width**: auto (based on tab content)
 - **Gap**: 4px between tabs
 
+#### Products Table Traffic Source Column (Impressions)
+- **Column Title**: "Impressions" (12px normal, Text-Tertiary, 80% opacity)
+- **Layout**: vertical flex, gap 8px (gap-2)
+- **Content**: Value + Trend Badge + Traffic Source Bar
+- **Value Display**:
+  - Layout: horizontal flex, gap 8px (gap-2)
+  - Text: 14px normal, Text-Primary, leading-5, tracking-tight
+  - Trend Badge: см. Badges & Tags → Trend Badge
+
+#### Traffic Source Visualization Bar
+- **Container**: self-stretch height 12px (h-3)
+- **Layout**: horizontal flex, gap 2px (gap-0.5)
+- **Border**: 1px border-Stroke-Stroke2 on "Others" segment
+- **Segments** (left to right):
+  - **Social Media**: shade07-40/40 background, rounded-[1px]
+  - **Direct** (striped pattern):
+    - Background: shade07-60/60 vertical stripes
+    - Stripe width: 2px (w-0.5)
+    - Stripe height: 12px (h-3)
+    - Stripe radius: 1px or 0.5px (rounded-[1px] or rounded-[0.50px])
+    - Gap between stripes: 0.5px (gap-px)
+    - Pattern: 13 vertical stripes in inline-flex
+  - **Others**: gradient from shade08-100 to shade09-100, rounded-[1px], border-Stroke-Stroke2
+- **Dark Mode**: "Others" segment uses opacity-5
+
+#### Traffic Source Legend (Table Header)
+- **Position**: Header row, right side
+- **Layout**: horizontal flex, gap 24px (gap-6)
+- **Legend Items**:
+  - Layout: horizontal flex, gap 6px (gap-1.5)
+  - **Indicator**: 14×14px (w-3.5 h-3.5) rounded square
+  - **Label**: 12px normal, Text-Primary, 80% opacity, leading-5, tracking-tight
+- **Indicator Colors**:
+  - Social media: shade07-40/40
+  - Direct: shade07-60/60 with stripe pattern overlay
+  - Others: gradient from shade08-100 to shade09-100, border-Stroke-Stroke2
+
+#### Products Table Tooltip (Traffic Source Data)
+- **Trigger**: Hover over traffic source bar chart icon
+- **Position**: Above chart, centered with arrow pointer
+- **Container**:
+  - Padding: 8px (x), 6px (y) (p-2)
+  - Radius: 8px (rounded-lg)
+  - Background: Backgrounds-dark1
+  - Gap: 2px (gap-0.5) between rows
+- **Arrow**: 10px × 6px (w-2.5 h-1.5) triangle, Backgrounds-dark1
+- **Content Layout**: vertical flex
+  - **Source Label Row**: horizontal flex, gap 4px (gap-1)
+    - Indicator: 8×8px (w-2 h-2) rounded-sm, color varies (orange-400 for UI8)
+    - Label: 12px normal, Text-Light, 80% opacity, leading-5, tracking-tight
+  - **Value**: 12px normal, Text-Light, leading-5, tracking-tight
+
+#### Products Table Action Buttons (Hover State)
+- **Visibility**: Appear only on row hover
+- **Position**: Below product title, left-aligned with title
+- **Layout**: horizontal flex, gap 8px (gap-2)
+- **Button Structure**:
+  - Padding: 4px (left), 6px (right) (pl-1 pr-1.5 py-1)
+  - Radius: 6px (rounded-md)
+  - Gap: 4px (gap-1) between icon and label
+  - **States**:
+    - **Default**: transparent, Text-Secondary icon/text, 80% opacity
+    - **Hover**: outline 1.5px Stroke-Stroke2, offset -1.5px, Text-Primary
+- **Icon**: 16×16px (w-4 h-4), 12×12px inner (w-3 h-3)
+- **Label**: 14px semibold, leading-4, tracking-tight
+- **Buttons**: "Edit", "Delete", "Share"
+
+#### Products Table Date Range Subtitle
+- **Position**: Below product title in compact layouts
+- **Font**: 14px normal, Text-Secondary
+- **Opacity**: 80%
+- **Line-height**: 20px (leading-5)
+- **Tracking**: tight
+- **Content**: "25 Sep - 4 Oct" format
+
+#### Products Table Mobile Header (320px)
+- **Layout**: horizontal space-between
+- **Left Side**:
+  - Title: 20px semibold, Text-Primary, leading-7, tracking-tight
+  - Icons: search (24×24px) + three-dot menu (4×24px with 3 dots)
+- **Three-Dot Menu Icon**:
+  - Size: 4×24px container (w-1 h-6)
+  - Dots: 4×4px (w-1 h-1), rounded-full, neutral-500 (bg-neutral-500)
+  - Positions: top 2px, 9.88px, 17.75px
+- **Search Icon**: 24×24px, Text-Secondary, magnifying glass
+- **No Tab Filter**: Tabs hidden on mobile, only title and icons visible
+
 ---
 
 ### 7. Navigation
@@ -1431,6 +1518,6 @@ outline: 1.5px solid #f4f4f5; /* zinc-100 */
 
 ---
 
-**Последнее обновление**: Блок #20 (refined)
+**Последнее обновление**: Блок #20 (enhanced with data visualization)
 **Статус**: В процессе сборки
-**Добавлено**: Products Table (multi-layout responsive container with 1560px/660px/320px variants), Products Table Header (with search and tab integration), Search Input Variants (expanded 360px/288px and collapsed 48px states with light/dark mode borders), Products Table layouts (full 6-column table, medium with horizontal scroll, compact list view), Products Table Skeleton State (shade09-100 for light mode, shade04-100 for dark mode), Products Table columns (Product with optional checkbox 24×24px and 64×64px image with subtitle opacity-80, Status, Price with trend, Sales/Views with progress bars 32×6px Chart-Green indicator), Compact layout image variants (rounded-xl 12px and rounded-2xl 20px), Progress bars in Sales/Views columns (shade07-40/40 background with 4px Chart-Green indicator), Horizontal scroll with 64px fade overlay, Tab filter integration (Market/Traffic sources/Viewers)
+**Добавлено**: Products Table (multi-layout responsive container with 1560px/660px/320px variants), Products Table Header (with search and tab integration), Search Input Variants (expanded 360px/288px and collapsed 48px states with light/dark mode borders), Products Table layouts (full 6-column table, medium with horizontal scroll, compact list view), Products Table Skeleton State (shade09-100 for light mode, shade04-100 for dark mode), Products Table columns (Product with optional checkbox 24×24px and 64×64px image with subtitle opacity-80, Status, Price with trend, Sales/Views with progress bars 32×6px Chart-Green indicator), Compact layout image variants (rounded-xl 12px and rounded-2xl 20px), Progress bars in Sales/Views columns (shade07-40/40 background with 4px Chart-Green indicator), Horizontal scroll with 64px fade overlay, Tab filter integration (Market/Traffic sources/Viewers), Traffic Source Column (Impressions with value and trend badge), Traffic Source Visualization Bar (12px height with 3 segments: Social Media solid, Direct with 13-stripe pattern, Others with gradient), Traffic Source Legend (14×14px indicators with labels), Tooltip for traffic data (8×6px padding, dark background, 10×6px arrow pointer, color-coded source indicators), Action Buttons on hover (Edit/Delete/Share with 1.5px Stroke-Stroke2 outline on hover), Date Range Subtitle (14px Text-Secondary 80% opacity), Mobile Header (320px with three-dot menu icon 4×24px)
