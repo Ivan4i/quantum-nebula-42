@@ -718,15 +718,30 @@ letter-spacing: -0.02em; /* tracking-tight */
   - **Hover**: Backgrounds-highlight, radius 16px, border zinc-100
 
 #### Product Column (Image + Title)
-- **Layout**: horizontal flex, gap 16px (gap-4)
+- **Layout**: horizontal flex, gap 20px (gap-5)
+- **Checkbox** (optional):
+  - Size: 24×24px
+  - Border: 2px Stroke-Stroke2
+  - Radius: 6px (rounded-md)
+  - Position: before image
 - **Image Container**:
   - Size: 64×64px
   - Radius: 12px (rounded-xl)
   - Background: product image
+- **Content Container**:
+  - Layout: vertical flex, self-stretch, justify-center
+  - Gap: 0
 - **Title**:
   - Font: 16px semibold, Text-Primary
   - Line-clamp: 1
   - Line-height: 24px (leading-6)
+  - Tracking: tight
+- **Subtitle** (optional):
+  - Font: 14px normal, Text-Secondary
+  - Line-height: 20px (leading-5)
+  - Opacity: 80%
+  - Tracking: tight
+  - Content: "UI Design Kit", etc.
 
 #### Status Column
 - **Layout**: flex center
@@ -745,9 +760,26 @@ letter-spacing: -0.02em; /* tracking-tight */
 - **Trend Badge**: optional (см. Badges & Tags → Trend Badge)
 
 #### Sales/Views Columns
-- **Font**: 14px normal, Text-Primary
-- **Line-height**: 20px (leading-5)
-- **Alignment**: right
+- **Layout**: vertical flex, gap 10px (gap-2.5)
+- **Container**: inline-flex, width varies (w-24, w-36)
+- **Content**: value + progress bar
+- **Value Display**:
+  - Layout: horizontal flex, gap 8px (gap-2)
+  - **Text**:
+    - Font: 14px normal, Text-Primary
+    - Line-height: 20px (leading-5)
+    - Tracking: tight
+    - Width: varies (w-8, w-12)
+  - **Progress Bar** (optional):
+    - Container: 32px × 6px (w-8 h-1.5)
+    - Radius: 2px (rounded-sm)
+    - Background: shade07-40/40
+    - Progress indicator:
+      - Width: 4px (w-1)
+      - Height: 6px (h-1.5)
+      - Background: Chart-Green
+      - Position: left-aligned
+      - Radius: 2px (rounded-sm)
 
 #### Like Column
 - **Icon Button**: 24×24px heart icon
@@ -755,16 +787,27 @@ letter-spacing: -0.02em; /* tracking-tight */
 - **States**: default, hover, active (filled)
 
 #### Products Table Compact Layout (320px)
-- **Row Layout**: vertical flex, gap 8px
-- **Padding**: 20px (p-5)
-- **Border-bottom**: 1.5px border-Stroke-Subtle/10
+- **Container**: 320px width (w-80)
+- **Padding**: 12px (p-3)
+- **Border-bottom**: 1.5px
+- **Border Variants**:
+  - **Default**: border-Stroke-Subtle/10
+  - **Dark Mode**: border-Stroke-Subtle
+- **Row Layout**: vertical flex, gap 8px (gap-2)
 - **Structure**:
-  - **Top Row**: Image (64×64px) + Title + Price
-    - Gap: 16px (gap-4)
-    - Title: 16px semibold, flex-1, line-clamp-1
-    - Price: 14px normal, Text-Primary
-  - **Bottom Row** (если есть): Trend Badge
-    - Padding-left: 80px (to align with title)
+  - **Top Row**: Image (64×64px) + Title + optional content
+    - Layout: horizontal flex, gap 16px (gap-4)
+    - Image: 64×64px, rounded-xl or rounded-2xl
+    - Title Container: flex-1, vertical flex, gap 8px (gap-2)
+      - Title: 16px semibold, Text-Primary, line-clamp-1, leading-6, tracking-tight
+      - Bottom content: Price + Trend Badge
+        - Layout: horizontal flex, gap 8px (gap-2)
+        - Price: 14px normal, Text-Primary, leading-5, tracking-tight
+        - Trend Badge: см. Badges & Tags → Trend Badge
+
+#### Products Table Compact Image Variants
+- **Rounded-xl (12px)**: Standard product images
+- **Rounded-2xl (20px)**: Alternative variant for some product types
 
 #### Products Table Skeleton State
 - **Row Structure**: same as data rows
@@ -1388,6 +1431,6 @@ outline: 1.5px solid #f4f4f5; /* zinc-100 */
 
 ---
 
-**Последнее обновление**: Блок #20
+**Последнее обновление**: Блок #20 (refined)
 **Статус**: В процессе сборки
-**Добавлено**: Products Table (multi-layout responsive container with 1560px/660px/320px variants), Products Table Header (with search and tab integration), Search Input Variants (expanded 360px/288px and collapsed 48px states with light/dark mode borders), Products Table layouts (full 6-column table, medium with horizontal scroll, compact list view), Products Table Skeleton State (shade09-100 for light mode, shade04-100 for dark mode), Products Table columns (Product with 64×64px image, Status, Price with trend, Sales, Views, Like), Horizontal scroll with 64px fade overlay, Tab filter integration (Market/Traffic sources/Viewers)
+**Добавлено**: Products Table (multi-layout responsive container with 1560px/660px/320px variants), Products Table Header (with search and tab integration), Search Input Variants (expanded 360px/288px and collapsed 48px states with light/dark mode borders), Products Table layouts (full 6-column table, medium with horizontal scroll, compact list view), Products Table Skeleton State (shade09-100 for light mode, shade04-100 for dark mode), Products Table columns (Product with optional checkbox 24×24px and 64×64px image with subtitle opacity-80, Status, Price with trend, Sales/Views with progress bars 32×6px Chart-Green indicator), Compact layout image variants (rounded-xl 12px and rounded-2xl 20px), Progress bars in Sales/Views columns (shade07-40/40 background with 4px Chart-Green indicator), Horizontal scroll with 64px fade overlay, Tab filter integration (Market/Traffic sources/Viewers)
