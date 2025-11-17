@@ -630,6 +630,180 @@ letter-spacing: -0.02em; /* tracking-tight */
   - shade08-100 → shade09-100 gradient (Others)
   - Chart-Green (активный)
 
+#### Products Table (Multi-layout Container)
+- **Padding**: 12px
+- **Radius**: 32px
+- **Background**: Backgrounds-surface2
+- **Shadow**: --shadow-card-1 + --shadow-card-2
+- **Border**: 1.5px outline, offset -1.5px
+- **Gap**: 8px (between header and content)
+- **Variants**:
+  - **Light Mode**: outline white
+  - **Dark Mode**: outline Stroke-Stroke2
+- **Responsive Layouts**:
+  - **Full Table (1560px)**: All columns visible, no scroll
+  - **Medium Table (660px)**: Horizontal scroll with fade overlay
+  - **Compact List (320px)**: List view with image + title + price + trend
+
+#### Products Table Header
+- **Height**: 48px
+- **Padding**: 12px
+- **Layout**: space-between (search left, tabs right)
+- **Gap**: 8px (gap-2)
+- **Search Input**: см. Search Input Variants (below)
+- **Tab Filter**: см. Tab Filter Navigation (section 7)
+
+#### Search Input Variants (Products Table)
+- **Height**: 48px
+- **Radius**: 90px
+- **Background**: Backgrounds-surface1
+- **Icon**: 24×24px magnifying glass
+- **Font**: 14px normal, Text-Primary
+- **States**:
+  - **Expanded (Large)**:
+    - Width: 360px (w-90)
+    - Padding: 12px (left), 20px (right)
+    - Input visible with placeholder: "Products"
+    - Border variants:
+      - **Light Mode**: no border
+      - **Dark Mode**: 1.5px border-Stroke-Subtle
+  - **Expanded (Medium)**:
+    - Width: 288px (w-72)
+    - Same padding and states as Large
+  - **Collapsed (Icon-only)**:
+    - Width: 48px
+    - Padding: 12px
+    - Only icon visible (centered)
+    - Border: 1.5px Stroke-Stroke2, offset -1.5px
+
+#### Products Table Content Area
+- **Padding**: 20px
+- **Layout**: varies by breakpoint
+- **Responsive Behavior**:
+  - **1560px**: Full table layout, overflow visible
+  - **660px**: Scrollable table with fade overlay (right side)
+  - **320px**: Vertical list layout, no table structure
+
+#### Products Table (Full Layout - 1560px)
+- **Column Structure**: 6 columns
+  - Product (flex, image + title)
+  - Status (auto width)
+  - Price (auto width, right-aligned)
+  - Sales (auto width, right-aligned)
+  - Views (auto width, right-aligned)
+  - Like (auto width, icon button)
+- **Row Height**: auto (padding-based)
+- **Row Padding**: 16px (py-4)
+- **Row Border**: 1.5px border-Stroke-Subtle/10 (bottom, except last)
+- **Row Radius**: 16px (on hover)
+
+#### Products Table Header Row
+- **Padding**: 16px vertical (py-4)
+- **Border-bottom**: 1.5px
+- **Border Variants**:
+  - **Default**: border-Stroke-Subtle/10
+  - **Dark Mode**: border-Stroke-Subtle (full opacity)
+- **Column Headers**:
+  - Font: 12px normal, Text-Tertiary
+  - Opacity: 80%
+  - Line-height: 20px (leading-5)
+  - Alignment: left (Product, Status), right (Price, Sales, Views, Like)
+
+#### Products Table Data Row
+- **Padding**: 16px vertical (py-4)
+- **Gap**: 24px (gap-6) between columns
+- **Border-bottom**: 1.5px border-Stroke-Subtle/10 (except last)
+- **States**:
+  - **Default**: transparent background
+  - **Hover**: Backgrounds-highlight, radius 16px, border zinc-100
+
+#### Product Column (Image + Title)
+- **Layout**: horizontal flex, gap 16px (gap-4)
+- **Image Container**:
+  - Size: 64×64px
+  - Radius: 12px (rounded-xl)
+  - Background: product image
+- **Title**:
+  - Font: 16px semibold, Text-Primary
+  - Line-clamp: 1
+  - Line-height: 24px (leading-6)
+
+#### Status Column
+- **Layout**: flex center
+- **Badge**: Status Badge (см. Badges & Tags)
+  - Variants: "New" (green), "Hot" (orange)
+  - Height: 20px
+  - Padding: 8px (x)
+  - Radius: 4px
+  - Font: 12px
+
+#### Price Column
+- **Layout**: flex, gap 8px (gap-2)
+- **Value**:
+  - Font: 14px normal, Text-Primary
+  - Line-height: 20px (leading-5)
+- **Trend Badge**: optional (см. Badges & Tags → Trend Badge)
+
+#### Sales/Views Columns
+- **Font**: 14px normal, Text-Primary
+- **Line-height**: 20px (leading-5)
+- **Alignment**: right
+
+#### Like Column
+- **Icon Button**: 24×24px heart icon
+- **Color**: Text-Secondary
+- **States**: default, hover, active (filled)
+
+#### Products Table Compact Layout (320px)
+- **Row Layout**: vertical flex, gap 8px
+- **Padding**: 20px (p-5)
+- **Border-bottom**: 1.5px border-Stroke-Subtle/10
+- **Structure**:
+  - **Top Row**: Image (64×64px) + Title + Price
+    - Gap: 16px (gap-4)
+    - Title: 16px semibold, flex-1, line-clamp-1
+    - Price: 14px normal, Text-Primary
+  - **Bottom Row** (если есть): Trend Badge
+    - Padding-left: 80px (to align with title)
+
+#### Products Table Skeleton State
+- **Row Structure**: same as data rows
+- **Skeleton Elements**:
+  - Image placeholder: 64×64px rounded-xl
+  - Title line: 208px × 8px (w-52 h-2)
+  - Price line: 64px × 8px (w-16 h-2)
+  - Other cells: 64px × 8px (w-16 h-2)
+- **Skeleton Color Variants**:
+  - **Light Mode**: shade09-100
+  - **Dark Mode**: shade04-100
+- **Radius**: 2px (rounded-sm) for lines
+- **Animation**: shimmer effect (1.5s)
+
+#### Products Table Horizontal Scroll (660px)
+- **Container**:
+  - Width: 660px
+  - Overflow-x: hidden
+  - Position: relative
+- **Table Content**:
+  - Width: larger than container (e.g., 900px+)
+  - Horizontal scroll enabled
+  - Padding: 20px
+- **Fade Overlay**:
+  - Width: 64px (w-16)
+  - Height: full table height
+  - Position: absolute right
+  - Gradient variants:
+    - **Light Mode**: white → white/0 (left to right)
+    - **Dark Mode**: zinc-900 → zinc-900/0 (left to right)
+  - Pointer-events: none
+
+#### Products Table Tab Filter Integration
+- **Position**: top-right of header
+- **Tabs**: "Market", "Traffic sources", "Viewers"
+- **Implementation**: см. Navigation → Tab Filter (section 7)
+- **Width**: auto (based on tab content)
+- **Gap**: 4px between tabs
+
 ---
 
 ### 7. Navigation
@@ -1204,9 +1378,16 @@ outline: 1.5px solid #f4f4f5; /* zinc-100 */
 | Stats Overview (S) | 320px |
 | Stat Card icon | 64×64px |
 | Mini chart | 96×80px |
+| Products Table (Full) | 1560px |
+| Products Table (Medium) | 660px |
+| Products Table (Compact) | 320px |
+| Product image (table) | 64×64px |
+| Search input (expanded L) | 360px |
+| Search input (expanded M) | 288px |
+| Search input (collapsed) | 48px |
 
 ---
 
-**Последнее обновление**: Блок #19
+**Последнее обновление**: Блок #20
 **Статус**: В процессе сборки
-**Добавлено**: Activity Card (320px panel with header, tab filter, data table), Activity Card Tab Filter (flex-1 equal distribution tabs), Activity Table (header and data rows with date ranges and trend badges), Border variants for table rows (Stroke-Subtle/10 and Stroke-Subtle)
+**Добавлено**: Products Table (multi-layout responsive container with 1560px/660px/320px variants), Products Table Header (with search and tab integration), Search Input Variants (expanded 360px/288px and collapsed 48px states with light/dark mode borders), Products Table layouts (full 6-column table, medium with horizontal scroll, compact list view), Products Table Skeleton State (shade09-100 for light mode, shade04-100 for dark mode), Products Table columns (Product with 64×64px image, Status, Price with trend, Sales, Views, Like), Horizontal scroll with 64px fade overlay, Tab filter integration (Market/Traffic sources/Viewers)
