@@ -50,6 +50,11 @@
 --pending-bg: rgba(245, 158, 11, 0.05);     /* amber-500/5 */
 --pending-border: rgba(245, 158, 11, 0.20); /* amber-500/20 */
 --pending-text: #f59e0b;                     /* amber-500 */
+
+/* Closed / Neutral */
+--closed-bg: rgba(shade07, 0.10);           /* shade07-10/10 */
+--closed-border: rgba(shade08, 0.10);       /* shade08-10/10 */
+--closed-text: Text-Secondary;
 ```
 
 ### Neutral Colors
@@ -73,16 +78,19 @@
 --stroke-stroke2: /* Основные border */
 --stroke-subtle: /* Тонкие разделители с opacity-10 */
 --stroke-borderborder: /* Акцентные borders */
+--stroke-highlight: /* Highlight border для interactive элементов (50% opacity) */
 
 /* Shades */
 --shade01-100: /* white - для иконок на цветном фоне */
 --shade04-50: /* с opacity-50 - скелетоны */
 --shade04-100: /* для dark mode OAuth button */
 --shade05-30: /* с opacity-30 - icon background dark mode active */
+--shade07-10: /* с opacity-10 - Closed badge background */
 --shade07-20: /* с opacity-20 - icon background light mode active */
 --shade07-40: /* с opacity-40 - графики (Social media) */
 --shade07-50: /* с opacity-50 - input borders default */
 --shade07-60: /* с opacity-60 - графики (Direct) паттерн */
+--shade08-10: /* с opacity-10 - Closed badge border */
 --shade08-80: /* с opacity-80 - активная кнопка тулбара */
 --shade08-100: /* Градиентная часть графиков (Others) */
 --shade09-100: /* Вторая часть градиента */
@@ -733,6 +741,145 @@ letter-spacing: -0.02em; /* tracking-tight */
   - Fee: 36px (w-9)
   - Net: 48px (w-12, right-aligned at 39px offset)
 
+#### Product Order Table
+- **Width**: 1180px
+- **Container Padding**: 16px (horizontal), 32px (bottom - pb-8)
+- **Gap**: 24px (gap-6) между Product и остальными колонками
+- **Layout**:
+  - Product section: 384px (w-96)
+  - Flex-1 container для остальных колонок (space-between)
+
+#### Product Order Table Header
+- **Padding**: 16px
+- **Border-bottom**: 1.5px Stroke-Subtle/10 (light mode) или Stroke-Subtle (dark mode)
+- **Gap**: 24px (gap-6) - matches data row gap
+- **Font**: 12px, Text-Tertiary, opacity-80
+- **Checkbox**: 24×24px, border-2 Stroke-Stroke2
+- **Columns**:
+  - Product: 384px (checkbox + label)
+  - Status: 112px (w-28)
+  - Price: 80px (w-20)
+  - Time: 112px (w-28)
+  - Customer: 192px (w-48)
+
+#### Product Order Table Row
+- **Padding**: 16px
+- **Gap**: 24px (gap-6) между секциями
+- **Height**: 64px (data row) или auto (skeleton)
+- **States**:
+  - **Default (Light Mode)**:
+    - Background: transparent
+    - Border-bottom: none
+  - **Default (Dark Mode)**:
+    - Background: transparent
+    - Border-bottom: none
+  - **Hover (Light Mode)**:
+    - Background: Backgrounds-highlight
+    - Radius: 16px (rounded-2xl)
+    - Shadow: --shadow-hover-1 + --shadow-hover-2 + --shadow-hover-inset (3 layers)
+    - Border: 1.5px zinc-100
+    - Action buttons появляются
+  - **Hover (Dark Mode)**:
+    - Background: Backgrounds-highlight
+    - Radius: 16px (rounded-2xl)
+    - Border: 1.5px zinc-100
+    - NO shadows (отличие от light mode)
+    - Checkbox border: Stroke-Highlight/50
+    - Action buttons появляются
+  - **Underline (Divider row)**:
+    - Border-bottom: 1.5px Stroke-Subtle/10 (light mode)
+    - Border-bottom: 1.5px Stroke-Subtle (dark mode)
+
+#### Product Cell (Enhanced)
+- **Width**: 384px (w-96)
+- **Height**: 64px (h-16)
+- **Gap**: 20px (gap-5) между элементами
+- **Checkbox**: 24×24px, border-2, rounded-md
+- **Product Image**: 64×64px, rounded-xl
+- **Content Section**:
+  - Title: 16px (text-base) semibold, leading-24px (leading-6), Text-Primary, line-clamp-1
+  - Subtitle: 14px, Text-Secondary, opacity-80
+- **With Action Buttons** (показываются при hover):
+  - Subtitle заменяется на row actions
+  - Buttons появляются с левым отступом -4px
+
+#### Row Action Buttons
+- **Height**: 24px (h-6)
+- **Padding**: 4px (left - pl-1), 6px (right - pr-1.5), 4px (y - py-1)
+- **Radius**: 6px (rounded-md)
+- **Gap**: 8px (gap-2) между кнопками, 4px (gap-1) между иконкой и текстом
+- **Font**: 14px semibold, leading-16px (leading-4)
+- **Icon**: 16×16px (w-4 h-4), stroke 1.5px, offset -0.75px
+- **States**:
+  - **Default**:
+    - Background: transparent
+    - Text: Text-Secondary, opacity-80
+    - Icon: Text-Secondary
+  - **Hover**:
+    - Background: transparent
+    - Border: 1.5px Stroke-Stroke2
+    - Text: Text-Primary, opacity-80
+    - Icon: Text-Primary
+- **Button Types**:
+  - Detail: eye icon
+  - Refund: arrow return icon
+  - Decline: X icon
+
+#### Product Order Status Badge
+- **Height**: 28px
+- **Padding**: 8px (x), 6px (y - py-1.5)
+- **Radius**: 8px (rounded-lg)
+- **Border**: 1.5px outline, offset -1.5px
+- **Font**: 14px semibold, leading-16px (leading-4)
+- **Variants**:
+  - **Succeeded**:
+    - Background: rgba(22, 163, 74, 0.05) /* green-600/5 */
+    - Border: rgba(22, 163, 74, 0.20) /* green-600/20 */
+    - Text: Primary-primary02
+  - **In progress** (Pending):
+    - Background: rgba(245, 158, 11, 0.05) /* amber-500/5 */
+    - Border: rgba(245, 158, 11, 0.20) /* amber-500/20 */
+    - Text: #f59e0b /* amber-500 */
+  - **Closed** (новый neutral variant):
+    - Background: rgba(shade07, 0.10) /* shade07-10/10 */
+    - Border: rgba(shade08, 0.10) /* shade08-10/10 */
+    - Text: Text-Secondary
+
+#### Product Order Table Columns (Data)
+- **Product Column**: 384px (w-96)
+  - Checkbox + Image + Title/Subtitle or Action Buttons
+- **Status Column**: 112px (w-28)
+  - Status badge
+- **Price Column**: 80px (w-20)
+  - Text: Text-Primary, 14px, line-clamp-1
+- **Time Column**: 112px (w-28)
+  - Text: Text-Primary, 14px, line-clamp-1
+  - Format: "14 Mar, 3:15 PM"
+- **Customer Column**: 192px (w-48)
+  - Avatar: 36×36px (w-9 h-9), rounded-[64px]
+  - Name: 112px (w-28), Text-Primary, 14px, line-clamp-1
+  - Gap: 12px (gap-3) между avatar и name
+
+#### Product Order Skeleton Row
+- **Structure**: same layout as data row
+- **Skeleton Elements**:
+  - Checkbox: 24×24px, opacity-80, rounded-md
+  - Product Image: 64×64px, rounded-xl
+  - Product Title Lines: 2 lines
+    - Line 1: 96px (w-24), height 8px (h-2)
+    - Line 2: 160px (w-40), height 8px (h-2)
+    - Gap: 8px (gap-2)
+    - Vertical offset: 12px from top
+  - Status: 64px (w-16), height 8px (h-2)
+  - Price: 48px (w-12), height 8px (h-2)
+  - Time: 112px (w-28), height 8px (h-2)
+  - Customer Avatar: 36×36px, rounded-[64px]
+  - Customer Name: 64px (w-16), height 8px (h-2)
+- **Colors**:
+  - Light Mode: shade09-100
+  - Dark Mode: shade04-100
+- **All skeleton bars**: rounded 4px (rounded)
+
 ---
 
 ### 7. Navigation
@@ -1072,7 +1219,9 @@ outline: 1.5px solid #f4f4f5; /* zinc-100 */
 | Card (large) | 800px |
 | Card (XL) | 1180px |
 | Transaction table | 592px |
+| Product order table | 1180px |
 | Button (icon) | 48×48px |
+| Row action button | 24px height |
 | Input (height) | 48px |
 | Search (width) | 288-360px |
 | Chip (min-width) | 208px |
@@ -1080,20 +1229,24 @@ outline: 1.5px solid #f4f4f5; /* zinc-100 */
 | Avatar (L) | 48×48px |
 | Avatar (M) | 32×32px |
 | Avatar (S) | 20×20px |
+| Customer avatar | 36×36px |
 | Icon (default) | 24×24px |
+| Icon (small) | 16×16px |
 | Badge (height) | 20px |
 | Trend badge | auto |
 | Transaction status badge | 28px |
+| Product status badge | 28px |
 | Checkbox | 24×24px |
 | Unread dot | 12×12px |
 | Online indicator | 12×12px |
 | Avatar (w/ status) | 44×44px |
 | Settings icon | 44×44px |
 | List item (height) | 64px |
+| Table row (height) | 64px |
 | Settings panel | 384px |
 
 ---
 
-**Последнее обновление**: Блок #18
+**Последнее обновление**: Блок #19
 **Статус**: В процессе сборки
-**Добавлено**: Transaction Table Card (592px), Transaction Table Header with embedded Search, Transaction Status Badge (Pending/Succeeded/Paid), Transaction Table Structure (5 columns: Date, Status, Earnings, Fee, Net), Transaction Skeleton Row, Pending color tokens (amber-500), Light/Dark mode table variants
+**Добавлено**: Product Order Table (1180px), Product Cell with checkbox (384px × 64px), Row Action Buttons (Detail/Refund/Decline), Product Order Status Badge (Succeeded/In progress/Closed), Customer Avatar (36×36px), Product Order Skeleton Row, Closed/Neutral status variant (shade07-10, shade08-10), Stroke-Highlight token, Enhanced table hover states with action buttons
