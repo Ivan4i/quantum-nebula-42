@@ -1815,7 +1815,103 @@ Standard fields displayed:
 
 ---
 
-### 28. Special Effects
+### 28. Table Header Row (Detailed)
+
+#### Table Header Row
+- **Width**: 1148px (container width)
+- **Padding**: 16px (p-4)
+- **Border-bottom**: 1.5px Stroke-Subtle/10
+- **Layout**: inline-flex, gap 24px (gap-6), justify-start
+- **Overflow**: hidden
+
+#### Header Structure
+- **Left Section**: Checkbox + "Product" label (384px, w-96)
+  - Layout: horizontal, gap 20px (gap-5)
+- **Right Section**: Column headers (flex-1)
+  - Layout: justify-between, items-center
+  - Padding: 8px (y) - py-2
+
+#### Checkbox Column
+- **Checkbox**: 24×24px
+  - Status attribute: data-status="placeholder"
+  - Container: relative overflow-hidden
+  - Element: 24×24px at left-0 top-0
+  - Border: 2px Stroke-Stroke2, rounded-md
+- **Label**: "Product"
+  - Font: 12px (text-xs) normal, leading-20px
+  - Color: Text-Tertiary
+  - Opacity: 0.8 (opacity-80)
+
+#### Column Headers (Standard)
+- **Font**: 12px (text-xs) normal, leading-20px
+- **Color**: Text-Tertiary
+- **Opacity**: 0.8 (opacity-80)
+- **Layout**: flex-col or inline-flex, gap 10px (gap-2.5)
+- **Alignment**: justify-start, items-start
+
+#### Column Widths
+- **Product**: 384px (w-96) - includes checkbox
+- **Status**: 80px (w-20)
+- **Price**: 56px (w-14)
+- **Sales**: 144px (w-36)
+- **Views**: 96px (w-24)
+- **Like**: 96px (w-24)
+
+---
+
+### 29. Action Buttons (Small/Compact)
+
+#### Delete Button (Compact)
+- **Padding**: 4px (left), 6px (right), 4px (y) - pl-1 pr-1.5 py-1
+- **Radius**: 6px (rounded-md)
+- **Layout**: inline-flex, gap 4px (gap-1)
+- **Icon**: 16×16px (w-4 h-4)
+  - Inner icon: 12×12px (w-3 h-3)
+  - Position: left-[1.83px] top-[1.83px]
+  - Stroke: 1.5px, offset -0.75px
+- **Text**: 14px semibold, leading-16px
+- **Opacity**: 0.8 (opacity-80) on text
+
+#### Delete Button States
+
+**Default:**
+- **Background**: transparent
+- **Border**: none
+- **Icon**: Text-Secondary
+- **Text**: Text-Secondary, opacity-80
+
+**Active/Hover:**
+- **Background**: transparent
+- **Border**: 1.5px outline Stroke-Stroke2, offset -1.5px
+- **Icon**: Text-Primary
+- **Text**: Text-Primary, opacity-80
+
+---
+
+### 30. Checkbox States (Extended)
+
+#### Checkbox (Unchecked)
+- **Size**: 24×24px (w-6 h-6)
+- **Border**: 2px Stroke-Stroke2
+- **Radius**: 6px (rounded-md)
+- **Background**: transparent
+- **State**: data-status="placeholder"
+
+#### Checkbox (Checked/Indeterminate)
+- **Size**: 24×24px (w-6 h-6)
+- **Border**: 2px Primary-primary01
+- **Opacity**: 0.3 (opacity-30) on border
+- **Radius**: 6px (rounded-md)
+- **Inner Fill**:
+  - Size: 16×16px (w-4 h-4)
+  - Position: left-[4px] top-[4px] (centered)
+  - Background: Primary-primary01
+  - Radius: 4px (rounded-sm)
+  - No opacity (full opacity)
+
+---
+
+### 31. Special Effects
 
 #### Fade Overlay (для горизонтального скролла)
 - **Width**: 112px (w-28)
@@ -2001,9 +2097,13 @@ outline: 1.5px solid #f4f4f5; /* zinc-100 */
 | Bulk Action Button | auto×48px |
 | Deselect Button | auto×48px |
 | Status Badge (Offline) | auto×24px |
+| Table Header Row | 1148px (width) |
+| Table Header Checkbox | 24×24px |
+| Delete Button (compact) | auto (16×16px icon) |
+| Checkbox (checked inner fill) | 16×16px |
 
 ---
 
-**Последнее обновление**: Блок #24
+**Последнее обновление**: Блок #25
 **Статус**: В процессе сборки
-**Добавлено**: Search Input States (comprehensive documentation of default, disabled, hover/elevated with KPI shadows, placeholder with cursor, focused light/dark modes, clear button variant), Time + Progress Indicators (32px elements with duration text + small 6px progress bar), Table Headers & Toolbars (dashboard headers with title + search + tabs, selection state with bulk actions), Status Badges Extended (Offline/Error variant with red-600 colors, Active/Success detailed specs), Bulk Action Buttons (Deselect, Delete, Set status buttons)
+**Добавлено**: Table Header Row (1148px detailed structure with checkbox + column headers: Product, Status, Price, Sales, Views, Like - all with specific widths and 12px text-xs styling), Action Buttons Small/Compact (Delete button with 16×16px icon, 6px radius, default and active/hover states), Checkbox States Extended (unchecked with Stroke-Stroke2 border, checked/indeterminate with Primary-primary01 border at opacity-30 + 16×16px inner fill)
