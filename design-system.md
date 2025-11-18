@@ -1911,7 +1911,134 @@ Standard fields displayed:
 
 ---
 
-### 31. Special Effects
+### 31. File Upload Zones & File Preview
+
+#### File Upload Zone (Image)
+- **Width**: 384px (w-96)
+- **Height**: 224px (h-56)
+- **Padding**: 32px (x), 64px (y) - px-8 py-16
+- **Radius**: 32px (rounded-[32px])
+- **Layout**: flex-col, center aligned, gap 8px (gap-2)
+- **Overflow**: hidden
+- **Components**:
+  - Upload icon (32×32px)
+  - Text instructions
+
+#### File Upload Zone States (Image)
+
+**Default (Light Mode):**
+- **Background**: Backgrounds-surface3/50
+- **Border**: none
+- **Icon**: 32×32px, Text-Secondary
+- **Text**:
+  - "Drag and drop an image, or" (14px normal, Text-Secondary)
+  - "Browse" (14px bold, Text-Primary)
+- **Attribute**: data-light-mode="True", data-state="default"
+
+**Active/Dragging (Light Mode):**
+- **Background**: Backgrounds-surface1
+- **Border**: 2px outline Primary-primary01, offset -2px
+- **Icon**: 32×32px, Text-Secondary, opacity-20
+- **Text**: opacity-20
+- **Upload Thumbnail**: 44×44px image appears
+  - Position: left-[220px] top-[45px]
+  - Radius: rounded
+- **Success Indicator**: 32×32px icon overlay
+  - Position: left-[247px] top-[78px]
+
+**Dark Mode:**
+- **Background**: shade04-100
+- **Border**: none
+- **Icon**: 32×32px, Text-Secondary
+- **Text**: Same as light mode (14px)
+
+**Active/Dragging (Dark Mode):**
+- **Background**: Backgrounds-surface1
+- **Border**: 2px outline Primary-primary01, offset -2px
+- **Icon**: opacity-20
+- **Text**: opacity-20
+- **Upload Thumbnail**: Same as light mode
+
+#### Upload Icon
+- **Size**: 32×32px (w-8 h-8)
+- **Components**:
+  - Main icon: 28×24px at left-[1px] top-[3px]
+  - Plus icon: 14×14px at left-[16.50px] top-[14.50px]
+- **Color**: Text-Secondary (or bg-Text-Secondary for filled version)
+
+#### Success Upload Indicator
+- **Size**: 32×32px (w-8 h-8)
+- **Position**: Overlays upload thumbnail at bottom-right
+- **Components**:
+  - **Circle background**: 16×16px
+    - Position: left-[9px] top-[14.59px]
+    - Gradient: lime-500 → green-700
+    - Radius: 30px (rounded-[30px])
+  - **Checkmark icon**: White overlay
+    - Top part: 12×16px at left-[8px] top-[1px]
+    - Bottom part: 10×10px at left-[13px] top-[18.59px]
+    - Accent: 8×12px black at left-[9px] top-[3.41px]
+
+---
+
+#### File Upload Zone (Product File)
+- **Width**: 384px (w-96)
+- **Height**: 224px (h-56)
+- **Padding**: 32px (x), 64px (y) - px-8 py-16
+- **Radius**: 32px (rounded-[32px])
+- **Layout**: flex-col, center aligned, gap 8px (gap-2)
+- **Text**:
+  - "Drag and drop product file, or" (14px normal, Text-Secondary)
+  - "Browse" (14px bold, Text-Primary)
+- **Variants**: Same states as Image upload zone
+
+---
+
+#### File Preview Card (Uploaded File)
+- **Width**: 384px (full container width)
+- **Padding**: 24px (p-6)
+- **Radius**: 24px (rounded-3xl)
+- **Border**: 1.5px outline Stroke-Stroke2, offset -1.5px
+- **Layout**: inline-flex, justify-start, gap 24px (gap-6)
+- **Overflow**: hidden
+
+#### File Info Section
+- **Layout**: flex-1, flex-col, gap 8px (gap-2)
+- **File Name**:
+  - Font: 16px (text-base) semibold, leading-24px
+  - Color: Text-Primary
+  - Line clamp: 1
+  - Example: "Bento Pro v 2.0 – Illustration Kit.zip"
+- **File Size Row**:
+  - Layout: inline-flex, gap 8px (gap-2)
+  - Icon: 24×24px zip/archive icon
+  - Size text: 16px normal, leading-24px, Text-Secondary
+  - Example: "128 MB"
+
+#### File Size Icon (ZIP/Archive)
+- **Size**: 24×24px (w-6 h-6)
+- **Color**: Primary-primary02 (green)
+- **Components**:
+  - Bars at different positions (representing archive icon)
+  - Top part: 16×10px at left-[3px] top-[1px]
+  - Bottom bars: 2×8px, 6×8px, 6×8px at various positions
+
+#### Delete Button (File Preview)
+- **Size**: 48×48px (w-12 h-12)
+- **Padding**: 14px (p-3.5)
+- **Radius**: 32px (rounded-[32px])
+- **Layout**: center aligned, gap 10px (gap-2.5)
+- **Icon**: 24×24px (w-6 h-6)
+  - Inner X icon: 20×20px (w-5 h-5)
+  - Position: left-[2.75px] top-[2.75px]
+  - Color: Text-Light
+  - Stroke: 1.5px, offset -0.75px
+- **Variants**: Gradient button (dark/light)
+- **Attributes**: data-light-mode, data-state="Default", data-style="Icon"
+
+---
+
+### 32. Special Effects
 
 #### Fade Overlay (для горизонтального скролла)
 - **Width**: 112px (w-28)
@@ -2101,9 +2228,15 @@ outline: 1.5px solid #f4f4f5; /* zinc-100 */
 | Table Header Checkbox | 24×24px |
 | Delete Button (compact) | auto (16×16px icon) |
 | Checkbox (checked inner fill) | 16×16px |
+| File Upload Zone | 384×224px |
+| Upload Icon | 32×32px |
+| Upload Thumbnail | 44×44px |
+| Success Upload Indicator | 32×32px |
+| File Preview Card | 384px (width) |
+| File Size Icon (ZIP) | 24×24px |
 
 ---
 
-**Последнее обновление**: Блок #25
+**Последнее обновление**: Блок #26
 **Статус**: В процессе сборки
-**Добавлено**: Table Header Row (1148px detailed structure with checkbox + column headers: Product, Status, Price, Sales, Views, Like - all with specific widths and 12px text-xs styling), Action Buttons Small/Compact (Delete button with 16×16px icon, 6px radius, default and active/hover states), Checkbox States Extended (unchecked with Stroke-Stroke2 border, checked/indeterminate with Primary-primary01 border at opacity-30 + 16×16px inner fill)
+**Добавлено**: File Upload Zones (384×224px drag-and-drop areas for images and product files, default/active/dragging states with Primary-primary01 2px outline, light/dark mode variants with surface3/50 or shade04-100 backgrounds), Upload Icon (32×32px with plus indicator), Success Upload Indicator (32×32px with lime-500→green-700 gradient circle + white checkmark overlay), File Preview Card (384px width with 24px padding, file name + size display, ZIP icon 24×24px in Primary-primary02, delete button 48×48px gradient variant)
