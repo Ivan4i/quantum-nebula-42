@@ -867,18 +867,43 @@ letter-spacing: -0.02em; /* tracking-tight */
   - Product Image: 64×64px, rounded-xl
   - Product Title Lines: 2 lines
     - Line 1: 96px (w-24), height 8px (h-2)
-    - Line 2: 160px (w-40), height 8px (h-2)
+    - Line 2: 160px (w-40) or 192px (w-48), height 8px (h-2)
     - Gap: 8px (gap-2)
     - Vertical offset: 12px from top
-  - Status: 64px (w-16), height 8px (h-2)
-  - Price: 48px (w-12), height 8px (h-2)
-  - Time: 112px (w-28), height 8px (h-2)
+  - Status: 64px (w-16) or 56px (w-14), height 8px (h-2)
+  - Price: 48px (w-12) or 56px (w-14), height 8px (h-2)
+  - Time: 112px (w-28) or 56px (w-14), height 8px (h-2)
   - Customer Avatar: 36×36px, rounded-[64px]
-  - Customer Name: 64px (w-16), height 8px (h-2)
+  - Customer Name: 64px (w-16) or 56px (w-14), height 8px (h-2)
 - **Colors**:
   - Light Mode: shade09-100
   - Dark Mode: shade04-100
 - **All skeleton bars**: rounded 4px (rounded)
+- **Variants**:
+  - **Full Width (1148px)**: Flex-1 layout с 5 skeleton bars для колонок
+  - **Fixed Width**: Specific widths для каждой колонки
+
+#### Transaction Table Standalone Row (без Card wrapper)
+- **Container Width**: 800px
+- **Content Width**: 768px
+- **Padding**: 16px
+- **Border**: 1.5px Stroke-Subtle/10 (bottom)
+- **Layout**: space-between
+- **Use Case**: для встраивания в другие контейнеры без card styling
+- **Columns**: same as Transaction Table (Date, Status, Earnings, Fee, Net)
+- **Skeleton Row**: same structure, no bottom border
+
+#### Status Badge Quick Reference
+**Transaction Variants** (py-0.5, h-7):
+- Pending: amber-500
+- Succeeded: green-600, Primary-primary02
+- Paid: green-600, Primary-primary02
+
+**Product Order Variants** (py-1.5):
+- In progress: amber-500
+- Succeeded: green-600, Primary-primary02
+- Paid: green-600, Primary-primary02
+- Closed: shade07-10/shade08-10, Text-Secondary
 
 ---
 
@@ -1218,8 +1243,10 @@ outline: 1.5px solid #f4f4f5; /* zinc-100 */
 | Card (medium) | 728px |
 | Card (large) | 800px |
 | Card (XL) | 1180px |
-| Transaction table | 592px |
+| Transaction table card | 592px |
+| Transaction table row | 800px (768px content) |
 | Product order table | 1180px |
+| Product skeleton (full) | 1148px |
 | Button (icon) | 48×48px |
 | Row action button | 24px height |
 | Input (height) | 48px |
@@ -1247,6 +1274,6 @@ outline: 1.5px solid #f4f4f5; /* zinc-100 */
 
 ---
 
-**Последнее обновление**: Блок #19
+**Последнее обновление**: Блок #20
 **Статус**: В процессе сборки
-**Добавлено**: Product Order Table (1180px), Product Cell with checkbox (384px × 64px), Row Action Buttons (Detail/Refund/Decline), Product Order Status Badge (Succeeded/In progress/Closed), Customer Avatar (36×36px), Product Order Skeleton Row, Closed/Neutral status variant (shade07-10, shade08-10), Stroke-Highlight token, Enhanced table hover states with action buttons
+**Добавлено**: Standalone Table Components - Transaction Table Row (800px/768px без card wrapper), Product Order Skeleton Row Full Width (1148px with Flex-1 layout), Status Badge Quick Reference (все варианты Transaction и Product Order badges), Flexible skeleton widths для различных use cases
