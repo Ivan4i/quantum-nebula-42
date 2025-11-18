@@ -45,6 +45,11 @@
 --warning-bg: rgba(234, 88, 12, 0.05);      /* orange-600/5 */
 --warning-border: rgba(234, 88, 12, 0.20);  /* orange-600/20 */
 --warning-text: #ea580c;                     /* orange-600 */
+
+/* Pending */
+--pending-bg: rgba(245, 158, 11, 0.05);     /* amber-500/5 */
+--pending-border: rgba(245, 158, 11, 0.20); /* amber-500/20 */
+--pending-text: #f59e0b;                     /* amber-500 */
 ```
 
 ### Neutral Colors
@@ -630,6 +635,104 @@ letter-spacing: -0.02em; /* tracking-tight */
   - shade08-100 → shade09-100 gradient (Others)
   - Chart-Green (активный)
 
+#### Transaction Table Card
+- **Width**: 592px
+- **Background**: Backgrounds-surface2
+- **Radius**: 32px
+- **Shadow**: --shadow-card-1 + --shadow-card-2
+- **Border**: 1.5px outline, offset -1.5px
+- **Gap**: 12px (gap-3) между секциями
+- **Overflow**: hidden
+- **Dark Mode Variant**:
+  - Border: outline-white (вместо default)
+  - Shadow: 0px 5px 1.5px -4px rgba(8,8,8,0.50) (более заметная вторая тень)
+
+#### Transaction Table Header Section
+- **Padding**: 12px
+- **Layout**: space-between
+- **Title Section**:
+  - Padding-left: 20px
+  - Title: 20px semibold, leading-28px, Text-Primary
+- **Search Input** (embedded):
+  - Width: 288px (w-72)
+  - Padding: 12px (left), 20px (right), 12px (y)
+  - Radius: 90px
+  - Background: Backgrounds-surface1
+  - Font: 14px, Text-Secondary
+  - Icon: 24×24px search icon (left)
+  - **Light Mode (True)**: no border
+  - **Dark Mode (False)**: border 1.5px Stroke-Subtle
+
+#### Transaction Table Structure
+- **Container Padding**: 16px (horizontal), 16px (bottom)
+- **Header Row**:
+  - Padding: 16px
+  - Border-bottom: 1.5px Stroke-Subtle/10 (light mode)
+  - Border-bottom: 1.5px Stroke-Subtle (dark mode)
+  - Font: 12px, Text-Tertiary, opacity-80
+  - Gap: 20px (gap-5) между колонками
+- **Data Row**:
+  - Padding: 16px
+  - Border-bottom: 1.5px Stroke-Subtle/10 (light mode)
+  - Border-bottom: 1.5px Stroke-Subtle (dark mode)
+  - Font: 14px
+  - Line-height: 20px (leading-5)
+- **Last Row** (skeleton loading): no border
+
+#### Transaction Table Columns
+- **Date Column**: 128px (w-32)
+  - Layout: horizontal, gap 4px
+  - Date: Text-Primary, line-clamp-1
+  - Time: Text-Secondary, line-clamp-1
+- **Status Column**: 112px (w-28)
+  - Contains status badge
+- **Earnings Column**: 96px (w-24)
+  - Text: Text-Primary, line-clamp-1
+  - Align: left
+- **Fee Column**: 56px (w-14)
+  - Text: Text-Secondary, line-clamp-1
+  - Align: left
+- **Net Column**: 80px (w-20)
+  - Text: Text-Primary, line-clamp-1
+  - Align: right
+
+#### Transaction Status Badge
+- **Height**: 28px (h-7)
+- **Padding**: 8px (x), 2px (y - py-0.5)
+- **Radius**: 8px (rounded-lg)
+- **Border**: 1.5px outline, offset -1.5px
+- **Font**: 14px semibold, leading-16px (leading-4)
+- **Layout**: center aligned, gap 8px (если с иконкой)
+- **Variants**:
+  - **Pending**:
+    - Background: rgba(245, 158, 11, 0.05) /* amber-500/5 */
+    - Border: rgba(245, 158, 11, 0.20) /* amber-500/20 */
+    - Text: #f59e0b /* amber-500 */
+  - **Succeeded**:
+    - Background: rgba(22, 163, 74, 0.05) /* green-600/5 */
+    - Border: rgba(22, 163, 74, 0.20) /* green-600/20 */
+    - Text: Primary-primary02
+  - **Paid**:
+    - Background: rgba(22, 163, 74, 0.05) /* green-600/5 */
+    - Border: rgba(22, 163, 74, 0.20) /* green-600/20 */
+    - Text: Primary-primary02
+
+#### Transaction Skeleton Row
+- **Structure**: same column widths as data rows
+- **Skeleton Bar**:
+  - Height: 8px (h-2)
+  - Rounded: 4px (rounded)
+  - Vertical position: centered (top-[8px] or top-[10px])
+- **Colors**:
+  - Light Mode: shade09-100
+  - Dark Mode: shade04-100
+- **Bar Widths**:
+  - Date: 112px (w-28)
+  - Status: 64px (w-16)
+  - Earnings: 64px (w-16)
+  - Fee: 36px (w-9)
+  - Net: 48px (w-12, right-aligned at 39px offset)
+
 ---
 
 ### 7. Navigation
@@ -968,6 +1071,7 @@ outline: 1.5px solid #f4f4f5; /* zinc-100 */
 | Card (medium) | 728px |
 | Card (large) | 800px |
 | Card (XL) | 1180px |
+| Transaction table | 592px |
 | Button (icon) | 48×48px |
 | Input (height) | 48px |
 | Search (width) | 288-360px |
@@ -979,6 +1083,7 @@ outline: 1.5px solid #f4f4f5; /* zinc-100 */
 | Icon (default) | 24×24px |
 | Badge (height) | 20px |
 | Trend badge | auto |
+| Transaction status badge | 28px |
 | Checkbox | 24×24px |
 | Unread dot | 12×12px |
 | Online indicator | 12×12px |
@@ -989,6 +1094,6 @@ outline: 1.5px solid #f4f4f5; /* zinc-100 */
 
 ---
 
-**Последнее обновление**: Блок #17
+**Последнее обновление**: Блок #18
 **Статус**: В процессе сборки
-**Добавлено**: OAuth Button (5 states), Input Field States (Default/Focus/Filled/Error/Success), Floating Label, Password Input with dots, Auth Form Card (480px), Auth Form Footer, "Forgot password" Link, shade04-100, shade07-50
+**Добавлено**: Transaction Table Card (592px), Transaction Table Header with embedded Search, Transaction Status Badge (Pending/Succeeded/Paid), Transaction Table Structure (5 columns: Date, Status, Earnings, Fee, Net), Transaction Skeleton Row, Pending color tokens (amber-500), Light/Dark mode table variants
