@@ -2215,7 +2215,327 @@ Standard fields displayed:
 
 ---
 
-### 32. Special Effects
+### 32. Tags Input (Multi-Chip)
+
+#### Tags Input Container
+- **Width**: 384px (w-96) full container
+- **Padding**: 8px or 10px (p-2 or p-2.5)
+- **Radius**: 32px (rounded-[32px]) or 20px (rounded-[20px])
+- **Border**: 1.5px outline, offset -1.5px
+- **Layout**: inline-flex, flex-wrap, gap 6px (gap-1.5)
+- **Content alignment**: content-center
+- **Overflow**: hidden
+
+#### Tags Input States
+
+**Default (Placeholder):**
+- **Border**: 1.5px Stroke-Stroke2, offset -1.5px
+- **Padding**: 10px (p-2.5)
+- **Placeholder**:
+  - Width: 288px (w-72), height 28px (h-7)
+  - Text: "i.e. Dashboard, Light, Responsive"
+  - Font: 14px normal, leading-20px
+  - Color: Text-Secondary, opacity-50
+  - Position: left-[10px] top-[4px]
+
+**Alt Default (shade border):**
+- **Border**: 1.5px shade07-50/50, offset -1.5px
+- **Padding**: 10px (p-2.5)
+- **Placeholder**: Same as default
+
+**Focus (Empty):**
+- **Border**: 1.5px shade07-50/50, offset -1.5px
+- **Padding**: 8px (p-2)
+- **Cursor**: 2×16px (w-0.5 h-4), Text-Blue, rounded-sm
+- **Placeholder**: opacity-50
+
+**Focus (With Chip):**
+- **Border**: 1.5px shade07-50/50, offset -1.5px
+- **Padding**: 8px (p-2)
+- **Chips**: Tag chips present
+- **Cursor**: 2×16px positioned after chips or text
+
+**Typing State:**
+- **Border**: 1.5px shade07-50/50, offset -1.5px or 1.5px outline-[32px]
+- **Padding**: 8px (p-2) or standard padding
+- **Text being typed**: Text-Primary (e.g., "Res"), opacity-50
+- **Autocomplete**: Text-Secondary showing rest of word (e.g., "ponsive")
+- **Cursor**: 2×16px positioned in text
+- **Example**: "Res|ponsive" where | = cursor
+
+**Filled (Active/Focused):**
+- **Border**: 1.5px Stroke-BorderBorder, offset -1.5px
+- **Padding**: 10px (p-2.5)
+- **Multiple chips**: Contains 3+ tag chips
+- **Example tags**: "Dashboard", "Light", "Responsive"
+
+**Filled (Complete):**
+- **Border**: 1.5px Stroke-Stroke2, offset -1.5px
+- **Radius**: 20px (rounded-[20px])
+- **Padding**: 8px (p-2)
+- **Multiple chips**: Contains 10+ tag chips
+- **Example tags**: "Dashboard", "Light", "Responsive", "App", "Mobile", "SaaS", "UI Kit", "Illustration", "Menu"
+
+#### Tag Chip
+- **Height**: 32px (h-8)
+- **Padding**: 12px horizontal (px-3)
+- **Background**: Backgrounds-surface1
+- **Radius**: 32px (rounded-[32px])
+- **Layout**: flex, gap 6px (gap-1.5)
+- **Overflow**: hidden
+- **Attribute**: data-property-1="default"
+
+**Tag Text:**
+- **Font**: 14px normal, leading-20px
+- **Color**: Text-Primary
+- **Alignment**: center
+
+**Remove Icon (X):**
+- **Size**: 12×12px (w-3 h-3)
+- **Container**: relative overflow-hidden
+- **Icon**: 8×8px (w-2 h-2) at left-[2.38px] top-[2.38px]
+- **Color**: Text-Tertiary
+- **Stroke**: 1.5px, offset -0.75px
+- **Interaction**: Click to remove tag
+
+---
+
+### 33. Publish Button (with Icon)
+
+#### Publish Button
+- **Height**: 48px
+- **Padding**: 28px (left), 12px (right), 12px (y) - pl-7 pr-3 py-3
+- **Radius**: 32px (rounded-[32px])
+- **Layout**: inline-flex, center aligned, gap 12px (gap-3)
+- **Text**: 14px semibold, leading-16px
+- **Icon**: 24×24px arrow
+- **Overflow**: hidden
+
+**Dark Variant:**
+- **Background**: gradient zinc-800 → zinc-800
+- **Shadow**: inset 2px 0px 8px 2px rgba(248,248,248,0.20)
+- **Border**: 1.5px outline white/40, offset -1.5px
+- **Text**: Text-Light
+- **Icon**: Text-Light, rotated 90deg
+- **Content**: "Publish now"
+
+**Light Variant:**
+- **Background**: gradient white → neutral-200
+- **Shadow**: inset 2px 0px 8px 2px rgba(24,24,24,0.20)
+- **Border**: 1.5px outline white/60, offset -1.5px
+- **Text**: Text-Light
+- **Icon**: Text-Light, rotated 90deg
+- **Content**: "Publish now"
+
+**Arrow Icon:**
+- **Size**: 24×24px (w-6 h-6)
+- **Inner arrow**: 4×8px (w-1 h-2)
+- **Position**: left-[16px] top-[10px], rotated 90deg
+- **Color**: Text-Light
+- **Stroke**: 1.5px, offset -0.75px
+
+---
+
+### 34. Product Cards (Grid View)
+
+#### Product Card Container
+- **Width**: 384px (w-96), min-width 288px (min-w-72)
+- **Layout**: inline-flex flex-col, gap 12px (gap-3)
+- **Components**:
+  - Image container (top)
+  - Content section (bottom)
+
+#### Product Image Container
+- **Height**: 224px (h-56)
+- **Background**: gray-200
+- **Radius**: 24px (rounded-3xl)
+- **Overflow**: hidden
+- **Position**: relative
+- **Image**: 384×224px (w-96 h-56)
+
+#### Product Card States
+
+**Default (Unselected):**
+- **Image**: Full opacity
+- **No overlay**
+- **No checkbox visible**
+- **Content**: Full opacity
+
+**Selected:**
+- **Overlay**: opacity-10 shade10-100 (full coverage)
+- **Checkbox**: 24×24px in top-left corner
+  - Position: left-[16px] top-[16px]
+  - Background: shade10-100
+  - Border: 2px Primary-primary01
+  - Inner fill: 16×16px (w-4 h-4) Primary-primary01, rounded-sm
+  - Position of fill: left-[4px] top-[4px]
+- **Content**: opacity-50
+
+**Hover (Unselected):**
+- **Overlay**: opacity-30 Backgrounds-dark1 (full coverage)
+- **Checkbox**: 24×24px visible in top-left
+  - Background: Backgrounds-surface2
+  - Border: 2px Stroke-Stroke2
+  - Attribute: data-status="placeholder"
+- **Action Buttons**: Visible at bottom of card content
+- **Content**: Full opacity, relative positioned
+
+#### Product Content Section
+- **Layout**: flex-col, gap 4px (gap-1)
+- **Components**:
+  - Title row
+  - Meta row (date/time or rating)
+  - Action buttons (hover state only)
+
+**Title Row:**
+- **Layout**: inline-flex, justify-between
+- **Title**:
+  - Font: 16px (text-base) semibold, leading-24px
+  - Color: Text-Primary
+  - Line clamp: 1
+  - Example: "Bento Design System"
+- **Price Badge**:
+  - Width: 48px (w-12)
+  - Padding: 12px (x), 6px (y) - px-3 py-1.5
+  - Background: green-600/5
+  - Border: 1.5px green-600/20, offset -1.5px
+  - Radius: 8px (rounded-lg)
+  - Text: 14px semibold, Primary-primary02
+  - Content: "$98" or similar
+  - Attribute: data-property-1="Default"
+
+**Meta Row (Date/Time):**
+- **Layout**: inline-flex, gap 8px (gap-2)
+- **Icon**: 24×24px calendar/clock icon
+  - Inner: 20×20px (w-5 h-5) at left-[2.75px] top-[2.75px]
+  - Color: Text-Secondary
+  - Stroke: 1.5px, offset -0.75px
+- **Text**:
+  - Font: 12px (text-xs) normal, leading-20px
+  - Color: Text-Secondary, opacity-80
+  - Content: "Apr 9, 2044 at 3:55 PM"
+
+**Meta Row (Rating):**
+- **Width**: 80px (w-20)
+- **Layout**: inline-flex, gap 10px (gap-2.5)
+- **Star Icon**: 20×20px (w-5 h-5)
+  - Inner: 16×16px (w-4 h-4) at left-[1.25px] top-[0.83px]
+  - Color: Text-Secondary (filled)
+- **Rating Text**: inline-flex, gap 4px (gap-1)
+  - **Score**: 14px semibold, Text-Primary (e.g., "4.8")
+  - **Count**: 14px normal, Text-Secondary (e.g., "(88)")
+
+#### Action Buttons Row (Hover State)
+- **Width**: 224px (w-56), height 24px (h-6)
+- **Position**: relative, within content section
+- **Layout**: inline-flex, gap 8px (gap-2), left offset -4px
+- **Buttons**: Edit, Delete, Schedule/Unpublish
+
+**Action Button (Small - Card Actions):**
+- **Padding**: 4px (left), 6px (right), 4px (y) - pl-1 pr-1.5 py-1
+- **Radius**: 6px (rounded-md)
+- **Layout**: flex, gap 4px (gap-1)
+- **Icon**: 16×16px (w-4 h-4)
+- **Text**: 14px semibold, opacity-80
+- **States**: default, hover
+- **Attribute**: data-property-1="default" or "hover"
+
+**Default State:**
+- **Background**: transparent
+- **Border**: none
+- **Icon**: Text-Secondary
+- **Text**: Text-Secondary
+
+**Hover State:**
+- **Background**: transparent
+- **Border**: 1.5px outline Stroke-Stroke2, offset -1.5px
+- **Icon**: Text-Primary
+- **Text**: Text-Primary
+
+**Button Examples:**
+- **Edit**: Pencil icon + "Edit" text
+- **Delete**: Trash icon + "Delete" text
+- **Schedule**: Calendar icon + "Schedule" text
+- **Unpublish**: Same style with "Unpublish" text
+
+---
+
+### 35. Brand/App Icons (16×16px)
+
+#### Icon Grid
+- **Icon Size**: 16×16px (w-4 h-4)
+- **Usage**: Brand identifiers, file type indicators
+- **Position**: Can be used in various contexts (cards, lists, etc.)
+
+#### Notion Icon
+- **Size**: 16×16px
+- **Inner**: 14×14px (w-3.5 h-3.5) at left-[1.33px] top-[1.10px]
+- **Color**: Text-Primary (black)
+
+#### Bootstrap Icon
+- **Size**: 16×16px
+- **Outer ring**: 16×16px orange-500
+- **Inner ring**: 14×14px (w-3.5 h-3.5) stone-900 at left-[1px] top-[1px]
+- **Center**: 8×8px (w-2 h-2) orange-500 at left-[4.09px] top-[4.33px]
+
+#### HTML Icon
+- **Size**: 16×16px
+- **Background**: gradient blue-600 → blue-800
+- **Inner shape**: 10×6px (w-2.5 h-1.5) white at left-[2.50px] top-[4.93px]
+
+#### Photoshop Icon
+- **Size**: 16×16px
+- **Outer**: 16×16px cyan-400
+- **Middle**: 14×14px (w-3.5 h-3.5) emerald-950 at left-[1px] top-[1px]
+- **Center**: 8×8px (w-2 h-2) cyan-400 at left-[3.79px] top-[4px]
+
+#### Blender Icon
+- **Size**: 16×16px
+- **Three horizontal bars** with sky-to-cyan gradients:
+  - Top: 10×6px from-sky-300 to-sky-400
+  - Middle: 10×6px from-cyan-400 to-sky-500
+  - Bottom: 5×6px blue-600 to sky-500
+
+#### After Effects Icon
+- **Size**: 16×16px
+- **Background elements**:
+  - White overlay: 8×12px (w-2 h-3) white/80 at left-[8px] top-[2.18px]
+  - Main: 16×16px orange-700 at top-[0.36px]
+  - Inner: 3×6px white at left-[2.93px] top-[5.59px]
+
+#### Figma Icon
+- **Size**: 16×16px
+- **Five colored circles** in grid:
+  - Bottom left: 6×6px emerald-500 at left-[3px] top-[10.67px]
+  - Middle left: 6×6px purple-500 at left-[3px] top-[5.33px]
+  - Top left: 6×6px orange-600 at left-[3px] top-0
+  - Top right: 6×6px red-400 at left-[8.33px] top-0
+  - Middle right: 6×6px cyan-400 at left-[8.33px] top-[5.33px]
+
+#### Sketch Icon
+- **Size**: 16×16px
+- **Complex amber/yellow gradient layers**:
+  - Left/right base: 8×10px amber-600
+  - Center: 10×10px amber-500
+  - Top shapes: various 5×5px amber-400 pieces
+  - Top strip: 16×4px amber-500
+  - Highlight: 10×5px yellow-100 overlay
+
+#### WordPress Icon
+- **Size**: 16×16px
+- **Filled**: 16×16px Text-Primary (black)
+
+#### Swift Icon
+- **Size**: 16×16px
+- **Inner**: 16×14px at top-[0.83px], Text-Primary
+
+#### Generic Icons
+- Various generic app icons at 16×16px with Text-Primary fills
+- Used for placeholders or less common apps
+
+---
+
+### 36. Special Effects
 
 #### Fade Overlay (для горизонтального скролла)
 - **Width**: 112px (w-28)
@@ -2420,9 +2740,19 @@ outline: 1.5px solid #f4f4f5; /* zinc-100 */
 | Toolbar Button | 40×40px |
 | Resize Handle | 6×6px, 10×10px dots |
 | Action Button (Save/Submit) | auto×48px |
+| Tags Input Container | 384px (width) |
+| Tag Chip | 32px (height) |
+| Tag Remove Icon | 12×12px |
+| Publish Button | auto×48px |
+| Product Card | 384×224px (min-w-72) |
+| Product Image | 384×224px |
+| Price Badge (product) | 48px (width) |
+| Star Icon (rating) | 20×20px |
+| Action Button (card actions) | auto (16×16px icon) |
+| Brand/App Icons | 16×16px |
 
 ---
 
-**Последнее обновление**: Блок #27
+**Последнее обновление**: Блок #28
 **Статус**: В процессе сборки
-**Добавлено**: Floating Label Input Extended (320px with 12px label container, label badge with surface1/surface2 backgrounds, 5 states: default/alt/focus/filled/error with checkmark icon and error messages), Form Label with Info Icon & Tooltip (14px semibold label + 16×16px info icon with opacity-50 default/Text-Blue active, tooltip with Backgrounds-dark1 and 8×4px arrow, 12px text-xs content), Rich Text Editor/Textarea Extended (160px height with toolbar and text area, 40×40px toolbar buttons with shade08-80/80 or shade05-50/50 active states, 9 formatting icons, fade overlay with from-white/0 or from-zinc-900/0 gradients, resize handle with 6×10px gray-500/40 dots), Action Button variants (Save/Submit with Backgrounds-pop light variant and zinc-800→neutral-800 dark gradient)
+**Добавлено**: Tags Input / Multi-Chip (384px container with 8 states: default/alt/focus/typing with autocomplete/filled, 32px tag chips with 12×12px remove icons, flex-wrap layout), Publish Button with Icon (48px height with arrow icon rotated 90deg, dark zinc-800 and light white→neutral-200 gradient variants), Product Cards Grid View (384×224px cards with 3 states: default/selected with opacity-10 overlay + checkbox/hover with opacity-30 overlay + action buttons, price badge 48px, rating display with 20×20px star icon, meta rows for date/time and rating), Action Buttons Row (Edit/Delete/Schedule/Unpublish with 16×16px icons), Brand/App Icons 16×16px (Notion, Bootstrap, HTML, Photoshop, Blender, After Effects, Figma, Sketch, WordPress, Swift with detailed color specifications for each brand)
