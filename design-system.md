@@ -1956,6 +1956,664 @@ Bar 10: 224px + 64px = 288px total
 
 ---
 
-**Последнее обновление**: Блок #31
+### 32. Extended Product/Order Table (Advanced List Item)
+
+#### Table Container
+- **Width**: 2421px (demo showing Light + Dark modes side-by-side)
+- **Height**: 1824px
+- **Layout**: Two columns (1148px each) showing Light Mode and Dark Mode variants
+- **Row Width**: 1148px (w-[1148px])
+- **Padding**: 16px (p-4) per row
+- **Gap**: 24px (gap-6) between product section and data section
+
+#### Row Layout Structure
+
+##### Product Section (Left Side)
+```css
+/* Container */
+width: 384px (w-96);
+height: 64px (h-16);
+display: flex;
+align-items: center;
+gap: 20px (gap-5);
+
+/* Components */
+1. Checkbox (24×24px)
+2. Product Image (64×64px, rounded-xl)
+3. Product Info (flex-1)
+```
+
+##### Data Section (Right Side)
+```css
+/* Container */
+flex: 1;
+padding-y: 8px (py-2);
+display: flex;
+justify-content: space-between / start (depending on layout variant);
+align-items: center;
+
+/* Columns (Layout Variant 1 - Full Data) */
+1. Status Badge (w-20) - 80px
+2. Price (w-14) - 56px
+3. Revenue + Trend (w-36) - 144px
+4. Time Metric 1 (w-24) - 96px
+5. Time Metric 2 (w-24) - 96px
+
+/* Columns (Layout Variant 2 - Simplified) */
+1. Revenue + Trend (w-36) - 144px
+2. Progress Bar (flex-1) - 3-segment composition
+Gap: 48px (gap-12) between columns
+```
+
+#### Product Section Components
+
+##### Checkbox
+```css
+/* Default State */
+width: 24px (w-6);
+height: 24px (h-6);
+border: 2px solid Stroke-Stroke2;
+border-radius: 6px (rounded-md);
+data-status: "placeholder";
+
+/* In Highlighted Row (Dark Mode) */
+border: 2px solid Stroke-Highlight/50;
+```
+
+##### Product Image
+```css
+/* Normal State */
+width: 64px (w-16);
+height: 64px (h-16);
+border-radius: 12px (rounded-xl);
+src: "https://placehold.co/64x64";
+
+/* Skeleton State (Light Mode) */
+background: Backgrounds-surface1;
+no src attribute;
+
+/* Skeleton State (Dark Mode) */
+background: Backgrounds-pop;
+no src attribute;
+```
+
+##### Product Info - Normal State
+```css
+/* Title */
+font-family: 'Inter Display';
+font-size: 16px (text-base);
+font-weight: 600;
+line-height: 24px (leading-6);
+letter-spacing: -0.01em (tracking-tight);
+color: Text-Primary;
+line-clamp: 1;
+content: "Bento Matte 3D Illustration";
+
+/* Subtitle */
+font-family: 'Inter Display';
+font-size: 14px (text-sm);
+font-weight: 400;
+line-height: 20px (leading-5);
+letter-spacing: -0.01em (tracking-tight);
+color: Text-Secondary;
+opacity: 0.8;
+content: "UI Design Kit" or "25 Sep - 4 Oct";
+```
+
+##### Product Info - With Action Buttons
+```css
+/* Title positioned absolutely */
+position: absolute;
+left: 0;
+top: 6px;
+width: 240px (w-60);
+
+/* Action Buttons Container */
+position: absolute;
+left: -4px;
+top: 34px;
+display: inline-flex;
+gap: 8px (gap-2);
+```
+
+##### Product Info - Skeleton State
+```css
+/* Title Skeleton */
+width: 176px (w-44);
+height: 8px (h-2);
+background: Backgrounds-surface1 (light) / Backgrounds-pop (dark);
+border-radius: 2px (rounded-sm);
+position: top-[8px];
+
+/* Subtitle Skeleton */
+width: 80px (w-20);
+height: 8px (h-2);
+background: Backgrounds-surface1 (light) / Backgrounds-pop (dark);
+border-radius: 2px (rounded-sm);
+position: top-0;
+```
+
+#### Action Buttons (Chip Buttons)
+
+##### Button Container
+```css
+padding-left: 4px (pl-1);
+padding-right: 6px (pr-1.5);
+padding-y: 4px (py-1);
+border-radius: 6px (rounded-md);
+display: flex;
+align-items: center;
+gap: 4px (gap-1);
+```
+
+##### Button States
+
+**Default State**:
+```css
+background: transparent;
+outline: none;
+icon-color: Text-Secondary;
+text-color: Text-Secondary;
+opacity: 0.8;
+data-property-1: "default";
+```
+
+**Hover State (Light Mode)**:
+```css
+outline: 1.5px solid Stroke-Stroke2;
+outline-offset: -1.5px;
+icon-color: Text-Primary;
+text-color: Text-Primary;
+opacity: 0.8;
+data-property-1: "hover";
+```
+
+**Hover State (Dark Mode)**:
+```css
+outline: 1.5px solid shade05-50/50;
+outline-offset: -1.5px;
+icon-color: Text-Primary;
+text-color: Text-Primary;
+opacity: 0.8;
+data-property-1: "hover";
+```
+
+##### Button Icon
+```css
+width: 16px (w-4);
+height: 16px (h-4);
+/* Inner icon outline */
+width: 12px (w-3);
+height: 12px (h-3);
+outline: 1.5px;
+outline-offset: -0.75px;
+```
+
+##### Button Text
+```css
+font-family: 'Inter Display';
+font-size: 14px (text-sm);
+font-weight: 600;
+line-height: 16px (leading-4);
+letter-spacing: -0.01em (tracking-tight);
+opacity: 0.8;
+```
+
+##### Button Types
+- **Edit**: Icon at left-[2.50px] top-[2.05px]
+- **Delete**: Icon at left-[1.83px] top-[1.83px]
+- **Share**: Icon at left-[1.83px] top-[1.83px]
+
+#### Data Section Components
+
+##### Status Badge - "Offline"
+```css
+/* Container */
+width: 80px (w-20);
+padding: 8px 12px (px-2 py-1.5);
+background: red-600/5;        /* rgba(220, 38, 38, 0.05) */
+border-radius: 8px (rounded-lg);
+outline: 1.5px solid red-600/20;  /* rgba(220, 38, 38, 0.20) */
+outline-offset: -1.5px;
+display: inline-flex;
+justify-content: center;
+gap: 8px (gap-2);
+data-property-1: "False";
+
+/* Text */
+font-family: 'Inter Display';
+font-size: 14px (text-sm);
+font-weight: 600;
+line-height: 16px (leading-4);
+letter-spacing: -0.01em (tracking-tight);
+color: Primary-primary03;    /* Red error color */
+content: "Offline";
+```
+
+##### Price
+```css
+/* Container */
+width: 56px (w-14);
+
+/* Text */
+font-family: 'Inter Display';
+font-size: 14px (text-sm);
+font-weight: 400;
+line-height: 20px (leading-5);
+letter-spacing: -0.01em (tracking-tight);
+color: Text-Primary;
+content: "$98.00";
+```
+
+##### Revenue + Trend Badge
+```css
+/* Container */
+width: 144px (w-36);
+display: inline-flex;
+align-items: center;
+gap: 8px (gap-2);
+
+/* Revenue Value */
+width: 48px (w-12);
+font-family: 'Inter Display';
+font-size: 14px (text-sm);
+font-weight: 400;
+line-height: 20px (leading-5);
+letter-spacing: -0.01em (tracking-tight);
+color: Text-Primary;
+content: "$3,200" or "128k";
+```
+
+##### Trend Badge (Up)
+```css
+/* Container */
+padding: 6px 8px (px-2 py-1.5);
+background: green-600/5;
+border-radius: 8px (rounded-lg);
+outline: 1.5px solid green-600/20;
+outline-offset: -1.5px;
+display: flex;
+align-items: center;
+gap: 4px (gap-1);
+data-trend: "up";
+
+/* Icon */
+width: 16px (w-4);
+height: 16px (h-4);
+/* Arrow components */
+- Vertical bar: w-[2.67px] h-1.5, rotate-180, outline Primary-primary02
+- Horizontal bar: w-2 h-0, rotate-180, outline Primary-primary02
+
+/* Percentage Text */
+font-family: 'Inter Display';
+font-size: 14px (text-sm);
+font-weight: 600;
+line-height: 16px (leading-4);
+letter-spacing: -0.01em (tracking-tight);
+color: Primary-primary02;  /* Green success color */
+content: "36.8%";
+```
+
+##### Time Metric with Mini Progress Bar
+```css
+/* Container */
+width: 96px (w-24);
+padding-y: 2px (py-0.5);
+border-radius: 8px (rounded-lg);
+display: inline-flex;
+align-items: center;
+gap: 8px (gap-2);
+data-property-1: "01";
+
+/* Time Text */
+width: 32px (w-8);
+font-family: 'Inter Display';
+font-size: 14px (text-sm);
+font-weight: 400;
+line-height: 20px (leading-5);
+letter-spacing: -0.01em (tracking-tight);
+color: Text-Primary;
+content: "48m";
+
+/* Mini Progress Bar */
+width: 32px (w-8);
+height: 6px (h-1.5);
+background: shade07-40/40;
+border-radius: 2px (rounded-sm);
+position: relative;
+
+/* Mini Progress Fill */
+width: 4px (w-1);
+height: 6px (h-1.5);
+background: Chart-Green;
+border-radius: 2px (rounded-sm);
+position: absolute;
+left: 0;
+top: 0;
+```
+
+##### Full Progress Bar (3-Segment)
+```css
+/* Container */
+flex: 1;
+height: 12px (h-3);
+position: relative;
+data-property-1: "01";
+
+/* Segment Container */
+display: inline-flex;
+gap: 2px (gap-0.5);
+
+/* Segment 1: Solid */
+width: 96px (w-24);
+height: 12px (h-3);
+background: shade07-40/40;
+border-radius: 1px (rounded-[1px]);
+
+/* Segment 2: Striped (13 stripes) */
+display: flex;
+gap: 1px (gap-px);
+/* Each stripe */
+width: 2px (w-0.5);
+height: 12px (h-3);
+background: shade07-60/60;
+border-radius: 0.5px (rounded-[0.50px]);
+
+/* Segment 3: Gradient */
+width: 240px (w-60);
+height: 12px (h-3);
+background: linear-gradient(to right, shade08-100, shade09-100);
+border-radius: 1px (rounded-[1px]);
+border: 1px solid Stroke-Stroke2;
+```
+
+##### Simple 2-Segment Progress Bar
+```css
+/* Container */
+flex: 1;
+height: 12px (h-3);
+position: relative;
+
+/* Segment Container */
+display: inline-flex;
+gap: 2px (gap-0.5);
+
+/* Segment 1 */
+width: 96px (w-24);
+height: 12px (h-3);
+background: shade07-40/40;
+border-radius: 1px (rounded-[1px]);
+
+/* Segment 2 */
+width: 240px (w-60);
+height: 12px (h-3);
+background: shade08-100 or Chart-Green;
+border-radius: 1px (rounded-[1px]);
+```
+
+#### Row States
+
+##### Default Row
+```css
+padding: 16px (p-4);
+display: inline-flex;
+gap: 24px (gap-6);
+overflow: hidden;
+/* No background, radius, or outline */
+```
+
+##### Row with Bottom Border (Light Mode)
+```css
+padding: 16px (p-4);
+border-bottom: 1.5px solid Stroke-Subtle/10;
+display: inline-flex;
+gap: 24px (gap-6);
+overflow: hidden;
+```
+
+##### Row with Bottom Border (Dark Mode)
+```css
+padding: 16px (p-4);
+border-bottom: 1.5px solid Stroke-Subtle;
+display: inline-flex;
+gap: 24px (gap-6);
+overflow: hidden;
+```
+
+##### Hover/Selected Row (Light Mode)
+```css
+padding: 16px (p-4);
+background: Backgrounds-highlight;
+border-radius: 16px (rounded-2xl);
+/* Multi-layer shadow system */
+box-shadow:
+  0px 1px 4px 0px rgba(0, 0, 0, 0.05),
+  0px 8px 8px -2px rgba(0, 0, 0, 0.08),
+  inset 0px 0px 0px 3px rgba(255, 255, 255, 1.00);
+outline: 1.5px solid zinc-100;
+outline-offset: -1.5px;
+display: inline-flex;
+gap: 24px (gap-6);
+overflow: hidden;
+```
+
+##### Hover/Selected Row (Dark Mode)
+```css
+padding: 16px (p-4);
+background: Backgrounds-highlight;
+border-radius: 16px (rounded-2xl);
+outline: 1.5px solid zinc-100;
+outline-offset: -1.5px;
+display: inline-flex;
+gap: 24px (gap-6);
+overflow: hidden;
+/* NO shadows in dark mode */
+/* Checkbox border changes to Stroke-Highlight/50 */
+```
+
+#### Skeleton Loading State
+
+##### Product Section Skeleton
+```css
+/* Checkbox - same as normal */
+/* Image */
+width: 64px;
+height: 64px;
+background: Backgrounds-surface1 (light) / Backgrounds-pop (dark);
+border-radius: 12px;
+
+/* Title Bar */
+width: 176px (w-44);
+height: 8px (h-2);
+background: Backgrounds-surface1 (light) / Backgrounds-pop (dark);
+border-radius: 2px;
+position: top-[8px];
+
+/* Subtitle Bar */
+width: 80px (w-20);
+height: 8px (h-2);
+background: Backgrounds-surface1 (light) / Backgrounds-pop (dark);
+border-radius: 2px;
+position: top-0;
+```
+
+##### Data Section Skeleton
+```css
+/* Status Badge Skeleton */
+width: 80px (w-20);
+height: 28px (h-7);
+/* Bar inside */
+width: 56px (w-14);
+height: 8px (h-2);
+background: Backgrounds-surface1 (light) / Backgrounds-pop (dark);
+border-radius: 2px;
+position: top-[10px];
+
+/* Price Skeleton */
+width: 56px (w-14);
+height: 24px (h-6);
+/* Bar inside */
+width: 56px (w-14);
+height: 8px (h-2);
+background: Backgrounds-surface1 (light) / Backgrounds-pop (dark);
+border-radius: 2px;
+position: top-[8px];
+
+/* Revenue Skeleton */
+width: 144px (w-36);
+height: 28px (h-7);
+/* Bar inside */
+width: 128px (w-32);
+height: 8px (h-2);
+background: Backgrounds-surface1 (light) / Backgrounds-pop (dark);
+border-radius: 2px;
+position: top-[10px];
+
+/* Time Metric Skeletons (×2) */
+width: 96px (w-24);
+height: 28px (h-7);
+/* Bar inside */
+width: 56px (w-14);
+height: 8px (h-2);
+background: Backgrounds-surface1 (light) / Backgrounds-pop (dark);
+border-radius: 2px;
+position: top-[10px];
+```
+
+#### Layout Variants
+
+##### Variant 1: Full Data Table
+- Product Section (checkbox, image, title, subtitle)
+- Status Badge
+- Price
+- Revenue + Trend Badge
+- Time Metric 1 (with mini progress)
+- Time Metric 2 (with mini progress)
+
+##### Variant 2: Simplified with Progress Bar
+- Product Section (checkbox, image, title, date range)
+- Revenue + Trend Badge
+- 3-Segment Progress Bar (flex-1)
+- Gap: 48px (gap-12) between columns
+
+##### Variant 3: With Action Buttons
+- Product Section with Action Buttons replacing subtitle
+- Same data columns as Variant 1 or 2
+- Buttons appear on hover/selected state
+
+##### Variant 4: Compact with 2-Segment Bar
+- Product Section (checkbox, image, title, subtitle OR action buttons)
+- Revenue + Trend Badge
+- Simple 2-Segment Progress Bar (flex-1)
+
+#### Row Vertical Positions (in demo)
+- Row 1 (Default): top-[16px]
+- Row 2 (Hover/Selected): top-[156px]
+- Row 3 (With Bottom Border): top-[296px]
+- Row 4 (Skeleton Loading): top-[436px]
+- Row 5 (Simplified Layout): top-[576px]
+- Row 6 (Hover with Actions): top-[716px]
+- Row 7 (Simple 2-Segment): top-[856px]
+- Row 8 (Hover, Buttons in Subtitle): top-[1029px]
+
+#### Color Tokens Used
+
+##### New Colors
+```css
+--chart-green: /* Active bar color in mini progress */
+--stroke-highlight-50: /* shade05-50/50 - Dark mode action button hover */
+```
+
+##### Existing Colors
+```css
+--primary-primary02: /* Green - trend up arrow and text */
+--primary-primary03: /* Red - offline badge text */
+--text-primary: /* Main text color */
+--text-secondary: /* Secondary text and default button state */
+--backgrounds-highlight: /* Hover/selected row background */
+--backgrounds-surface1: /* Skeleton loading (light mode) */
+--backgrounds-pop: /* Skeleton loading (dark mode) */
+--stroke-stroke2: /* Default checkbox, action button hover (light) */
+--stroke-subtle: /* Bottom border (dark mode, full opacity) */
+--stroke-subtle-10: /* Bottom border (light mode, 10% opacity) */
+--stroke-highlight-50: /* Checkbox in highlighted row (dark mode) */
+--shade07-40-40: /* Progress bar background, 40% opacity */
+--shade07-60-60: /* Striped progress segment, 60% opacity */
+--shade08-100: /* Gradient start, solid segment */
+--shade09-100: /* Gradient end */
+```
+
+#### Typography
+
+##### Product Title
+```css
+font-family: 'Inter Display';
+font-size: 16px;
+font-weight: 600;
+line-height: 24px;
+letter-spacing: -0.01em;
+```
+
+##### Product Subtitle / Date Range
+```css
+font-family: 'Inter Display';
+font-size: 14px;
+font-weight: 400;
+line-height: 20px;
+letter-spacing: -0.01em;
+opacity: 0.8;
+```
+
+##### Data Values (Price, Revenue, Time)
+```css
+font-family: 'Inter Display';
+font-size: 14px;
+font-weight: 400;
+line-height: 20px;
+letter-spacing: -0.01em;
+```
+
+##### Badge Text (Status, Trend, Buttons)
+```css
+font-family: 'Inter Display';
+font-size: 14px;
+font-weight: 600;
+line-height: 16px;
+letter-spacing: -0.01em;
+```
+
+#### Shadow Systems
+
+##### Hover/Selected Row (Light Mode)
+```css
+/* 3-layer system */
+box-shadow:
+  0px 1px 4px 0px rgba(0, 0, 0, 0.05),
+  0px 8px 8px -2px rgba(0, 0, 0, 0.08),
+  inset 0px 0px 0px 3px rgba(255, 255, 255, 1.00);
+```
+
+##### Hover/Selected Row (Dark Mode)
+```css
+/* No shadows, only outline */
+outline: 1.5px solid zinc-100;
+```
+
+#### Implementation Notes
+- Table supports both Light and Dark mode variants
+- Multiple layout variants for different data display needs
+- Skeleton loading states for all components
+- Action buttons appear on hover/selected rows (optional)
+- Progress bars can be simple (2-segment) or complex (3-segment with stripes/gradient)
+- Mini progress bars in time metric columns for quick visual feedback
+- Responsive column widths with fixed product section
+- Typography uses Inter Display with consistent tracking-tight
+- All interactive elements have proper hover/focus states
+- Border styles differ between light (subtle/10) and dark (subtle full) modes
+- Checkbox appearance changes in highlighted rows (dark mode)
+
+---
+
+**Последнее обновление**: Блок #32
 **Статус**: В процессе сборки
-**Добавлено**: Multi-line Progress Bars (Horizontal Bar Chart) - 10 bars с 2-segment composition, 56px vertical spacing, shade07-40/40 и shade08-100 colors, variable widths для data visualization
+**Добавлено**: Extended Product/Order Table - комплексная таблица с множеством состояний (default, hover/selected, skeleton loading, bottom border), 4 layout варианта (full data, simplified with progress, with action buttons, compact), Light/Dark mode support, Action Buttons (Edit/Delete/Share), Status/Trend badges, mini progress bars, 2/3-segment full progress bars, responsive column system
