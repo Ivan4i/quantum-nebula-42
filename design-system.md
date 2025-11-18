@@ -1519,6 +1519,351 @@ border-radius: 1px;
 
 ---
 
-**Последнее обновление**: Блок #21-26
+### 27. Search Input
+
+#### Search Input Container
+- **Width**: 320px (w-80)
+- **Padding**: 12px (p-3)
+- **Radius**: 90px (rounded-[90px]) - pill shaped
+- **Background**: Backgrounds-surface2
+- **Layout**: inline-flex, items-center
+- **Gap**: 8px (gap-2) between icon and text
+
+#### Search States
+
+##### State 1: Default (Empty)
+```css
+/* Container */
+background: Backgrounds-surface2;
+border-radius: 90px;
+padding: 12px;
+
+/* Icon - Magnifying Glass */
+width: 24px;
+height: 24px;
+/* Circle outline */
+outline: 1.5px Text-Secondary;
+outline-offset: -0.75px;
+/* Position: circle at 6.75px, 4.48px from top-left */
+
+/* Placeholder Text */
+color: Text-Secondary;
+font-size: 14px;
+content: "Search anything...";
+```
+
+##### State 2: Focused (Typing)
+```css
+/* Container */
+background: Backgrounds-surface2;
+border-radius: 90px;
+padding: 12px;
+/* Multi-layer shadow */
+box-shadow:
+  0px 1.96px 2.28px 0px rgba(0, 0, 0, 0.03),
+  0px 4.58px 5.32px 0px rgba(0, 0, 0, 0.04),
+  0px 8.39px 9.75px 0px rgba(0, 0, 0, 0.05),
+  0px 14.42px 16.76px 0px rgba(0, 0, 0, 0.06),
+  0px 24.76px 28.78px 0px rgba(0, 0, 0, 0.07),
+  0px 53px 62px 0px rgba(0, 0, 0, 0.10);
+backdrop-filter: blur(32px);
+
+/* Icon - Blue */
+outline: 1.5px Text-Blue;
+
+/* Input Text */
+color: Text-Primary;
+font-size: 14px;
+content: "Core dashboard";
+
+/* Cursor */
+width: 2px (w-0.5);
+height: 16px (h-4);
+background: Text-Blue;
+border-radius: 2px (rounded-sm);
+```
+
+##### State 3: Light Mode Variant
+```css
+/* Container */
+background: Backgrounds-surface2;
+border-radius: 90px;
+padding: 12px;
+/* Light mode shadow layers */
+box-shadow:
+  0px 1.08px 2.56px 0px rgba(18, 10, 7, 0.02),
+  0px 2.51px 5.97px 0px rgba(18, 10, 7, 0.03),
+  0px 4.61px 10.94px 0px rgba(18, 10, 7, 0.04),
+  0px 7.93px 18.82px 0px rgba(18, 10, 7, 0.04),
+  0px 13.61px 32.31px 0px rgba(18, 10, 7, 0.05),
+  0px 29px 69px 0px rgba(18, 10, 7, 0.07);
+backdrop-filter: blur(32px);
+```
+
+##### State 4: Dark Mode Variant
+```css
+/* Container */
+background: Stroke-Subtle/10;
+border-radius: 90px;
+padding: 12px;
+outline: 1px white;
+/* Similar shadow structure with adjusted opacity */
+```
+
+#### Search Icon Specifications
+- **Size**: 24×24px (w-6 h-6)
+- **Circle Position**: offset 6.75px (left), 4.48px (top) from container
+- **Circle Size**: 12×12px (w-3 h-3)
+- **Circle Stroke**: 1.5px
+- **Handle**: positioned bottom-right of circle
+
+---
+
+### 28. Chart Tooltip with Data Point
+
+#### Tooltip Structure
+- **Width**: 80px (w-20)
+- **Layout**: flex-col, items-center, gap-4px (gap-1)
+
+#### Tooltip Box
+```css
+/* Container */
+padding: 8px (p-2);
+background: Backgrounds-dark1;
+border-radius: 8px (rounded-lg);
+display: flex;
+flex-direction: column;
+gap: 2px (gap-0.5);
+
+/* Label */
+color: Text-Light;
+font-size: 12px;
+font-weight: 600;
+opacity: 0.8;
+content: "Earning";
+
+/* Value */
+color: Text-Light;
+font-size: 12px;
+content: "$52,480.00";
+```
+
+#### Arrow Triangle
+```css
+/* Triangle pointing down */
+width: 10px (w-2.5);
+height: 6px (h-1.5);
+background: Backgrounds-dark1;
+/* Creates pointed arrow effect */
+```
+
+#### Data Point Circle
+```css
+/* Circle */
+width: 12px (w-3);
+height: 12px (h-3);
+background: Backgrounds-surface2;
+border-radius: 9999px (rounded-full);
+border: 3px solid Primary-primary02;
+```
+
+#### Tooltip Positioning
+- **Alignment**: Center-aligned with data point
+- **Arrow**: Connects tooltip box to data point
+- **Gap**: 4px (gap-1) between tooltip and data point
+
+---
+
+### 29. Status Badges
+
+#### Badge Container
+- **Height**: 20px (h-5)
+- **Padding**: 8px horizontal (px-2)
+- **Radius**: 4px (rounded)
+- **Font**: 12px (text-xs)
+- **Layout**: inline-flex, items-center
+
+#### Badge Variants
+
+##### "New" Badge (Success/Green)
+```css
+background: green-600/5;        /* rgba(22, 163, 74, 0.05) */
+outline: 1.5px green-600/20;    /* rgba(22, 163, 74, 0.20) */
+outline-offset: -1.5px;
+color: Primary-primary02;       /* Green text */
+content: "New";
+```
+
+##### "Hot" Badge (Warning/Orange)
+```css
+background: orange-600/5;       /* rgba(234, 88, 12, 0.05) */
+outline: 1.5px orange-600/20;   /* rgba(234, 88, 12, 0.20) */
+outline-offset: -1.5px;
+color: orange-600;              /* #ea580c */
+content: "Hot";
+```
+
+#### Semantic Badge Colors
+```css
+/* Success - Green */
+--badge-success-bg: rgba(22, 163, 74, 0.05);
+--badge-success-border: rgba(22, 163, 74, 0.20);
+--badge-success-text: var(--primary-primary02);
+
+/* Warning - Orange */
+--badge-warning-bg: rgba(234, 88, 12, 0.05);
+--badge-warning-border: rgba(234, 88, 12, 0.20);
+--badge-warning-text: #ea580c;
+```
+
+---
+
+### 30. Navigation Menu
+
+#### Menu Container
+- **Width**: 256px (w-64)
+- **Radius**: 32px (rounded-[32px])
+- **Background**: Backgrounds-surface2
+- **Layout**: flex-col
+
+#### Light Mode Menu
+```css
+/* Container */
+background: Backgrounds-surface2;
+border-radius: 32px;
+/* 7-layer shadow system */
+box-shadow:
+  0px 1.08px 2.56px 0px rgba(18, 10, 7, 0.02),
+  0px 2.51px 5.97px 0px rgba(18, 10, 7, 0.03),
+  0px 4.61px 10.94px 0px rgba(18, 10, 7, 0.04),
+  0px 7.93px 18.82px 0px rgba(18, 10, 7, 0.04),
+  0px 13.61px 32.31px 0px rgba(18, 10, 7, 0.05),
+  0px 29px 69px 0px rgba(18, 10, 7, 0.07),
+  0px 100px 80px 0px rgba(18, 10, 7, 0.07);
+```
+
+#### Dark Mode Menu
+```css
+/* Container */
+background: Backgrounds-surface2;
+border-radius: 32px;
+outline: 1px Stroke-Subtle;
+/* Darker shadow layers with higher opacity */
+box-shadow:
+  0px 1.96px 2.28px 0px rgba(0, 0, 0, 0.50),
+  0px 4.58px 5.32px 0px rgba(0, 0, 0, 0.60),
+  0px 8.39px 9.75px 0px rgba(0, 0, 0, 0.65),
+  0px 14.42px 16.76px 0px rgba(0, 0, 0, 0.70),
+  0px 24.76px 28.78px 0px rgba(0, 0, 0, 0.75),
+  0px 53px 62px 0px rgba(0, 0, 0, 0.80);
+```
+
+#### Menu Section
+```css
+/* Section Container */
+padding: 12px (p-3);
+display: flex;
+flex-direction: column;
+```
+
+#### Menu Item States
+
+##### Default State
+```css
+/* Item */
+height: 48px (h-12);
+padding: 12px (p-3);
+border-radius: 16px (rounded-2xl);
+display: inline-flex;
+gap: 16px (gap-4);
+
+/* Icon */
+width: 24px (w-6);
+height: 24px (h-6);
+
+/* Text */
+color: Text-Secondary;
+font-size: 14px;
+font-weight: 600;
+flex: 1;
+```
+
+##### Hover State
+```css
+/* Same structure as default */
+/* Visual feedback on hover (typically lighter background) */
+data-property-1: "hover";
+```
+
+##### Active State (Light Mode)
+```css
+/* Item */
+height: 48px (h-12);
+padding: 12px (p-3);
+background: Backgrounds-pop;
+border-radius: 16px (rounded-2xl);
+/* 3-layer shadow */
+box-shadow:
+  0px 1px 2px 0px rgba(18, 10, 7, 0.05),
+  0px 5px 5px 0px rgba(18, 10, 7, 0.05),
+  0px 20px 20px 0px rgba(18, 10, 7, 0.05);
+outline: 1px zinc-100;
+
+/* Text */
+color: Text-Primary;
+font-size: 14px;
+font-weight: 600;
+
+data-property-1: "active";
+```
+
+##### Active State (Dark Mode)
+```css
+/* Item */
+background: Backgrounds-pop;
+border-radius: 16px (rounded-2xl);
+outline: 1px zinc-100;
+/* No shadow in dark mode active state */
+
+/* Text */
+color: Text-Primary;
+font-size: 14px;
+font-weight: 600;
+```
+
+#### Menu Footer Section
+```css
+/* Footer Container */
+padding: 12px (p-3);
+border-top: 1px solid Stroke-Subtle/10;  /* Light mode */
+border-top: 1px solid Stroke-Subtle;     /* Dark mode - stronger border */
+
+/* Footer Item (e.g., "Log out") */
+height: 48px (h-12);
+padding: 12px (p-3);
+border-radius: 16px (rounded-2xl);
+color: Text-Secondary;
+font-size: 14px;
+font-weight: 600;
+```
+
+#### Menu Items List
+Common navigation items:
+- **My shop** - with icon
+- **Analytics** - typically active by default
+- **Orders** - with icon
+- **Products** - with icon
+- **Settings** - with icon
+- **Log out** - in footer section (Text-Secondary)
+
+#### Menu Shadow Comparison
+- **Light Mode**: 7 shadow layers, opacity 0.02 → 0.07
+- **Dark Mode**: 6 shadow layers, opacity 0.50 → 0.80
+- **Active Item (Light)**: 3 shadow layers at 0.05 opacity each
+- **Active Item (Dark)**: No shadow, relies on outline only
+
+---
+
+**Последнее обновление**: Блок #27-30
 **Статус**: В процессе сборки
-**Добавлено**: Tooltips с arrow positioning, Info/Help icons (2 sizes), Password Input Extended (6 states + eye toggle), Dropdowns/Selects, Time Range Filter Tabs, Stacked Progress Bars (3 segment types: solid/striped/gradient)
+**Добавлено**: Search Input (4 states: default/focused/light/dark), Chart Tooltip с data point и arrow, Status Badges (New/Hot - semantic colors), Navigation Menu (Light/Dark modes с различными shadow layers, 3 menu item states)
