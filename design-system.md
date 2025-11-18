@@ -1514,7 +1514,116 @@ Standard fields displayed:
 
 ---
 
-### 23. Special Effects
+### 23. Buttons & Action Components
+
+#### Gradient Button (Text + Icon)
+- **Height**: 44px (h-11)
+- **Padding**: 28px (x), 16px (y) - px-7 py-4
+- **Radius**: 32px (rounded-[32px])
+- **Layout**: inline-flex, gap 16px (gap-4)
+- **Font**: 14px (text-sm) semibold, leading-16px
+- **Icon**: 24×24px (w-6 h-6)
+- **Text**: "Create" or similar action
+- **Variants**:
+
+**Dark Variant (Light Mode):**
+- **Background**: gradient zinc-800 → zinc-800
+- **Border**: 1.5px white/40, offset -1.5px
+- **Shadow**: inset 2px 0px 8px 2px rgba(248,248,248,0.20)
+- **Text Color**: Text-Light (white)
+- **Icon Color**: Text-Light (white)
+
+**Light Variant (Dark Mode):**
+- **Background**: gradient white → neutral-200
+- **Border**: 1.5px white/60, offset -1.5px
+- **Shadow**: inset 2px 0px 8px 2px rgba(24,24,24,0.20)
+- **Text Color**: Text-Primary (dark)
+- **Icon Color**: Text-Primary (dark)
+
+#### Gradient Icon Button (Icon Only)
+- **Size**: 48×48px (w-12 h-12)
+- **Padding**: 12px (p-3)
+- **Radius**: 32px (rounded-[32px])
+- **Icon**: 24×24px (w-6 h-6) centered
+- **Variants**: Same as Gradient Button (Dark/Light)
+
+**Dark Variant:**
+- **Background**: gradient zinc-800 → zinc-800
+- **Border**: 1.5px white/40, offset -1.5px
+- **Shadow**: inset 2px 0px 8px 2px rgba(248,248,248,0.20)
+- **Icon**: Text-Light, stroke 1.5px, offset -0.75px
+
+**Light Variant:**
+- **Background**: gradient white → neutral-200
+- **Border**: 1.5px white/60, offset -1.5px
+- **Shadow**: inset 2px 0px 8px 2px rgba(24,24,24,0.20)
+- **Icon**: Text-Primary, stroke 1.5px, offset -0.75px
+
+#### Icon Button (Wide - with Border)
+- **Width**: 192px (w-48)
+- **Height**: 48px (h-12)
+- **Padding**: 12px (p-3)
+- **Radius**: 90px (rounded-[90px])
+- **Border**: 1.5px Stroke-Stroke2, offset -1.5px
+- **Background**: transparent or Backgrounds-surface1
+- **Icon**: 24×24px (w-6 h-6)
+  - Color: Text-Secondary
+  - Stroke: 1.5px, offset -0.75px
+- **Layout**: center aligned
+- **States**: default, hover, active
+
+#### Circular Arrow Button (Large)
+- **Size**: 64×64px (w-16 h-16)
+- **Padding**: 20px (p-5) - визуальный padding
+- **Radius**: 96px (rounded-[96px]) - полностью круглый
+- **Border**: 1.5px Stroke-Stroke2, offset -1.5px
+- **Background**: transparent or Backgrounds-surface1
+- **Icon**: 24×24px arrow
+  - Color: Text-Secondary
+  - Stroke: 1.5px, offset -0.75px
+- **States**:
+
+**Default:**
+- **Background**: transparent or Backgrounds-surface1
+- **Border**: 1.5px Stroke-Stroke2
+- **Icon**: Text-Secondary
+
+**Hover:**
+- **Background**: Backgrounds-highlight
+- **Border**: 1.5px Stroke-Stroke2
+- **Icon**: Text-Primary
+- **Shadow**: hover shadows (3 layers)
+
+**Disabled:**
+- **Opacity**: 0.3 (opacity-30)
+- **Background**: transparent or Backgrounds-surface1
+- **Border**: 1.5px Stroke-Stroke2
+- **Icon**: Text-Secondary
+- **Cursor**: not-allowed
+
+#### Avatar Placeholder (Circle)
+- **Size**: 48×48px (w-12 h-12)
+- **Radius**: 64px (rounded-[64px]) or rounded-full
+- **Layout**: flex, center aligned
+- **Variants**:
+
+**With Border:**
+- **Background**: Backgrounds-surface1 or Backgrounds-surface2
+- **Border**: 1.5px Stroke-Stroke2, offset -1.5px
+- **Icon** (optional): 24×24px user profile icon
+  - Color: Text-Secondary
+  - Stroke: 1.5px, offset -0.75px
+
+**Without Border:**
+- **Background**: Backgrounds-surface1
+- **Border**: none
+- **Icon** (optional): 24×24px user profile icon
+  - Color: Text-Secondary
+  - Stroke: 1.5px, offset -0.75px
+
+---
+
+### 24. Special Effects
 
 #### Fade Overlay (для горизонтального скролла)
 - **Width**: 112px (w-28)
@@ -1687,9 +1796,14 @@ outline: 1.5px solid #f4f4f5; /* zinc-100 */
 | Product Status Badge (height) | 24px |
 | Suggestion Avatar | 64×64px |
 | Action Button (Arrow) | 48×48px |
+| Gradient Button (text) | 44px (height) |
+| Gradient Icon Button | 48×48px |
+| Icon Button (Wide) | 192×48px |
+| Circular Arrow Button (Large) | 64×64px |
+| Avatar Placeholder | 48×48px |
 
 ---
 
-**Последнее обновление**: Блок #22
+**Последнее обновление**: Блок #23
 **Статус**: В процессе сборки
-**Добавлено**: Toggle Switches (44×24px, ON/OFF states, dark/light/pressed variants), Navigation & Menu Items (48px height, hover states с multi-layer shadows), Search Results / Product List Cards (384px, KPI shadows, dark mode варианты), Product Status Badges (Active/Offline), Suggestion List Items (с аватарами и action buttons), Action Buttons (48×48px circular arrow)
+**Добавлено**: Gradient Buttons (44px height, dark/light variants, text + icon layout), Gradient Icon Buttons (48×48px, icon only, dual theme variants), Icon Buttons (192px wide with borders), Circular Arrow Buttons (64×64px, with hover/disabled states, opacity-30 for disabled), Avatar Placeholders (48×48px circles, with/without borders)
