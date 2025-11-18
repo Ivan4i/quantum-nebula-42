@@ -943,7 +943,104 @@ Standard fields displayed:
 
 ---
 
-### 17. Author Profile Card
+### 17. Interactions Card (Statistics)
+
+#### Interactions Card
+- **Width**: 320px (w-80)
+- **Padding**: 12px (x), 12px (top), 24px (bottom) - px-3 pt-3 pb-6
+- **Background**: Backgrounds-surface2
+- **Radius**: 32px (rounded-[32px])
+- **Shadow**: --shadow-card-1 + --shadow-card-2
+- **Border**: 1.5px outline, offset -1.5px
+- **Layout**: flex-col, gap 16px
+- **Variant**: First card has fixed height 320px (h-80)
+
+#### Card Header
+- **Height**: 48px (h-12)
+- **Padding**: 12px (x), 10px (y) - px-3 py-2.5
+- **Title**: "Interactions"
+  - Font: 20px (text-xl) semibold
+  - Line height: 28px (leading-7)
+  - Color: Text-Primary
+- **Layout**: horizontal, gap 8px
+
+#### Card Body
+- **Padding**: 12px (px-3)
+- **Gap**: 24px (gap-6) between sections
+- **Inner container**: gap 20px (gap-5) between items
+
+#### Interaction Item
+- **Layout**: horizontal, gap 16px
+- **Components**:
+  - Icon container (left)
+  - Content area (flex-1, right)
+- **Gap**: 20px (gap-5) between items
+
+#### Icon Container
+- **Size**: 40×40px (w-10 h-10)
+- **Background**: Backgrounds-surface1
+- **Radius**: 40px (rounded-[40px])
+- **Icon**: 16×16px (w-4 h-4)
+  - Position: absolute, left-[11px] top-[11px] (centered)
+  - Color: Text-Primary
+  - Stroke: 1.5px outline, offset -0.75px
+- **Icon Types**:
+  - **Posts**: User profile + message bubble icon
+  - **Videos**: Play button + camera icon
+  - **Newsletter**: Stacked document icon
+  - **Social**: Share/network nodes icon
+
+#### Content Area
+- **Layout**: flex-col, gap 8px (gap-2)
+- **Components**:
+  - Label row (top)
+  - Progress bar (bottom)
+
+#### Label Row
+- **Layout**: justify-between, items-center
+- **Left Side**: Category name + count
+  - **Primary text**: 16px (text-base) semibold, leading-24px, Text-Primary
+  - **Count text**: 16px (text-base) semibold, leading-24px, Text-Secondary
+  - Format: "Posts (1,235)" or "Videos (80)"
+- **Right Side**: Percentage
+  - Font: 16px (text-base) semibold, leading-24px
+  - Color: Text-Primary
+  - Examples: "40.8%", "23.6%", "10.7%", "1.25%"
+
+#### Progress Bar
+- **Height**: 12px (h-3)
+- **Background**: shade09-100
+- **Radius**: 2px (rounded-sm)
+- **Layout**: 2-segment gradient bar
+  - **Segment 1**:
+    - Gradient: from-neutral-200/30 to-neutral-500/30
+    - Radius: rounded-tl-sm rounded-bl-sm
+  - **Segment 2**:
+    - Gradient: from-neutral-200/30 to-neutral-500/30
+    - Radius: rounded-tr-sm rounded-br-sm
+- **Widths vary** by percentage (examples):
+  - Posts (40.8%): w-28 + w-16 (112px + 64px)
+  - Videos (23.6%): w-16 + w-24 (64px + 96px)
+  - Newsletter (10.7%): w-16 + w-20 (64px + 80px)
+  - Social (1.25%): w-5 + w-8 (20px + 32px)
+
+#### Interaction Types (Standard Set)
+1. **Posts**:
+   - Icon: User profile + message
+   - Example: 1,235 items, 40.8%
+2. **Videos**:
+   - Icon: Play button + camera
+   - Example: 80 items, 23.6%
+3. **Newsletter**:
+   - Icon: Stacked documents
+   - Example: 136 items, 10.7%
+4. **Social**:
+   - Icon: Network/share nodes
+   - Example: 566 items, 1.25%
+
+---
+
+### 18. Author Profile Card
 
 #### Author Profile Card
 - **Padding**: 32px (p-8)
@@ -1044,7 +1141,7 @@ Standard fields displayed:
 
 ---
 
-### 18. Special Effects
+### 19. Special Effects
 
 #### Fade Overlay (для горизонтального скролла)
 - **Width**: 112px (w-28)
@@ -1196,9 +1293,13 @@ outline: 1.5px solid #f4f4f5; /* zinc-100 */
 | Online Indicator (Author) | 16×16px |
 | Category Tag (height) | 24px |
 | Portfolio Image (height) | 192px |
+| Interactions Card | 320px |
+| Interaction Icon Container | 40×40px |
+| Interaction Icon | 16×16px |
+| Interaction Progress Bar (height) | 12px |
 
 ---
 
-**Последнее обновление**: Блок #19
+**Последнее обновление**: Блок #20
 **Статус**: В процессе сборки
-**Добавлено**: Author Profile Card (padding 32px, 4 portfolio images), Avatar with Online Status (64×64px с индикатором 16×16px), Category Tags (24px height, light/dark mode variants), Response Time Info (opacity 0.8), Backgrounds-pop для dark mode tags
+**Добавлено**: Interactions Card (320px width, 4 interaction types), Icon Containers (40×40px круглые), Progress Bars (12px height с 2-segment градиентом), Label Row (16px text с count и percentage), 4 стандартных типа взаимодействий (Posts, Videos, Newsletter, Social)
