@@ -2535,7 +2535,426 @@ Standard fields displayed:
 
 ---
 
-### 36. Special Effects
+### 36. Tag Chips (Individual)
+
+#### Tag Chip (Default)
+- **Height**: 32px (h-8)
+- **Padding**: 8px (x), 6px (y) - px-2 py-1.5
+- **Radius**: 20px (rounded-[20px])
+- **Layout**: inline-flex, gap 6px (gap-1.5), center aligned
+- **Border**: 1.5px outline Stroke-Stroke2, offset -1.5px
+- **Font**: 14px (text-sm) normal, leading-20px
+- **Text Color**: Text-Primary
+
+**Default State:**
+- **Background**: Backgrounds-surface2
+- **Remove Icon**: 12×12px (w-3 h-3)
+- **Icon Color**: Text-Primary
+- **Examples**: "Furniture", "Decor", "Modern"
+
+**Hover State:**
+- **Background**: Backgrounds-surface2 (same)
+- **Border**: 1.5px outline Stroke-Stroke2, offset -1.5px (same)
+- **Remove Icon Color**: Text-Tertiary (changes from Text-Primary)
+- **Cursor**: pointer on icon
+
+---
+
+### 37. Integration Buttons (Brand Buttons)
+
+#### Integration Button (Full)
+- **Min-Width**: 208px (min-w-52)
+- **Height**: 48px (h-12)
+- **Padding**: 12px (x), 10px (y) - px-3 py-2.5
+- **Radius**: 48px (rounded-[48px])
+- **Layout**: inline-flex, gap 12px (gap-3), justify-start, center aligned
+- **Font**: 14px (text-sm) medium, leading-20px
+- **Icon**: 24×24px (w-6 h-6) brand icon (Notion example)
+- **Text**: "Notion" or brand name
+
+**Default State:**
+- **Background**: Backgrounds-surface1
+- **Border**: 1.5px outline Stroke-Stroke2, offset -1.5px
+- **Text Color**: Text-Primary
+- **Icon Color**: Text-Primary (black)
+
+**Elevated/Hover State:**
+- **Background**: white
+- **Border**: 1.5px outline zinc-200, offset -1.5px
+- **Shadow - KPI Shadows**:
+```css
+box-shadow:
+  0px 0.75px 1.5px 0px rgba(0, 0, 0, 0.06),
+  0px 2px 4px 0px rgba(0, 0, 0, 0.08),
+  inset 0px -0.38px 0.75px 0px rgba(0, 0, 0, 0.08),
+  inset 0px 0px 0px 1.5px rgba(255, 255, 255, 1.00),
+  inset 0px 0.75px 1.5px 0px rgba(255, 255, 255, 0.60),
+  inset 0px 2px 8px 2px rgba(248, 248, 248, 0.20);
+```
+- **Backdrop Filter**: blur(32px) - backdrop-blur-[32px]
+- **Text Color**: Text-Primary
+- **Icon Color**: Text-Primary
+
+**Focused State:**
+- **Background**: white
+- **Border**: 2px outline Stroke-Focus, offset -2px
+- **Shadow**: Same as elevated state
+- **Backdrop Filter**: blur(32px)
+
+**Icon-Only Variant:**
+- **Width**: 48×48px (w-12 h-12)
+- **Padding**: 10px (all sides) - p-2.5
+- **Radius**: 48px (rounded-[48px])
+- **Icon**: 24×24px (w-6 h-6)
+- **No text**, only brand icon
+- **All other properties**: Same as full button states
+
+---
+
+### 38. View Toggle Buttons
+
+#### View Toggle (Grid/List Buttons)
+- **Size**: 48×48px each (w-12 h-12)
+- **Padding**: 12px (all sides) - p-3
+- **Radius**: 48px (rounded-[48px])
+- **Layout**: inline-flex, gap 12px (gap-3)
+- **Icon Size**: 24×24px (w-6 h-6)
+- **Icons**: Grid view (squares icon), List view (lines icon)
+
+**Default/Inactive State:**
+- **Background**: Backgrounds-surface1
+- **Border**: 1.5px outline Stroke-Stroke2, offset -1.5px
+- **Icon Color**: Text-Primary
+
+**Active State:**
+- **Background**: Backgrounds-surface2 or darker shade
+- **Border**: 1.5px outline Stroke-Stroke2, offset -1.5px
+- **Icon Color**: Text-Primary
+- **Visual difference**: Slightly darker background to indicate selection
+
+---
+
+### 39. Emoji Picker
+
+#### Emoji Picker Container
+- **Width**: 384px (w-96)
+- **Padding**: 12px (all sides) - p-3
+- **Radius**: 32px (rounded-[32px])
+- **Background**: Backgrounds-surface1
+- **Border**: 1.5px outline Stroke-Stroke2, offset -1.5px
+- **Layout**: flex-col, gap 12px (gap-3)
+
+#### Search Input (in Emoji Picker)
+- **Width**: 360px (w-90) full width minus padding
+- **Height**: 44px (h-11)
+- **Padding**: 12px (x), 10px (y) - px-3 py-2.5
+- **Radius**: 90px (rounded-[90px])
+- **Border**: 1.5px outline Stroke-Stroke2, offset -1.5px
+- **Background**: Backgrounds-surface2
+- **Placeholder**: "Search emojis" - Text-Secondary, 14px normal
+- **Search Icon**: 24×24px (w-6 h-6), Text-Secondary
+
+#### Emoji Grid
+- **Container**: 360px width
+- **Grid Layout**: 8 columns × multiple rows
+- **Gap**: 0px (no gap)
+- **Each Emoji Cell**:
+  - **Size**: 44×44px (w-11 h-11)
+  - **Padding**: 8px (all sides) - p-2
+  - **Radius**: 40px (rounded-[40px])
+  - **Font Size**: 20px (text-xl)
+  - **Layout**: inline-flex, center aligned
+
+**Light Mode Emoji Cell:**
+- **Background**: Backgrounds-surface1
+- **Shadow**:
+```css
+box-shadow:
+  inset 0px 0px 0px 1.5px rgba(255, 255, 255, 1.00),
+  inset 0px 0.75px 1.5px 0px rgba(255, 255, 255, 0.60);
+```
+- **Backdrop Filter**: blur(50px) - backdrop-blur-[50px]
+
+**Dark Mode Emoji Cell:**
+- **Background**: shade08-70/70
+- **Shadow**: Similar inset shadows
+- **Backdrop Filter**: blur(50px)
+
+**Emoji Examples**: 😀, 😃, 😄, 😁, 😆, 😅, 🤣, 😂, 🙂, 🙃, 😉, 😊, 😇, etc.
+
+---
+
+### 40. Date/Time Picker Inputs
+
+#### Date Picker Input
+- **Width**: 208px (w-52)
+- **Height**: 48px (h-12)
+- **Padding**: 16px (x), 12px (y) - px-4 py-3
+- **Radius**: 32px (rounded-[32px])
+- **Layout**: inline-flex, gap 8px (gap-2), center aligned
+- **Font**: 14px (text-sm) normal, leading-20px
+- **Icon**: 24×24px calendar icon
+- **Floating Label**: "Date", 12px (text-xs) normal
+
+**Default State:**
+- **Background**: Backgrounds-surface1
+- **Border**: 1.5px outline Stroke-Stroke2, offset -1.5px
+- **Text**: "May 28, 2044" - Text-Primary
+- **Icon Color**: Text-Primary
+
+**Focused State:**
+- **Background**: Backgrounds-surface1
+- **Border**: 2px outline Stroke-Focus, offset -2px
+- **Text**: Text-Primary
+- **Icon Color**: Text-Blue or Stroke-Focus color
+
+#### Time Picker Input
+- **Width**: 208px (w-52)
+- **Height**: 48px (h-12)
+- **Padding**: 16px (x), 12px (y) - px-4 py-3
+- **Radius**: 32px (rounded-[32px])
+- **Layout**: inline-flex, gap 8px (gap-2), center aligned
+- **Font**: 14px (text-sm) normal, leading-20px
+- **Icon**: 24×24px clock icon
+- **Floating Label**: "Time", 12px (text-xs) normal
+
+**Default State:**
+- **Background**: Backgrounds-surface1
+- **Border**: 1.5px outline Stroke-Stroke2, offset -1.5px
+- **Text**: "05:00 PM" or "12:00 PM" - Text-Primary
+- **Icon Color**: Text-Primary
+
+**Focused State:**
+- **Background**: Backgrounds-surface1
+- **Border**: 2px outline Stroke-Focus, offset -2px
+- **Text**: Text-Primary
+- **Icon Color**: Text-Blue or Stroke-Focus color
+
+---
+
+### 41. Calendar Component
+
+#### Calendar Container
+- **Width**: 320px (w-80)
+- **Padding**: 12px (all sides) - p-3
+- **Radius**: 32px (rounded-[32px])
+- **Background**: white
+- **Border**: white outline with offset
+- **Layout**: flex-col, gap 16px (gap-4)
+
+**Light Mode Calendar:**
+- **Background**: white
+- **Shadow - KPI Shadows**:
+```css
+box-shadow:
+  0px 0.75px 1.5px 0px rgba(0, 0, 0, 0.06),
+  0px 2px 4px 0px rgba(0, 0, 0, 0.08),
+  inset 0px -0.38px 0.75px 0px rgba(0, 0, 0, 0.08),
+  inset 0px 0px 0px 1.5px rgba(255, 255, 255, 1.00),
+  inset 0px 0.75px 1.5px 0px rgba(255, 255, 255, 0.60),
+  inset 0px 2px 8px 2px rgba(248, 248, 248, 0.20);
+```
+- **Backdrop Filter**: blur(32px) - backdrop-blur-[32px]
+
+#### Month/Year Header
+- **Width**: full (296px after padding)
+- **Height**: 28px (h-7)
+- **Layout**: inline-flex, justify-between, center aligned
+- **Font**: 14px (text-sm) semibold, leading-20px
+- **Text**: "May 2044" - Text-Primary
+- **Navigation Arrows**:
+  - **Size**: 24×24px (w-6 h-6)
+  - **Color**: Text-Primary
+  - **Position**: Left chevron (previous), Right chevron (next)
+
+#### Week Days Header
+- **Width**: 296px
+- **Layout**: inline-flex, gap 4px (gap-1), justify-center
+- **Each Day Label**:
+  - **Width**: 40px (w-10)
+  - **Font**: 12px (text-xs) normal, leading-16px
+  - **Color**: Text-Secondary
+  - **Text**: "Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"
+  - **Alignment**: center
+
+#### Date Cell Grid
+- **Container**: 296px width
+- **Layout**: inline-flex, flex-wrap, gap 4px (gap-1), justify-start
+- **Each Date Cell**:
+  - **Size**: 40×40px (w-10 h-10)
+  - **Padding**: 8px (all sides) - p-2
+  - **Radius**: 40px (rounded-[40px])
+  - **Font**: 14px (text-sm) normal, leading-20px
+  - **Layout**: inline-flex, center aligned
+
+**Date Cell States:**
+
+**Disabled (previous/next month dates):**
+- **Background**: transparent
+- **Text Color**: Text-Tertiary or opacity-30
+- **Text**: "28", "29", "30", "31", "1", "2", etc.
+
+**Default (current month):**
+- **Background**: transparent
+- **Text Color**: Text-Primary
+- **Border**: none
+
+**Today (current date):**
+- **Background**: Backgrounds-dark1 (dark background)
+- **Text Color**: white or Text-Light
+- **Example**: Date "26" highlighted
+
+**Hover State:**
+- **Background**: transparent or slight highlight
+- **Border**: 1.5px outline Stroke-Stroke2, offset -1.5px
+- **Text Color**: Text-Primary
+
+**Selected State:**
+- **Background**: Primary-primary01 or dark shade
+- **Text Color**: white
+- **Border**: 1.5px outline white/40, offset -1.5px
+
+---
+
+### 42. Time Picker Dropdown
+
+#### Time Picker Dropdown Container
+- **Width**: 240px (w-60)
+- **Max-Height**: ~200px (scrollable)
+- **Padding**: 4px (all sides) - p-1
+- **Radius**: 20px (rounded-[20px])
+- **Background**: Backgrounds-surface1
+- **Border**: 1.5px outline Stroke-Stroke2, offset -1.5px
+- **Layout**: flex-col, gap 2px (gap-0.5)
+- **Overflow**: scroll (y-axis)
+
+#### Time Option Item
+- **Width**: 232px (full width minus padding)
+- **Padding**: 12px (x), 8px (y) - px-3 py-2
+- **Radius**: 12px (rounded-xl)
+- **Layout**: inline-flex, justify-between, center aligned
+- **Font**: 14px (text-sm) normal, leading-20px
+
+**Default State:**
+- **Background**: transparent
+- **Text Color**: Text-Secondary
+- **Text**: "12:00 AM", "12:30 AM", "01:00 AM", etc.
+- **Checkmark**: hidden or invisible
+
+**Selected/Active State:**
+- **Background**: shade08-70/70
+- **Text Color**: Text-Primary
+- **Text**: "05:00 PM" or selected time
+- **Checkmark Icon**: 24×24px (w-6 h-6), visible
+- **Icon Color**: Text-Primary
+
+**Hover State:**
+- **Background**: Backgrounds-highlight or slight shade
+- **Text Color**: Text-Primary
+
+---
+
+### 43. Modal Dialog (Reschedule Product)
+
+#### Modal Overlay
+- **Full viewport**: fixed positioning
+- **Background**: rgba(0, 0, 0, 0.50) or similar dark overlay
+- **Backdrop Filter**: blur(8px) optional
+- **Z-index**: high (above all content)
+
+#### Modal Container
+- **Width**: 480px (w-[480px])
+- **Padding**: 12px (container) - p-3
+- **Radius**: 32px (rounded-[32px])
+- **Background**: white or Backgrounds-surface1
+- **Border**: 1.5px outline white, offset -1.5px
+- **Position**: center of viewport
+- **Layout**: flex-col, gap 12px (gap-3)
+
+**Modal Shadow - KPI Shadows:**
+```css
+box-shadow:
+  0px 0.75px 1.5px 0px rgba(0, 0, 0, 0.06),
+  0px 2px 4px 0px rgba(0, 0, 0, 0.08),
+  inset 0px -0.38px 0.75px 0px rgba(0, 0, 0, 0.08),
+  inset 0px 0px 0px 1.5px rgba(255, 255, 255, 1.00),
+  inset 0px 0.75px 1.5px 0px rgba(255, 255, 255, 0.60),
+  inset 0px 2px 8px 2px rgba(248, 248, 248, 0.20);
+```
+- **Backdrop Filter**: blur(32px) - backdrop-blur-[32px]
+
+#### Modal Content
+- **Padding**: 20px (all sides) - p-5
+- **Radius**: 20px (rounded-[20px])
+- **Background**: Backgrounds-surface2
+- **Layout**: flex-col, gap 20px (gap-5)
+
+#### Product Preview Card (in Modal)
+- **Width**: full (440px after padding)
+- **Padding**: 12px (all sides) - p-3
+- **Radius**: 20px (rounded-[20px])
+- **Background**: Backgrounds-surface1
+- **Border**: 1.5px outline Stroke-Stroke2, offset -1.5px
+- **Layout**: inline-flex, gap 12px (gap-3), center aligned
+
+**Product Image:**
+- **Size**: 64×64px (w-16 h-16)
+- **Radius**: 16px (rounded-2xl)
+- **Object Fit**: cover
+
+**Product Info:**
+- **Layout**: flex-col, gap 8px (gap-2)
+- **Title**: 14px (text-sm) medium, Text-Primary
+- **Example**: "Modern Minimalist Chair"
+- **Price Badge**:
+  - Padding: 4px (x), 2px (y) - px-1 py-0.5
+  - Radius: 90px (rounded-[90px])
+  - Background: Primary-primary01 or green-600/5
+  - Text: "$120.00", 12px (text-xs) normal, Primary-primary01
+  - Border: 1.5px outline Primary-primary01/20, offset -1.5px
+- **Category**: 12px (text-xs) normal, Text-Tertiary
+- **Example**: "Furniture"
+
+#### Modal Title & Description
+- **Title**:
+  - **Font**: 30px (text-3xl) semibold, leading-36px
+  - **Color**: Text-Primary
+  - **Text**: "Reschedule product"
+- **Description**:
+  - **Font**: 16px (text-base) normal, leading-24px
+  - **Color**: Text-Tertiary
+  - **Text**: "Select new date and time for this product."
+  - **Margin**: 8px gap below title
+
+#### Date/Time Input Row (in Modal)
+- **Layout**: inline-flex, gap 12px (gap-3)
+- **Date Picker**: 208px width (left)
+- **Time Picker**: 208px width (right)
+- **Total Width**: 428px (208 + 12 + 208)
+
+#### Modal Action Buttons
+- **Layout**: inline-flex, gap 12px (gap-3), justify-end
+- **Button Height**: 48px (h-12)
+- **Padding**: 28px (x), 12px (y) - px-7 py-3
+- **Radius**: 32px (rounded-[32px])
+- **Font**: 14px (text-sm) medium, leading-20px
+
+**Cancel Button:**
+- **Background**: Backgrounds-surface1
+- **Border**: 1.5px outline Stroke-Stroke2, offset -1.5px
+- **Text Color**: Text-Primary
+- **Text**: "Cancel"
+
+**Reschedule Button (Primary):**
+- **Background**: Primary-primary01 or dark gradient
+- **Border**: 1.5px outline white/40, offset -1.5px
+- **Text Color**: Text-Light (white)
+- **Text**: "Reschedule"
+- **Shadow**: inset shadows for depth
+
+---
+
+### 44. Special Effects
 
 #### Fade Overlay (для горизонтального скролла)
 - **Width**: 112px (w-28)
@@ -2750,9 +3169,29 @@ outline: 1.5px solid #f4f4f5; /* zinc-100 */
 | Star Icon (rating) | 20×20px |
 | Action Button (card actions) | auto (16×16px icon) |
 | Brand/App Icons | 16×16px |
+| Tag Chip (individual) | 32px (height) |
+| Integration Button (full) | 208×48px (min-w) |
+| Integration Button (icon-only) | 48×48px |
+| View Toggle Button | 48×48px |
+| Emoji Picker Container | 384px (width) |
+| Emoji Picker Search | 360×44px |
+| Emoji Cell | 44×44px |
+| Date Picker Input | 208×48px |
+| Time Picker Input | 208×48px |
+| Calendar Container | 320px (width) |
+| Calendar Date Cell | 40×40px |
+| Calendar Navigation Arrow | 24×24px |
+| Week Day Label | 40px (width) |
+| Time Picker Dropdown | 240px (width) |
+| Time Option Item | 232px (width) |
+| Modal Container | 480px (width) |
+| Modal Overlay | full viewport |
+| Product Preview Image (modal) | 64×64px |
+| Modal Title | 30px (text-3xl) |
+| Modal Action Button | auto×48px |
 
 ---
 
-**Последнее обновление**: Блок #28
+**Последнее обновление**: Блок #29
 **Статус**: В процессе сборки
 **Добавлено**: Tags Input / Multi-Chip (384px container with 8 states: default/alt/focus/typing with autocomplete/filled, 32px tag chips with 12×12px remove icons, flex-wrap layout), Publish Button with Icon (48px height with arrow icon rotated 90deg, dark zinc-800 and light white→neutral-200 gradient variants), Product Cards Grid View (384×224px cards with 3 states: default/selected with opacity-10 overlay + checkbox/hover with opacity-30 overlay + action buttons, price badge 48px, rating display with 20×20px star icon, meta rows for date/time and rating), Action Buttons Row (Edit/Delete/Schedule/Unpublish with 16×16px icons), Brand/App Icons 16×16px (Notion, Bootstrap, HTML, Photoshop, Blender, After Effects, Figma, Sketch, WordPress, Swift with detailed color specifications for each brand)
