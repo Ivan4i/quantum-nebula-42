@@ -7,10 +7,14 @@
 3. [Типографика](#типографика)
 4. [Spacing & Layout](#spacing--layout)
 5. [Компоненты](#компоненты)
-   - [Product Cards](#16-product-cards)
-   - [Loading States](#17-loading-states-updated)
+   - [Filter Panels](#16-filter-panels)
+   - [Range Slider](#17-range-slider-price-filter)
+   - [Toggle Switch](#18-toggle-switch)
+   - [Product Cards](#19-product-cards)
+   - [Loading States](#20-loading-states-updated)
 6. [Паттерны](#паттерны)
    - [Product Layouts](#product-layouts)
+   - [Compatibility Grid](#compatibility-grid-filter-panel)
 7. [Состояния](#состояния)
 
 ---
@@ -71,6 +75,7 @@
 --stroke-stroke2: /* Основные border */
 --stroke-subtle: /* Тонкие разделители с opacity-10 */
 --stroke-borderborder: /* Акцентные borders */
+--stroke-focus: /* Focus state для selected chips - outline 2px */
 
 /* Shades */
 --shade01-100: /* white - для иконок на цветном фоне */
@@ -354,6 +359,24 @@ letter-spacing: -0.02em; /* tracking-tight */
 - **Icon**: 24×24px (20px внутренний)
 - **Font**: 14px semibold
 - **Layout**: center aligned
+
+#### Chip/Tag Button (Compatibility Filter)
+- **Padding**: 12px (p-3)
+- **Radius**: 48px
+- **Font**: 14px semibold, center aligned
+- **Icon**: 24×24px container (20×20px inner)
+- **Gap**: 8px (gap-2)
+- **Layout**: center aligned, flex-1
+- **Min-width Variants**:
+  - **Small (320px panel)**: min-w-32 (128px)
+  - **Large (600px panel)**: min-w-40 (160px)
+- **States**:
+  - **Default**:
+    - Border: 1.5px outline, offset -1.5px, Stroke-Stroke2
+    - Text: Text-Primary
+  - **Select**:
+    - Border: 2px outline, offset -2px, Stroke-Focus
+    - Text: Text-Primary
 
 #### Send Button (Message Input)
 - **Height**: 44px (h-11)
@@ -846,7 +869,127 @@ letter-spacing: -0.02em; /* tracking-tight */
 
 ---
 
-### 16. Product Cards
+### 16. Filter Panels
+
+#### Filter Panel (Small - 320px)
+- **Width**: 320px (w-80)
+- **Padding**: 24px (p-6)
+- **Radius**: 20px
+- **Background**: Backgrounds-surface1
+- **Shadow**: 5 layers (KPI shadows without last layer)
+  - 0px 5px 1.5px -4px rgba(8, 8, 8, 0.09)
+  - 0px 6px 4px -4px rgba(8, 8, 8, 0.05)
+  - 0px 6px 13px 0px rgba(8, 8, 8, 0.03)
+  - 0px 24px 24px -16px rgba(8, 8, 8, 0.04)
+  - 0px 2.15px 0.5px -2px rgba(0, 0, 0, 0.25)
+- **Border**: 1px outline, offset -1px
+- **Backdrop blur**: 32px
+- **Gap**: 24px (gap-6) между секциями
+
+#### Filter Panel (Large - 600px)
+- **Width**: 600px
+- **Padding**: 32px (p-8)
+- **Radius**: 32px
+- **Background**: Backgrounds-surface1
+- **Shadow**: 2 варианта (5 или 6 layers, см. Small)
+- **Border**: 1px outline, offset -1px, white
+- **Backdrop blur**: 32px
+- **Gap**: 48px (gap-12) между основными секциями
+
+#### Filter Section
+- **Label**:
+  - Font: 14px semibold
+  - Line-height: 16px (leading-4)
+  - Color: Text-Primary
+  - Gap: 6px (gap-1.5) с info icon
+- **Info Icon**:
+  - Size: 16×16px (w-4 h-4)
+  - Opacity: 50%
+  - Color: Text-Tertiary
+  - Design: Circle с question mark dot + exclamation
+- **Content Gap**: 16px (gap-4)
+
+#### Filter Dropdowns Row
+- **Layout**: inline-flex, gap 24px (gap-6)
+- **Items**: flex-1, каждый dropdown в своей колонке
+- **Variants**:
+  - **Light Mode**: outline 1.5px Stroke-Stroke2
+  - **Dark Mode**: outline 1px Stroke-Subtle
+
+---
+
+### 17. Range Slider (Price Filter)
+
+#### Range Slider
+- **Track**:
+  - Height: 8px (h-2)
+  - Radius: 8px (rounded-lg)
+  - Border: 1.5px outline, offset -1.5px, Stroke-Stroke2
+  - Overflow: hidden
+- **Active Fill**:
+  - Height: 4px (h-1)
+  - Background: Text-Primary
+  - Radius: 6px (rounded-md)
+  - Position: абсолютная, рассчитывается по позициям ручек
+
+#### Range Slider Handle
+- **Size**: 32×32px (w-8 h-8)
+- **Rounded**: full
+- **Shadow**: 6 layers (KPI shadows)
+  - 0px 5px 1.5px -4px rgba(8, 8, 8, 0.09)
+  - 0px 6px 4px -4px rgba(8, 8, 8, 0.05)
+  - 0px 6px 13px 0px rgba(8, 8, 8, 0.03)
+  - 0px 24px 24px -16px rgba(8, 8, 8, 0.04)
+  - 0px 2.15px 0.5px -2px rgba(0, 0, 0, 0.25)
+  - 0px 0px 36px -8px rgba(0, 0, 0, 0.05)
+- **Variants**:
+  - **Light Mode (property-1="true")**:
+    - Background: Backgrounds-surface2
+    - Border: 1px Backgrounds-Depth-2
+  - **Dark Mode (property-1="false")**:
+    - Background: shade04-100
+    - Border: 1px Backgrounds-Depth-2/50
+
+#### Range Slider Labels
+- **Layout**: inline-flex, space-between
+- **Label**:
+  - Width: 48px (w-12)
+  - Font: 14px semibold
+  - Line-height: 16px (leading-4)
+  - Color: Text-Primary
+  - Line-clamp: 1
+- **Alignment**: left label (justify-start), right label (text-right)
+- **Gap from slider**: 4px (gap-1)
+
+---
+
+### 18. Toggle Switch
+
+#### Toggle Switch (Featured Products)
+- **Container**:
+  - Width: 44px (w-11)
+  - Padding: 2px (p-0.5)
+  - Radius: 32px
+  - Background: gradient zinc-800 → zinc-800
+  - Shadow: inset 2px 0px 8px 2px rgba(248, 248, 248, 0.20)
+  - Border: 1.5px outline, offset -1.5px, white/40
+  - Layout: justify-end (when ON)
+  - Overflow: hidden
+- **Handle**:
+  - Size: 20×20px (w-5 h-5)
+  - Radius: 24px (rounded-3xl)
+  - Background: neutral-50
+  - Shadow: 3 layers
+    - 0px 2px 4px 0px rgba(0, 0, 0, 0.20)
+    - inset 0px -1px 1px 0px rgba(0, 0, 0, 0.10)
+    - inset 0px 2px 2px 0px rgba(255, 255, 255, 1.00)
+- **States**:
+  - ON: handle at right (justify-end)
+  - OFF: handle at left (justify-start)
+
+---
+
+### 19. Product Cards
 
 #### Product Card
 - **Width**: flex-1, max-w-[600px], min-w-80 (320px)
@@ -912,7 +1055,7 @@ letter-spacing: -0.02em; /* tracking-tight */
 
 ---
 
-### 17. Loading States (Updated)
+### 20. Loading States (Updated)
 
 #### Skeleton
 - **Avatar**: 48×48px circle, shade08-100 / shade04-50/50
@@ -946,7 +1089,7 @@ letter-spacing: -0.02em; /* tracking-tight */
 
 ---
 
-### 18. Special Effects
+### 21. Special Effects
 
 #### Fade Overlay (для горизонтального скролла)
 - **Width**: 112px (w-28)
@@ -1024,11 +1167,33 @@ outline: 1.5px solid #f4f4f5; /* zinc-100 */
   - Placeholder: opacity-50, 14px
 - **Gap**: 12px между items
 
-#### Compatibility Grid
-- **Min-width**: 208px per item
-- **Flex-wrap**: 3 columns
-- **Gap**: 12px
+#### Compatibility Grid (Filter Panel)
+- **Layout**: inline-flex, flex-wrap, content-start
+- **Gap**: 12px (gap-3)
+- **Items**: flex-1 chips
+- **Min-width Variants**:
+  - **Small (320px panel)**: min-w-32 (128px) - 2 columns
+  - **Large (600px panel)**: min-w-40 (160px) - 3 columns
 - **Icon + Text**: center aligned
+- **Selected state**: 2px outline Stroke-Focus
+
+#### Filter Footer Actions
+- **Layout**:
+  - **Small Panel (320px)**: inline-flex, gap 12px (gap-3), full width buttons
+  - **Large Panel (600px)**: space-between, gap 12px (gap-3), auto width buttons
+- **Reset Button**:
+  - Height: 48px (h-12)
+  - Padding: 28px (x), 14px (y)
+  - Radius: 32px
+  - Border: 1.5px outline, Stroke-Stroke2
+  - Text: 14px semibold, Text-Secondary
+- **Apply Button**:
+  - Padding: 28px (x), 16px (y)
+  - Radius: 32px
+  - Gradient: zinc-800 (dark) или white → neutral-200 (light)
+  - Shadow: inset 2px 0px 8px 2px rgba(248/24, 0.20)
+  - Border: 1.5px outline, white/40 или white/60
+  - Text: 14px semibold, Text-Light
 
 ---
 
@@ -1119,9 +1284,15 @@ outline: 1.5px solid #f4f4f5; /* zinc-100 */
 | Product card | 320-600px |
 | Product card (height) | 384px |
 | Loading spinner | 48×48px |
+| Filter panel (small) | 320px |
+| Filter panel (large) | 600px |
+| Range slider track | 8px (height) |
+| Range slider handle | 32×32px |
+| Toggle switch | 44px |
+| Compatibility chip | 128-160px |
 
 ---
 
-**Последнее обновление**: Блок #18
+**Последнее обновление**: Блок #19
 **Статус**: В процессе сборки
-**Добавлено**: Product Card (responsive), Product Grid Layout (flex-wrap), Product Card Hover State (6 shadow layers + overlay), Loading Spinner (Conic Gradient), Product Meta Info (rating + category), Product Page Header pattern, shade08-20
+**Добавлено**: Filter Panel (320px & 600px sizes), Range Slider with dual handles, Toggle Switch, Filter Section Label with info icon, Compatibility Chips (min-w variants), Filter Footer Actions (Reset + Apply buttons), Stroke-Focus color
