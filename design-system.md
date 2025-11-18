@@ -989,6 +989,132 @@ outline: 1.5px solid #f4f4f5; /* zinc-100 */
 
 ---
 
-**Последнее обновление**: Блок #17
+### 17. Transaction/Order List Items
+
+#### Transaction Row (Full Layout - 1528px)
+- **Padding**: 16px (p-4)
+- **Radius**: 16px (rounded-2xl)
+- **Gap**: 24px (gap-6) between sections
+- **Layout**: checkbox + product info + status + price + datetime + user
+
+#### Transaction Row (Medium Layout - 884px)
+- **Padding**: 16px (p-4)
+- **Radius**: 16px (rounded-2xl)
+- **Gap**: 24px (gap-6)
+- **Layout**: checkbox + product info + status + price + user (no datetime)
+
+#### Transaction Row (Compact Layout - 628px)
+- **Padding**: 16px (p-4)
+- **Radius**: 16px (rounded-2xl)
+- **Gap**: 24px (gap-6)
+- **Layout**: checkbox + product info + status + price (no user, no datetime)
+
+#### Transaction Row (Minimal Layout - 320px)
+- **Padding**: 12px (p-3)
+- **Radius**: 16px (rounded-2xl)
+- **Gap**: 24px (gap-6)
+- **Layout**: product info + action tags only (no checkbox, status, price)
+
+#### Product Section (Left Side)
+- **Width**: 576px (full), 384px (medium/compact/minimal)
+- **Gap**: 20px (gap-5) between elements
+- **Layout**:
+  - Checkbox: 24×24px
+  - Product Image: 64×64px, rounded-xl
+  - Product Info: flex-1
+    - **Title**: 16px semibold, leading-24px, Text-Primary, line-clamp-1
+    - **Subtitle**: 14px normal, leading-20px, Text-Secondary (when no action tags)
+    - **Action Tags**: horizontal list, gap-8px (when no subtitle)
+
+#### Action Tags (Chip Buttons)
+- **Padding**: pl-1 pr-1.5 py-1 (4px left, 6px right, 4px vertical)
+- **Radius**: 6px (rounded-md)
+- **Font**: 14px semibold
+- **Icon**: 16×16px container (12px inner icon)
+- **Gap**: 8px between tags, 4px icon-to-text
+- **States**:
+  - **Default**:
+    - Background: transparent
+    - Text: Text-Secondary, opacity-80
+    - Icon: Text-Secondary
+    - No border
+  - **Hover/Active**:
+    - Border: 1.5px outline, offset -1.5px, Stroke-Stroke2
+    - Text: Text-Primary, opacity-80
+    - Icon: Text-Primary
+- **Layout**: inline-flex, left-4px offset (-4px relative positioning)
+
+#### Data Section (Right Side)
+- **Layout**: flex-1, space-between, py-2 (8px vertical)
+- **Gap**: varies by layout
+- **Elements**:
+  - **Status Badge**: w-28 (112px)
+  - **Price**: w-20 (80px), 14px normal, Text-Primary
+  - **Datetime**: w-28 (112px), 14px normal, Text-Primary
+  - **User Info**: w-64 (256px), gap-12px
+    - Avatar: 36×36px, rounded-[64px]
+    - Name: w-28 (112px), 14px normal, Text-Primary, line-clamp-1
+
+#### Row States
+
+##### Selected/Hover (Light Mode)
+```css
+background: Backgrounds-highlight;
+border-radius: 16px;
+box-shadow:
+  0px 1px 4px 0px rgba(0, 0, 0, 0.05),
+  0px 8px 8px -2px rgba(0, 0, 0, 0.08),
+  inset 0px 0px 0px 3px rgba(255, 255, 255, 1.00);
+outline: 1.5px solid #f4f4f5; /* zinc-100 */
+outline-offset: -1.5px;
+```
+
+##### Default (with border variant)
+```css
+box-shadow:
+  0px 1px 4px 0px rgba(0, 0, 0, 0.05),
+  0px 8px 8px -2px rgba(0, 0, 0, 0.08),
+  inset 0px 0px 0px 3px rgba(255, 255, 255, 1.00);
+border-bottom: 1.5px solid Stroke-Subtle/10; /* or Stroke-Subtle for stronger */
+```
+
+##### No Hover (Basic)
+```css
+background: Backgrounds-highlight (когда не в hover);
+outline: 1.5px solid #f4f4f5; /* zinc-100 */
+outline-offset: -1.5px;
+/* NO shadows */
+```
+
+#### Checkbox States (Transaction Row)
+- **Size**: 24×24px
+- **Radius**: 6px (rounded-md)
+- **States**:
+  - **Placeholder (Default)**:
+    - Border: 2px Stroke-Stroke2
+    - Background: transparent
+  - **Placeholder (Hover Row)**:
+    - Border: 2px Stroke-Highlight/50
+    - Background: transparent
+
+#### Loading State (Skeleton)
+- **Checkbox**: 24×24px, rounded-md
+  - Light mode: opacity-80, shade09-100
+  - Dark mode: opacity-80, shade04-100
+- **Image**: 64×64px, rounded-xl
+  - Light mode: shade09-100
+  - Dark mode: shade04-100
+- **Text Lines**:
+  - Short: w-24 (96px), h-2 (8px), rounded
+  - Long: w-40 (160px), h-2 (8px), rounded
+  - Color: shade09-100 (light) / shade04-100 (dark)
+- **Avatar**: 36×36px, rounded-[64px]
+  - Color: shade09-100 (light) / shade04-100 (dark)
+- **Price/Status/User**: w-12 to w-28, h-2, rounded
+  - Color: shade09-100 (light) / shade04-100 (dark)
+
+---
+
+**Последнее обновление**: Блок #18
 **Статус**: В процессе сборки
-**Добавлено**: OAuth Button (5 states), Input Field States (Default/Focus/Filled/Error/Success), Floating Label, Password Input with dots, Auth Form Card (480px), Auth Form Footer, "Forgot password" Link, shade04-100, shade07-50
+**Добавлено**: Transaction/Order List Items (4 responsive layouts), Action Tags/Chip Buttons, Transaction Row States (Selected/Hover/Default/Loading), Checkbox states для transaction rows, Skeleton loading для всех элементов транзакции
