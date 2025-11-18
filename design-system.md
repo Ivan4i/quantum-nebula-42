@@ -816,6 +816,208 @@ letter-spacing: -0.02em; /* tracking-tight */
 - **Font**: 12px semibold, Text-Light
 - **Arrow**: 8×4px triangle
 
+#### Recent Earnings Chart Card
+**Карточка с графиком заработка (Line chart + Stacked bars)**
+
+**Base Specifications:**
+- **Padding**: 12px (p-3)
+- **Radius**: 32px
+- **Background**: Backgrounds-surface2
+- **Shadow**: --shadow-card-1 + --shadow-card-2
+- **Border**: 1.5px outline, offset -1.5px
+- **Responsive Variants**:
+  - **Medium (Tablet)**: 660px width
+  - **Small (Mobile)**: 380px width with three-dot menu
+  - **Large (Desktop)**: 1068px width
+  - **Elevated versions**: Same sizes + white outline (1.5px) + adjusted shadows
+
+**Header:**
+- **Layout**: space-between
+- **Left Side**:
+  - Title: 20px semibold, leading-28px, Text-Primary ("Recent earnings")
+  - Padding: 12px (px-3 or px-5 for large)
+- **Right Side (Desktop/Tablet)**:
+  - Calendar icon button: 48×48px, rounded-90px, icon 24×24px
+  - Dropdown filter: 160px width, 48px height, radius 90px
+  - Border: 1.5px Stroke-Stroke2
+  - Text: 14px normal, Text-Secondary ("This year")
+  - Chevron: 24×24px, rotated 90deg
+- **Right Side (Mobile)**: Three-dot menu icon (24×24px)
+
+**Chart Area:**
+- **Height**: 384px
+- **Background**: transparent
+- **Layout**: relative positioning для overlay элементов
+
+**Grid Lines (Y-axis):**
+- **Lines**: 3 horizontal (10,000 / 5,000 / 0)
+- **Stroke**: 1.5px Stroke-Subtle/10
+- **Labels**:
+  - Font: 12px, Text-Tertiary
+  - Position: left aligned, 8px from edge
+  - Values: "10,000", "5000", "0"
+
+**X-axis Labels:**
+- **Font**: 12px, Text-Tertiary
+- **Position**: bottom, centered under each bar group
+- **Variants**:
+  - **Desktop/Tablet (660px, 1068px)**: Full dates ("13 Feb", "14 Feb", "15 Feb", "16 Feb", "17 Feb", "18 Feb", "19 Feb")
+  - **Mobile (380px)**: Shortened ("13", "14", "15", "16", "17", "18", "19")
+
+**Bar Chart (Stacked):**
+- **Bar Group**: 7 groups (one per day)
+- **Bar Width**: responsive (varies by card width)
+- **Bar Gap**: 12-20px между группами
+- **Bar Radius**: 8px (top), 0px (bottom)
+- **Structure**: 2 stacked bars per group
+  - **Primary Bar**:
+    - Color: shade07-40/40 or default chart color
+    - Opacity: 40%
+  - **Pattern Overlay Bar**:
+    - Diagonal pattern (--45deg rotation)
+    - Pattern: 1px grid lines, 3px gap
+    - Color: shade08-100 with 10% opacity
+    - Positioned on top of primary bar
+
+**Line Chart Overlay:**
+- **Data Points**: 7-8 points
+- **Line**:
+  - Stroke: 3px
+  - Color: Chart-Green or Primary-primary02
+  - Style: curved (smooth bezier)
+- **Data Point Dots**:
+  - Size: 12×12px
+  - Background: surface2 (white circle)
+  - Border: 3px Chart-Green
+  - Rounded: full
+  - Z-index: above line
+
+**Tooltip (Hover State):**
+- **Width**: 80px
+- **Padding**: 8px (x), 6px (y)
+- **Radius**: 6px
+- **Background**: Backgrounds-dark1
+- **Border**: none
+- **Shadow**: subtle
+- **Content**:
+  - Date range: 12px semibold, Text-Light ("13-14 Feb")
+  - Value: 12px semibold, Text-Light ("$5,256")
+- **Arrow**: 8×4px triangle, bottom center, pointing down
+- **Position**: absolute, centered above data point
+
+**Bottom Summary Section:**
+- **Padding**: 20px (y), 12px (x) from chart
+- **Border-top**: 1.5px Stroke-Subtle/10
+- **Layout**: horizontal, space-between (on large), vertical (on mobile)
+- **Left Side (Value Display)**:
+  - **Dollar Sign**:
+    - Size: 48px (text-3xl)
+    - Weight: semibold
+    - Color: Text-Tertiary
+    - Position: baseline aligned
+  - **Value**:
+    - Size: 48px (text-3xl)
+    - Weight: medium
+    - Color: Text-Primary
+    - Examples: "2,256", "5,620"
+  - **Gap**: 4px между $ и числом
+- **Right Side (Comparison)**:
+  - **Trend Badge**:
+    - Padding: 8px (x), 6px (y)
+    - Radius: 8px
+    - Font: 14px semibold
+    - Icon: 16×16px arrow
+    - Variants: Up (green) / Down (red)
+  - **Comparison Text**: "vs last month" - 14px normal, Text-Tertiary
+  - **Gap**: 12px between badge and text
+
+**Responsive Breakpoints:**
+
+**Large (1068px - Desktop):**
+- Full controls: Calendar button + Dropdown filter
+- Full date labels on X-axis
+- Wider bar spacing
+- Horizontal summary layout
+
+**Medium (660px - Tablet):**
+- Same controls as desktop
+- Full date labels
+- Slightly narrower bars
+- Horizontal summary layout
+
+**Small (380px - Mobile):**
+- Three-dot menu only (no filter controls)
+- Shortened date labels ("13", "14", etc.)
+- Narrow bars
+- Vertical summary layout (value on top, comparison below)
+
+**Elevated Variant:**
+- **Border**: 1.5px white outline
+- **Shadow**: --shadow-card-1 + adjusted opacity on second shadow (0.5 instead of full)
+- **All other specs**: same as regular variant
+
+**Light Mode:**
+- **Background**: surface2 (white/off-white)
+- **Grid lines**: Stroke-Subtle/10
+- **Bars**: shade07-40/40 base color
+- **Line**: Chart-Green or primary color
+
+**Dark Mode:**
+- **Background**: surface2 (zinc-900 or equivalent)
+- **Grid lines**: Stroke-Subtle/10
+- **Bars**: adjusted opacity
+- **Line**: same as light mode
+- **Border**: white outline maintained
+
+**Data Attributes:**
+- `data-size="large"` / `"medium"` / `"small"` - для responsive variants
+- `data-trend="up"` / `data-trend="down"` - для trend badge в summary
+- `data-elevated="true"` - для elevated variant с white outline
+- `data-show-controls="true"` - показывает calendar + dropdown (desktop/tablet)
+- `data-show-menu="true"` - показывает three-dot menu (mobile)
+
+**Layout Structure (Desktop 1068px):**
+```
+┌──────────────────────────────────────────────────┐
+│ [Recent earnings]    [📅] [This year ▼]         │ Header (48px)
+├──────────────────────────────────────────────────┤
+│ 10,000 ──────────────────────────────────────── │
+│         ╱╲     ╱╲                               │
+│        ╱  ╲   ╱  ╲  ╱╲                          │
+│  5000 ─────╲─╱────╲╱──╲─────────────────────   │ Chart (384px)
+│      ▓▓ ▓▓ ▓▓ ▓▓ ▓▓ ▓▓ ▓▓                      │
+│      ░░ ░░ ░░ ░░ ░░ ░░ ░░                      │
+│     0 ─────────────────────────────────────     │
+│       13  14  15  16  17  18  19                │ X-axis labels
+│      Feb Feb Feb Feb Feb Feb Feb                │
+├──────────────────────────────────────────────────┤
+│ $2,256            [↑ 36.8%] vs last month       │ Summary
+└──────────────────────────────────────────────────┘
+```
+
+**Layout Structure (Mobile 380px):**
+```
+┌─────────────────────────────┐
+│ [Recent earnings]    [⋮]   │ Header
+├─────────────────────────────┤
+│ 10,000 ──────────────────  │
+│         ╱╲    ╱╲           │
+│  5000 ─────╲─╱──╲────────  │ Chart
+│      ▓▓ ▓▓ ▓▓ ▓▓ ▓▓ ▓▓ ▓▓ │
+│     0 ──────────────────── │
+│       13 14 15 16 17 18 19 │
+├─────────────────────────────┤
+│ $2,256                      │
+│ [↑ 36.8%] vs last month    │ Summary (vertical)
+└─────────────────────────────┘
+```
+
+**Spacing:**
+- Header to chart: 12px (gap-3)
+- Chart height: 384px
+- Chart to summary: border + 20px padding
+- Summary internal gap: 12px (between value and comparison)
+
 ---
 
 ### 9. Avatars
@@ -1128,6 +1330,6 @@ outline: 1.5px solid #f4f4f5; /* zinc-100 */
 
 ---
 
-**Последнее обновление**: Блок #18
+**Последнее обновление**: Блок #19
 **Статус**: В процессе сборки
-**Добавлено**: Balance Card (Small/Large variants), Financial metrics display with trend badges, Mini chart placeholders, Fade overlay для horizontal scroll (Light/Dark mode), Dropdown filter в header, data-attributes для состояний
+**Добавлено**: Recent Earnings Chart Card (660px/380px/1068px + elevated variants), Line chart overlay с data points, Stacked bar chart с diagonal pattern, Chart tooltip on hover, Grid lines и axis labels, Responsive controls (calendar button/dropdown/three-dot menu), Bottom summary с trend badge, Responsive layout (desktop/tablet/mobile)
