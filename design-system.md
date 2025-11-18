@@ -1115,6 +1115,198 @@ outline-offset: -1.5px;
 
 ---
 
-**Последнее обновление**: Блок #18
+### 18. Date & Time Pickers
+
+#### Calendar / Date Picker
+- **Width**: 320px (w-80)
+- **Padding**: 16px (p-4)
+- **Radius**: 32px
+- **Background**: Backgrounds-surface1
+- **Shadow**: 5-layer KPI shadows
+- **Outline**: 1.5px white, offset -1.5px
+- **Backdrop-blur**: 32px
+- **Gap**: 8px (gap-2) between header and calendar grid
+
+#### Calendar Header
+- **Height**: 48px
+- **Layout**: space-between
+- **Navigation Buttons**:
+  - Size: 48×48px
+  - Radius: 90px (rounded-[90px])
+  - Icon: 24×24px arrows
+  - **States**:
+    - **Prev (default)**: no border, Text-Secondary icon
+    - **Next (active)**: outline 1.5px Stroke-Stroke2, Text-Primary icon
+- **Month/Year Label**: 16px semibold, Text-Primary, centered
+
+#### Week Days Row
+- **Cell Size**: 44×44px (w-11 h-11)
+- **Padding**: 8px (p-2)
+- **Radius**: 40px (rounded-[40px])
+- **Text**: 12px normal, opacity-50, Text-Secondary
+- **Labels**: Su, Mo, Tu, We, Th, Fr, Sa
+- **Layout**: 7 columns
+
+#### Day Cells
+- **Size**: 44×44px (w-11 h-11)
+- **Padding**: 10px (p-2.5)
+- **Radius**: 40px (rounded-[40px])
+- **Text**: 14px normal, centered
+- **Layout**: 7×5 grid (35 cells total)
+
+##### Day Cell States
+- **Week day label**: opacity-50, Text-Secondary, 12px
+- **Disabled (previous/next month)**: opacity-50, Text-Secondary
+- **Hidden disabled** (for grid alignment): opacity-0
+- **Default (current month)**: Text-Primary
+- **Today**:
+  - Background: Backgrounds-dark1
+  - Text: Text-Light
+  - Radius: 40px
+- **Hover**:
+  - Outline: 1.5px Backgrounds-dark1, offset -1.5px
+  - Text: Text-Primary
+
+#### Time Picker
+- **Width**: 288px (w-72)
+- **Height**: 384px (h-96)
+- **Padding**: 16px (p-4)
+- **Card styles**: same as Calendar (5-layer shadows, outline, backdrop-blur)
+
+#### Time Picker Header
+- **Height**: 48px (h-12)
+- **Layout**: space-between
+- **Left side**:
+  - Clock icon: 24×24px, Text-Primary
+  - Selected time: 16px semibold, Text-Primary
+  - Gap: 12px
+- **Right side**: Close button (optional, can be opacity-0)
+
+#### Time List
+- **Item Height**: auto (p-3)
+- **Padding**: 12px (p-3)
+- **Gap**: 12px between icon and text
+- **Text**: 14px normal
+- **Checkmark Icon**: 24×24px container (14px inner), Text-Primary
+- **Layout**: vertical list, scrollable
+
+##### Time Item States
+- **Default**:
+  - Text: Text-Secondary
+  - No icon (opacity-0)
+  - No background
+- **Selected**:
+  - Text: Text-Primary
+  - Checkmark icon visible (not opacity-0)
+  - No background
+- **Hover (Light Mode)**:
+  - Background: shade04-100
+  - Radius: 12px (rounded-xl)
+  - Text: Text-Primary
+- **Hover (Dark Mode)**:
+  - Background: shade08-70/70
+  - Radius: 12px (rounded-xl)
+  - Text: Text-Primary
+
+---
+
+### 19. Modal Dialog - Reschedule
+
+#### Modal Container
+- **Widths**: 320px (compact) or 480px (standard)
+- **Padding**: 12px (p-3)
+- **Card styles**: 5-layer KPI shadows, backdrop-blur 32px
+
+#### Product Info Header Card
+- **Padding**: 16px (p-4)
+- **Background**: Backgrounds-surface2
+- **Radius**: 20px (rounded-[20px])
+- **Outline**: 1.5px Stroke-Subtle/10 or Stroke-Subtle (stronger variant)
+- **Layout**: horizontal, gap-20px (gap-5)
+- **Elements**:
+  - **Product Image**: 64×64px, rounded-xl
+  - **Product Info**: flex-1
+    - **Title Row**: space-between layout
+      - Title: 18px (text-lg) medium, Text-Primary, line-clamp-1
+      - Price Badge: 64px width (w-16), can be opacity-0 to hide
+    - **Subtitle**: 14px normal, opacity-80, Text-Secondary
+
+#### Modal Content Section
+- **Padding**: 12px (p-3) compact or 20px (p-5) standard
+- **Gap**: 16px or 32px (gap-4 or gap-8) between sections
+- **Layout**: vertical flex column
+
+#### Modal Title & Description
+- **Title**:
+  - Font: 30px (text-3xl) semibold
+  - Line-height: 40px (leading-10)
+  - Color: Text-Primary
+- **Description**:
+  - Font: 16px normal
+  - Line-height: 24px
+  - Color: Text-Tertiary
+
+#### Modal Input Layout
+- **Vertical (full width)**: each input takes full width, gap-12px
+- **Horizontal (2 columns)**: flex-1 inputs, gap-12px (gap-3)
+- Uses Floating Label Inputs (Date/Time fields)
+
+#### Modal Action Buttons
+- **Layout**: inline-flex, justify-end, gap-12px (gap-3)
+- **Cancel Button**:
+  - Height: 48px (h-12)
+  - Padding: 28px (x), 14px (y)
+  - Radius: 32px
+  - Outline: 1.5px Stroke-Stroke2
+  - Text: 14px semibold, Text-Secondary, centered
+  - Full-width on compact (flex-1)
+- **Primary Button** (Reschedule/Create):
+  - Padding: 28px (x), 16px (y)
+  - Same gradient button styles as Send button
+  - Text: 14px semibold, Text-Light
+  - Full-width on compact (flex-1)
+
+---
+
+### 20. Modal Overlays & Backdrops
+
+#### Light Mode Overlay
+- **Background**: shade03-100
+- **Opacity**: 90%
+- **Coverage**: full modal container (w-full h-full)
+- **Position**: absolute, top-0, left-0
+
+#### Dark Mode Overlay
+- **Background**: shade07-70/70
+- **Opacity**: 70% (built into color)
+- **Coverage**: full modal container
+- **Position**: absolute, top-0, left-0
+
+#### Popup Positioning (Calendar/Time Picker over Modal)
+- **Position**: absolute
+- **Z-index**: above overlay
+- **Common positions**:
+  - Calendar: left-70px, top-45px (from modal)
+  - Time Picker: left-100px, top-8px (from modal)
+
+---
+
+## Цветовая палитра (дополнение)
+
+### Modal & Overlay Shades
+```css
+--shade03-100: /* Light overlay background (opacity-90) */
+--shade07-70: /* Dark overlay background with /70 opacity */
+--shade08-70: /* Dark mode hover background for time picker with /70 opacity */
+```
+
+### Input Focus
+```css
+--stroke-focus: /* Stroke-Focus - для focused/selected input borders */
+```
+
+---
+
+**Последнее обновление**: Блок #19
 **Статус**: В процессе сборки
-**Добавлено**: Transaction/Order List Items (4 responsive layouts), Action Tags/Chip Buttons, Transaction Row States (Selected/Hover/Default/Loading), Checkbox states для transaction rows, Skeleton loading для всех элементов транзакции
+**Добавлено**: Calendar/Date Picker, Time Picker, Modal Dialog (Reschedule), Product Info Header Card, Modal Overlays (Light/Dark), Popup positioning, shade03-100, shade07-70/70, shade08-70/70, Stroke-Focus
