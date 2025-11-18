@@ -26,7 +26,9 @@
 
 ### Primary Colors
 ```css
---primary-primary02: /* Green accent - используется в трендах вверх */
+--primary-primary01: /* Blue accent - используется для курсора, фокуса */
+--primary-primary02: /* Green accent - используется в трендах вверх, Active badges */
+--primary-primary03: /* Red accent - используется для Offline badges, ошибок */
 ```
 
 ### Semantic Colors
@@ -1623,7 +1625,197 @@ Standard fields displayed:
 
 ---
 
-### 24. Special Effects
+### 24. Search Input States & Variants
+
+#### Search Input (Comprehensive States)
+- **Width**: 240px (w-60) standard
+- **Height**: 48px
+- **Padding**: 12px (left), 20px (right), 12px (y) - pl-3 pr-5 py-3
+- **Radius**: 90px (rounded-[90px])
+- **Font**: 14px normal, leading-20px
+- **Icon**: 24×24px search icon (left side)
+- **Text**: "Search products" placeholder
+
+#### Search Input States
+
+**Default (No Border):**
+- **Background**: Backgrounds-surface1
+- **Border**: none
+- **Icon**: Text-Secondary
+- **Placeholder**: Text-Secondary, 14px normal
+
+**Default (With Border - Dark Mode):**
+- **Background**: Backgrounds-surface1
+- **Border**: 1.5px outline Stroke-Subtle/10, offset -1.5px
+- **Icon**: Text-Secondary
+- **Placeholder**: Text-Secondary, 14px normal
+
+**Disabled:**
+- **Opacity**: 0.5 (opacity-50)
+- **Background**: Backgrounds-surface1
+- **Border**: none
+- **Icon**: Text-Secondary
+- **Placeholder**: Text-Secondary
+- **Cursor**: not-allowed
+
+**Hover/Elevated:**
+- **Background**: Backgrounds-surface2
+- **Border**: 1.5px outline Stroke-Stroke2, offset -1.5px
+- **Shadow**: KPI shadows (6 layers)
+  - 0px 5px 1.5px -4px rgba(8,8,8,0.09)
+  - 0px 6px 4px -4px rgba(8,8,8,0.05)
+  - 0px 6px 13px 0px rgba(8,8,8,0.03)
+  - 0px 24px 24px -16px rgba(8,8,8,0.04)
+  - 0px 2.15px 0.5px -2px rgba(0,0,0,0.25)
+- **Backdrop blur**: 32px (backdrop-blur-[32px])
+- **Icon**: Text-Secondary
+
+**Placeholder with Cursor:**
+- **Background**: Backgrounds-surface2
+- **Border**: 1.5px outline Stroke-Stroke2, offset -1.5px
+- **Placeholder**: Text-Secondary, opacity-50
+- **Cursor**: 0×16px line, Primary-primary01 outline 1.5px, offset -0.75px
+- **Position**: Cursor at left-[44px] top-[16px]
+
+**Focused (Light Mode):**
+- **Background**: Backgrounds-surface2
+- **Border**: 1.5px outline Stroke-Stroke2, offset -1.5px
+- **Shadow**: Inset shadows
+  - inset 0px 0px 0px 3px rgba(255,255,255,1.00)
+  - inset 0px 4px 4px 0px rgba(157,157,157,0.10)
+- **Icon**: Text-Blue (search icon becomes blue)
+- **Text**: Text-Primary (entered text)
+- **Cursor**: 0×16px line, Primary-primary01
+- **Layout**: justify-between (when clear button appears)
+
+**Focused (Dark Mode):**
+- **Background**: Backgrounds-surface2
+- **Border**: 1.5px outline Stroke-Stroke2, offset -1.5px
+- **Shadow**: Inset shadows
+  - inset 0px 0px 0px 3px rgba(40,40,40,0.10)
+  - inset 0px 4px 4px 0px rgba(18,18,18,0.81)
+- **Icon**: Text-Blue
+- **Text**: Text-Primary
+- **Cursor**: 0×16px line, Primary-primary01
+
+**Focused with Clear Button:**
+- **Same as Focused state** plus:
+- **Clear Button**: 24×24px icon (right side)
+  - Icon: X/close icon (w-5 h-5)
+  - Position: left-[2.75px] top-[2.75px] within 24px container
+  - Color: Text-Secondary
+  - Stroke: 1.5px, offset -0.75px
+- **Layout**: justify-between
+
+---
+
+### 25. Time Indicators & Progress
+
+#### Time + Progress Indicator
+- **Layout**: inline-flex, gap 8px (gap-2)
+- **Padding**: 2px (y) - py-0.5
+- **Radius**: 8px (rounded-lg)
+- **Components**:
+  - Time text (left)
+  - Progress bar (right)
+
+#### Time Text
+- **Width**: 32px (w-8)
+- **Font**: 14px (text-sm) normal, leading-20px
+- **Color**: Text-Primary
+- **Alignment**: justify-start
+- **Content**: Duration format (e.g., "48m")
+
+#### Inline Progress Bar (Small)
+- **Width**: 32px (w-8)
+- **Height**: 6px (h-1.5)
+- **Background**: shade07-40/40
+- **Radius**: 2px (rounded-sm)
+- **Filled Portion**:
+  - Background: Chart-Green
+  - Radius: rounded-sm
+  - Width: varies by percentage (w-6, w-5, w-3, w-1)
+  - Position: left-0 top-0
+
+#### Progress Bar Width Variants
+- **75% progress**: w-6 (24px of 32px)
+- **62.5% progress**: w-5 (20px of 32px)
+- **37.5% progress**: w-3 (12px of 32px)
+- **12.5% progress**: w-1 (4px of 32px)
+
+---
+
+### 26. Table Headers & Toolbars
+
+#### Dashboard/Table Header
+- **Width**: 1180px (or container width)
+- **Padding**: 12px (p-3)
+- **Layout**: justify-between, items-center
+- **Structure**:
+  - **Left Side**: Title + Search input
+  - **Right Side**: Tab filters or Action buttons
+
+#### Header Title Section
+- **Height**: 48px (h-12)
+- **Padding**: 20px left (pl-5)
+- **Layout**: horizontal, gap 24px (gap-6)
+- **Title**:
+  - Font: 20px (text-xl) semibold, leading-28px
+  - Color: Text-Primary
+  - Examples: "Products", "4 products selected"
+- **Search Input**:
+  - Width: 288px (w-72)
+  - Standard search input component
+  - Attribute: data-light-mode="True", data-state="default"
+
+#### Selection State Header (Bulk Actions)
+- **Title**: Shows count (e.g., "4 products selected")
+- **Deselect Button**:
+  - Padding: 28px (x), 14px (y) - px-7 py-3.5
+  - Radius: 32px (rounded-[32px])
+  - Border: 1.5px outline Stroke-Stroke2, offset -1.5px
+  - Text: 14px semibold, Text-Secondary, center aligned
+  - Content: "Deselect"
+
+#### Bulk Action Buttons
+- **Layout**: horizontal, gap 12px (gap-3)
+- **Button Style**:
+  - Padding: 28px (x), 12px (y) - px-7 py-3
+  - Radius: 32px (rounded-[32px])
+  - Border: 1.5px outline Stroke-Stroke2, offset -1.5px
+  - Text: 14px semibold, Text-Secondary, center aligned
+  - Examples: "Delete", "Set status"
+- **States**: default (shown), hover, active
+
+---
+
+### 27. Status Badges (Extended)
+
+#### Status Badge - Offline/Error Variant
+- **Padding**: 8px (x), 6px (y) - px-2 py-1.5
+- **Background**: red-600/5
+- **Border**: 1.5px outline red-600/20, offset -1.5px
+- **Radius**: 8px (rounded-lg)
+- **Text**:
+  - Font: 14px semibold, leading-16px
+  - Color: Primary-primary03 (red)
+  - Content: "Offline"
+- **Layout**: inline-flex, center aligned, gap 8px (gap-2)
+
+#### Status Badge - Active/Success Variant (Detailed)
+- **Padding**: 8px (x), 6px (y) - px-2 py-1.5
+- **Background**: green-600/5
+- **Border**: 1.5px outline green-600/20, offset -1.5px
+- **Radius**: 8px (rounded-lg)
+- **Text**:
+  - Font: 14px semibold, leading-16px
+  - Color: Primary-primary02 (green)
+  - Content: "Active"
+- **Layout**: inline-flex, center aligned, gap 8px (gap-2)
+
+---
+
+### 28. Special Effects
 
 #### Fade Overlay (для горизонтального скролла)
 - **Width**: 112px (w-28)
@@ -1801,9 +1993,17 @@ outline: 1.5px solid #f4f4f5; /* zinc-100 */
 | Icon Button (Wide) | 192×48px |
 | Circular Arrow Button (Large) | 64×64px |
 | Avatar Placeholder | 48×48px |
+| Search Input (standard) | 240×48px |
+| Search Input (wide) | 288×48px |
+| Time + Progress Indicator | 32px (each element) |
+| Inline Progress Bar (small) | 32×6px |
+| Dashboard Header | 1180px (width) |
+| Bulk Action Button | auto×48px |
+| Deselect Button | auto×48px |
+| Status Badge (Offline) | auto×24px |
 
 ---
 
-**Последнее обновление**: Блок #23
+**Последнее обновление**: Блок #24
 **Статус**: В процессе сборки
-**Добавлено**: Gradient Buttons (44px height, dark/light variants, text + icon layout), Gradient Icon Buttons (48×48px, icon only, dual theme variants), Icon Buttons (192px wide with borders), Circular Arrow Buttons (64×64px, with hover/disabled states, opacity-30 for disabled), Avatar Placeholders (48×48px circles, with/without borders)
+**Добавлено**: Search Input States (comprehensive documentation of default, disabled, hover/elevated with KPI shadows, placeholder with cursor, focused light/dark modes, clear button variant), Time + Progress Indicators (32px elements with duration text + small 6px progress bar), Table Headers & Toolbars (dashboard headers with title + search + tabs, selection state with bulk actions), Status Badges Extended (Offline/Error variant with red-600 colors, Active/Success detailed specs), Bulk Action Buttons (Deselect, Delete, Set status buttons)
