@@ -3236,6 +3236,1461 @@ letter-spacing: -0.01em;
 
 ---
 
-**Последнее обновление**: Блок #33
+### 34. File Download Card & Archive Icon
+
+#### Download Card Container
+```css
+/* Container */
+width: 664px (w-[664px]);
+padding: 24px (p-6);
+border-radius: 24px (rounded-3xl);
+outline: 1.5px solid Stroke-Stroke2;
+outline-offset: -1.5px;
+display: inline-flex;
+justify-content: space-between;
+align-items: center;
+```
+
+#### File Info Section
+```css
+/* Container */
+display: inline-flex;
+flex-direction: column;
+justify-content: start;
+align-items: start;
+gap: 8px (gap-2);
+```
+
+##### File Name
+```css
+font-family: 'Inter Display';
+font-size: 16px (text-base);
+font-weight: 600;
+line-height: 24px (leading-6);
+letter-spacing: -0.01em (tracking-tight);
+color: Text-Primary;
+content: "Bento Pro v 2.0 – Illustration Kit.zip";
+```
+
+##### File Details Row
+```css
+/* Container */
+display: inline-flex;
+justify-content: start;
+align-items: center;
+gap: 8px (gap-2);
+
+/* File Size Text */
+font-family: 'Inter Display';
+font-size: 16px (text-base);
+font-weight: 400;
+line-height: 24px (leading-6);
+letter-spacing: -0.01em (tracking-tight);
+color: Text-Secondary;
+content: "128 MB";
+```
+
+#### Archive Icon (4-Bar Visualization)
+```css
+/* Icon Container */
+width: 24px (w-6);
+height: 24px (h-6);
+position: relative;
+
+/* Bar 1 */
+width: 18px (w-[18px]);
+height: 2px (h-0.5);
+left: 3px;
+top: 6.50px;
+background: Text-Secondary;
+border-radius: 9999px (rounded-full);
+
+/* Bar 2 */
+width: 18px (w-[18px]);
+height: 2px (h-0.5);
+left: 3px;
+top: 10.50px;
+background: Text-Secondary;
+border-radius: 9999px (rounded-full);
+
+/* Bar 3 */
+width: 18px (w-[18px]);
+height: 2px (h-0.5);
+left: 3px;
+top: 14.50px;
+background: Text-Secondary;
+border-radius: 9999px (rounded-full);
+
+/* Bar 4 */
+width: 18px (w-[18px]);
+height: 2px (h-0.5);
+left: 3px;
+top: 18.50px;
+background: Text-Secondary;
+border-radius: 9999px (rounded-full);
+```
+
+#### Download Button
+```css
+/* Container */
+width: 48px (w-12);
+height: 48px (h-12);
+padding: 14px (p-3.5);
+background: linear-gradient(to bottom, #27272a, #27272a); /* zinc-800 */
+border-radius: 32px (rounded-[32px]);
+display: inline-flex;
+justify-content: center;
+align-items: center;
+overflow: hidden;
+
+/* Download Icon */
+width: 20px (w-5);
+height: 20px (h-5);
+position: relative;
+/* Icon color: Text-Light or white */
+```
+
+#### Implementation Notes
+- Card width 664px with 24px padding
+- Archive icon shows 4 horizontal bars (6.5, 10.5, 14.5, 18.5px vertical positions)
+- Download button uses zinc-800 gradient background
+- File name uses semibold (600), file size uses regular (400)
+- Outline border 1.5px with Stroke-Stroke2 color
+- Icon and text use Text-Secondary color
+- Download button positioned at right with 32px border-radius
+- All text uses Inter Display with tracking-tight
+
+---
+
+### 35. Products Table - List View with Header
+
+#### Table Container
+```css
+/* Container */
+width: 1180px (w-[1180px]);
+height: auto;
+padding: 24px (p-6);
+background: Backgrounds-surface1;
+border-radius: 24px (rounded-3xl);
+outline: 1.5px solid Stroke-Stroke2;
+outline-offset: -1.5px;
+display: inline-flex;
+flex-direction: column;
+gap: 24px (gap-6);
+```
+
+#### Table Header Section
+```css
+/* Header Container */
+align-self: stretch;
+display: inline-flex;
+justify-content: space-between;
+align-items: center;
+```
+
+##### Header Title
+```css
+font-family: 'Inter Display';
+font-size: 24px (text-2xl);
+font-weight: 500;
+line-height: 32px (leading-8);
+letter-spacing: -0.01em (tracking-tight);
+color: Text-Primary;
+content: "Products";
+```
+
+##### Header Actions Container
+```css
+/* Container */
+display: inline-flex;
+justify-content: end;
+align-items: start;
+gap: 12px (gap-3);
+```
+
+#### Search Input
+```css
+/* Container */
+width: 288px (w-72);
+padding: 10px 20px (px-5 py-2.5);
+background: Backgrounds-surface1;
+border-radius: 32px (rounded-[32px]);
+outline: 1.5px solid Stroke-Stroke2;
+outline-offset: -1.5px;
+display: flex;
+align-items: center;
+gap: 8px (gap-2);
+
+/* Search Icon */
+width: 24px (w-6);
+height: 24px (h-6);
+color: Text-Secondary;
+
+/* Search Glass Circle */
+width: 10px (w-2.5);
+height: 10px (h-2.5);
+left: 4.75px;
+top: 4.75px;
+outline: 1.5px;
+outline-offset: -0.75px;
+border-radius: 9999px (rounded-full);
+
+/* Search Handle */
+width: 6px (w-1.5);
+height: 6px (h-1.5);
+left: 13.76px;
+top: 13.76px;
+outline: 1.5px;
+outline-offset: -0.75px;
+
+/* Input Text */
+flex: 1;
+font-family: 'Inter Display';
+font-size: 14px (text-sm);
+font-weight: 400;
+line-height: 20px (leading-5);
+letter-spacing: -0.01em (tracking-tight);
+color: Text-Secondary;
+placeholder: "Search products...";
+```
+
+#### View Toggle Buttons
+```css
+/* Toggle Container */
+display: inline-flex;
+justify-content: end;
+align-items: start;
+gap: 8px (gap-2);
+```
+
+##### Grid View Button (Active State)
+```css
+/* Container */
+width: 44px (w-11);
+height: 44px (h-11);
+padding: 10px (p-2.5);
+background: Backgrounds-highlight;
+border-radius: 12px (rounded-xl);
+outline: 1.5px solid zinc-100;
+outline-offset: -1.5px;
+box-shadow:
+  0px 1px 4px 0px rgba(0, 0, 0, 0.05),
+  0px 8px 8px -2px rgba(0, 0, 0, 0.08),
+  inset 0px 0px 0px 3px rgba(255, 255, 255, 1.00);
+display: inline-flex;
+justify-content: center;
+align-items: center;
+
+/* Grid Icon (4 squares in 2×2) */
+width: 24px (w-6);
+height: 24px (h-6);
+
+/* Small Squares (×4) */
+width: 8px (w-2);
+height: 8px (h-2);
+border-radius: 2px (rounded-sm);
+background: Text-Primary;
+positions:
+  - top-left: left-3px, top-3px;
+  - top-right: left-13px, top-3px;
+  - bottom-left: left-3px, top-13px;
+  - bottom-right: left-13px, top-13px;
+```
+
+##### List View Button (Inactive State)
+```css
+/* Container */
+width: 44px (w-11);
+height: 44px (h-11);
+padding: 10px (p-2.5);
+border-radius: 12px (rounded-xl);
+outline: 1.5px solid Stroke-Stroke2;
+outline-offset: -1.5px;
+display: inline-flex;
+justify-content: center;
+align-items: center;
+/* No background, no shadow */
+
+/* List Icon (3 horizontal lines) */
+width: 24px (w-6);
+height: 24px (h-6);
+
+/* Lines (×3) */
+width: 18px (w-[18px]);
+height: 2px (h-0.5);
+background: Text-Secondary;
+border-radius: 9999px (rounded-full);
+positions:
+  - Line 1: left-3px, top-7px;
+  - Line 2: left-3px, top-11px;
+  - Line 3: left-3px, top-15px;
+```
+
+#### Table Column Headers
+```css
+/* Header Row Container */
+align-self: stretch;
+display: inline-flex;
+align-items: center;
+gap: 48px (gap-12);
+padding: 0px 16px (px-4);
+
+/* Column Labels */
+font-family: 'Inter Display';
+font-size: 14px (text-sm);
+font-weight: 600;
+line-height: 16px (leading-4);
+letter-spacing: -0.01em (tracking-tight);
+color: Text-Secondary;
+
+/* Column Widths */
+- Product: auto (flex section with image + text)
+- Status: auto
+- Price: auto
+- Sales: auto
+- Ratings: auto
+- Views: auto
+```
+
+#### Table Row - Default State
+```css
+/* Row Container */
+align-self: stretch;
+padding: 16px (p-4);
+display: inline-flex;
+align-items: center;
+gap: 48px (gap-12);
+```
+
+##### Product Cell
+```css
+/* Container */
+display: inline-flex;
+align-items: center;
+gap: 24px (gap-6);
+
+/* Checkbox */
+width: 24px (w-6);
+height: 24px (h-6);
+border-radius: 8px (rounded-lg);
+outline: 1.5px solid Stroke-Stroke2;
+outline-offset: -1.5px;
+
+/* Product Image */
+width: 64px (w-16);
+height: 64px (h-16);
+border-radius: 12px (rounded-xl);
+src: placeholder;
+
+/* Product Info */
+display: inline-flex;
+flex-direction: column;
+gap: 4px (gap-1);
+
+/* Product Title */
+font-family: 'Inter Display';
+font-size: 16px (text-base);
+font-weight: 600;
+line-height: 24px (leading-6);
+letter-spacing: -0.01em (tracking-tight);
+color: Text-Primary;
+content: "Dashboard App Builder 1.0";
+
+/* Product Subtitle */
+font-family: 'Inter Display';
+font-size: 14px (text-sm);
+font-weight: 400;
+line-height: 20px (leading-5);
+letter-spacing: -0.01em (tracking-tight);
+color: Text-Secondary;
+opacity: 0.8;
+content: "UI Design Kit";
+```
+
+##### Status Badge
+```css
+/* Container */
+padding: 6px 12px (px-3 py-1.5);
+background: green-600/5;
+border-radius: 20px (rounded-[20px]);
+outline: 1.5px solid green-600/20;
+outline-offset: -1.5px;
+
+/* Text */
+font-family: 'Inter Display';
+font-size: 14px (text-sm);
+font-weight: 600;
+line-height: 16px (leading-4);
+letter-spacing: -0.01em (tracking-tight);
+color: Primary-primary02;  /* Green */
+content: "Online";
+
+/* Offline Variant */
+background: red-600/5;
+outline: 1.5px solid red-600/20;
+color: Primary-primary03;  /* Red */
+content: "Offline";
+```
+
+##### Price Cell
+```css
+font-family: 'Inter Display';
+font-size: 14px (text-sm);
+font-weight: 400;
+line-height: 20px (leading-5);
+letter-spacing: -0.01em (tracking-tight);
+color: Text-Primary;
+content: "$48.00";
+```
+
+##### Sales Cell (with Badge)
+```css
+/* Container */
+display: inline-flex;
+align-items: center;
+gap: 12px (gap-3);
+
+/* Sales Value */
+font-family: 'Inter Display';
+font-size: 14px (text-sm);
+font-weight: 400;
+line-height: 20px (leading-5);
+letter-spacing: -0.01em (tracking-tight);
+color: Text-Primary;
+content: "$1,024.04";
+
+/* Price Badge */
+padding: 4px 8px (px-2 py-1);
+background: green-600/5;
+border-radius: 6px (rounded-md);
+outline: 1.5px solid green-600/20;
+outline-offset: -1.5px;
+
+/* Badge Text */
+font-family: 'Inter Display';
+font-size: 14px (text-sm);
+font-weight: 600;
+line-height: 16px (leading-4);
+letter-spacing: -0.01em (tracking-tight);
+color: Primary-primary02;
+content: "$48";
+```
+
+##### Ratings Cell
+```css
+/* Container */
+display: inline-flex;
+align-items: center;
+gap: 8px (gap-2);
+
+/* Star Rating Display */
+display: inline-flex;
+align-items: center;
+gap: 4px (gap-1);
+
+/* Star Icon (×5) */
+width: 16px (w-4);
+height: 16px (h-4);
+color: #fbbf24;  /* amber-400 for filled stars */
+color: Text-Secondary;  /* for empty stars */
+
+/* Rating Count */
+font-family: 'Inter Display';
+font-size: 14px (text-sm);
+font-weight: 400;
+line-height: 20px (leading-5);
+letter-spacing: -0.01em (tracking-tight);
+color: Text-Secondary;
+content: "(124)";
+```
+
+##### Views Cell
+```css
+font-family: 'Inter Display';
+font-size: 14px (text-sm);
+font-weight: 400;
+line-height: 20px (leading-5);
+letter-spacing: -0.01em (tracking-tight);
+color: Text-Primary;
+content: "1.2k";
+```
+
+#### Table Row - Hover State (Light Mode)
+```css
+/* Row Container */
+padding: 16px (p-4);
+background: Backgrounds-highlight;
+border-radius: 16px (rounded-2xl);
+outline: 1.5px solid zinc-100;
+outline-offset: -1.5px;
+box-shadow:
+  0px 1px 4px 0px rgba(0, 0, 0, 0.05),
+  0px 8px 8px -2px rgba(0, 0, 0, 0.08),
+  inset 0px 0px 0px 3px rgba(255, 255, 255, 1.00);
+display: inline-flex;
+align-items: center;
+gap: 24px (gap-6);
+
+/* Action Buttons appear in Product cell, replacing subtitle */
+```
+
+##### Action Buttons (on Hover)
+```css
+/* Buttons Container */
+display: inline-flex;
+justify-content: start;
+align-items: start;
+gap: 8px (gap-2);
+
+/* Button (Edit/Delete/Unpublish) */
+padding: 6px 12px (px-3 py-1.5);
+border-radius: 12px (rounded-xl);
+outline: 1.5px solid Stroke-Stroke2;
+outline-offset: -1.5px;
+display: inline-flex;
+justify-content: center;
+align-items: center;
+gap: 8px (gap-2);
+
+/* Button Text */
+font-family: 'Inter Display';
+font-size: 14px (text-sm);
+font-weight: 600;
+line-height: 16px (leading-4);
+letter-spacing: -0.01em (tracking-tight);
+color: Text-Secondary;
+
+/* Button Hover (Light Mode) */
+background: Backgrounds-highlight;
+box-shadow:
+  0px 1px 4px 0px rgba(0, 0, 0, 0.05),
+  0px 8px 8px -2px rgba(0, 0, 0, 0.08),
+  inset 0px 0px 0px 3px rgba(255, 255, 255, 1.00);
+
+/* Button Hover (Dark Mode) */
+background: Stroke-Highlight/50;  /* shade05-50/50 */
+/* No shadow in dark mode */
+```
+
+#### Table Row - With Bottom Border
+```css
+/* Row Container */
+padding: 16px (p-4);
+border-bottom: 1.5px solid Stroke-Subtle/10;  /* Light mode */
+border-bottom: 1.5px solid Stroke-Subtle;  /* Dark mode */
+display: inline-flex;
+align-items: center;
+gap: 48px (gap-12);
+```
+
+#### Table Row - Skeleton Loading State
+
+##### Skeleton Product Section
+```css
+/* Checkbox - same as normal */
+
+/* Image Skeleton */
+width: 64px (w-16);
+height: 64px (h-16);
+background: shade09-100 (light) / shade04-100 (dark);
+border-radius: 12px (rounded-xl);
+
+/* Title Bar */
+width: 176px (w-44);
+height: 8px (h-2);
+background: shade09-100 (light) / shade04-100 (dark);
+border-radius: 2px;
+
+/* Subtitle Bar */
+width: 80px (w-20);
+height: 8px (h-2);
+background: shade09-100 (light) / shade04-100 (dark);
+border-radius: 2px;
+```
+
+##### Skeleton Data Cells
+```css
+/* Status Badge Skeleton */
+width: 80px (w-20);
+height: 28px (h-7);
+/* Bar inside */
+width: 56px (w-14);
+height: 8px (h-2);
+background: shade09-100 (light) / shade04-100 (dark);
+border-radius: 2px;
+
+/* Price/Sales/Views Skeleton */
+width: 56px (w-14);
+height: 24px (h-6);
+/* Bar inside */
+width: 56px (w-14);
+height: 8px (h-2);
+background: shade09-100 (light) / shade04-100 (dark);
+border-radius: 2px;
+
+/* Ratings Skeleton */
+width: 96px (w-24);
+height: 24px (h-6);
+/* Bar inside */
+width: 80px (w-20);
+height: 8px (h-2);
+background: shade09-100 (light) / shade04-100 (dark);
+border-radius: 2px;
+```
+
+#### Mini Progress Bar (in Time Metrics)
+```css
+/* Container */
+display: inline-flex;
+flex-direction: column;
+gap: 8px (gap-2);
+
+/* Value Text */
+font-family: 'Inter Display';
+font-size: 14px (text-sm);
+font-weight: 400;
+line-height: 20px (leading-5);
+letter-spacing: -0.01em (tracking-tight);
+color: Text-Primary;
+
+/* Progress Bar */
+width: 100%;
+height: 6px (h-1.5);
+background: shade07-40/40;
+border-radius: 1px;
+position: relative;
+
+/* Active Fill */
+width: variable (e.g., 60%);
+height: 6px (h-1.5);
+background: Chart-Green;
+border-radius: 1px;
+position: absolute;
+left: 0;
+top: 0;
+```
+
+#### Implementation Notes
+- Table container 1180px with 24px padding, rounded-3xl
+- Header with 24px title (500 weight) + search (288px pill) + view toggle (grid/list icons)
+- Column headers use 14px/600 semibold, Text-Secondary
+- Row gap 48px between columns, 24px gap in hover state
+- Product cell: checkbox + 64px image + title/subtitle with 4px gap
+- Status badges: green for Online, red for Offline with 5% bg + 20% outline
+- Hover state (light): Backgrounds-highlight + 3-layer shadow + zinc-100 outline
+- Hover state (dark): Backgrounds-highlight + NO shadow + zinc-100 outline
+- Action buttons appear on hover, replacing product subtitle
+- Bottom border: Stroke-Subtle/10 (light) or Stroke-Subtle (dark)
+- Skeleton uses shade09-100 (light) or shade04-100 (dark) for loading bars
+- Mini progress bars: 6px height, Chart-Green fill, shade07-40/40 background
+- Star ratings: amber-400 for filled, Text-Secondary for empty
+- View toggle: active state has highlight bg + shadow + zinc-100 outline
+- Search icon uses 10px circle + 6px handle with 1.5px outlines
+- All text Inter Display with tracking-tight (-0.01em)
+
+---
+
+### 36. Product Grid View - Cards Layout
+
+#### Grid Container
+```css
+/* Container */
+width: 1180px (w-[1180px]);
+display: flex;
+flex-wrap: wrap;
+justify-content: start;
+align-items: start;
+gap: 24px (gap-6);
+content: start;
+```
+
+#### Product Card - Default State
+```css
+/* Card Container */
+width: 373.33px (w-[373.33px]);
+display: inline-flex;
+flex-direction: column;
+justify-content: start;
+align-items: start;
+gap: 16px (gap-4);
+```
+
+##### Product Image Container
+```css
+/* Image Wrapper */
+width: 373.33px (w-[373.33px]);
+height: 230px (h-[230px]);
+position: relative;
+border-radius: 24px (rounded-3xl);
+overflow: hidden;
+
+/* Product Image */
+width: 100%;
+height: 100%;
+object-fit: cover;
+src: placeholder;
+```
+
+##### Product Card Info
+```css
+/* Info Container */
+align-self: stretch;
+display: inline-flex;
+flex-direction: column;
+gap: 8px (gap-2);
+
+/* Product Name */
+font-family: 'Inter Display';
+font-size: 20px (text-xl);
+font-weight: 600;
+line-height: 28px (leading-7);
+letter-spacing: -0.01em (tracking-tight);
+color: Text-Primary;
+line-clamp: 1;
+content: "Dashboard App Builder 1.0";
+
+/* Category + Rating Row */
+display: inline-flex;
+justify-content: space-between;
+align-items: center;
+
+/* Category */
+font-family: 'Inter Display';
+font-size: 14px (text-sm);
+font-weight: 400;
+line-height: 20px (leading-5);
+letter-spacing: -0.01em (tracking-tight);
+color: Text-Secondary;
+opacity: 0.8;
+content: "UI Design Kit";
+
+/* Rating Section */
+display: inline-flex;
+align-items: center;
+gap: 8px (gap-2);
+
+/* Star Icon (×5) */
+width: 16px (w-4);
+height: 16px (h-4);
+color: #fbbf24;  /* amber-400 for filled */
+color: Text-Secondary;  /* for empty */
+
+/* Rating Count */
+font-family: 'Inter Display';
+font-size: 14px (text-sm);
+font-weight: 400;
+line-height: 20px (leading-5);
+letter-spacing: -0.01em (tracking-tight);
+color: Text-Secondary;
+content: "(124)";
+```
+
+#### Product Card - Hover State
+```css
+/* Image Wrapper on Hover */
+position: relative;
+
+/* Hover Overlay */
+width: 373.33px (w-[373.33px]);
+height: 230px (h-[230px]);
+position: absolute;
+left: 0;
+top: 0;
+background: Backgrounds-dark1;
+opacity: 0.3;
+border-radius: 24px (rounded-3xl);
+z-index: 1;
+
+/* Checkbox on Hover */
+width: 24px (w-6);
+height: 24px (h-6);
+position: absolute;
+left: 16px;
+top: 16px;
+background: white;
+border-radius: 8px (rounded-lg);
+outline: 1.5px solid Stroke-Stroke2;
+outline-offset: -1.5px;
+z-index: 2;
+```
+
+##### Action Buttons (Below Image on Hover)
+```css
+/* Buttons Container */
+align-self: stretch;
+display: inline-flex;
+justify-content: start;
+align-items: start;
+gap: 8px (gap-2);
+
+/* Button */
+flex: 1;
+padding: 6px 12px (px-3 py-1.5);
+border-radius: 12px (rounded-xl);
+outline: 1.5px solid Stroke-Stroke2;
+outline-offset: -1.5px;
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 8px (gap-2);
+
+/* Button Text */
+font-family: 'Inter Display';
+font-size: 14px (text-sm);
+font-weight: 600;
+line-height: 16px (leading-4);
+letter-spacing: -0.01em (tracking-tight);
+color: Text-Secondary;
+content: "Edit" | "Delete" | "Unpublish";
+
+/* Button Hover State (Light Mode) */
+background: Backgrounds-highlight;
+box-shadow:
+  0px 1px 4px 0px rgba(0, 0, 0, 0.05),
+  0px 8px 8px -2px rgba(0, 0, 0, 0.08),
+  inset 0px 0px 0px 3px rgba(255, 255, 255, 1.00);
+
+/* Button Hover State (Dark Mode) */
+background: Stroke-Highlight/50;
+/* No shadow */
+```
+
+##### Price Badge
+```css
+/* Container */
+padding: 6px 12px (px-3 py-1.5);
+background: green-600/5;
+border-radius: 20px (rounded-[20px]);
+outline: 1.5px solid green-600/20;
+outline-offset: -1.5px;
+display: inline-flex;
+justify-content: center;
+align-items: center;
+
+/* Text */
+font-family: 'Inter Display';
+font-size: 14px (text-sm);
+font-weight: 600;
+line-height: 16px (leading-4);
+letter-spacing: -0.01em (tracking-tight);
+color: Primary-primary02;
+content: "$48.00";
+```
+
+#### Grid Layout Patterns
+```css
+/* 3-column grid */
+grid-template-columns: repeat(3, 373.33px);
+gap: 24px (gap-6);
+
+/* Card widths */
+- Card width: 373.33px
+- Image height: 230px
+- Card gap (image to info): 16px
+- Info internal gap: 8px
+```
+
+#### Implementation Notes
+- Grid uses flex-wrap with 24px gap for 3-column layout
+- Each card 373.33px wide with 24px gap (fits in 1180px container)
+- Product image 373.33px × 230px with rounded-3xl corners
+- Hover overlay: Backgrounds-dark1 at 30% opacity
+- Checkbox appears on hover at top-left (16px, 16px) with white background
+- Action buttons (Edit/Delete/Unpublish) appear below image on hover
+- Product name 20px/600 with line-clamp-1 truncation
+- Category text 14px/400 with 0.8 opacity
+- Star ratings: amber-400 filled, Text-Secondary empty
+- Price badge: green-600/5 bg + green-600/20 outline + Primary-primary02 text
+- Category + Rating row uses space-between alignment
+- All text Inter Display with tracking-tight
+- Buttons use same hover styles as list view (highlight bg + shadows in light mode)
+
+---
+
+### 37. Comments/Reviews System - Threaded Layout
+
+#### Comments Container
+```css
+/* Container */
+width: auto;
+display: inline-flex;
+flex-direction: column;
+justify-content: start;
+align-items: start;
+gap: 24px (gap-6);
+```
+
+#### Comment Item - Default
+```css
+/* Item Container */
+align-self: stretch;
+display: inline-flex;
+align-items: start;
+gap: 24px (gap-6);
+position: relative;
+```
+
+##### Checkbox
+```css
+width: 24px (w-6);
+height: 24px (h-6);
+border-radius: 8px (rounded-lg);
+outline: 1.5px solid Stroke-Stroke2;
+outline-offset: -1.5px;
+margin-top: 12px;  /* Aligns with avatar top */
+```
+
+##### User Avatar
+```css
+/* Avatar Container */
+width: 48px (w-12);
+height: 48px (h-12);
+position: relative;
+overflow: hidden;
+border-radius: 80px (rounded-[80px]);
+
+/* Avatar Image */
+width: 100%;
+height: 100%;
+object-fit: cover;
+src: placeholder;
+
+/* Unread Indicator (green dot) */
+width: 8px (w-2);
+height: 8px (h-2);
+position: absolute;
+left: 38px;
+top: 2px;
+background: Primary-primary02;  /* Green */
+border-radius: 9999px (rounded-full);
+outline: 1.5px solid Backgrounds-surface1;
+outline-offset: -0.75px;
+z-index: 10;
+```
+
+##### Comment Content
+```css
+/* Content Container */
+flex: 1;
+display: inline-flex;
+flex-direction: column;
+gap: 16px (gap-4);
+```
+
+###### User Info Row
+```css
+/* Info Row Container */
+align-self: stretch;
+display: inline-flex;
+justify-content: space-between;
+align-items: center;
+
+/* Left: User Info */
+display: inline-flex;
+align-items: center;
+gap: 16px (gap-4);
+
+/* Username */
+font-family: 'Inter Display';
+font-size: 16px (text-base);
+font-weight: 600;
+line-height: 24px (leading-6);
+letter-spacing: -0.01em (tracking-tight);
+color: Text-Primary;
+content: "Juxtopposed";
+
+/* Handle + Timestamp */
+display: inline-flex;
+align-items: center;
+gap: 8px (gap-2);
+
+/* @Handle */
+font-family: 'Inter Display';
+font-size: 14px (text-sm);
+font-weight: 400;
+line-height: 20px (leading-5);
+letter-spacing: -0.01em (tracking-tight);
+color: Text-Secondary;
+opacity: 0.8;
+content: "@juxtopposed";
+
+/* Dot Separator */
+width: 4px (w-1);
+height: 4px (h-1);
+background: Text-Secondary;
+opacity: 0.8;
+border-radius: 9999px (rounded-full);
+
+/* Timestamp */
+font-family: 'Inter Display';
+font-size: 14px (text-sm);
+font-weight: 400;
+line-height: 20px (leading-5);
+letter-spacing: -0.01em (tracking-tight);
+color: Text-Secondary;
+opacity: 0.8;
+content: "2h";
+```
+
+###### Product Preview (Right Side)
+```css
+/* Preview Container */
+width: 208px (w-52);
+display: inline-flex;
+align-items: center;
+gap: 12px (gap-3);
+
+/* Product Image */
+width: 48px (w-12);
+height: 48px (h-12);
+border-radius: 8px (rounded-lg);
+src: placeholder;
+
+/* Product Info */
+display: inline-flex;
+flex-direction: column;
+gap: 2px (gap-0.5);
+
+/* Product Name */
+width: 148px (w-37);
+font-family: 'Inter Display';
+font-size: 14px (text-sm);
+font-weight: 600;
+line-height: 20px (leading-5);
+letter-spacing: -0.01em (tracking-tight);
+color: Text-Primary;
+line-clamp: 1;
+content: "Dashboard App Builder 1.0";
+
+/* Product Price */
+font-family: 'Inter Display';
+font-size: 14px (text-sm);
+font-weight: 400;
+line-height: 20px (leading-5);
+letter-spacing: -0.01em (tracking-tight);
+color: Text-Secondary;
+opacity: 0.8;
+content: "$48.00";
+```
+
+###### Comment Text
+```css
+align-self: stretch;
+font-family: 'Inter Display';
+font-size: 14px (text-sm);
+font-weight: 400;
+line-height: 20px (leading-5);
+letter-spacing: -0.01em (tracking-tight);
+color: Text-Primary;
+content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit...";
+```
+
+###### Action Buttons Row
+```css
+/* Buttons Container */
+align-self: stretch;
+display: inline-flex;
+justify-content: start;
+align-items: start;
+gap: 8px (gap-2);
+
+/* Button (Reply/Like/Remove) */
+padding: 6px 12px (px-3 py-1.5);
+border-radius: 12px (rounded-xl);
+outline: 1.5px solid Stroke-Stroke2;
+outline-offset: -1.5px;
+display: inline-flex;
+justify-content: center;
+align-items: center;
+gap: 8px (gap-2);
+
+/* Button Icon */
+width: 16px (w-4);
+height: 16px (h-4);
+color: Text-Secondary;
+
+/* Button Text */
+font-family: 'Inter Display';
+font-size: 14px (text-sm);
+font-weight: 600;
+line-height: 16px (leading-4);
+letter-spacing: -0.01em (tracking-tight);
+color: Text-Secondary;
+content: "Reply" | "Like" | "Remove";
+
+/* Like Button with Count */
+content: "Like · 2";
+
+/* Button Hover (Light Mode) */
+background: Backgrounds-highlight;
+box-shadow:
+  0px 1px 4px 0px rgba(0, 0, 0, 0.05),
+  0px 8px 8px -2px rgba(0, 0, 0, 0.08),
+  inset 0px 0px 0px 3px rgba(255, 255, 255, 1.00);
+
+/* Button Hover (Dark Mode) */
+background: Stroke-Highlight/50;
+/* No shadow */
+```
+
+#### Nested Reply
+```css
+/* Reply Container */
+padding-left: 96px (pl-24);  /* Indent for nesting */
+display: inline-flex;
+align-items: start;
+gap: 24px (gap-6);
+position: relative;
+```
+
+##### Reply Connector Line
+```css
+/* Connector Shape */
+width: 8px (w-2);
+height: 9px (h-[9px]);
+position: absolute;
+left: 58px;  /* Positioned from checkbox */
+top: 36px;
+border-radius: 1px;
+outline: 1.5px solid Stroke-Stroke2;
+outline-offset: -0.75px;
+
+/* Visual: L-shaped connector from parent avatar to reply */
+/* Creates visual thread connection */
+```
+
+#### Reply Input Form
+```css
+/* Form Container */
+align-self: stretch;
+padding-left: 96px (pl-24);
+display: inline-flex;
+flex-direction: column;
+gap: 16px (gap-4);
+```
+
+##### Reply Input Field
+```css
+/* Input Container */
+align-self: stretch;
+padding: 12px 16px (px-4 py-3);
+background: Backgrounds-surface1;
+border-radius: 16px (rounded-2xl);
+outline: 1.5px solid Stroke-Stroke2;
+outline-offset: -1.5px;
+display: inline-flex;
+align-items: center;
+gap: 12px (gap-3);
+
+/* Input Text */
+flex: 1;
+font-family: 'Inter Display';
+font-size: 14px (text-sm);
+font-weight: 400;
+line-height: 20px (leading-5);
+letter-spacing: -0.01em (tracking-tight);
+color: Text-Secondary;
+placeholder: "@juxtopposed ";
+
+/* @Mention styling */
+color: Primary-primary02;  /* Green for mentions */
+
+/* Send Button */
+width: 32px (w-8);
+height: 32px (h-8);
+padding: 8px (p-2);
+background: linear-gradient(to bottom, #27272a, #27272a);  /* zinc-800 */
+border-radius: 20px (rounded-[20px]);
+display: inline-flex;
+justify-content: center;
+align-items: center;
+
+/* Send Icon */
+width: 16px (w-4);
+height: 16px (h-4);
+color: white;
+```
+
+#### Dark Mode Variants
+```css
+/* Comment item background (dark) */
+background: Backgrounds-surface2;  /* Optional card background */
+
+/* Borders (dark) */
+outline: Stroke-Subtle;  /* Stronger borders */
+
+/* Unread indicator outline (dark) */
+outline-color: Backgrounds-surface2;  /* Matches dark background */
+
+/* Connector line (dark) */
+outline-color: Stroke-Subtle;
+```
+
+#### Implementation Notes
+- Comments use 24px gap between items
+- Checkbox 24×24px aligned with avatar top (12px margin-top)
+- Avatar 48×48px rounded-full with optional green unread dot (8px, positioned 38px left, 2px top)
+- User info row: username 16px/600 + handle/timestamp 14px/400 with 0.8 opacity
+- Dot separator: 4px circle between handle and timestamp
+- Product preview: 48px image + name/price (208px total width)
+- Comment text 14px/400 with full stretch width
+- Action buttons: Reply, Like (with count), Remove
+- Nested replies indented 96px (pl-24) with L-shaped connector line
+- Connector line: 8×9px at 58px left, 36px top with rounded outline
+- Reply input: @mention in Primary-primary02 (green), zinc-800 send button
+- Send button: 32×32px with 16px icon, rounded-[20px]
+- Button hover: same 3-layer shadow system as other components (light mode only)
+- All text Inter Display with tracking-tight
+- Unread indicator has 1.5px outline matching surface background
+- Product preview uses gap-3 (12px) between image and info
+
+---
+
+### 38. Scheduled Products Table - Simplified Layout
+
+#### Table Container
+```css
+/* Container */
+width: auto;
+padding: 24px (p-6);
+background: Backgrounds-surface1;
+border-radius: 24px (rounded-3xl);
+outline: 1.5px solid Stroke-Stroke2;
+outline-offset: -1.5px;
+display: inline-flex;
+flex-direction: column;
+gap: 24px (gap-6);
+```
+
+#### Table Header
+```css
+/* Header Container */
+align-self: stretch;
+display: inline-flex;
+justify-content: space-between;
+align-items: center;
+```
+
+##### Header Title
+```css
+font-family: 'Inter Display';
+font-size: 20px (text-xl);
+font-weight: 600;
+line-height: 28px (leading-7);
+letter-spacing: -0.01em (tracking-tight);
+color: Text-Primary;
+content: "5 scheduled products";
+```
+
+##### Header Actions
+```css
+/* Actions Container */
+display: inline-flex;
+justify-content: end;
+align-items: start;
+gap: 12px (gap-3);
+```
+
+###### Search Input
+```css
+/* Same as Products Table search */
+width: 288px (w-72);
+padding: 10px 20px (px-5 py-2.5);
+background: Backgrounds-surface1;
+border-radius: 32px (rounded-[32px]);
+outline: 1.5px solid Stroke-Stroke2;
+outline-offset: -1.5px;
+display: flex;
+align-items: center;
+gap: 8px (gap-2);
+
+/* Search Icon + Input */
+/* Same styling as Block #35 */
+```
+
+###### Sort Dropdown
+```css
+/* Dropdown Container */
+width: 176px (w-44);
+padding: 10px 20px (px-5 py-2.5);
+background: Backgrounds-surface1;
+border-radius: 32px (rounded-[32px]);
+outline: 1.5px solid Stroke-Stroke2;
+outline-offset: -1.5px;
+display: inline-flex;
+justify-content: space-between;
+align-items: center;
+gap: 8px (gap-2);
+
+/* Dropdown Text */
+font-family: 'Inter Display';
+font-size: 14px (text-sm);
+font-weight: 400;
+line-height: 20px (leading-5);
+letter-spacing: -0.01em (tracking-tight);
+color: Text-Primary;
+content: "Newest first";
+
+/* Chevron Icon */
+width: 24px (w-6);
+height: 24px (h-6);
+color: Text-Secondary;
+
+/* Chevron Shape */
+width: 12px (w-3);
+height: 12px (h-3);
+left: 6px;
+top: 8.50px;
+outline: 1.5px;
+outline-offset: -0.75px;
+/* Rotated 45° to create down-pointing chevron */
+```
+
+#### Table Row - Default State
+```css
+/* Row Container */
+align-self: stretch;
+padding: 16px (p-4);
+display: inline-flex;
+align-items: center;
+gap: 48px (gap-12);
+```
+
+##### Product Section
+```css
+/* Container */
+display: inline-flex;
+align-items: center;
+gap: 24px (gap-6);
+
+/* Checkbox */
+width: 24px (w-6);
+height: 24px (h-6);
+border-radius: 8px (rounded-lg);
+outline: 1.5px solid Stroke-Stroke2;
+outline-offset: -1.5px;
+
+/* Product Image */
+width: 64px (w-16);
+height: 64px (h-16);
+border-radius: 12px (rounded-xl);
+src: placeholder;
+
+/* Product Info */
+display: inline-flex;
+flex-direction: column;
+gap: 4px (gap-1);
+
+/* Product Title */
+font-family: 'Inter Display';
+font-size: 16px (text-base);
+font-weight: 600;
+line-height: 24px (leading-6);
+letter-spacing: -0.01em (tracking-tight);
+color: Text-Primary;
+content: "Dashboard App Builder 1.0";
+
+/* Product Category */
+font-family: 'Inter Display';
+font-size: 14px (text-sm);
+font-weight: 400;
+line-height: 20px (leading-5);
+letter-spacing: -0.01em (tracking-tight);
+color: Text-Secondary;
+opacity: 0.8;
+content: "UI Design Kit";
+```
+
+##### Price Badge
+```css
+/* Container */
+padding: 6px 12px (px-3 py-1.5);
+background: green-600/5;
+border-radius: 20px (rounded-[20px]);
+outline: 1.5px solid green-600/20;
+outline-offset: -1.5px;
+
+/* Text */
+font-family: 'Inter Display';
+font-size: 14px (text-sm);
+font-weight: 600;
+line-height: 16px (leading-4);
+letter-spacing: -0.01em (tracking-tight);
+color: Primary-primary02;
+content: "$48.00";
+```
+
+##### Scheduled DateTime
+```css
+/* Container */
+display: inline-flex;
+flex-direction: column;
+gap: 4px (gap-1);
+
+/* Date */
+font-family: 'Inter Display';
+font-size: 14px (text-sm);
+font-weight: 400;
+line-height: 20px (leading-5);
+letter-spacing: -0.01em (tracking-tight);
+color: Text-Primary;
+content: "Dec 24, 2024";
+
+/* Time */
+font-family: 'Inter Display';
+font-size: 14px (text-sm);
+font-weight: 400;
+line-height: 20px (leading-5);
+letter-spacing: -0.01em (tracking-tight);
+color: Text-Secondary;
+opacity: 0.8;
+content: "2:00 PM";
+```
+
+#### Table Row - Hover State
+```css
+/* Same hover styling as Products Table */
+padding: 16px (p-4);
+background: Backgrounds-highlight;
+border-radius: 16px (rounded-2xl);
+outline: 1.5px solid zinc-100;
+outline-offset: -1.5px;
+box-shadow:
+  0px 1px 4px 0px rgba(0, 0, 0, 0.05),
+  0px 8px 8px -2px rgba(0, 0, 0, 0.08),
+  inset 0px 0px 0px 3px rgba(255, 255, 255, 1.00);
+
+/* Action buttons appear, replacing product category */
+```
+
+#### Table Row - Skeleton Loading
+```css
+/* Same skeleton pattern as Products Table */
+/* Image: 64×64px shade09-100/shade04-100 */
+/* Title bar: 176×8px */
+/* Category bar: 80×8px */
+/* Price badge skeleton: 80×28px with 56×8px bar */
+/* DateTime skeleton: 2 bars 96×8px stacked with 4px gap */
+```
+
+#### Implementation Notes
+- Simplified table with 3 main columns: Product, Price, Scheduled DateTime
+- Header title 20px/600 (smaller than full Products table)
+- Sort dropdown 176px with "Newest first" text + chevron icon
+- Search input 288px (same as Products table)
+- Row structure: checkbox + 64px image + title/category + price badge + date/time
+- DateTime column: date (Text-Primary) + time (Text-Secondary with 0.8 opacity)
+- Gap between columns: 48px (gap-12)
+- Hover state: same as Products table with action buttons
+- Action buttons replace category text on hover
+- Price badge: green-600/5 bg + green-600/20 outline
+- Skeleton loading uses same pattern as Products table
+- All text Inter Display with tracking-tight
+- Container padding 24px with rounded-3xl
+- Chevron icon 12×12px rotated 45° for dropdown indicator
+
+---
+
+**Последнее обновление**: Блок #38
 **Статус**: В процессе сборки
-**Добавлено**: Modal Dialogs & Toggle Switches - 3 типа диалогов (Delete Confirmation, Status Change, Share Product), 2 shadow варианта (standard/enhanced with inset), Toggle Switch компонент (Active/Deactive states), Primary Action Buttons (Dark/Light mode gradients), Social Media buttons grid, Product Preview, Icon containers (Alert/Settings), 5/6-layer shadow systems, backdrop blur glassmorphism
+**Добавлено**: File Download Card (#34) - 664px card з archive icon (4 bars), file info, download button; Products Table - List View (#35) - 1180px table з header (24px title, 288px search, grid/list view toggle), table columns (Product, Status, Price, Sales, Ratings, Views), multiple row states (default, hover з action buttons, bottom border, skeleton loading), mini progress bars, star ratings, status badges (Online/Offline); Product Grid View (#36) - 373.33px cards у 3-column flex-wrap grid, hover overlay (Backgrounds-dark1 30% opacity), checkbox на hover (top-left), action buttons (Edit/Delete/Unpublish), price badge, star ratings, product info з line-clamp; Comments/Reviews System (#37) - threaded layout з checkbox, 48px avatar з unread indicator (8px green dot), user info (username 16px/600, @handle, timestamp), product preview (48px image + name/price), comment text, action buttons (Reply, Like з count, Remove), nested replies з 96px indent, L-shaped connector line (8×9px), reply input з @mention styling (Primary-primary02), zinc-800 send button; Scheduled Products Table (#38) - simplified layout з header (20px/600 title "5 scheduled products", 288px search, 176px sort dropdown "Newest first" з chevron icon), table rows (checkbox, 64px image, title/category, price badge, scheduled datetime: date + time з 4px gap), hover state з action buttons, skeleton loading states
