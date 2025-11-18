@@ -1864,6 +1864,98 @@ Common navigation items:
 
 ---
 
-**Последнее обновление**: Блок #27-30
+### 31. Multi-line Progress Bars (Horizontal Bar Chart)
+
+#### Chart Container
+- **Width**: 556px (demo container)
+- **Height**: 548px (demo container)
+- **Radius**: 5px (rounded-[5px])
+- **Border**: 1px purple-500 (for demo/debug purposes)
+- **Overflow**: hidden
+- **Usage**: Visualization of multiple data series as horizontal bars
+
+#### Progress Bar Area
+- **Width**: 524px (w-[524px])
+- **Left Padding**: 16px from container edge
+- **Top Padding**: 16px from container edge
+
+#### Individual Progress Bar
+- **Height**: 12px (h-3)
+- **Layout**: inline-flex, gap-2px (gap-0.5) between segments
+- **Radius**: 1px (rounded-[1px]) per segment
+- **Vertical Spacing**: 56px between bars (positions: 16, 72, 128, 184, 240, 296, 352, 408, 464, 520px)
+
+#### Bar Segments (2-segment composition)
+
+##### Segment 1: Primary Value
+```css
+background: shade07-40/40;
+border-radius: 1px;
+height: 12px;
+/* Variable widths based on data:
+   w-24 (96px), w-52 (208px), w-48 (192px),
+   w-60 (240px), w-36 (144px), w-72 (288px), etc.
+*/
+```
+
+##### Segment 2: Secondary Value
+```css
+background: shade08-100;
+border-radius: 1px;
+height: 12px;
+/* Variable widths based on data:
+   w-60 (240px), w-20 (80px), w-16 (64px),
+   w-40 (160px), w-14 (56px), w-24 (96px), etc.
+*/
+```
+
+#### Bar Positioning
+- **Position**: absolute
+- **Layout**: 10 horizontal bars
+- **Vertical positions** (top values):
+  - Bar 1: 16px
+  - Bar 2: 72px
+  - Bar 3: 128px
+  - Bar 4: 184px
+  - Bar 5: 240px
+  - Bar 6: 296px
+  - Bar 7: 352px
+  - Bar 8: 408px
+  - Bar 9: 464px
+  - Bar 10: 520px
+- **Step**: 56px between each bar
+
+#### Typical Width Combinations (examples from code)
+```
+Bar 1: 96px + 240px = 336px total
+Bar 2: 208px + 80px = 288px total
+Bar 3: 192px + 64px = 256px total
+Bar 4: 240px + 160px = 400px total
+Bar 5: 144px + 56px = 200px total
+Bar 6: 240px + 80px = 320px total
+Bar 7: 288px + 96px = 384px total
+Bar 8: 192px + 288px = 480px total
+Bar 9: 192px + 144px = 336px total
+Bar 10: 224px + 64px = 288px total
+```
+
+#### Usage Pattern
+- **Data Visualization**: Comparing two values across multiple categories
+- **Color Coding**:
+  - shade07-40/40 (lighter, 40% opacity) for primary/baseline value
+  - shade08-100 (solid) for secondary/comparison value
+- **Responsive**: Width adjusts based on data percentage
+- **Gap**: Consistent 2px separation between segments
+
+#### Implementation Notes
+- Each bar is a separate container with `left-[16px]` and specific `top-[Xpx]`
+- Segments use `inline-flex` with `gap-0.5` (2px)
+- All segments have consistent height (12px) and radius (1px)
+- Total width of segments determines the visual proportion
+- Container overflow hidden to ensure clean boundaries
+
+---
+
+**Последнее обновление**: Блок #31
 **Статус**: В процессе сборки
-**Добавлено**: Search Input (4 states: default/focused/light/dark), Chart Tooltip с data point и arrow, Status Badges (New/Hot - semantic colors), Navigation Menu (Light/Dark modes с различными shadow layers, 3 menu item states)
+**Добавлено**: Multi-line Progress Bars (Horizontal Bar Chart) - 10 bars с 2-segment composition, 56px vertical spacing, shade07-40/40 и shade08-100 colors, variable widths для data visualization
