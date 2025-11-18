@@ -2954,7 +2954,394 @@ box-shadow:
 
 ---
 
-### 44. Special Effects
+### 44. Search Bar (Advanced States)
+
+#### Search Bar Container
+- **Width**: 384px (w-96)
+- **Padding**: 12px (all sides) - p-3
+- **Radius**: 48px (rounded-[48px])
+- **Border**: 1.5px outline Stroke-Stroke2, offset -1.5px
+- **Layout**: inline-flex, gap 12px (gap-3), center aligned
+- **Font**: 14px (text-sm) normal, leading-20px
+
+**Default/Placeholder State:**
+- **Background**: Backgrounds-surface1 or transparent
+- **Border**: 1.5px outline Stroke-Stroke2, offset -1.5px
+- **Search Icon**: 24×24px (w-6 h-6), opacity-80
+- **Icon Color**: Text-Tertiary (circle icon)
+- **Placeholder**: "ie. 400+ components" - Text-Secondary, opacity-50
+- **Menu Icon**: 24×24px (w-6 h-6), two horizontal lines (12×0px each), Text-Tertiary, opacity-50
+
+**Focused/Active (Empty) State:**
+- **Background**: Backgrounds-surface1
+- **Border**: 1.5px outline Stroke-Stroke2, offset -1.5px
+- **Search Icon**: 24×24px, opacity-80, Text-Tertiary
+- **Placeholder**: Text-Secondary, opacity-50
+- **Menu Icon**: Text-Secondary, opacity-80 (increased from 50)
+
+**Filled/Active State:**
+- **Background**: Backgrounds-surface1
+- **Border**: 1.5px outline Stroke-Highlight/50, offset -1.5px
+- **Checkbox Icon**: 20×20px (w-5 h-5), filled square bg-Primary-primary02
+- **Text**: "400+ components" - Text-Primary (no opacity)
+- **Cursor**: 2×16px (w-0.5 h-4), bg-Text-Blue, positioned after text
+- **Menu Icon**: Text-Tertiary, opacity-50
+
+---
+
+### 45. Number Input with Avatar Icon
+
+#### Number Input Container
+- **Width**: 192px (w-48)
+- **Padding**: 4px (all sides) - p-1
+- **Radius**: 48px (rounded-[48px])
+- **Border**: 1.5px outline Stroke-Stroke2, offset -1.5px
+- **Layout**: inline-flex, gap 8px (gap-2), center aligned
+
+#### Avatar Icon Container
+- **Size**: 40×40px (w-10 h-10)
+- **Radius**: 40px (rounded-[40px])
+- **Background**: Secondary-secondary04
+- **Icon**: 24×24px search icon (w-6 h-6)
+  - Inner: 20×20px (w-5 h-5) at left-[2.75px] top-[2.75px]
+  - Border: 1.5px outline black, offset -0.75px
+
+**Placeholder State:**
+- **Text**: "98" - Text-Secondary, opacity-50
+- **Font**: 14px (text-sm) normal, leading-20px
+
+**Filled State:**
+- **Text**: "98" - Text-Primary (no opacity)
+- **Font**: 14px (text-sm) normal, leading-20px
+
+---
+
+### 46. Product List Row (Compact)
+
+#### Product List Row Container
+- **Width**: 1148px (standard table width)
+- **Padding**: 16px (all sides) - p-4
+- **Layout**: inline-flex, gap 24px (gap-6), justify-start
+- **Overflow**: hidden
+
+#### Product Info Section (Left)
+- **Width**: 384px (w-96)
+- **Height**: 64px (h-16)
+- **Layout**: flex, gap 20px (gap-5), center aligned
+
+**Checkbox:**
+- **Size**: 24×24px (w-6 h-6)
+- **Radius**: 6px (rounded-md)
+- **Border**: 2px border-Stroke-Stroke2
+- **Attribute**: data-status="placeholder"
+
+**Product Image:**
+- **Size**: 64×64px (w-16 h-16)
+- **Radius**: 12px (rounded-xl)
+- **Object Fit**: cover
+
+**Product Details:**
+- **Layout**: flex-col, justify-center
+- **Title**: 16px (text-base) semibold, leading-24px, Text-Primary
+  - **Example**: "Bento Matte 3D Illustration"
+  - **Line Clamp**: 1 line
+- **URL**: 14px (text-sm) normal, Text-Secondary, opacity-80
+  - **Example**: "ui8.net/product/product-link"
+
+#### Meta Section (Right)
+- **Layout**: flex, py-2, gap 48px (gap-12), justify-start, center aligned
+
+**Category with Icon:**
+- **Layout**: flex, gap 8px (gap-2)
+- **Icon**: 24×24px (w-6 h-6) folder icon
+  - Inner: 16×16px (w-4 h-4) at left-[3.75px] top-[3.75px]
+  - Border: 1.5px outline Text-Secondary, offset -0.75px
+- **Text**: "UI Design Kit" - Text-Primary, 14px, w-32
+
+**Price Badge:**
+- **Width**: 48px (w-12)
+- **Height**: 28px (h-7)
+- **Padding**: 12px (x), 6px (y) - px-3 py-1.5
+- **Radius**: 8px (rounded-lg)
+- **Background**: green-600/5
+- **Border**: 1.5px outline green-600/20, offset -1.5px
+- **Text**: "$98" - Primary-primary02, 14px semibold, leading-16px
+- **Attribute**: data-property-1="Default"
+
+**Date/Time:**
+- **Width**: 160px (w-40)
+- **Text**: "Apr 9, 2044 at 3:55 PM" - Text-Secondary, 14px
+
+---
+
+### 47. Product List Row (Hover with Actions)
+
+#### Hover State Container
+- **Width**: 1148px
+- **Padding**: 16px (p-4)
+- **Radius**: 16px (rounded-2xl)
+- **Background**: Backgrounds-highlight
+- **Border**: 1.5px outline zinc-100, offset -1.5px
+- **Layout**: inline-flex, gap 24px (gap-6)
+
+**Hover Shadow (with shadows):**
+```css
+box-shadow:
+  0px 1px 4px 0px rgba(0, 0, 0, 0.05),
+  0px 8px 8px -2px rgba(0, 0, 0, 0.08),
+  inset 0px 0px 0px 3px rgba(255, 255, 255, 1.00);
+outline: 1.5px solid #f4f4f5; /* zinc-100 */
+```
+
+**Hover Shadow (without inset):**
+- **Background**: Backgrounds-highlight
+- **Border**: 1.5px outline zinc-100, offset -1.5px
+- **No inset shadow**, only outline
+
+#### Action Buttons Row (on hover)
+- **Layout**: inline-flex, gap 8px (gap-2)
+- **Position**: Replaces URL in product details area
+
+**Action Button (Edit/Delete/Schedule):**
+- **Padding**: 4px (left), 6px (right), 4px (y) - pl-1 pr-1.5 py-1
+- **Radius**: 6px (rounded-md)
+- **Layout**: flex, gap 4px (gap-1), center aligned
+- **Attribute**: data-property-1="default"
+
+**Edit Button:**
+- **Icon**: 16×16px (w-4 h-4) pen icon
+  - Inner: 12×12px (w-3 h-3) at left-[2.50px] top-[2.05px]
+  - Border: 1.5px outline Text-Secondary, offset -0.75px
+- **Text**: "Edit" - Text-Secondary, 14px semibold, leading-16px, opacity-80
+
+**Delete Button:**
+- **Icon**: 16×16px trash icon
+  - Inner: 12×12px at left-[1.83px] top-[1.83px]
+  - Border: 1.5px outline Text-Secondary, offset -0.75px
+- **Text**: "Delete" - Text-Secondary, 14px semibold, opacity-80
+
+**Schedule/Unpublish Button:**
+- **Icon**: 16×16px calendar/unpublish icon
+  - Inner: 14×12px (w-3.5 h-3) at positions vary
+  - Border: 1.5px outline Text-Secondary, offset -0.75px
+- **Text**: "Schedule" or "Unpublish" - Text-Secondary, 14px semibold, opacity-80
+
+#### Checkbox Variations on Hover
+**Placeholder (unchecked):**
+- **Border**: 2px border-Stroke-Stroke2
+
+**Highlight Checkbox:**
+- **Border**: 2px border-Stroke-Highlight/50
+
+---
+
+### 48. Price Badge Variants
+
+#### Price Badge (Active - Green)
+- **Width**: 48px (w-12)
+- **Padding**: 12px (x), 6px (y) - px-3 py-1.5
+- **Radius**: 8px (rounded-lg)
+- **Background**: green-600/5
+- **Border**: 1.5px outline green-600/20, offset -1.5px
+- **Text**: "$98" - Primary-primary02, 14px semibold, leading-16px
+- **Attribute**: data-property-1="Default"
+
+#### Price Badge (Inactive - Gray)
+- **Width**: 48px (w-12)
+- **Padding**: 12px (x), 6px (y) - px-3 py-1.5
+- **Radius**: 8px (rounded-lg)
+- **Background**: Backgrounds-surface1
+- **Border**: 1.5px outline Stroke-Stroke2, offset -1.5px
+- **Text**: "$0.0" - Text-Primary, 14px semibold, leading-16px
+
+---
+
+### 49. Full Product Table Row
+
+#### Product Table Row Container
+- **Width**: 1148px
+- **Padding**: 16px (p-4)
+- **Layout**: inline-flex, gap 24px (gap-6), justify-start
+
+#### Product Section (Left)
+- **Width**: 384px (w-96)
+- **Height**: 64px (h-16)
+- **Layout**: flex, gap 20px (gap-5), justify-start
+
+**Checkbox:**
+- **Size**: 24×24px, rounded-md, 2px border
+- **Attribute**: data-status="placeholder"
+
+**Product Image:**
+- **Size**: 64×64px, rounded-xl
+
+**Product Info:**
+- **Title**: "Bento Pro v.2" - 16px semibold, Text-Primary, line-clamp-1
+- **Subtitle**: "UI Design Kit" - 14px normal, Text-Secondary, opacity-80
+
+#### Metrics Section (Right)
+- **Layout**: flex, py-2, justify-between
+- **Column Layout**: Multiple columns with consistent spacing
+
+**Status Column:**
+- **Width**: 80px (w-20)
+- **Badge**: "Active"
+  - Padding: 8px (x), 6px (y) - px-2 py-1.5
+  - Background: green-600/5
+  - Border: 1.5px outline green-600/20, offset -1.5px
+  - Text: Primary-primary02, 14px semibold, leading-16px
+  - Attribute: data-property-1="True"
+
+**Price Column:**
+- **Width**: 56px (w-14)
+- **Text**: "$98" - Text-Primary, 14px
+
+**Sales Column:**
+- **Width**: 144px (w-36)
+- **Layout**: flex, gap 8px (gap-2)
+- **Amount**: "$3,200" - Text-Primary, 14px, w-12
+- **Trend Badge**:
+  - Padding: 8px (x), 6px (y) - px-2 py-1.5
+  - Background: green-600/5
+  - Border: 1.5px outline green-600/20, offset -1.5px
+  - Icon: 16×16px up arrow (w-4 h-4), Primary-primary02
+  - Text: "36.8%" - Primary-primary02, 14px semibold
+  - Attribute: data-trend="up"
+
+**Rating Column:**
+- **Width**: 80px (w-20)
+- **Layout**: flex, gap 8px (gap-2)
+- **Star Icon**: 20×20px (w-5 h-5)
+  - Inner: 16×16px (w-4 h-4) filled bg-Text-Secondary
+- **Rating**: "4.8" - Text-Primary, 14px
+- **Count**: "(88)" - Text-Secondary, 14px
+
+**Time/Progress Column:**
+- **Width**: 96px (w-24)
+- **Layout**: flex, gap 8px (gap-2), center aligned
+- **Padding**: 2px (y) - py-0.5
+- **Time**: "48m" - Text-Primary, 14px, w-8
+- **Progress Bar**:
+  - Width: 32px (w-8)
+  - Height: 6px (h-1.5)
+  - Background: shade07-40/40, rounded-sm
+  - Fill: 12px (w-3) bg-Chart-Green, rounded-sm
+  - Attribute: data-property-1="03"
+
+#### Row Border Variants
+**Border Bottom (Light):**
+- **Border**: 1.5px border-Stroke-Subtle/10 (bottom only)
+
+**Border Bottom (Dark):**
+- **Border**: 1.5px border-Stroke-Subtle (bottom only)
+
+---
+
+### 50. Comments Header with Actions
+
+#### Comments Header (Default)
+- **Width**: 1180px
+- **Padding**: 12px (p-3)
+- **Layout**: inline-flex, justify-between, center aligned
+
+**Left Section:**
+- **Layout**: flex, gap 24px (gap-6), h-12, pl-5
+- **Title**: "8 new comments" - Text-Primary, 20px (text-xl) semibold, leading-28px
+- **Search Input**:
+  - Width: 288px (w-72)
+  - Padding: 12px (left), 20px (right), 12px (y) - pl-3 pr-5 py-3
+  - Radius: 90px (rounded-[90px])
+  - Background: Backgrounds-surface1
+  - Icon: 24×24px search icon
+  - Placeholder: "Search comments" - Text-Secondary, 14px
+  - Attributes: data-light-mode="True", data-state="default"
+
+**Right Section:**
+- **Sort Dropdown**:
+  - Width: 176px (w-44)
+  - Height: 48px (h-12)
+  - Padding: 20px (left), 12px (right), 12px (y) - pl-5 pr-3 py-3
+  - Radius: 90px (rounded-[90px])
+  - Background: Backgrounds-surface2
+  - Border: 1.5px outline Stroke-Stroke2, offset -1.5px
+  - Text: "Newest first" - Text-Secondary, 14px
+  - Chevron: 24×24px (w-6 h-6), 8×3.38px down arrow, Text-Secondary
+
+#### Comments Header (Selection Mode)
+- **Width**: 1180px
+- **Padding**: 12px (p-3)
+- **Layout**: inline-flex, justify-between, center aligned
+
+**Left Section:**
+- **Layout**: flex, gap 24px (gap-6), h-12, pl-5
+- **Title**: "3 comments selected" - Text-Primary, 20px semibold
+- **Deselect Button**:
+  - Padding: 28px (x), 14px (y) - px-7 py-3.5
+  - Radius: 32px (rounded-[32px])
+  - Border: 1.5px outline Stroke-Stroke2, offset -1.5px
+  - Text: "Deselect" - Text-Secondary, 14px semibold, leading-16px
+
+**Right Section:**
+- **Layout**: flex, gap 8px (gap-2)
+
+**Delete Button:**
+- **Height**: 48px (h-12)
+- **Padding**: 28px (x), 14px (y) - px-7 py-3.5
+- **Radius**: 32px (rounded-[32px])
+- **Border**: 1.5px outline Stroke-Stroke2, offset -1.5px
+- **Text**: "Delete" - Text-Secondary, 14px semibold, leading-16px
+
+**Mark as Read Button (Primary):**
+- **Padding**: 28px (x), 16px (y) - px-7 py-4
+- **Radius**: 32px (rounded-[32px])
+- **Background**: gradient zinc-800 → zinc-800
+- **Border**: 1.5px outline white/40, offset -1.5px
+- **Shadow**: inset 2px 0px 8px 2px rgba(248,248,248,0.20)
+- **Text**: "Mark as read" - Text-Light, 14px semibold, leading-16px
+- **Attributes**: data-light-mode="True", data-state="Default", data-style="Button"
+
+---
+
+### 51. Pagination/Date Cells
+
+#### Pagination Cell (Standard)
+- **Size**: 44×44px (w-11 h-11)
+- **Padding**: 10px (all sides) - p-2.5
+- **Radius**: 40px (rounded-[40px])
+- **Layout**: inline-flex, flex-col, center aligned
+- **Font**: 14px (text-sm) normal, leading-20px
+- **Text**: "8" or page number
+- **Alignment**: center, line-clamp-1
+
+**Disabled State:**
+- **Background**: transparent
+- **Text**: Text-Secondary, opacity-50
+
+**Default State:**
+- **Background**: transparent
+- **Text**: Text-Primary (no opacity)
+
+**Active/Selected State:**
+- **Background**: Backgrounds-dark1
+- **Text**: Text-Light (white)
+
+**Outlined State:**
+- **Background**: transparent
+- **Border**: 1.5px outline Backgrounds-dark1, offset -1.5px
+- **Text**: Text-Primary
+
+#### Day Label Cell
+- **Size**: 44×44px (w-11 h-11)
+- **Padding**: 8px (all sides) - p-2
+- **Radius**: 40px (rounded-[40px])
+- **Font**: 12px (text-xs) normal, leading-20px
+- **Text**: "Su" (Sunday abbreviation)
+- **Color**: Text-Secondary, opacity-50
+- **Alignment**: center, line-clamp-1
+
+---
+
+### 52. Special Effects
 
 #### Fade Overlay (для горизонтального скролла)
 - **Width**: 112px (w-28)
@@ -3189,9 +3576,30 @@ outline: 1.5px solid #f4f4f5; /* zinc-100 */
 | Product Preview Image (modal) | 64×64px |
 | Modal Title | 30px (text-3xl) |
 | Modal Action Button | auto×48px |
+| Search Bar (advanced) | 384×48px |
+| Search Bar Menu Icon | 24×24px |
+| Number Input with Avatar | 192×48px |
+| Number Input Avatar Icon | 40×40px |
+| Product List Row | 1148px (width) |
+| Product List Image | 64×64px |
+| Product List Checkbox | 24×24px |
+| Category Icon (folder) | 24×24px |
+| Price Badge (compact) | 48×28px |
+| Action Button (hover row) | 16×16px icon |
+| Status Badge (Active) | auto×28px |
+| Trend Badge Icon | 16×16px |
+| Progress Bar (inline) | 32×6px |
+| Progress Bar Fill | 12×6px |
+| Comments Header | 1180px (width) |
+| Comments Search Input | 288×48px |
+| Sort Dropdown | 176×48px |
+| Deselect Button | auto×48px |
+| Mark as Read Button | auto×48px |
+| Pagination Cell | 44×44px |
+| Day Label Cell | 44×44px |
 
 ---
 
-**Последнее обновление**: Блок #29
+**Последнее обновление**: Блок #30
 **Статус**: В процессе сборки
 **Добавлено**: Tags Input / Multi-Chip (384px container with 8 states: default/alt/focus/typing with autocomplete/filled, 32px tag chips with 12×12px remove icons, flex-wrap layout), Publish Button with Icon (48px height with arrow icon rotated 90deg, dark zinc-800 and light white→neutral-200 gradient variants), Product Cards Grid View (384×224px cards with 3 states: default/selected with opacity-10 overlay + checkbox/hover with opacity-30 overlay + action buttons, price badge 48px, rating display with 20×20px star icon, meta rows for date/time and rating), Action Buttons Row (Edit/Delete/Schedule/Unpublish with 16×16px icons), Brand/App Icons 16×16px (Notion, Bootstrap, HTML, Photoshop, Blender, After Effects, Figma, Sketch, WordPress, Swift with detailed color specifications for each brand)
