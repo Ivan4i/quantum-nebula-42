@@ -1307,6 +1307,218 @@ outline-offset: -1.5px;
 
 ---
 
-**Последнее обновление**: Блок #19
+### 21. Tooltips
+
+#### Tooltip
+- **Padding**: 8px (x), 6px (y)
+- **Radius**: 6px (rounded-md)
+- **Background**: Backgrounds-dark1
+- **Text**: 12px normal, Text-Light
+- **Layout**: inline-flex, center aligned
+
+#### Tooltip Arrow (Triangle)
+- **Size**: 8×4px (w-2 h-1)
+- **Background**: Backgrounds-dark1
+- **Rotation**: depends on position
+  - **Right**: rotate-90deg
+  - **Left**: rotate-270deg
+  - **Top**: rotate-0deg
+  - **Bottom**: rotate-180deg
+- **Position**: adjacent to tooltip content
+
+#### Tooltip Positioning
+- **data-position="right"**: arrow on left side, rotated 90deg
+- **data-position="left"**: arrow on right side, rotated 270deg
+- **data-position="top"**: arrow on bottom, rotated 0deg
+- **data-position="bottom"**: arrow on top, rotated 180deg
+
+---
+
+### 22. Info & Help Icons
+
+#### Info Icon (Large)
+- **Outer Size**: 24×24px
+- **Inner Icon**: 16×16px
+- **Color**: Text-Tertiary (default)
+- **Usage**: Form labels, descriptions
+- **Opacity**: can be 50% for subtle appearance
+
+#### Help Icon (Small)
+- **Outer Size**: 16×16px
+- **Inner Icon**: 14×14px (3.5×3.5px visual area)
+- **Color**: Text-Tertiary or Text-Secondary
+- **Usage**: Inline help, small labels
+
+---
+
+### 23. Password Input Extended
+
+#### Password Input with "Forgot password?" Link
+- **Layout**: floating label + input + link
+- **Floating Label**: "Password", 12px, Text-Primary
+- **Link Position**: top-right, floating label level
+- **Link Styles**:
+  - Font: 12px normal
+  - Color: Text-Secondary (default)
+  - Hover: Text-Primary + underline
+  - Background: Backgrounds-surface2 (floating label background)
+
+#### Password Dots
+- **Dot Size**: 6×6px (w-1.5 h-1.5)
+- **Shape**: rounded-full
+- **Color**: Text-Tertiary (placeholder), Text-Primary (filled)
+- **Gap**: 4px (gap-1) between dots
+- **Layout**: horizontal inline-flex
+
+#### Password Input States
+
+##### State 1: Empty (Default Border)
+```css
+outline: 1.5px Stroke-Stroke2;
+/* 7 dots, Text-Tertiary color */
+```
+
+##### State 2: Empty (Alt Border)
+```css
+outline: 1.5px shade07-50/50;
+/* 7 dots, Text-Tertiary color */
+```
+
+##### State 3: Typing (Cursor Visible)
+```css
+outline: 1.5px shade07-50/50;
+/* Cursor: 2×16px (w-0.5 h-4), Text-Blue, rounded-sm */
+/* Dots: opacity-0 while typing */
+/* Eye icon: opacity-0 */
+```
+
+##### State 4: Filled (10 characters)
+```css
+outline: 1.5px shade07-50/50;
+/* 10 dots, Text-Primary color */
+/* Cursor after dots */
+/* Eye icon: visible (Text-Tertiary) */
+```
+
+##### State 5: Revealed (Plain Text)
+```css
+outline: 1.5px shade07-50/50;
+/* Plain text: "pa55w0rd!", 14px medium */
+/* Cursor visible */
+/* Eye icon: open state (Text-Tertiary) */
+```
+
+##### State 6: Error
+```css
+outline: 1.5px Primary-primary03;
+/* 4 dots, Text-Primary color */
+/* Cursor visible */
+/* Eye icon: visible */
+```
+
+#### Eye Icon (Toggle Visibility)
+- **Size**: 24×24px (outer), 16×16px (inner container)
+- **Icon Size**: 14×14px (3.5×3.5px visual area)
+- **Position**: right side, 12px from edge
+- **Color**: Text-Tertiary
+- **States**:
+  - **Hidden password**: eye-slash icon
+  - **Visible password**: eye-open icon
+
+---
+
+### 24. Dropdowns & Selects
+
+#### Select Dropdown (Standard)
+- **Width**: 160px (w-40), max-width 176px (max-w-44)
+- **Height**: 48px
+- **Padding**: 20px (left), 12px (right)
+- **Radius**: 90px
+- **Border**: 1.5px outline, offset -1.5px, Stroke-Stroke2
+- **Text**: 14px normal, Text-Secondary
+- **Layout**: space-between, overflow hidden
+
+#### Dropdown Chevron Icon
+- **Size**: 24×24px
+- **Inner Arrow**: 4×8px (w-1 h-2), rotated 90deg
+- **Color**: Text-Secondary
+- **Position**: right side
+- **Radius**: rounded-sm
+- **Outline**: 1.5px, offset -0.75px
+
+---
+
+### 25. Time Range Filter Tabs
+
+#### Tab Button
+- **Height**: 48px (h-12)
+- **Padding**: 24px (x), 12px (y)
+- **Radius**: 48px
+- **Font**: 14px semibold
+- **Gap**: 4px (gap-1) between tabs
+- **Layout**: inline-flex
+
+#### Tab States
+- **Default**:
+  - Background: transparent
+  - Text: Text-Secondary
+  - No border
+- **Active**:
+  - Outline: 1.5px Stroke-Stroke2, offset -1.5px
+  - Text: Text-Primary
+  - Background: transparent
+
+#### Tab Options
+- **1D**: 1 Day
+- **7D**: 7 Days (often default active)
+- **1M**: 1 Month
+- **6M**: 6 Months
+- **1Y**: 1 Year
+
+---
+
+### 26. Stacked Progress Bars
+
+#### Progress Bar Container
+- **Height**: 12px (h-3)
+- **Layout**: inline-flex, gap-2px (gap-0.5)
+- **Full Width**: 524px (typical example)
+- **Radius**: 1px (rounded-[1px]) on segments
+
+#### Progress Segments (3 types)
+
+##### Segment Type 1: Social Media (Solid)
+```css
+background: shade07-40/40;
+border-radius: 1px;
+/* Variable width based on percentage */
+```
+
+##### Segment Type 2: Direct (Striped Pattern)
+```css
+background: shade07-60/60;
+border-radius: 0.5px; /* on individual stripes */
+/* Vertical stripes: 2px width (w-0.5), gap 1px (gap-px) */
+/* Layout: flex with gap-px between 13 stripes */
+```
+
+##### Segment Type 3: Others (Gradient)
+```css
+background: linear-gradient(to right, shade08-100, shade09-100);
+border: 1px solid Stroke-Stroke2;
+border-radius: 1px;
+/* Variable width based on percentage */
+```
+
+#### Progress Bar Pattern Implementation
+- **Stripe Width**: 2px (w-0.5)
+- **Stripe Gap**: 1px (gap-px)
+- **Stripe Height**: 12px (h-3), matches container
+- **Stripe Count**: typically 13 stripes per segment
+- **Stripe Radius**: 0.5px (rounded-[0.50px])
+
+---
+
+**Последнее обновление**: Блок #21-26
 **Статус**: В процессе сборки
-**Добавлено**: Calendar/Date Picker, Time Picker, Modal Dialog (Reschedule), Product Info Header Card, Modal Overlays (Light/Dark), Popup positioning, shade03-100, shade07-70/70, shade08-70/70, Stroke-Focus
+**Добавлено**: Tooltips с arrow positioning, Info/Help icons (2 sizes), Password Input Extended (6 states + eye toggle), Dropdowns/Selects, Time Range Filter Tabs, Stacked Progress Bars (3 segment types: solid/striped/gradient)
