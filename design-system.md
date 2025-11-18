@@ -323,6 +323,145 @@ letter-spacing: -0.02em; /* tracking-tight */
 - **Icon**: 24×24px
 - **Label**: 16px semibold
 
+#### Balance Card
+**Карточка с финансовой статистикой (Balance, Future payouts, Payout)**
+
+**Base Specifications:**
+- **Padding**: 12px (p-3)
+- **Radius**: 32px
+- **Background**: Backgrounds-surface2
+- **Shadow**: --shadow-card-1 + --shadow-card-2
+- **Border**: 1.5px outline, offset -1.5px
+- **Variants**:
+  - **Small (Horizontal Scroll)**: 320px width, 3 metrics with fade overlay
+  - **Large (Full Width)**: 1068px width, 2 metrics
+
+**Header:**
+- **Layout**: space-between
+- **Left Side**:
+  - Title: 20px semibold, leading-28px, Text-Primary
+  - Padding: 12px (px-3 or px-5 for large)
+- **Right Side**: Dropdown filter
+  - Width: 160px (w-40)
+  - Height: 48px
+  - Radius: 90px
+  - Padding: 20px (left), 12px (right), 12px (y)
+  - Border: 1.5px Stroke-Stroke2
+  - Text: 14px normal, Text-Secondary ("This year")
+  - Chevron: 24×24px, rotated 90deg, Text-Secondary
+
+**Metric Item:**
+- **Layout**: flex-col, gap 40px (small) or 32px (large)
+- **Padding**: 20px (y), 12px (x)
+- **Divider**: border-r-[1.5px] border-neutral-500/10 (между метриками)
+
+**Icon Container:**
+- **Size**: 64×64px
+- **Radius**: 32px
+- **Background**: Backgrounds-surface1
+- **Icon**: 24×24px, Text-Primary
+  - Total balance: wallet/bank icon
+  - Future payouts: person icon
+  - Payout: trend icon
+
+**Label Section:**
+- **Title**: 16px semibold, Text-Primary, leading-24px, line-clamp-1
+- **Info Icon**: 24×24px, opacity-50, Text-Secondary
+- **Layout**: horizontal, gap 8px
+
+**Value Display:**
+- **Dollar Sign**:
+  - Size: 48px (text-3xl)
+  - Weight: semibold
+  - Color: Text-Tertiary
+  - Position: top offset 8px
+  - Width: 28px (w-7)
+- **Value**:
+  - Size: 60px (text-6xl)
+  - Weight: medium
+  - Color: Text-Primary
+  - Line height: 75px
+  - Examples: "1,620", "2,256.72", "256k"
+- **Gap**: 4px между $ и числом
+
+**Trend Badge:**
+- **Padding**: 8px (x), 6px (y)
+- **Radius**: 8px (rounded-lg)
+- **Font**: 14px semibold, leading-16px
+- **Icon**: 16×16px arrow
+- **Variants**:
+  - **Up** (data-trend="up"):
+    - Background: green-600/5
+    - Border: 1.5px green-600/20, offset -1.5px
+    - Text: Primary-primary02
+  - **Down** (data-trend="down"):
+    - Background: red-400/5
+    - Border: 1.5px red-400/20, offset -1.5px
+    - Text: red-400
+- **Comparison Text**: "vs last year" - 14px normal, Text-Tertiary
+
+**Mini Chart Placeholder:**
+- **Sizes**: варьируются (64×56px, 160×80px, 144×144px)
+- **Border**: 3px outline, offset -1.5px
+- **Colors**:
+  - Total balance: Primary-primary02
+  - Future payouts: Primary-primary03
+  - Payout: Chart-Green
+- **Position**: absolute, различные для каждой метрики
+
+**Fade Overlay (для Horizontal Scroll):**
+- **Width**: 64px (w-16)
+- **Height**: 288px (h-72)
+- **Position**: absolute, right side (left-287px, top-67px)
+- **Variants**:
+  - **Light Mode** (data-property-1="True"):
+    - Gradient: linear-gradient(to-left, white → white/0)
+  - **Dark Mode** (data-property-1="False"):
+    - Gradient: linear-gradient(to-left, zinc-900 → zinc-900/0)
+
+**Light Mode States:**
+- **Default**:
+  - Shadow: --shadow-card-1 + --shadow-card-2
+  - Border: transparent or default outline
+- **Elevated** (вариант с white outline):
+  - Shadow: --shadow-card-1 + 0.5 opacity on second shadow
+  - Border: 1.5px white
+
+**Dark Mode States:**
+- Shadows: те же, но с адаптацией opacity
+- Border: 1.5px white
+- Fade overlay: zinc-900
+
+**Layout Structure:**
+```
+┌─────────────────────────────────────┐
+│ [Balance]           [This year ▼]  │ Header (48px)
+├─────────────────────────────────────┤
+│ [Icon] Total balance    [Chart]    │
+│   $1,620                            │ Metric Item
+│   [↑ 36.8%] vs last year           │
+│                                     │
+│ ─────────────────────────────────  │ Divider
+│                                     │
+│ [Icon] Future payouts   [Chart]    │
+│   $2,256.72                         │ Metric Item
+│   [↓ 36.8%] vs last year           │
+└─────────────────────────────────────┘
+```
+
+**Data Attributes:**
+- `data-style="dropdown"` - для dropdown фильтра
+- `data-trend="up"` / `data-trend="down"` - для trend badge
+- `data-property-1="True"` / `"False"` - для Light/Dark mode fade overlay
+- `data-show-dropdown="true"` - показывает dropdown в header
+
+**Spacing:**
+- Header to content: 8px (gap-2)
+- Metrics gap: 32px (gap-8)
+- Icon to label: 40px or 32px (gap-10 or gap-8)
+- Label to value: 8px (gap-2)
+- Value to trend: 12px (gap-3)
+
 ---
 
 ### 2. Buttons
@@ -989,6 +1128,6 @@ outline: 1.5px solid #f4f4f5; /* zinc-100 */
 
 ---
 
-**Последнее обновление**: Блок #17
+**Последнее обновление**: Блок #18
 **Статус**: В процессе сборки
-**Добавлено**: OAuth Button (5 states), Input Field States (Default/Focus/Filled/Error/Success), Floating Label, Password Input with dots, Auth Form Card (480px), Auth Form Footer, "Forgot password" Link, shade04-100, shade07-50
+**Добавлено**: Balance Card (Small/Large variants), Financial metrics display with trend badges, Mini chart placeholders, Fade overlay для horizontal scroll (Light/Dark mode), Dropdown filter в header, data-attributes для состояний
