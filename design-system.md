@@ -1212,7 +1212,208 @@ Standard fields displayed:
 
 ---
 
-### 19. Author Profile Card
+### 19. Toggle Switches
+
+#### Toggle Switch (Standard)
+- **Width**: 44px (w-11)
+- **Height**: 24px (h-6)
+- **Padding**: 2px (p-0.5)
+- **Radius**: 32px (rounded-[32px])
+- **Toggle Knob**: 20×20px (w-5 h-5)
+  - Radius: 24px (rounded-3xl)
+  - Shadows: Multi-layer
+    - 0px 2px 4px 0px rgba(0,0,0,0.20)
+    - inset 0px -1px 1px 0px rgba(0,0,0,0.10)
+
+#### Toggle States
+
+**ON State (Dark Mode):**
+- **Background**: gradient zinc-800 → zinc-800
+- **Border**: 1.5px white/40, offset -1.5px
+- **Shadow**: inset 2px 0px 8px 2px rgba(248,248,248,0.20)
+- **Knob Position**: justify-end (right)
+- **Knob Color**: neutral-50 (white)
+- **Knob Shadow**: inset 0px 2px 2px rgba(255,255,255,1.00)
+
+**ON State (Light Mode):**
+- **Background**: gradient neutral-200 → zinc-100
+- **Border**: 1.5px white/40, offset -1.5px
+- **Shadow**: inset 2px 0px 8px 2px rgba(248,248,248,0.20)
+- **Knob Position**: justify-end (right)
+- **Knob Color**: shade04-100
+- **Knob Shadow**: inset 0px 2px 2px rgba(255,255,255,0.05)
+
+**ON State (Alternative - Pressed):**
+- **Background**: gradient zinc-300 → gray-200
+- **Border**: 1.5px white/40, offset -1.5px
+- **Shadow**: inset 2px 0px 8px 1px rgba(248,248,248,0.19)
+- **Knob Position**: justify-end (right)
+- **Knob Color**: shade02-100
+- **Knob Shadow**: inset 0px 2px 2px rgba(255,255,255,0.12)
+
+**OFF State:**
+- **Background**: Backgrounds-surface1 or Backgrounds-surface2-(on-overlay)
+- **Border**: 1.5px Stroke-Stroke2, offset -1.5px
+- **Shadow**: inset 2px 0px 8px 2px rgba(248,248,248,0.05)
+- **Knob Position**: justify-start (left)
+- **Knob Color**: neutral-50 (white)
+- **Knob Shadow**: inset 0px 2px 2px rgba(255,255,255,1.00)
+
+---
+
+### 20. Navigation & Menu Items
+
+#### Navigation Item (Sidebar/Menu)
+- **Height**: 48px (h-12)
+- **Padding**: 12px (p-3)
+- **Radius**: 16px (rounded-2xl)
+- **Layout**: horizontal, gap 16px
+- **Components**:
+  - Icon: 24×24px
+  - Label: 14px semibold
+
+#### Navigation Item States
+
+**Default:**
+- **Background**: transparent
+- **Icon**: Text-Secondary
+- **Text**: Text-Secondary, 14px semibold
+
+**Hover (Light Mode):**
+- **Background**: Backgrounds-pop
+- **Radius**: 16px (rounded-2xl)
+- **Shadow**: Multi-layer
+  - 0px 1px 4px 0px rgba(0,0,0,0.05)
+  - 0px 8px 8px -2px rgba(0,0,0,0.08)
+  - inset 0px 0px 0px 3px rgba(255,255,255,1.00)
+- **Border**: 1px zinc-100, offset -1px
+- **Icon**: Text-Primary
+- **Text**: Text-Primary, 14px semibold
+
+**Active:**
+- **Background**: Backgrounds-pop
+- **Radius**: 16px (rounded-2xl)
+- **Icon**: Text-Primary
+- **Text**: Text-Primary, 14px semibold
+
+#### Navigation Icon
+- **Size**: 24×24px (w-6 h-6)
+- **Stroke**: 1.5px, offset -0.75px
+- **Examples**: User profile, Pin/Location icon
+
+---
+
+### 21. Search Results / Product List Cards
+
+#### Search Results Container
+- **Width**: 384px (w-96)
+- **Padding**: 12px (p-3)
+- **Background**: Backgrounds-surface2
+- **Radius**: 32px (rounded-[32px])
+- **Shadow**: Multi-layer KPI shadows
+  - 0px 5px 1.5px -4px rgba(8,8,8,0.09)
+  - 0px 6px 4px -4px rgba(8,8,8,0.05)
+  - 0px 6px 13px 0px rgba(8,8,8,0.03)
+  - 0px 24px 24px -16px rgba(8,8,8,0.04)
+  - 0px 2.15px 0.5px -2px rgba(0,0,0,0.25)
+  - 0px 0px 10px 0px rgba(0,0,0,0.05)
+- **Border**: 1px outline Stroke-Subtle/10, offset -1px
+- **Gap**: 12px (gap-3) between sections
+
+#### Dark Mode Variant
+- **Shadow**: Enhanced dark shadows
+  - 0px 5px 1.5px -4px rgba(8,8,8,0.09)
+  - 0px 6px 4px -4px rgba(8,8,8,0.05)
+  - 0px 6px 13px 0px rgba(8,8,8,0.03)
+  - 0px 24px 24px -16px rgba(8,8,8,0.04)
+  - 0px 2.15px 0.5px -2px rgba(0,0,0,0.80)
+  - 0px 0px 10px 0px rgba(0,0,0,1.00)
+  - inset 0px 0px 12px 4px rgba(250,250,250,0.05)
+- **Border**: 1px outline Stroke-Stroke2, offset -1px
+
+#### Section Header
+- **Padding**: 12px (p-3)
+- **Text**: "Best match" / "Suggestions"
+  - Font: 14px (text-sm) normal, leading-20px
+  - Color: Text-Secondary
+
+#### Product List Item
+- **Padding**: 12px (p-3)
+- **Radius**: 20px (rounded-[20px])
+- **Layout**: justify-start, gap 32px (gap-8)
+- **States**: default, hover
+
+#### Product List Item - Default State
+- **Background**: transparent
+- **Product Info**:
+  - Image: 64×64px (w-16 h-16), rounded-xl
+  - Title: 16px semibold, Text-Primary, flex-1
+- **Price Info** (right aligned):
+  - Price: 16px semibold, Text-Primary
+  - Status Badge: 24px height (h-6)
+
+#### Product List Item - Hover State (Light Mode)
+- **Background**: Backgrounds-highlight
+- **Radius**: 20px (rounded-[20px])
+- **Shadow**: Multi-layer
+  - 0px 1px 4px 0px rgba(0,0,0,0.05)
+  - 0px 8px 8px -2px rgba(0,0,0,0.08)
+  - inset 0px 0px 0px 3px rgba(255,255,255,1.00)
+- **Border**: 1.5px zinc-100, offset -1.5px
+
+#### Product List Item - Hover State (Dark Mode)
+- **Background**: Backgrounds-highlight
+- **Radius**: 20px (rounded-[20px])
+- **Border**: 1.5px zinc-100, offset -1.5px
+- **NO shadows** (отличие от light mode)
+
+#### Product Status Badges
+- **Height**: 24px (h-6)
+- **Padding**: 8px (x), 2px (y) - px-2 py-0.5
+- **Radius**: 8px (rounded-lg)
+- **Font**: 12px (text-xs) normal, leading-20px
+
+**Active Status:**
+- **Background**: green-600/5
+- **Border**: 1.5px green-600/20, offset -1.5px
+- **Text**: Primary-primary02
+- **Content**: "Active"
+- **Attribute**: data-state="Active"
+
+**Offline/Deactive Status:**
+- **Background**: red-400/5
+- **Border**: 1.5px red-400/20, offset -1.5px
+- **Text**: red-400
+- **Content**: "Offline"
+- **Attribute**: data-state="Deactive"
+
+#### Suggestion List Item
+- **Padding**: 12px (p-3)
+- **Radius**: 20px (rounded-[20px])
+- **Layout**: horizontal, gap 32px (gap-8)
+- **Components**:
+  - Avatar: 64×64px, rounded-xl (overflow), image rounded-[64px]
+  - User Info: flex-col, gap 4px
+  - Action Button: 48×48px circular
+
+#### User Info (Suggestion)
+- **Name**: 16px semibold, Text-Primary
+- **Role**: 12px normal, Text-Secondary
+- **Layout**: flex-col, gap 4px (gap-1)
+
+#### Action Button (Arrow)
+- **Size**: 48×48px (w-12 h-12)
+- **Padding**: 20px (p-5) - визуальный padding
+- **Radius**: 96px (rounded-[96px]) - полностью круглый
+- **Border**: 1.5px Stroke-Stroke2, offset -1.5px
+- **Icon**: 24×24px arrow right
+  - Color: Text-Secondary
+  - Stroke: 1.5px, offset -0.75px
+- **Attribute**: data-property-1="default"
+
+---
+
+### 22. Author Profile Card
 
 #### Author Profile Card
 - **Padding**: 32px (p-8)
@@ -1313,7 +1514,7 @@ Standard fields displayed:
 
 ---
 
-### 20. Special Effects
+### 23. Special Effects
 
 #### Fade Overlay (для горизонтального скролла)
 - **Width**: 112px (w-28)
@@ -1477,9 +1678,18 @@ outline: 1.5px solid #f4f4f5; /* zinc-100 */
 | Insights Trend Badge Icon | 16×16px |
 | Insights Secondary Value | 20px (text) |
 | Insights Fade Overlay | 64×192px |
+| Toggle Switch | 44×24px |
+| Toggle Knob | 20×20px |
+| Navigation Item (height) | 48px |
+| Navigation Icon | 24×24px |
+| Search Results Container | 384px |
+| Product List Item Image | 64×64px |
+| Product Status Badge (height) | 24px |
+| Suggestion Avatar | 64×64px |
+| Action Button (Arrow) | 48×48px |
 
 ---
 
-**Последнее обновление**: Блок #21
+**Последнее обновление**: Блок #22
 **Статус**: В процессе сборки
-**Добавлено**: Insights Cards (Wide 1560px, Medium 916px, Narrow 320px), Icon Containers (48×48px с двумя иконками), Main Value (60px medium font), Trend Badges (green success style), Secondary Metrics (New customers, Product reached), Dropdown Filter ("Last 7 days"), Fade Overlay для overflow (64×192px), Dark Mode варианты
+**Добавлено**: Toggle Switches (44×24px, ON/OFF states, dark/light/pressed variants), Navigation & Menu Items (48px height, hover states с multi-layer shadows), Search Results / Product List Cards (384px, KPI shadows, dark mode варианты), Product Status Badges (Active/Offline), Suggestion List Items (с аватарами и action buttons), Action Buttons (48×48px circular arrow)
