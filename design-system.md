@@ -2614,6 +2614,628 @@ outline: 1.5px solid zinc-100;
 
 ---
 
-**Последнее обновление**: Блок #32
+### 33. Modal Dialogs & Toggle Switches
+
+#### Dialog Container
+- **Width**: 573px (w-[573px])
+- **Padding**: 48px (p-12)
+- **Background**: Backgrounds-surface1
+- **Radius**: 32px (rounded-[32px])
+- **Backdrop Blur**: 32px (backdrop-blur-[32px])
+- **Layout**: flex-col, gap-32px (gap-8)
+
+#### Dialog Shadow Variants
+
+##### Variant 1: Standard Shadow
+```css
+/* 5-layer shadow system */
+box-shadow:
+  0px 5px 1.5px -4px rgba(8, 8, 8, 0.09),
+  0px 6px 4px -4px rgba(8, 8, 8, 0.05),
+  0px 6px 13px 0px rgba(8, 8, 8, 0.03),
+  0px 24px 24px -16px rgba(8, 8, 8, 0.04),
+  0px 2.15px 0.5px -2px rgba(0, 0, 0, 0.25);
+outline: 1px;
+outline-offset: -1px;
+backdrop-filter: blur(32px);
+```
+
+##### Variant 2: Enhanced Shadow with Inset Highlight
+```css
+/* 5-layer shadow system + inset highlight */
+box-shadow:
+  0px 24px 24px -16px rgba(8, 8, 8, 0.08),
+  0px 6px 13px 0px rgba(8, 8, 8, 0.12),
+  0px 6px 4px -4px rgba(8, 8, 8, 0.16),
+  0px 5px 1.5px -4px rgba(8, 8, 8, 0.20),
+  0px 2.15px 0.5px -2px rgba(0, 0, 0, 0.25),
+  inset 2px 4px 16px 0px rgba(253, 253, 253, 0.05);
+outline: 1px solid white/40;
+outline-offset: -1px;
+backdrop-filter: blur(32px);
+```
+
+#### Dialog Components
+
+##### Icon Container
+```css
+/* Container */
+width: 64px (w-16);
+height: 64px (h-16);
+border-radius: 80px (rounded-[80px]);
+overflow: hidden;
+position: relative;
+
+/* Variants */
+background: red-600/20;      /* Delete/Alert dialogs */
+background: shade08-100;     /* Status/Settings dialogs */
+```
+
+##### Alert Icon (Delete/Warning)
+```css
+/* Icon Container */
+width: 24px (w-6);
+height: 24px (h-6);
+position: absolute;
+left: 20px;
+top: 20px;
+
+/* Exclamation Mark Shape */
+/* Vertical line */
+width: 20px (w-5);
+height: 16px (h-4);
+left: 2.51px;
+top: 2.66px;
+outline: 1.5px Primary-primary03;
+outline-offset: -0.75px;
+
+/* Dot */
+width: 2px (w-0.5);
+height: 2px (h-0.5);
+left: 11px;
+top: 14.50px;
+background: Primary-primary03;
+border-radius: 9999px (rounded-full);
+```
+
+##### Settings/Layers Icon
+```css
+/* Icon Container */
+width: 24px (w-6);
+height: 24px (h-6);
+position: absolute;
+left: 20px;
+top: 20px;
+
+/* Small square */
+width: 8px (w-2);
+height: 6px (h-1.5);
+left: 8px;
+top: 10px;
+border-radius: 2px (rounded-sm);
+outline: 1.5px;
+outline-offset: -0.75px;
+
+/* Large square */
+width: 16px (w-4);
+height: 16px (h-4);
+left: 3px;
+top: 3px;
+border-radius: 4px (rounded);
+outline: 1.5px;
+outline-offset: -0.75px;
+
+/* Icon color variants */
+outline-color: Text-Primary;           /* Light mode status dialog */
+outline-color: Backgrounds-surface1;   /* Dark mode status dialog */
+```
+
+##### Dialog Title
+```css
+font-family: 'Inter Display';
+font-size: 30px (text-3xl);
+font-weight: 600;
+line-height: 40px (leading-10);
+letter-spacing: -0.01em (tracking-tight);
+color: Text-Primary;
+align-self: stretch;
+```
+
+##### Dialog Description
+```css
+font-family: 'Inter Display';
+font-size: 16px (text-base);
+font-weight: 400;
+line-height: 24px (leading-6);
+letter-spacing: -0.01em (tracking-tight);
+color: Text-Tertiary;
+align-self: stretch;
+
+/* Mixed color text (Status dialog) */
+/* Normal text: Text-Tertiary */
+/* Highlighted word: Primary-primary02 (e.g., "Active") */
+```
+
+#### Button Styles
+
+##### Cancel Button (Outline)
+```css
+/* Container */
+flex: 1;
+height: 48px (h-12);
+padding: 14px 28px (px-7 py-3.5);
+border-radius: 32px (rounded-[32px]);
+outline: 1.5px solid Stroke-Stroke2;
+outline-offset: -1.5px;
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 8px (gap-2);
+overflow: hidden;
+
+/* Text */
+font-family: 'Inter Display';
+font-size: 14px (text-sm);
+font-weight: 600;
+line-height: 16px (leading-4);
+letter-spacing: -0.01em (tracking-tight);
+color: Text-Secondary;
+text-align: center;
+```
+
+##### Primary Action Button - Dark Mode
+```css
+/* Container */
+flex: 1;
+padding: 16px 28px (px-7 py-4);
+background: linear-gradient(to bottom, #27272a, #27272a); /* zinc-800 */
+border-radius: 32px (rounded-[32px]);
+box-shadow: inset 2px 0px 8px 2px rgba(248, 248, 248, 0.20);
+outline: 1.5px solid white/40;
+outline-offset: -1.5px;
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 10px (gap-2.5);
+overflow: hidden;
+
+/* Text */
+font-family: 'Inter Display';
+font-size: 14px (text-sm);
+font-weight: 600;
+line-height: 16px (leading-4);
+letter-spacing: -0.01em (tracking-tight);
+color: Text-Light;
+
+/* Attributes */
+data-light-mode: "True";
+data-state: "Default";
+data-style: "Button";
+```
+
+##### Primary Action Button - Light Mode
+```css
+/* Container */
+flex: 1;
+padding: 16px 28px (px-7 py-4);
+background: linear-gradient(to bottom, #ffffff, #e5e5e5); /* white → neutral-200 */
+border-radius: 32px (rounded-[32px]);
+box-shadow: inset 2px 0px 8px 2px rgba(24, 24, 24, 0.20);
+outline: 1.5px solid white/60;
+outline-offset: -1.5px;
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 10px (gap-2.5);
+overflow: hidden;
+
+/* Text */
+font-family: 'Inter Display';
+font-size: 14px (text-sm);
+font-weight: 600;
+line-height: 16px (leading-4);
+letter-spacing: -0.01em (tracking-tight);
+color: Text-Light;
+
+/* Attributes */
+data-light-mode: "False";
+data-state: "Default";
+data-style: "Button";
+```
+
+#### Toggle Switch Component
+
+##### Toggle Container
+```css
+/* Outer Container */
+align-self: stretch;
+padding: 4px (p-1);
+border-radius: 36px (rounded-[36px]);
+outline: 1.5px solid Stroke-Stroke2;
+outline-offset: -1.5px;
+display: inline-flex;
+gap: 8px (gap-2);
+overflow: hidden;
+
+/* Attributes */
+data-property-1: "Active" or "Deactive";
+```
+
+##### Toggle Button - Active State
+```css
+/* Container */
+flex: 1;
+padding: 16px 24px (px-6 py-4);
+background: green-600/10;  /* rgba(22, 163, 74, 0.10) */
+border-radius: 32px (rounded-[32px]);
+outline: 1.5px solid green-600/20;  /* rgba(22, 163, 74, 0.20) */
+outline-offset: -1.5px;
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 8px (gap-2);
+overflow: hidden;
+
+/* Text */
+font-family: 'Inter Display';
+font-size: 14px (text-sm);
+font-weight: 600;
+line-height: 16px (leading-4);
+letter-spacing: -0.01em (tracking-tight);
+color: Primary-primary02;  /* Green */
+content: "Active";
+```
+
+##### Toggle Button - Deactive State (Selected)
+```css
+/* Container */
+flex: 1;
+padding: 16px 24px (px-6 py-4);
+background: red-600/10;  /* rgba(220, 38, 38, 0.10) */
+border-radius: 32px (rounded-[32px]);
+outline: 1.5px solid red-600/20;  /* rgba(220, 38, 38, 0.20) */
+outline-offset: -1.5px;
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 8px (gap-2);
+overflow: hidden;
+
+/* Text */
+font-family: 'Inter Display';
+font-size: 14px (text-sm);
+font-weight: 600;
+line-height: 16px (leading-4);
+letter-spacing: -0.01em (tracking-tight);
+color: Primary-primary03;  /* Red */
+content: "Deactive";
+```
+
+##### Toggle Button - Inactive/Default State
+```css
+/* Container */
+flex: 1;
+padding: 14px 24px (px-6 py-3.5);
+border-radius: 32px (rounded-[32px]);
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 8px (gap-2);
+overflow: hidden;
+/* No background, no outline */
+
+/* Text */
+font-family: 'Inter Display';
+font-size: 14px (text-sm);
+font-weight: 600;
+line-height: 16px (leading-4);
+letter-spacing: -0.01em (tracking-tight);
+color: Text-Secondary;
+content: "Active" or "Deactive";
+```
+
+#### Product Preview (Share Dialog)
+
+##### Product Preview Container
+```css
+/* Container */
+align-self: stretch;
+display: inline-flex;
+align-items: center;
+gap: 24px (gap-6);
+```
+
+##### Product Image
+```css
+width: 80px (w-20);
+height: 80px (h-20);
+border-radius: 16px (rounded-2xl);
+src: "https://placehold.co/80x80";
+```
+
+##### Product Info
+```css
+/* Container */
+display: inline-flex;
+flex-direction: column;
+justify-content: center;
+align-items: start;
+gap: 4px (gap-1);
+
+/* Product Name */
+width: 240px (w-60);
+font-family: 'Inter Display';
+font-size: 20px (text-xl);
+font-weight: 600;
+line-height: 28px (leading-7);
+letter-spacing: -0.01em (tracking-tight);
+color: Text-Primary;
+line-clamp: 1;
+content: "Core Dashboard Builder 1.0";
+
+/* Product Category */
+font-family: 'Inter Display';
+font-size: 16px (text-base);
+font-weight: 400;
+line-height: 24px (leading-6);
+letter-spacing: -0.01em (tracking-tight);
+color: Text-Secondary;
+opacity: 0.8;
+content: "UI Design Kit";
+```
+
+#### Social Media Buttons
+
+##### Social Buttons Container
+```css
+/* Container */
+align-self: stretch;
+display: inline-flex;
+justify-content: end;
+align-items: start;
+gap: 12px (gap-3);
+flex-wrap: wrap;
+content: start;
+```
+
+##### Social Media Button
+```css
+/* Container */
+flex: 1;
+min-width: 192px (min-w-48);
+padding: 12px 28px (px-7 py-3);
+border-radius: 32px (rounded-[32px]);
+outline: 1.5px solid Stroke-Stroke2;
+outline-offset: -1.5px;
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 8px (gap-2);
+overflow: hidden;
+
+/* Attributes */
+data-property-1: "ig" | "x" | "fb" | "tr";
+
+/* Icon Container */
+width: 24px (w-6);
+height: 24px (h-6);
+position: relative;
+overflow: hidden;
+
+/* Icon Shape */
+width: 20px (w-5);
+height: 20px (h-5);
+background: Text-Secondary;
+/* Position varies by platform */
+left: 1.50px, top: 1.50px;  /* Instagram, Facebook */
+left: 2.46px, top: 2.25px;  /* X/Twitter */
+left: 2.96px, top: 1.50px;  /* Threads */
+```
+
+#### Dialog Types
+
+##### Type 1: Delete Confirmation Dialog
+```css
+/* Icon */
+background: red-600/20;
+icon-color: Primary-primary03;
+
+/* Title */
+content: "Are you sure?";
+
+/* Description */
+content: "This will definitely delete 4 products, and all data will be removed. This action cannot be undone.";
+color: Text-Tertiary;
+
+/* Buttons */
+- Cancel (outline)
+- Delete (gradient primary)
+```
+
+##### Type 2: Status Change Dialog
+```css
+/* Icon */
+background: shade08-100;
+icon-color: Text-Primary / Backgrounds-surface1;
+
+/* Title */
+content: "Set products status";
+
+/* Description */
+content: "You're changing the status of 4 products to [Active]. This action can be changed at any time.";
+/* Mixed colors: Text-Tertiary + Primary-primary02 */
+
+/* Toggle Switch */
+- Active / Deactive states
+```
+
+##### Type 3: Share Product Dialog
+```css
+/* Title Only (no icon) */
+content: "Share this product";
+
+/* Product Preview */
+- Image: 80×80px, rounded-2xl
+- Name: 20px/600, line-clamp-1
+- Category: 16px/400, opacity-0.8
+
+/* Social Media Buttons */
+- 4 buttons: Instagram, X, Facebook, Threads
+- flex-wrap grid, min-w-48
+
+/* Copy Link Button */
+- Gradient primary button
+```
+
+#### Button Layout Patterns
+
+##### Two-Button Layout
+```css
+/* Container */
+align-self: stretch;
+display: inline-flex;
+gap: 12px (gap-3);
+
+/* Buttons */
+- Left: Cancel (outline, flex-1)
+- Right: Primary action (gradient, flex-1)
+```
+
+##### Social Grid + Full-Width Button
+```css
+/* Container */
+align-self: stretch;
+display: flex;
+flex-direction: column;
+gap: 12px (gap-3);
+
+/* Social Grid */
+- 4 buttons in flex-wrap grid
+- min-width: 192px per button
+
+/* Copy Link Button */
+- Full-width gradient button
+```
+
+#### Shadow Layer Breakdown
+
+##### Standard Shadow (5 layers)
+```css
+Layer 1: 0px 5px 1.5px -4px rgba(8,8,8,0.09)
+Layer 2: 0px 6px 4px -4px rgba(8,8,8,0.05)
+Layer 3: 0px 6px 13px 0px rgba(8,8,8,0.03)
+Layer 4: 0px 24px 24px -16px rgba(8,8,8,0.04)
+Layer 5: 0px 2.15px 0.5px -2px rgba(0,0,0,0.25)
+```
+
+##### Enhanced Shadow (6 layers)
+```css
+Layer 1: 0px 24px 24px -16px rgba(8,8,8,0.08)
+Layer 2: 0px 6px 13px 0px rgba(8,8,8,0.12)
+Layer 3: 0px 6px 4px -4px rgba(8,8,8,0.16)
+Layer 4: 0px 5px 1.5px -4px rgba(8,8,8,0.20)
+Layer 5: 0px 2.15px 0.5px -2px rgba(0,0,0,0.25)
+Inset: 2px 4px 16px 0px rgba(253,253,253,0.05)
+```
+
+#### Color Tokens Used
+
+##### Backgrounds
+```css
+--backgrounds-surface1: /* Dialog background */
+```
+
+##### Icons
+```css
+--primary-primary02: /* Green - active state, success */
+--primary-primary03: /* Red - alert icon, deactive state */
+```
+
+##### Text
+```css
+--text-primary: /* Dialog title, product name */
+--text-secondary: /* Cancel button, social icons, inactive toggle */
+--text-tertiary: /* Dialog description */
+--text-light: /* Primary button text */
+```
+
+##### Borders & Outlines
+```css
+--stroke-stroke2: /* Outline buttons, toggle container */
+white/40: /* Enhanced dialog outline, dark button */
+white/60: /* Light button outline */
+```
+
+##### Toggle States
+```css
+green-600/10: /* Active toggle background */
+green-600/20: /* Active toggle outline */
+red-600/10: /* Deactive toggle background */
+red-600/20: /* Deactive toggle outline */
+red-600/20: /* Alert icon background */
+```
+
+##### Gradients
+```css
+zinc-800 → zinc-800: /* Dark mode button */
+white → neutral-200: /* Light mode button */
+```
+
+#### Typography System
+
+##### Dialog Title
+```css
+font-family: 'Inter Display';
+font-size: 30px;
+font-weight: 600;
+line-height: 40px;
+letter-spacing: -0.01em;
+```
+
+##### Product Name
+```css
+font-family: 'Inter Display';
+font-size: 20px;
+font-weight: 600;
+line-height: 28px;
+letter-spacing: -0.01em;
+```
+
+##### Dialog Description / Product Category
+```css
+font-family: 'Inter Display';
+font-size: 16px;
+font-weight: 400;
+line-height: 24px;
+letter-spacing: -0.01em;
+```
+
+##### Button Text / Toggle Text
+```css
+font-family: 'Inter Display';
+font-size: 14px;
+font-weight: 600;
+line-height: 16px;
+letter-spacing: -0.01em;
+```
+
+#### Implementation Notes
+- All dialogs use 48px padding (p-12)
+- Consistent 32px gap (gap-8) between dialog sections
+- Two shadow variants: standard (lighter) and enhanced (with inset highlight)
+- Buttons use 32px radius for pill shape
+- Toggle switches have 4px padding in outer container, 36px radius
+- Social media buttons have min-width to maintain grid layout
+- Icons positioned absolutely at 20px from top-left within 64px container
+- Backdrop blur 32px for glassmorphism effect
+- All text uses Inter Display with tracking-tight (-0.01em)
+- Primary action buttons have inset shadows for depth
+- Toggle states use semantic colors (green for active, red for deactive)
+- Product preview maintains 4px gap between name and category
+- Social button grid uses flex-wrap with 12px gap
+
+---
+
+**Последнее обновление**: Блок #33
 **Статус**: В процессе сборки
-**Добавлено**: Extended Product/Order Table - комплексная таблица с множеством состояний (default, hover/selected, skeleton loading, bottom border), 4 layout варианта (full data, simplified with progress, with action buttons, compact), Light/Dark mode support, Action Buttons (Edit/Delete/Share), Status/Trend badges, mini progress bars, 2/3-segment full progress bars, responsive column system
+**Добавлено**: Modal Dialogs & Toggle Switches - 3 типа диалогов (Delete Confirmation, Status Change, Share Product), 2 shadow варианта (standard/enhanced with inset), Toggle Switch компонент (Active/Deactive states), Primary Action Buttons (Dark/Light mode gradients), Social Media buttons grid, Product Preview, Icon containers (Alert/Settings), 5/6-layer shadow systems, backdrop blur glassmorphism
