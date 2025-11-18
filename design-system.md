@@ -842,7 +842,102 @@ letter-spacing: -0.02em; /* tracking-tight */
 
 ---
 
-### 16. Special Effects
+### 16. Request Cards
+
+#### Request Card (Wide - Grid Layout)
+- **Width**: 596px
+- **Radius**: 32px (rounded-[32px])
+- **Background**: shade09-30/30
+- **Border**: 1px outline Stroke-Stroke2, offset -1px
+- **Structure**:
+  - **Header**:
+    - Padding: 20px (p-5)
+    - Background: Backgrounds-surface2
+    - Border-bottom: 1.5px Stroke-Subtle/10
+    - Layout: horizontal, gap 16px
+    - Product Image: 80×80px (w-20 h-20), rounded-xl
+    - Status Badge: "In progress" variant
+    - Title: 20px (text-xl) semibold, leading-28px, line-clamp-1
+  - **Body**:
+    - Layout: 2-column grid
+    - Each cell: padding 20px (p-5)
+    - Borders: right 1.5px, bottom 1.5px, Stroke-Subtle/10
+- **Dark Mode Variant**:
+  - Shadow: --shadow-card-1 + --shadow-card-2
+  - Header: bg-shade03-90/90, border-Stroke-Subtle
+  - Body: bg-shade02-100
+  - Borders: Stroke-Subtle (without opacity)
+
+#### Request Card (Narrow - Stack Layout)
+- **Width**: 320px (w-80)
+- **Radius**: 20px (rounded-[20px])
+- **Background**: shade09-30/30
+- **Border**: 1px outline Stroke-Stroke2, offset -1px
+- **Structure**:
+  - **Header**:
+    - Padding: 12px (p-3)
+    - Background: Backgrounds-surface2
+    - Border-bottom: 1.5px Stroke-Subtle/10
+    - Layout: horizontal, gap 16px
+    - Product Image: 64×64px (w-16 h-16), rounded-xl
+    - Status Badge: "In progress" variant
+    - Title: 20px (text-xl) semibold, leading-28px, line-clamp-1
+  - **Body**:
+    - Layout: single column stack
+    - Each row: padding 12px (p-3)
+    - Border-bottom: 1.5px Stroke-Subtle/10
+- **Dark Mode Variant**: Same as Wide card
+
+#### Request Card (Extra Wide - Stack Layout)
+- **Width**: 600px
+- **Radius**: 32px (rounded-[32px])
+- **Background**: shade09-30/30
+- **Border**: 1px outline Stroke-Stroke2, offset -1px
+- **Structure**:
+  - **Header**:
+    - Padding: 32px (p-8)
+    - Background: Backgrounds-surface2
+    - Border-bottom: 1.5px Stroke-Subtle/10
+    - Layout: horizontal, gap 32px
+    - Product Image: 80×80px (w-20 h-20), rounded-xl
+    - Status Badge: "In progress" variant
+    - Title: 24px (text-2xl) medium, leading-36px, line-clamp-1
+  - **Body**:
+    - Layout: single column stack
+    - Each row: padding 32px (x), 20px (y) - px-8 py-5
+    - Border-bottom: 1.5px Stroke-Subtle/10
+- **Dark Mode Variant**: Same as Wide card
+
+#### Request Card Data Fields
+- **Field Label**: 14px normal, leading-20px, Text-Secondary
+- **Field Value**: 14px semibold, leading-16px, Text-Primary
+- **Special Value Types**:
+  - **Date**: format "Aug 20, 2044" or "July 01, 2044"
+  - **Code**: 14px bold for Purchase code
+  - **Price**: 14px semibold
+  - **Status Badge**: For "Product downloaded" field
+    - Yes: green-600/5 bg, green-600/20 border, Primary-primary02 text
+    - data-status="Succeeded"
+- **Info Icon** (для Market fee, Price):
+  - Size: 20×20px (w-5 h-5)
+  - Icon: circle with "i"
+  - Color: gray-500
+  - Position: next to label
+
+#### Request Card Fields Structure
+Standard fields displayed:
+1. **Request send**: Date value
+2. **Reason**: Text value (e.g., "Download link is broken")
+3. **Product downloaded**: Badge value (Yes/No)
+4. **Purchase date**: Date value
+5. **Purchase code**: Bold code value
+6. **Request ID**: Code value
+7. **Market fee**: Price with info icon
+8. **Price**: Price with info icon
+
+---
+
+### 17. Special Effects
 
 #### Fade Overlay (для горизонтального скролла)
 - **Width**: 112px (w-28)
@@ -986,9 +1081,12 @@ outline: 1.5px solid #f4f4f5; /* zinc-100 */
 | Settings icon | 44×44px |
 | List item (height) | 64px |
 | Settings panel | 384px |
+| Request Card (Wide) | 596px |
+| Request Card (Extra Wide) | 600px |
+| Request Card (Narrow) | 320px |
 
 ---
 
-**Последнее обновление**: Блок #17
+**Последнее обновление**: Блок #18
 **Статус**: В процессе сборки
-**Добавлено**: OAuth Button (5 states), Input Field States (Default/Focus/Filled/Error/Success), Floating Label, Password Input with dots, Auth Form Card (480px), Auth Form Footer, "Forgot password" Link, shade04-100, shade07-50
+**Добавлено**: Request Cards (Wide Grid Layout 596px, Narrow Stack Layout 320px, Extra Wide Stack Layout 600px), Request Card Data Fields (8 standard fields), Info Icons для полей, Status Badge для Product downloaded
