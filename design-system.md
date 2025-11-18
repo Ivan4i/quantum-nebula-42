@@ -1040,7 +1040,179 @@ Standard fields displayed:
 
 ---
 
-### 18. Author Profile Card
+### 18. Insights Cards (Metrics Dashboard)
+
+#### Insights Card (Wide - 1560px)
+- **Width**: 1560px
+- **Padding**: 12px (p-3)
+- **Background**: Backgrounds-surface2
+- **Radius**: 32px (rounded-[32px])
+- **Shadow**: --shadow-card-1 + --shadow-card-2
+- **Border**: 1.5px outline, offset -1.5px
+- **Layout**: flex-col, gap 8px (gap-2)
+- **Structure**:
+  - **Header**: Title + Dropdown filter
+  - **Body**: 3 metrics in row, gap 64px (gap-16)
+
+#### Insights Card (Medium - 916px)
+- **Width**: 916px
+- **Padding**: 12px (p-3)
+- **Background**: Backgrounds-surface2
+- **Radius**: 32px
+- **Shadow**: --shadow-card-1 + --shadow-card-2
+- **Border**: 1.5px outline, offset -1.5px
+- **Layout**: flex-col, gap 8px (gap-2)
+- **Body**: 3 metrics with overflow, gap 44px (gap-11)
+- **Fade Overlay**: Positioned at right edge
+
+#### Insights Card (Narrow - 320px)
+- **Width**: 320px (w-80)
+- **Padding**: 12px (p-3)
+- **Background**: Backgrounds-surface2
+- **Radius**: 32px
+- **Shadow**: --shadow-card-1 + --shadow-card-2
+- **Border**: 1.5px outline, offset -1.5px
+- **Layout**: flex-col with horizontal scroll
+- **Body**: 3 metrics without icons, gap 32px (gap-8)
+- **Dropdown**: Hidden (opacity-0)
+- **Fade Overlay**: Positioned at right edge
+
+#### Header Section
+- **Layout**: justify-between, items-center
+- **Left Side**: Title "Insights"
+  - Padding: 20px (x) - px-5
+  - Height: 48px (h-12)
+  - Font: 20px (text-xl) semibold, leading-28px
+  - Color: Text-Primary
+- **Right Side**: Dropdown filter (optional)
+  - Width: 160px (w-40), max-width 176px (max-w-44)
+  - Height: 48px (h-12)
+  - Padding: 20px (left), 12px (right), 12px (y) - pl-5 pr-3 py-3
+  - Radius: 90px (rounded-[90px])
+  - Border: 1.5px Stroke-Stroke2, offset -1.5px
+  - Text: "Last 7 days" (14px, Text-Secondary)
+  - Chevron: 24×24px, rotated 90deg
+
+#### Body Section (Wide/Medium)
+- **Padding**: 20px (p-5)
+- **Layout**: inline-flex
+- **Gap**:
+  - Wide: 64px (gap-16)
+  - Medium: 44px (gap-11)
+  - Narrow: 32px (gap-8)
+
+#### Body Section (Narrow)
+- **Padding**: 12px (p-3)
+- **Content width**: 876px (allows horizontal scroll)
+- **No icon containers** in narrow variant
+
+#### Metric Item
+- **Layout**: flex-1, gap 20px (gap-5)
+- **Components**:
+  - Icon container (left, optional)
+  - Content area (right, flex-1)
+
+#### Icon Container (Wide/Medium only)
+- **Size**: 48×48px (w-12)
+- **Background**:
+  - **Default**: Backgrounds-surface1
+  - **Hover State**: Backgrounds-highlight
+- **Padding**: 12px (p-3)
+- **Radius**: 32px (rounded-[32px])
+- **Layout**: flex-col, justify-between (space-between)
+- **Icons**:
+  - **Top Icon**: 24×24px (w-6 h-6)
+    - Color: Text-Primary
+    - Stroke: 1.5px, offset -0.75px
+  - **Bottom Icon**: 24×24px, opacity-50
+    - Color: Text-Secondary
+    - Decorative/secondary indicator
+
+#### Metric Icon Types
+- **Product views**: Shopping bag + chart icon
+- **Engagement rate**: Cursor click + chart icon
+- **Interactions**: Chat bubbles + chart icon
+
+#### Content Area
+- **Layout**: flex-col
+- **Components**:
+  - Title row
+  - Main value
+  - Trend badge + comparison text
+  - Secondary metrics (right aligned)
+
+#### Title Row
+- **Height**: 24px (h-6)
+- **Layout**: horizontal, gap 8px
+- **Title**:
+  - Font: 16px (text-base) semibold, leading-24px
+  - Color: Text-Primary
+  - Line clamp: 1
+
+#### Main Value
+- **Font**: 60px (text-6xl) medium
+- **Line height**: 75px (leading-[75px])
+- **Color**: Text-Primary
+- **Examples**: "106k", "12.6%", "59.9K"
+
+#### Trend Badge & Comparison
+- **Layout**: inline-flex, gap 8px (gap-2)
+- **Gap below main value**: 12px (gap-3)
+- **Trend Badge**:
+  - Padding: 8px (x), 6px (y) - px-2 py-1.5
+  - Background: green-600/5 (success)
+  - Border: 1.5px green-600/20, offset -1.5px
+  - Radius: 8px (rounded-lg)
+  - Gap: 4px (gap-1)
+  - **Icon**: 16×16px (w-4 h-4)
+    - Arrow up (rotated 180deg for uptrend)
+    - Color: Primary-primary02
+    - Stroke: 1.5px, offset -0.75px
+  - **Text**: 14px semibold, Primary-primary02
+  - **Attribute**: data-trend="up"
+- **Comparison Text**:
+  - Font: 14px (text-sm) normal, leading-20px
+  - Color: Text-Tertiary
+  - Content: "vs last year"
+
+#### Secondary Metrics (Right Column)
+- **Layout**: flex-col, justify-between, items-end
+- **Padding-top**: 12px (pt-3)
+- **Gap**: space-between (auto)
+- **Metric Row**:
+  - **Label**: 12px (text-xs), Text-Tertiary, right aligned
+  - **Value Container**: horizontal, gap 4px
+    - **Icon** (optional): 24×24px, Primary-primary02 arrow
+    - **Value**: 20px (text-xl) semibold, Text-Primary, right aligned
+
+#### Secondary Metric Examples
+1. **New customers**:
+   - Label: "New customers"
+   - Value: "42.6%" with uptrend arrow
+2. **Product reached**:
+   - Label: "Product reached"
+   - Value: "34,002" (no icon)
+
+#### Fade Overlay (for overflow variants)
+- **Width**: 64px (w-16)
+- **Height**: 192px (h-48)
+- **Position**: absolute
+  - Medium: left-[853px] top-[60px]
+  - Narrow: left-[287px] top-[60px]
+- **Gradient**:
+  - **Light Mode**: from-white to-white/0 (left to right)
+  - **Dark Mode**: from-zinc-900 to-zinc-900/0 (left to right)
+- **Direction**: gradient-to-l (from right)
+
+#### Dark Mode Variant
+- **Card border**: outline-white instead of default
+- **Shadow**: --shadow-card-2 with rgba(8,8,8,0.50)
+- **Icon backgrounds**: Backgrounds-highlight
+- **Fade gradient**: zinc-900 colors
+
+---
+
+### 19. Author Profile Card
 
 #### Author Profile Card
 - **Padding**: 32px (p-8)
@@ -1141,7 +1313,7 @@ Standard fields displayed:
 
 ---
 
-### 19. Special Effects
+### 20. Special Effects
 
 #### Fade Overlay (для горизонтального скролла)
 - **Width**: 112px (w-28)
@@ -1297,9 +1469,17 @@ outline: 1.5px solid #f4f4f5; /* zinc-100 */
 | Interaction Icon Container | 40×40px |
 | Interaction Icon | 16×16px |
 | Interaction Progress Bar (height) | 12px |
+| Insights Card (Wide) | 1560px |
+| Insights Card (Medium) | 916px |
+| Insights Card (Narrow) | 320px |
+| Insights Icon Container | 48×48px |
+| Insights Main Value | 60px (text) |
+| Insights Trend Badge Icon | 16×16px |
+| Insights Secondary Value | 20px (text) |
+| Insights Fade Overlay | 64×192px |
 
 ---
 
-**Последнее обновление**: Блок #20
+**Последнее обновление**: Блок #21
 **Статус**: В процессе сборки
-**Добавлено**: Interactions Card (320px width, 4 interaction types), Icon Containers (40×40px круглые), Progress Bars (12px height с 2-segment градиентом), Label Row (16px text с count и percentage), 4 стандартных типа взаимодействий (Posts, Videos, Newsletter, Social)
+**Добавлено**: Insights Cards (Wide 1560px, Medium 916px, Narrow 320px), Icon Containers (48×48px с двумя иконками), Main Value (60px medium font), Trend Badges (green success style), Secondary Metrics (New customers, Product reached), Dropdown Filter ("Last 7 days"), Fade Overlay для overflow (64×192px), Dark Mode варианты
