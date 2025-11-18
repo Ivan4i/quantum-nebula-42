@@ -47,6 +47,12 @@
 --warning-text: #ea580c;                     /* orange-600 */
 ```
 
+### Background Colors (Extended)
+```css
+/* Additional Backgrounds */
+--bg-pop: /* Backgrounds-pop - для dark mode category tags */
+```
+
 ### Neutral Colors
 ```css
 /* Text */
@@ -937,7 +943,108 @@ Standard fields displayed:
 
 ---
 
-### 17. Special Effects
+### 17. Author Profile Card
+
+#### Author Profile Card
+- **Padding**: 32px (p-8)
+- **Background**: Backgrounds-surface2
+- **Radius**: 32px (rounded-[32px])
+- **Layout**: flex-col, gap 32px
+- **Structure**:
+  - **Header Section**: User info + Status badge
+  - **Gallery Section**: 4 portfolio images
+  - **Footer Section**: Category tags + Response time
+
+#### Header Section
+- **Layout**: justify-between, items-start
+- **Left Side**: Avatar + User info
+- **Right Side**: Status badge
+- **Gap**: 20px between avatar and user info
+
+#### Avatar with Online Status
+- **Container**: 56×56px (w-14 h-14)
+- **Background**: Backgrounds-surface1
+- **Radius**: 44px (rounded-[44px])
+- **Image**: 64×64px (w-16 h-16)
+  - Position: absolute, left-0 top-0
+  - Radius: 64px (rounded-[64px])
+  - Extends beyond container
+- **Online Indicator**:
+  - Size: 16×16px (w-4 h-4)
+  - Position: absolute, left-[42px] top-[42px]
+  - Background: Primary-primary02
+  - Radius: full (rounded-full)
+  - Border: 3px Backgrounds-surface2
+
+#### User Info
+- **Width**: 320px (w-80)
+- **Layout**: flex-col
+- **Username**:
+  - Format: "@maximus"
+  - Font: 20px (text-xl) semibold
+  - Line height: 28px (leading-7)
+  - Color: Text-Primary
+- **Bio/Tagline**:
+  - Font: 14px (text-sm) normal
+  - Line height: 20px (leading-5)
+  - Color: Text-Secondary
+  - Example: "Dream Big. Think Different. Do Great!"
+
+#### Status Badge (Top Creator)
+- **Variant**: Success/Green style
+- **Padding**: 8px (x), 6px (y) - px-2 py-1.5
+- **Background**: green-600/5
+- **Border**: 1.5px outline, green-600/20, offset -1.5px
+- **Radius**: 8px (rounded-lg)
+- **Text**: 14px semibold, leading-16px, Primary-primary02
+- **Content**: "Top #1 creator"
+- **Attribute**: data-status="Succeeded"
+
+#### Gallery/Portfolio Section
+- **Layout**: inline-flex, gap 16px
+- **Images**: 4 images, each flex-1
+- **Image Specs**:
+  - Height: 192px (h-48)
+  - Width: flex-1 (equal distribution, ~262px each)
+  - Radius: 16px (rounded-2xl)
+  - Object-fit: cover (assumed)
+
+#### Footer Section
+- **Layout**: justify-between, items-center
+- **Left Side**: Category tags
+- **Right Side**: Response time text
+
+#### Category Tags
+- **Height**: 24px (h-6)
+- **Padding**: 12px (x), 6px (y) - px-3 py-1.5
+- **Radius**: 8px (rounded-md)
+- **Gap**: 8px (gap-2) between tags
+- **Background**:
+  - **Light Mode**: Backgrounds-surface1
+  - **Dark Mode**: Backgrounds-pop
+- **Text**:
+  - Font: 12px (text-xs) normal
+  - Line height: 20px (leading-5)
+  - Color: Text-Secondary
+  - Alignment: center
+- **Examples**: "Mobile App", "3D Illustrations", "UI Design Kit", "Fonts"
+
+#### Response Time Info
+- **Font**: 14px (text-sm) normal
+- **Line height**: 20px (leading-5)
+- **Color**: Text-Secondary
+- **Opacity**: 0.8 (opacity-80)
+- **Example**: "Average response time in 20 mins"
+
+#### Mode Variants
+- **Light Mode** (data-light-mode="true"):
+  - Tags background: Backgrounds-surface1
+- **Dark Mode** (data-light-mode="false"):
+  - Tags background: Backgrounds-pop
+
+---
+
+### 18. Special Effects
 
 #### Fade Overlay (для горизонтального скролла)
 - **Width**: 112px (w-28)
@@ -1084,9 +1191,14 @@ outline: 1.5px solid #f4f4f5; /* zinc-100 */
 | Request Card (Wide) | 596px |
 | Request Card (Extra Wide) | 600px |
 | Request Card (Narrow) | 320px |
+| Author Profile Avatar | 64×64px |
+| Author Profile Avatar Container | 56×56px |
+| Online Indicator (Author) | 16×16px |
+| Category Tag (height) | 24px |
+| Portfolio Image (height) | 192px |
 
 ---
 
-**Последнее обновление**: Блок #18
+**Последнее обновление**: Блок #19
 **Статус**: В процессе сборки
-**Добавлено**: Request Cards (Wide Grid Layout 596px, Narrow Stack Layout 320px, Extra Wide Stack Layout 600px), Request Card Data Fields (8 standard fields), Info Icons для полей, Status Badge для Product downloaded
+**Добавлено**: Author Profile Card (padding 32px, 4 portfolio images), Avatar with Online Status (64×64px с индикатором 16×16px), Category Tags (24px height, light/dark mode variants), Response Time Info (opacity 0.8), Backgrounds-pop для dark mode tags
