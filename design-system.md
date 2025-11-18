@@ -7,7 +7,10 @@
 3. [Типографика](#типографика)
 4. [Spacing & Layout](#spacing--layout)
 5. [Компоненты](#компоненты)
+   - [Product Cards](#16-product-cards)
+   - [Loading States](#17-loading-states-updated)
 6. [Паттерны](#паттерны)
+   - [Product Layouts](#product-layouts)
 7. [Состояния](#состояния)
 
 ---
@@ -78,6 +81,7 @@
 --shade07-40: /* с opacity-40 - графики (Social media) */
 --shade07-50: /* с opacity-50 - input borders default */
 --shade07-60: /* с opacity-60 - графики (Direct) паттерн */
+--shade08-20: /* с opacity-20 - product card image overlay on hover */
 --shade08-80: /* с opacity-80 - активная кнопка тулбара */
 --shade08-100: /* Градиентная часть графиков (Others) */
 --shade09-100: /* Вторая часть градиента */
@@ -842,7 +846,107 @@ letter-spacing: -0.02em; /* tracking-tight */
 
 ---
 
-### 16. Special Effects
+### 16. Product Cards
+
+#### Product Card
+- **Width**: flex-1, max-w-[600px], min-w-80 (320px)
+- **Height**: h-96 (384px), min-h-80 (320px)
+- **Padding**: 8px (p-2)
+- **Radius**: 32px
+- **Background**: Backgrounds-surface2
+- **Gap**: 8px (gap-2)
+- **Structure**:
+  - **Image**:
+    - Height: 240px (h-60)
+    - Radius: 24px (rounded-3xl)
+    - Width: full (self-stretch)
+  - **Content Wrapper**:
+    - Padding: 16px (p-4)
+    - Gap: 8px (gap-2)
+
+#### Product Card Header (Title + Price)
+- **Layout**: space-between, inline-flex
+- **Gap**: 24px (gap-6)
+- **Title**:
+  - Font: 16px semibold
+  - Line-height: 24px (leading-6)
+  - Color: Text-Primary
+  - Line-clamp: 1
+- **Price**:
+  - Font: 16px semibold
+  - Line-height: 24px (leading-6)
+  - Color: Text-Primary
+  - Align: right
+  - Line-clamp: 1
+
+#### Product Card Meta Row
+- **Padding**: 4px (y)
+- **Layout**: inline-flex
+- **Gap**: 16px (gap-4)
+- **Items**:
+  - **Rating**:
+    - Icon: 16×16px star, Text-Secondary
+    - Text: 12px, opacity-80, Text-Tertiary, w-5
+    - Gap: 8px (gap-2)
+  - **Category**:
+    - Icon: 16×16px tag, Text-Secondary
+    - Text: 12px, opacity-80, Text-Tertiary, flex-1
+    - Gap: 8px (gap-2)
+
+#### Product Card Hover State
+- **Shadows**: 6 layers
+  - 0px 24px 24px -16px rgba(8, 8, 8, 0.08)
+  - 0px 6px 13px 0px rgba(8, 8, 8, 0.12)
+  - 0px 6px 4px -4px rgba(8, 8, 8, 0.16)
+  - 0px 5px 1.5px -4px rgba(8, 8, 8, 0.20)
+  - 0px 2.15px 0.5px -2px rgba(0, 0, 0, 0.25)
+  - inset 2px 4px 16px 0px rgba(253, 253, 253, 0.05)
+- **Backdrop blur**: 32px
+- **Image Overlay**:
+  - Background: shade08-20/20
+  - Position: absolute, covers image
+  - Radius: 24px (rounded-3xl)
+- **Action Buttons** (centered on image):
+  - Layout: horizontal, gap 16px (gap-4)
+  - Buttons: Dark gradient variant (48×48px)
+
+---
+
+### 17. Loading States (Updated)
+
+#### Skeleton
+- **Avatar**: 48×48px circle, shade08-100 / shade04-50/50
+- **Lines**:
+  - Short: 96px × 8px
+  - Long: 208px × 8px
+- **Radius**: 2px (rounded-sm)
+
+#### Shimmer Effect
+- **Colors**: shade08-100 или shade04-50/50
+- **Animation**: 1.5s duration
+
+#### Loading Spinner (Conic Gradient)
+- **Container**: 48×48px, rounded-[90px], Backgrounds-surface2
+- **Icon Area**: 24×24px, centered (left-[12px], top-[12px])
+- **Spinner**:
+  - Size: 20×20px (w-5 h-5)
+  - Position: left-[2px], top-[2px] (centered in icon area)
+  - Rounded: full
+  - Gradient:
+    ```css
+    conic-gradient(
+      from 180deg at 50% 50%,
+      rgba(92.55, 138.04, 255, 0.90) 7deg,
+      rgba(105.12, 147.08, 255, 0) 146deg,
+      rgba(124.57, 161.09, 255, 0) 176deg,
+      var(--primary01, #2D68FF) 180deg
+    )
+    ```
+  - Animation: rotate 360deg, infinite
+
+---
+
+### 18. Special Effects
 
 #### Fade Overlay (для горизонтального скролла)
 - **Width**: 112px (w-28)
@@ -880,6 +984,32 @@ outline: 1.5px solid #f4f4f5; /* zinc-100 */
 - 2 KPI cards side by side
 - Active card: elevated с тенями
 - Inactive card: flat, no background
+
+---
+
+### Product Layouts
+
+#### Product Grid (Responsive)
+- **Container**: max-width 1400-1600px, padding 112px (x), 48px (y)
+- **Layout**: inline-flex, flex-wrap
+- **Gap**: 24px (gap-6)
+- **Alignment**: justify-start, items-center, content-center
+- **Cards**:
+  - Width: flex-1, max-w-[600px], min-w-80
+  - Responsive: автоматически перестраивается с flex-wrap
+  - На больших экранах: 3 колонки
+  - На средних: 2 колонки
+  - На малых: 1 колонка
+
+#### Product Page Header
+- **Layout**: space-between
+- **Left Section**:
+  - Tab Navigation (Products/Followers/Following)
+  - Gap: 4px (gap-1)
+- **Right Section**:
+  - Sort Dropdown (Most recent)
+  - Filter Button / Loading Button
+  - Gap: 12px (gap-3)
 
 ---
 
@@ -986,9 +1116,12 @@ outline: 1.5px solid #f4f4f5; /* zinc-100 */
 | Settings icon | 44×44px |
 | List item (height) | 64px |
 | Settings panel | 384px |
+| Product card | 320-600px |
+| Product card (height) | 384px |
+| Loading spinner | 48×48px |
 
 ---
 
-**Последнее обновление**: Блок #17
+**Последнее обновление**: Блок #18
 **Статус**: В процессе сборки
-**Добавлено**: OAuth Button (5 states), Input Field States (Default/Focus/Filled/Error/Success), Floating Label, Password Input with dots, Auth Form Card (480px), Auth Form Footer, "Forgot password" Link, shade04-100, shade07-50
+**Добавлено**: Product Card (responsive), Product Grid Layout (flex-wrap), Product Card Hover State (6 shadow layers + overlay), Loading Spinner (Conic Gradient), Product Meta Info (rating + category), Product Page Header pattern, shade08-20
