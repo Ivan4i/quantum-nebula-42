@@ -82,13 +82,15 @@
 --shade04-50: /* с opacity-50 - скелетоны */
 --shade04-100: /* для dark mode OAuth button */
 --shade05-30: /* с opacity-30 - icon background dark mode active */
+--shade05-50: /* с opacity-50 - toolbar button active dark mode */
 --shade07-20: /* с opacity-20 - icon background light mode active */
 --shade07-40: /* с opacity-40 - графики (Social media) */
 --shade07-50: /* с opacity-50 - input borders default */
 --shade07-60: /* с opacity-60 - графики (Direct) паттерн */
---shade08-80: /* с opacity-80 - активная кнопка тулбара */
+--shade08-80: /* с opacity-80 - активная кнопка тулбара light mode */
 --shade08-100: /* Градиентная часть графиков (Others) */
 --shade09-100: /* Вторая часть градиента */
+--shade10-100: /* для fade overlay light mode */
 
 /* Chart Colors */
 --chart-green: /* Активный бар в графике */
@@ -100,6 +102,7 @@
 --gradient-cyan: linear-gradient(to bottom, #cffafe, #a5f3fc);         /* cyan-100 → cyan-200 */
 --gradient-blue: linear-gradient(to bottom, #2563eb, #1e40af);         /* blue-600 → blue-800 */
 --gradient-zinc-dark: linear-gradient(to bottom, #27272a, #27272a);    /* zinc-800 - для dark button */
+--gradient-zinc-neutral: linear-gradient(to bottom, #27272a, #262626); /* zinc-800 → neutral-800 - для action button dark */
 --gradient-white-light: linear-gradient(to bottom, #ffffff, #e5e5e5);  /* white → neutral-200 - для light button */
 
 /* Secondary */
@@ -410,6 +413,27 @@ letter-spacing: -0.02em; /* tracking-tight */
     - Text: Text-Light
     - No shadows
 
+#### Action Button (Save/Submit)
+- **Height**: 48px
+- **Padding**: 28px (x), 16px (y) - px-7 py-4
+- **Radius**: 90px (rounded-[90px])
+- **Font**: 14px semibold, leading-16px
+- **Text**: center aligned
+- **Layout**: inline-flex, gap 16px (gap-4)
+- **Variants**:
+
+**Light Variant:**
+- **Background**: Backgrounds-pop
+- **Text**: Text-Secondary
+- **Border**: none
+- **Content**: "Save draft" or similar
+
+**Dark Variant:**
+- **Background**: gradient zinc-800 → neutral-800
+- **Text**: Text-Secondary
+- **Border**: none
+- **Content**: "Save draft" or similar
+
 ---
 
 ### 3. Inputs
@@ -497,14 +521,167 @@ letter-spacing: -0.02em; /* tracking-tight */
     - Text: Text-Primary
     - Error icon (X): 24×24px, Primary-primary03, right side
 
-#### Floating Label Input
-- **Label**:
-  - Position: absolute top-left, 20px from left, 16px from top
-  - Font: 12px
-  - Color: Text-Tertiary
-  - Background: surface behind label (для четкости)
-- **Input**: стандартные параметры 48px height
-- **State**: Label "floats" вверх при focus/filled
+#### Floating Label Input (Detailed)
+- **Container**: 320px (w-80) width, flex-col layout
+- **Label Container**:
+  - Height: 12px (h-3)
+  - Padding: 24px horizontal (px-6)
+  - Layout: flex-col, center items, gap 8px (gap-2)
+- **Label Badge**:
+  - Height: 20px (h-5)
+  - Padding: 4px horizontal, 2px vertical (px-1 py-0.5)
+  - Background: Backgrounds-surface2 or Backgrounds-surface1
+  - Font: 12px (text-xs) normal, leading-20px
+  - Color: Text-Primary
+  - Content: "Component name"
+- **Input Field**: 48px height, 48px radius (rounded-[48px])
+- **States**: Default, Focus, Filled, Error
+
+**Default State:**
+- **Border**: 1.5px outline Stroke-Stroke2, offset -1.5px
+- **Placeholder**: Text-Secondary, opacity-50, 14px
+- **Position**: left-[28px] top-[14px] for placeholder
+- **Example**: "ie. Bento Cards: User Interface"
+
+**Alt Default State:**
+- **Border**: 1.5px outline shade07-50/50, offset -1.5px
+- **Placeholder**: Same as default
+
+**Focus State:**
+- **Border**: 1.5px outline shade07-50/50, offset -1.5px
+- **Cursor**: 2×16px (w-0.5 h-4), Text-Blue, rounded-sm
+- **Placeholder**: opacity-50
+- **Position**: inline-flex at left-[28px] top-[14px]
+
+**Filled State:**
+- **Border**: 1.5px outline shade07-50/50, offset -1.5px
+- **Text**: Text-Primary, 14px normal
+- **Cursor**: 2×16px positioned after text
+- **Checkmark Icon** (optional): 24×24px (w-6 h-6)
+  - Position: left-[312px] top-[12px]
+  - Inner icon: 16×16px (w-4 h-4) at left-[4px] top-[4px]
+  - Check shape: 12×10px (w-3 h-2.5)
+  - Color: Primary-primary02
+  - Border: 2px outline, offset -1px
+
+**Error State:**
+- **Border**: 1.5px outline Primary-primary03 (red), offset -1.5px
+- **Text**: Text-Primary, 14px normal
+- **Cursor**: 2×16px positioned after text
+- **Error Message**:
+  - Font: 12px (text-xs) normal, leading-20px
+  - Color: Primary-primary03
+  - Position: Below input with gap 8px (gap-2)
+  - Example: "Please enter an email address."
+
+---
+
+#### Form Label with Info Icon & Tooltip
+- **Layout**: inline-flex, gap 6px (gap-1.5)
+- **Height**: 24px (h-6)
+- **Components**: Label text + Info icon
+
+**Label Text:**
+- **Font**: 14px (text-sm) semibold, leading-16px
+- **Color**: Text-Primary
+- **Content**: "Product title" or similar
+
+**Info Icon:**
+- **Size**: 16×16px (w-4 h-4)
+- **Opacity**: 0.5 (opacity-50) default
+- **Color**: Text-Tertiary default
+- **Stroke**: 1.5px, offset -0.75px
+
+**Info Icon (Active/Hover):**
+- **Opacity**: 1.0 (full opacity)
+- **Color**: Text-Blue
+- **Components**:
+  - Circle: 12×12px (w-3 h-3) at left-[2px] top-[2px]
+  - Dot: 1.5×1.5px at left-[7.25px] top-[10.40px]
+  - "i" stem: 4×4px (w-1 h-1) at left-[6.35px] top-[4.40px]
+
+**Tooltip:**
+- **Position**: Relative to icon, data-position="right"
+- **Arrow**: 8×4px triangle (w-2 h-1, rotate-90)
+  - Background: Backgrounds-dark1
+- **Tooltip Body**:
+  - Padding: 8px horizontal, 6px vertical (px-2 py-1.5)
+  - Background: Backgrounds-dark1
+  - Radius: 6px (rounded-md)
+  - Font: 12px (text-xs) normal, leading-20px
+  - Color: Text-Light
+  - Gap: 8px (gap-2)
+  - Example: "Maximum 100 characters. No HTML or emoji allowed"
+
+**Tooltip Icon (decorative):**
+- **Size**: 32×32px (w-8 h-8)
+- **Position**: left-[88px] top-[4px] (example positioning)
+- **Components**: Complex icon shape with white/black outlines
+
+---
+
+#### Rich Text Editor / Textarea (Extended)
+- **Height**: 160px (h-40)
+- **Radius**: 16px (rounded-2xl)
+- **Border**: 1.5px outline Stroke-Stroke2, offset -1.5px
+- **Overflow**: hidden
+- **Structure**:
+  - Toolbar (top)
+  - Text content area (middle)
+  - Resize handle (bottom-right)
+
+**Toolbar:**
+- **Width**: Full container (608px example)
+- **Background**: Backgrounds-surface3/50
+- **Border-bottom**: 1.5px Stroke-Subtle/10 (light mode) or Stroke-Subtle (dark mode)
+- **Layout**: justify-between
+- **Sections**: Left toolbar buttons + Right toolbar buttons
+
+**Toolbar Button:**
+- **Size**: 40×40px (w-10 h-10)
+- **Radius**: 12px (rounded-xl)
+- **Padding**: 4px (p-1)
+- **Icon**: 24×24px (w-6 h-6)
+  - Position: left-[8px] top-[8px] within button
+  - Color: Text-Secondary default, Text-Primary active
+  - Stroke: varies (1.5px, 1px, 2px depending on icon)
+- **States**: default, active
+
+**Toolbar Button (Active - Light Mode):**
+- **Background**: shade08-80/80
+- **Icon**: Text-Primary
+
+**Toolbar Button (Active - Dark Mode):**
+- **Background**: shade05-50/50
+- **Icon**: Text-Primary
+
+**Toolbar Icons** (7 formatting buttons + 2 alignment):
+- Bold, Italic, Underline, Strikethrough
+- Link, Bullet list, Number list
+- Align left, Align right
+
+**Text Content Area:**
+- **Padding**: 16px (x), 64px (top), 16px (bottom) - px-4 pt-16 pb-4
+- **Font**: 14px (text-sm) medium, leading-20px
+- **Color**: Text-Primary
+- **Layout**: center aligned, gap 8px (gap-2)
+
+**Fade Overlay (for overflow):**
+- **Width**: Full container (608px)
+- **Height**: 56px (h-14)
+- **Position**: left-0 top-[105px] (from top of overflow area)
+- **Gradient**:
+  - **Light Mode**: from-white/0 to-shade10-100
+  - **Dark Mode**: from-zinc-900/0 to-zinc-900
+
+**Resize Handle:**
+- **Position**: Bottom-right corner (rotated 135deg)
+- **Layout**: flex-col, gap 3px
+- **Dots**:
+  - Small: 6×6px (w-1.5 h-1.5), gray-500/40, rounded-sm
+  - Large: 10×10px (w-2.5 h-2.5), gray-500/40, rounded-sm
+
+---
 
 #### Password Input
 - **Height**: 48px
@@ -2234,9 +2411,18 @@ outline: 1.5px solid #f4f4f5; /* zinc-100 */
 | Success Upload Indicator | 32×32px |
 | File Preview Card | 384px (width) |
 | File Size Icon (ZIP) | 24×24px |
+| Floating Label Input | 320×48px |
+| Label Badge | 20px (height) |
+| Form Label with Info Icon | 24px (height) |
+| Info Icon | 16×16px |
+| Tooltip Arrow | 8×4px |
+| Rich Text Editor | 608px×160px |
+| Toolbar Button | 40×40px |
+| Resize Handle | 6×6px, 10×10px dots |
+| Action Button (Save/Submit) | auto×48px |
 
 ---
 
-**Последнее обновление**: Блок #26
+**Последнее обновление**: Блок #27
 **Статус**: В процессе сборки
-**Добавлено**: File Upload Zones (384×224px drag-and-drop areas for images and product files, default/active/dragging states with Primary-primary01 2px outline, light/dark mode variants with surface3/50 or shade04-100 backgrounds), Upload Icon (32×32px with plus indicator), Success Upload Indicator (32×32px with lime-500→green-700 gradient circle + white checkmark overlay), File Preview Card (384px width with 24px padding, file name + size display, ZIP icon 24×24px in Primary-primary02, delete button 48×48px gradient variant)
+**Добавлено**: Floating Label Input Extended (320px with 12px label container, label badge with surface1/surface2 backgrounds, 5 states: default/alt/focus/filled/error with checkmark icon and error messages), Form Label with Info Icon & Tooltip (14px semibold label + 16×16px info icon with opacity-50 default/Text-Blue active, tooltip with Backgrounds-dark1 and 8×4px arrow, 12px text-xs content), Rich Text Editor/Textarea Extended (160px height with toolbar and text area, 40×40px toolbar buttons with shade08-80/80 or shade05-50/50 active states, 9 formatting icons, fade overlay with from-white/0 or from-zinc-900/0 gradients, resize handle with 6×10px gray-500/40 dots), Action Button variants (Save/Submit with Backgrounds-pop light variant and zinc-800→neutral-800 dark gradient)
