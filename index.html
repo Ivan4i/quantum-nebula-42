@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quantum Nebula Design System</title>
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      padding: 48px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .hero {
+      margin-bottom: 64px;
+      text-align: center;
+    }
+
+    .hero-title {
+      font-size: 48px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, #16a34a, #3b82f6, #a855f7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-subtitle {
+      font-size: 20px;
+      color: var(--text-secondary);
+      margin-bottom: 32px;
+    }
+
+    .component-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+      margin-bottom: 64px;
+    }
+
+    .component-card {
+      padding: 24px;
+      border-radius: 24px;
+      background: var(--bg-surface2);
+      border: 1.5px solid var(--stroke-stroke2);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .component-card:hover {
+      transform: translateY(-4px);
+      box-shadow:
+        0px 8px 16px -4px rgba(0, 0, 0, 0.1),
+        0px 4px 8px -2px rgba(0, 0, 0, 0.06);
+      border-color: var(--text-blue);
+    }
+
+    .component-icon {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 16px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+    }
+
+    .component-card h3 {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--text-primary);
+    }
+
+    .component-card p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-top: 48px;
+      padding: 32px;
+      background: var(--bg-surface2);
+      border-radius: 32px;
+      border: 1.5px solid var(--stroke-stroke2);
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-value {
+      font-size: 48px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+
+    .stat-label {
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <h1 class="hero-title">Quantum Nebula Design System</h1>
+    <p class="hero-subtitle">A comprehensive, modern design system for building beautiful interfaces</p>
+    <div style="display: flex; gap: 12px; justify-content: center; align-items: center;">
+      <span class="badge badge-new">v1.0</span>
+      <span class="badge badge-status" style="background: var(--success-bg); border: 1px solid var(--success-border); color: var(--success-text);">17 Blocks</span>
+    </div>
+  </div>
+
+  <div class="component-grid">
+    <a href="showcase/buttons.html" class="component-card">
+      <div class="component-icon" style="background: linear-gradient(135deg, #d1fae5, #bbf7d0);">
+        🔘
+      </div>
+      <h3>Buttons</h3>
+      <p>Icon buttons, gradient buttons, OAuth buttons, chips, and send buttons with all states</p>
+    </a>
+
+    <a href="showcase/inputs.html" class="component-card">
+      <div class="component-icon" style="background: linear-gradient(135deg, #cffafe, #a5f3fc);">
+        ✏️
+      </div>
+      <h3>Inputs & Forms</h3>
+      <p>Text inputs, search, dropdowns, textarea, checkboxes, password inputs with all states</p>
+    </a>
+
+    <a href="showcase/cards.html" class="component-card">
+      <div class="component-icon" style="background: linear-gradient(135deg, #fed7aa, #fdba74);">
+        🎴
+      </div>
+      <h3>Cards</h3>
+      <p>Basic cards, feature cards, KPI cards with multiple shadow layers</p>
+    </a>
+
+    <a href="showcase/badges.html" class="component-card">
+      <div class="component-icon" style="background: linear-gradient(135deg, #d8b4fe, #d8b4fe);">
+        🏷️
+      </div>
+      <h3>Badges & Tags</h3>
+      <p>Trend badges, status badges, price badges, and unread indicators</p>
+    </a>
+
+    <a href="showcase/tables.html" class="component-card">
+      <div class="component-icon" style="background: linear-gradient(135deg, #fef3c7, #fde68a);">
+        📊
+      </div>
+      <h3>Tables</h3>
+      <p>Data tables with hover states, checkboxes, and product cells</p>
+    </a>
+
+    <a href="showcase/navigation.html" class="component-card">
+      <div class="component-icon" style="background: linear-gradient(135deg, #ddd6fe, #c4b5fd);">
+        🧭
+      </div>
+      <h3>Navigation</h3>
+      <p>Tab filters, breadcrumbs, and navigation components</p>
+    </a>
+
+    <a href="showcase/lists.html" class="component-card">
+      <div class="component-icon" style="background: linear-gradient(135deg, #fecdd3, #fda4af);">
+        📋
+      </div>
+      <h3>List Items</h3>
+      <p>User lists, settings items with icons and states</p>
+    </a>
+
+    <a href="showcase/messages.html" class="component-card">
+      <div class="component-icon" style="background: linear-gradient(135deg, #bfdbfe, #93c5fd);">
+        💬
+      </div>
+      <h3>Messages</h3>
+      <p>Message items, compose input with avatars and status</p>
+    </a>
+
+    <a href="showcase/charts.html" class="component-card">
+      <div class="component-icon" style="background: linear-gradient(135deg, #bbf7d0, #86efac);">
+        📈
+      </div>
+      <h3>Charts</h3>
+      <p>Bar charts, progress bars, data visualizations</p>
+    </a>
+
+    <a href="showcase/avatars.html" class="component-card">
+      <div class="component-icon" style="background: linear-gradient(135deg, #e9d5ff, #d8b4fe);">
+        👤
+      </div>
+      <h3>Avatars</h3>
+      <p>All avatar sizes, status indicators, and view-all variants</p>
+    </a>
+
+    <a href="showcase/loading.html" class="component-card">
+      <div class="component-icon" style="background: linear-gradient(135deg, #e5e7eb, #d1d5db);">
+        ⏳
+      </div>
+      <h3>Loading States</h3>
+      <p>Skeletons, shimmer effects for loading states</p>
+    </a>
+
+    <a href="showcase/empty-states.html" class="component-card">
+      <div class="component-icon" style="background: linear-gradient(135deg, #fed7aa, #fdba74);">
+        📭
+      </div>
+      <h3>Empty States</h3>
+      <p>No results states with titles and action buttons</p>
+    </a>
+
+    <a href="showcase/auth.html" class="component-card">
+      <div class="component-icon" style="background: linear-gradient(135deg, #2563eb, #1e40af);">
+        🔐
+      </div>
+      <h3>Auth Forms</h3>
+      <p>Sign in/up forms, OAuth buttons, input states, password fields</p>
+    </a>
+
+    <a href="showcase/accordion.html" class="component-card">
+      <div class="component-icon" style="background: linear-gradient(135deg, #fde68a, #fcd34d);">
+        📑
+      </div>
+      <h3>Accordion</h3>
+      <p>Expandable FAQ items with plus/minus icons</p>
+    </a>
+
+    <a href="showcase/panels.html" class="component-card">
+      <div class="component-icon" style="background: linear-gradient(135deg, #d1fae5, #a7f3d0);">
+        🎛️
+      </div>
+      <h3>Panels</h3>
+      <p>Settings panels with search and list items</p>
+    </a>
+
+    <a href="showcase/typography.html" class="component-card">
+      <div class="component-icon" style="background: linear-gradient(135deg, #cbd5e1, #94a3b8);">
+        🔤
+      </div>
+      <h3>Typography</h3>
+      <p>Font scales, weights, and text styles</p>
+    </a>
+
+    <a href="showcase/colors.html" class="component-card">
+      <div class="component-icon" style="background: linear-gradient(135deg, #f472b6, #ec4899);">
+        🎨
+      </div>
+      <h3>Colors</h3>
+      <p>Full color palette, semantic colors, and gradients</p>
+    </a>
+  </div>
+
+  <div class="stats">
+    <div class="stat-item">
+      <div class="stat-value">17</div>
+      <div class="stat-label">Component Categories</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-value">100+</div>
+      <div class="stat-label">Components</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-value">200+</div>
+      <div class="stat-label">CSS Variables</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-value">∞</div>
+      <div class="stat-label">Possibilities</div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

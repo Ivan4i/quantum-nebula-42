@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buttons - Quantum Nebula Design System</title>
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      padding: 48px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .header {
+      margin-bottom: 48px;
+    }
+
+    .header h1 {
+      font-size: 48px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .header p {
+      font-size: 18px;
+      color: var(--text-secondary);
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 24px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+
+    .back-link:hover {
+      color: var(--text-primary);
+    }
+
+    .section {
+      margin-bottom: 64px;
+    }
+
+    .section-title {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 24px;
+      color: var(--text-primary);
+    }
+
+    .showcase-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 32px;
+    }
+
+    .showcase-item {
+      padding: 32px;
+      background: var(--bg-surface2);
+      border-radius: 24px;
+      border: 1.5px solid var(--stroke-stroke2);
+    }
+
+    .showcase-item h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      color: var(--text-primary);
+    }
+
+    .showcase-content {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .code-block {
+      background: var(--bg-surface3);
+      padding: 16px;
+      border-radius: 12px;
+      font-family: 'Courier New', monospace;
+      font-size: 12px;
+      color: var(--text-secondary);
+      width: 100%;
+      overflow-x: auto;
+      margin-top: 16px;
+    }
+
+    /* Icon styles */
+    .icon {
+      width: 24px;
+      height: 24px;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+  <a href="../index.html" class="back-link">← Back to Home</a>
+
+  <div class="header">
+    <h1>Buttons</h1>
+    <p>All button variants with different styles and states</p>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">Icon Buttons</h2>
+    <div class="showcase-grid">
+      <div class="showcase-item">
+        <h3>Icon Button - Default</h3>
+        <div class="showcase-content">
+          <button class="btn-icon">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="8" x2="12" y2="16"></line>
+              <line x1="8" y1="12" x2="16" y2="12"></line>
+            </svg>
+          </button>
+        </div>
+        <div class="code-block">&lt;button class="btn-icon"&gt;...&lt;/button&gt;</div>
+      </div>
+
+      <div class="showcase-item">
+        <h3>Icon Button - Active</h3>
+        <div class="showcase-content">
+          <button class="btn-icon active">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </button>
+        </div>
+        <div class="code-block">&lt;button class="btn-icon active"&gt;...&lt;/button&gt;</div>
+      </div>
+
+      <div class="showcase-item">
+        <h3>Icon Button - Gradient</h3>
+        <div class="showcase-content">
+          <button class="btn-icon-gradient">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+            </svg>
+          </button>
+        </div>
+        <div class="code-block">&lt;button class="btn-icon-gradient"&gt;...&lt;/button&gt;</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">Chip Buttons</h2>
+    <div class="showcase-grid">
+      <div class="showcase-item">
+        <h3>Chip Button</h3>
+        <div class="showcase-content">
+          <button class="btn-chip">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
+              <line x1="7" y1="7" x2="7.01" y2="7"></line>
+            </svg>
+            <span>Category</span>
+          </button>
+        </div>
+        <div class="code-block">&lt;button class="btn-chip"&gt;Category&lt;/button&gt;</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">Send Buttons</h2>
+    <div class="showcase-grid">
+      <div class="showcase-item">
+        <h3>Send Button - Dark</h3>
+        <div class="showcase-content">
+          <button class="btn-send btn-send-dark">Send Message</button>
+        </div>
+        <div class="code-block">&lt;button class="btn-send btn-send-dark"&gt;Send Message&lt;/button&gt;</div>
+      </div>
+
+      <div class="showcase-item">
+        <h3>Send Button - Light</h3>
+        <div class="showcase-content">
+          <button class="btn-send btn-send-light">Send Message</button>
+        </div>
+        <div class="code-block">&lt;button class="btn-send btn-send-light"&gt;Send Message&lt;/button&gt;</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">OAuth Buttons</h2>
+    <div class="showcase-grid">
+      <div class="showcase-item">
+        <h3>OAuth Button - Default</h3>
+        <div class="showcase-content">
+          <button class="btn-oauth">
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+              <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+              <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+              <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+            </svg>
+            <span>Sign in with Google</span>
+          </button>
+        </div>
+        <div class="code-block">&lt;button class="btn-oauth"&gt;Sign in with Google&lt;/button&gt;</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">Empty State Button</h2>
+    <div class="showcase-grid">
+      <div class="showcase-item">
+        <h3>Empty State Action</h3>
+        <div class="showcase-content">
+          <button class="btn-empty-state">Create New Item</button>
+        </div>
+        <div class="code-block">&lt;button class="btn-empty-state"&gt;Create New Item&lt;/button&gt;</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

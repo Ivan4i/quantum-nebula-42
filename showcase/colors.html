@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Colors - Quantum Nebula Design System</title>
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      padding: 48px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .header {
+      margin-bottom: 48px;
+    }
+
+    .header h1 {
+      font-size: 48px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .header p {
+      font-size: 18px;
+      color: var(--text-secondary);
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 24px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+
+    .back-link:hover {
+      color: var(--text-primary);
+    }
+
+    .section {
+      margin-bottom: 64px;
+    }
+
+    .section-title {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 24px;
+      color: var(--text-primary);
+    }
+
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .color-swatch {
+      border-radius: 16px;
+      padding: 16px;
+      border: 1.5px solid var(--stroke-stroke2);
+      transition: transform 0.2s;
+    }
+
+    .color-swatch:hover {
+      transform: translateY(-2px);
+    }
+
+    .color-sample {
+      width: 100%;
+      height: 100px;
+      border-radius: 12px;
+      margin-bottom: 12px;
+    }
+
+    .color-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+
+    .color-value {
+      font-size: 12px;
+      color: var(--text-secondary);
+      font-family: 'Courier New', monospace;
+    }
+
+    .gradient-sample {
+      width: 100%;
+      height: 120px;
+      border-radius: 12px;
+      margin-bottom: 12px;
+    }
+  </style>
+</head>
+<body>
+  <a href="../index.html" class="back-link">← Back to Home</a>
+
+  <div class="header">
+    <h1>Colors</h1>
+    <p>Complete color palette including primary, semantic, neutral, and brand colors</p>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">Primary Colors</h2>
+    <div class="color-grid">
+      <div class="color-swatch">
+        <div class="color-sample" style="background: var(--primary-primary02);"></div>
+        <div class="color-name">Primary Green</div>
+        <div class="color-value">--primary-primary02</div>
+        <div class="color-value">#16a34a</div>
+      </div>
+
+      <div class="color-swatch">
+        <div class="color-sample" style="background: var(--primary-primary03);"></div>
+        <div class="color-name">Primary Red</div>
+        <div class="color-value">--primary-primary03</div>
+        <div class="color-value">#ef4444</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">Semantic Colors</h2>
+    <div class="color-grid">
+      <div class="color-swatch">
+        <div class="color-sample" style="background: var(--success-bg); border: 1px solid var(--success-border);"></div>
+        <div class="color-name">Success Background</div>
+        <div class="color-value">--success-bg</div>
+      </div>
+
+      <div class="color-swatch">
+        <div class="color-sample" style="background: var(--success-text);"></div>
+        <div class="color-name">Success Text</div>
+        <div class="color-value">--success-text</div>
+      </div>
+
+      <div class="color-swatch">
+        <div class="color-sample" style="background: var(--error-bg); border: 1px solid var(--error-border);"></div>
+        <div class="color-name">Error Background</div>
+        <div class="color-value">--error-bg</div>
+      </div>
+
+      <div class="color-swatch">
+        <div class="color-sample" style="background: var(--error-text);"></div>
+        <div class="color-name">Error Text</div>
+        <div class="color-value">--error-text</div>
+      </div>
+
+      <div class="color-swatch">
+        <div class="color-sample" style="background: var(--warning-bg); border: 1px solid var(--warning-border);"></div>
+        <div class="color-name">Warning Background</div>
+        <div class="color-value">--warning-bg</div>
+      </div>
+
+      <div class="color-swatch">
+        <div class="color-sample" style="background: var(--warning-text);"></div>
+        <div class="color-name">Warning Text</div>
+        <div class="color-value">--warning-text</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">Text Colors</h2>
+    <div class="color-grid">
+      <div class="color-swatch">
+        <div class="color-sample" style="background: var(--text-primary);"></div>
+        <div class="color-name">Primary Text</div>
+        <div class="color-value">--text-primary</div>
+      </div>
+
+      <div class="color-swatch">
+        <div class="color-sample" style="background: var(--text-secondary);"></div>
+        <div class="color-name">Secondary Text</div>
+        <div class="color-value">--text-secondary</div>
+      </div>
+
+      <div class="color-swatch">
+        <div class="color-sample" style="background: var(--text-tertiary);"></div>
+        <div class="color-name">Tertiary Text</div>
+        <div class="color-value">--text-tertiary</div>
+      </div>
+
+      <div class="color-swatch">
+        <div class="color-sample" style="background: var(--text-light); border: 1px solid var(--stroke-stroke2);"></div>
+        <div class="color-name">Light Text</div>
+        <div class="color-value">--text-light</div>
+      </div>
+
+      <div class="color-swatch">
+        <div class="color-sample" style="background: var(--text-blue);"></div>
+        <div class="color-name">Blue Accent</div>
+        <div class="color-value">--text-blue</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">Background Colors</h2>
+    <div class="color-grid">
+      <div class="color-swatch">
+        <div class="color-sample" style="background: var(--bg-surface1); border: 1px solid var(--stroke-stroke2);"></div>
+        <div class="color-name">Surface 1</div>
+        <div class="color-value">--bg-surface1</div>
+      </div>
+
+      <div class="color-swatch">
+        <div class="color-sample" style="background: var(--bg-surface2); border: 1px solid var(--stroke-stroke2);"></div>
+        <div class="color-name">Surface 2</div>
+        <div class="color-value">--bg-surface2</div>
+      </div>
+
+      <div class="color-swatch">
+        <div class="color-sample" style="background: var(--bg-surface3); border: 1px solid var(--stroke-stroke2);"></div>
+        <div class="color-name">Surface 3</div>
+        <div class="color-value">--bg-surface3</div>
+      </div>
+
+      <div class="color-swatch">
+        <div class="color-sample" style="background: var(--bg-highlight); border: 1px solid var(--stroke-stroke2);"></div>
+        <div class="color-name">Highlight</div>
+        <div class="color-value">--bg-highlight</div>
+      </div>
+
+      <div class="color-swatch">
+        <div class="color-sample" style="background: var(--bg-dark1);"></div>
+        <div class="color-name">Dark 1</div>
+        <div class="color-value">--bg-dark1</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">Gradients</h2>
+    <div class="color-grid">
+      <div class="color-swatch">
+        <div class="gradient-sample" style="background: var(--gradient-purple);"></div>
+        <div class="color-name">Purple Gradient</div>
+        <div class="color-value">--gradient-purple</div>
+      </div>
+
+      <div class="color-swatch">
+        <div class="gradient-sample" style="background: var(--gradient-orange);"></div>
+        <div class="color-name">Orange Gradient</div>
+        <div class="color-value">--gradient-orange</div>
+      </div>
+
+      <div class="color-swatch">
+        <div class="gradient-sample" style="background: var(--gradient-green);"></div>
+        <div class="color-name">Green Gradient</div>
+        <div class="color-value">--gradient-green</div>
+      </div>
+
+      <div class="color-swatch">
+        <div class="gradient-sample" style="background: var(--gradient-cyan);"></div>
+        <div class="color-name">Cyan Gradient</div>
+        <div class="color-value">--gradient-cyan</div>
+      </div>
+
+      <div class="color-swatch">
+        <div class="gradient-sample" style="background: var(--gradient-blue);"></div>
+        <div class="color-name">Blue Gradient</div>
+        <div class="color-value">--gradient-blue</div>
+      </div>
+
+      <div class="color-swatch">
+        <div class="gradient-sample" style="background: var(--gradient-zinc-dark);"></div>
+        <div class="color-name">Zinc Dark</div>
+        <div class="color-value">--gradient-zinc-dark</div>
+      </div>
+
+      <div class="color-swatch">
+        <div class="gradient-sample" style="background: var(--gradient-white-light); border: 1px solid var(--stroke-stroke2);"></div>
+        <div class="color-name">White Light</div>
+        <div class="color-value">--gradient-white-light</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">Chart Colors</h2>
+    <div class="color-grid">
+      <div class="color-swatch">
+        <div class="color-sample" style="background: var(--chart-green);"></div>
+        <div class="color-name">Chart Green</div>
+        <div class="color-value">--chart-green</div>
+      </div>
+
+      <div class="color-swatch">
+        <div class="color-sample" style="background: var(--secondary-secondary04);"></div>
+        <div class="color-name">Secondary</div>
+        <div class="color-value">--secondary-secondary04</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Typography - Quantum Nebula Design System</title>
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      padding: 48px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .header {
+      margin-bottom: 48px;
+    }
+    .header h1 {
+      font-size: 48px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .header p {
+      font-size: 18px;
+      color: var(--text-secondary);
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 24px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+    .back-link:hover {
+      color: var(--text-primary);
+    }
+    .section {
+      margin-bottom: 64px;
+    }
+    .section-title {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 24px;
+      color: var(--text-primary);
+    }
+    .type-sample {
+      padding: 24px;
+      background: var(--bg-surface2);
+      border-radius: 16px;
+      border: 1.5px solid var(--stroke-stroke2);
+      margin-bottom: 16px;
+    }
+    .type-label {
+      font-size: 12px;
+      color: var(--text-tertiary);
+      margin-bottom: 8px;
+    }
+  </style>
+</head>
+<body>
+  <a href="../index.html" class="back-link">← Back to Home</a>
+
+  <div class="header">
+    <h1>Typography</h1>
+    <p>Font scales, weights, and text styles</p>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">Font Sizes</h2>
+    <div class="type-sample">
+      <div class="type-label">Hero - 60px / 700 weight</div>
+      <div style="font-size: 60px; font-weight: 700; line-height: 75px;">Quantum Nebula</div>
+    </div>
+
+    <div class="type-sample">
+      <div class="type-label">Large Number - 48px / 500 weight</div>
+      <div style="font-size: 48px; font-weight: 500; line-height: 60px;">$45,231</div>
+    </div>
+
+    <div class="type-sample">
+      <div class="type-label">Section Header - 24px / 500 weight</div>
+      <div style="font-size: 24px; font-weight: 500; line-height: 36px;">Section Title</div>
+    </div>
+
+    <div class="type-sample">
+      <div class="type-label">Card Title - 20px / 600 weight</div>
+      <div style="font-size: 20px; font-weight: 600; line-height: 28px;">Card Component Title</div>
+    </div>
+
+    <div class="type-sample">
+      <div class="type-label">Body - 16px / 600 weight</div>
+      <div style="font-size: 16px; font-weight: 600; line-height: 24px;">Body Text Semibold</div>
+    </div>
+
+    <div class="type-sample">
+      <div class="type-label">Body Small - 14px / 400 weight</div>
+      <div style="font-size: 14px; font-weight: 400; line-height: 20px;">This is a small body text with regular weight</div>
+    </div>
+
+    <div class="type-sample">
+      <div class="type-label">Caption - 12px / 400 weight</div>
+      <div style="font-size: 12px; font-weight: 400; line-height: 16px;">Caption text for labels and small descriptions</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">Font Weights</h2>
+    <div class="type-sample">
+      <div style="font-size: 16px; font-weight: 400;">Regular - 400 weight</div>
+    </div>
+    <div class="type-sample">
+      <div style="font-size: 16px; font-weight: 500;">Medium - 500 weight</div>
+    </div>
+    <div class="type-sample">
+      <div style="font-size: 16px; font-weight: 600;">Semibold - 600 weight</div>
+    </div>
+    <div class="type-sample">
+      <div style="font-size: 16px; font-weight: 700;">Bold - 700 weight</div>
+    </div>
+  </div>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

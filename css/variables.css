@@ -1,0 +1,247 @@
+/* Design System Variables */
+/* Quantum Nebula Design System - CSS Custom Properties */
+
+:root {
+  /* ========================================
+     PRIMARY COLORS
+     ======================================== */
+  --primary-primary02: #16a34a; /* green-600 - Green accent for trend up */
+  --primary-primary03: #ef4444; /* red-500 - Red accent for errors */
+
+  /* ========================================
+     SEMANTIC COLORS
+     ======================================== */
+
+  /* Success / Trend Up */
+  --success-bg: rgba(22, 163, 74, 0.05);      /* green-600/5 */
+  --success-border: rgba(22, 163, 74, 0.20);  /* green-600/20 */
+  --success-text: var(--primary-primary02);
+
+  /* Error / Trend Down */
+  --error-bg: rgba(248, 113, 113, 0.05);      /* red-400/5 */
+  --error-border: rgba(248, 113, 113, 0.20);  /* red-400/20 */
+  --error-text: #f87171;                       /* red-400 */
+
+  /* Warning / Hot */
+  --warning-bg: rgba(234, 88, 12, 0.05);      /* orange-600/5 */
+  --warning-border: rgba(234, 88, 12, 0.20);  /* orange-600/20 */
+  --warning-text: #ea580c;                     /* orange-600 */
+
+  /* ========================================
+     NEUTRAL COLORS
+     ======================================== */
+
+  /* Text Colors */
+  --text-primary: #18181b;        /* zinc-900 - Main text */
+  --text-secondary: #71717a;      /* zinc-500 - Secondary text */
+  --text-tertiary: #a1a1aa;       /* zinc-400 - Tertiary text */
+  --text-light: #fafafa;          /* zinc-50 - Light text (on dark bg) */
+  --text-blue: #3b82f6;           /* blue-500 - Blue accent for cursor */
+
+  /* Backgrounds */
+  --bg-surface1: #ffffff;         /* white - Main background */
+  --bg-surface2: #fcfcfc;         /* Almost white - Cards */
+  --bg-surface3: #f4f4f5;         /* zinc-100 */
+  --bg-highlight: #fafafa;        /* zinc-50 - Hover states */
+  --bg-dark1: #27272a;            /* zinc-800 - Dark bg for tooltips */
+  --bg-depth-2: #f9fafb;          /* gray-50 - Depth containers */
+
+  /* Stroke / Borders */
+  --stroke-stroke2: #e4e4e7;      /* zinc-200 - Main borders */
+  --stroke-subtle: #f4f4f5;       /* zinc-100 - Subtle dividers */
+  --stroke-borderborder: #d4d4d8; /* zinc-300 - Accent borders */
+
+  /* Shades */
+  --shade01-100: #ffffff;         /* white - icons on colored bg */
+  --shade04-50: rgba(161, 161, 170, 0.5);   /* zinc-400/50 - skeletons */
+  --shade04-100: #a1a1aa;         /* zinc-400 - dark mode OAuth button */
+  --shade05-30: rgba(113, 113, 122, 0.3);   /* zinc-500/30 - icon bg dark active */
+  --shade07-20: rgba(63, 63, 70, 0.2);      /* zinc-700/20 - icon bg light active */
+  --shade07-40: rgba(63, 63, 70, 0.4);      /* zinc-700/40 - charts (Social media) */
+  --shade07-50: rgba(63, 63, 70, 0.5);      /* zinc-700/50 - input borders default */
+  --shade07-60: rgba(63, 63, 70, 0.6);      /* zinc-700/60 - charts (Direct) pattern */
+  --shade08-80: rgba(39, 39, 42, 0.8);      /* zinc-800/80 - active toolbar button */
+  --shade08-100: #27272a;         /* zinc-800 - Gradient charts (Others) */
+  --shade09-100: #18181b;         /* zinc-900 - Second gradient part */
+
+  /* Chart Colors */
+  --chart-green: #22c55e;         /* green-500 - Active bar */
+
+  /* Secondary */
+  --secondary-secondary04: #6366f1; /* indigo-500 - Price badge */
+
+  /* ========================================
+     GRADIENTS
+     ======================================== */
+  --gradient-purple: linear-gradient(to bottom, #d8b4fe, #d8b4fe);       /* purple-300 */
+  --gradient-orange: linear-gradient(to bottom, #fed7aa, #fdba74);       /* orange-200 → orange-300 */
+  --gradient-green: linear-gradient(to bottom, #d1fae5, #bbf7d0);        /* emerald-100 → green-200 */
+  --gradient-cyan: linear-gradient(to bottom, #cffafe, #a5f3fc);         /* cyan-100 → cyan-200 */
+  --gradient-blue: linear-gradient(to bottom, #2563eb, #1e40af);         /* blue-600 → blue-800 */
+  --gradient-zinc-dark: linear-gradient(to bottom, #27272a, #27272a);    /* zinc-800 - dark button */
+  --gradient-white-light: linear-gradient(to bottom, #ffffff, #e5e5e5);  /* white → neutral-200 - light button */
+
+  /* ========================================
+     BRAND ICON COLORS
+     ======================================== */
+  --icon-black: var(--text-primary);
+
+  /* After Effects */
+  --icon-ae-purple: #d8b4fe;      /* purple-300 */
+  --icon-ae-dark: #0f172a;        /* slate-900 */
+
+  /* Sketch */
+  --icon-sketch-amber-600: #d97706;
+  --icon-sketch-amber-500: #f59e0b;
+  --icon-sketch-amber-400: #fbbf24;
+  --icon-sketch-yellow: #fef3c7;  /* yellow-100 */
+
+  /* Figma */
+  --icon-figma-emerald: #10b981;  /* emerald-500 */
+  --icon-figma-purple: #a855f7;   /* purple-500 */
+  --icon-figma-orange: #ea580c;   /* orange-600 */
+  --icon-figma-red: #f87171;      /* red-400 */
+  --icon-figma-cyan: #22d3ee;     /* cyan-400 */
+
+  /* Photoshop */
+  --icon-ps-cyan: #22d3ee;        /* cyan-400 */
+  --icon-ps-dark: #064e3b;        /* emerald-950 */
+
+  /* Blender */
+  --icon-blender-orange: #f97316; /* orange-500 */
+  --icon-blender-sky: #075985;    /* sky-800 */
+
+  /* HTML */
+  --icon-html-blue-600: #2563eb;
+  --icon-html-blue-800: #1e40af;
+
+  /* ========================================
+     TYPOGRAPHY
+     ======================================== */
+  --font-primary: 'Inter Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* Font Sizes */
+  --font-size-xs: 12px;    /* Captions, labels */
+  --font-size-sm: 14px;    /* Body small, buttons */
+  --font-size-base: 16px;  /* Body */
+  --font-size-lg: 18px;    /* Subtitles */
+  --font-size-xl: 20px;    /* Card titles */
+  --font-size-2xl: 24px;   /* Section headers */
+  --font-size-3xl: 48px;   /* Large numbers */
+  --font-size-4xl: 60px;   /* Hero numbers */
+
+  /* Font Weights */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* Line Heights */
+  --line-height-tight: 16px;      /* leading-4 */
+  --line-height-normal: 20px;     /* leading-5 */
+  --line-height-relaxed: 24px;    /* leading-6 */
+  --line-height-loose: 28px;      /* leading-7 */
+  --line-height-xl: 60px;         /* for text-5xl */
+  --line-height-2xl: 75px;        /* for text-6xl */
+
+  /* ========================================
+     SPACING & LAYOUT
+     ======================================== */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+
+  /* Border Radius */
+  --radius-xs: 1px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 20px;
+  --radius-3xl: 32px;
+  --radius-full: 48px;        /* buttons/inputs */
+  --radius-pill: 90px;        /* search/dropdowns */
+  --radius-circle: 64px;      /* avatars */
+  --radius-avatar: 44px;      /* small avatars */
+  --radius-round: 96px;       /* large avatars */
+
+  /* ========================================
+     SHADOWS
+     ======================================== */
+
+  /* Card Shadows */
+  --shadow-card-1: 0px 6px 4px -4px rgba(8, 8, 8, 0.05);
+  --shadow-card-2: 0px 5px 1.5px -4px rgba(8, 8, 8, 0.09);
+
+  /* KPI Card Shadows */
+  --shadow-kpi-1: 0px 5px 1.5px -4px rgba(8, 8, 8, 0.09);
+  --shadow-kpi-2: 0px 6px 4px -4px rgba(8, 8, 8, 0.05);
+  --shadow-kpi-3: 0px 6px 13px 0px rgba(8, 8, 8, 0.03);
+  --shadow-kpi-4: 0px 24px 24px -16px rgba(8, 8, 8, 0.04);
+  --shadow-kpi-5: 0px 2.15px 0.5px -2px rgba(0, 0, 0, 0.25);
+  --shadow-kpi-6: 0px 0px 36px -8px rgba(0, 0, 0, 0.05);
+
+  /* Hover Shadows */
+  --shadow-hover-1: 0px 1px 4px 0px rgba(0, 0, 0, 0.05);
+  --shadow-hover-2: 0px 8px 8px -2px rgba(0, 0, 0, 0.08);
+  --shadow-hover-inset: inset 0px 0px 0px 3px rgba(255, 255, 255, 1.00);
+
+  /* Button Gradient Shadow */
+  --shadow-gradient-button: inset 2px 0px 8px 2px rgba(248, 248, 248, 0.20);
+
+  /* ========================================
+     BORDERS
+     ======================================== */
+  --border-width-thin: 1px;
+  --border-width-medium: 1.5px;
+  --border-width-thick: 2px;
+  --border-width-avatar: 3px;
+
+  /* Border Offset */
+  --border-offset-default: -1.50px;
+  --border-offset-tight: -0.75px;
+  --border-offset-icon: -0.75px;
+  --border-offset-small: -0.38px;
+  --border-offset-half: -0.50px;
+
+  /* ========================================
+     OPACITY
+     ======================================== */
+  --opacity-10: 0.1;
+  --opacity-20: 0.2;
+  --opacity-40: 0.4;
+  --opacity-50: 0.5;
+  --opacity-60: 0.6;
+  --opacity-80: 0.8;
+}
+
+/* ========================================
+   DARK MODE OVERRIDES
+   ======================================== */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-primary: #fafafa;        /* zinc-50 */
+    --text-secondary: #a1a1aa;      /* zinc-400 */
+    --text-tertiary: #71717a;       /* zinc-500 */
+    --text-light: #18181b;          /* zinc-900 */
+
+    --bg-surface1: #18181b;         /* zinc-900 */
+    --bg-surface2: #27272a;         /* zinc-800 */
+    --bg-surface3: #3f3f46;         /* zinc-700 */
+    --bg-highlight: #27272a;        /* zinc-800 */
+    --bg-dark1: #fafafa;            /* zinc-50 */
+    --bg-depth-2: #1c1c1e;          /* darker zinc */
+
+    --stroke-stroke2: #3f3f46;      /* zinc-700 */
+    --stroke-subtle: #27272a;       /* zinc-800 */
+    --stroke-borderborder: #52525b; /* zinc-600 */
+  }
+}
